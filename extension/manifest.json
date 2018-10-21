@@ -1,0 +1,19 @@
+{
+  "manifest_version": 2,
+
+  "name": "Youtube soundtrack downloader",
+  "description": "This extension allows you to download youtube videos soundtracks",
+  "version": "1.0",
+
+  "browser_action": {
+   "default_icon": "19x19_default.png"
+  },
+  "background": {
+    "scripts": ["extension.js"],
+    "persistent": false
+  },
+  "permissions": [
+    "tabs",
+    "background"
+   ]
+}
