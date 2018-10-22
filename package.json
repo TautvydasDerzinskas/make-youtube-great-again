@@ -20,7 +20,7 @@
   },
   "scripts": {
     "build": "webpack --config=config/webpack/webpack.config.js --mode=production",
-    "lint": "tslint src/**/*.ts *.ts"
+    "lint": "tslint src/**/*.ts"
   },
   "keywords": [
     "Chrome",

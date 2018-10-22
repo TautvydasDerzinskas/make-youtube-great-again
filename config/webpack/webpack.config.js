@@ -5,7 +5,10 @@ const path = require('path')
 const OUTPUT_FOLDER = path.resolve(__dirname, '../../extension');
 
 module.exports = {
-  entry: path.resolve(__dirname, '../../extension.ts'),
+  entry: {
+    background: path.resolve(__dirname, '../../src/background.ts'),
+    content: path.resolve(__dirname, '../../src/content.ts'),
+  },
   module: {
     rules: [
       {
@@ -19,7 +22,7 @@ module.exports = {
     extensions: [ '.tsx', '.ts', '.js' ]
   },
   output: {
-    filename: 'extension.js',
+    filename: '[name].bundle.js',
     path: OUTPUT_FOLDER
   },
   plugins: [
