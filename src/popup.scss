@@ -1,0 +1,23 @@
+/**
+ * Globals
+ */
+body, html {
+  margin: 0;
+  padding: 0;
+  width: 500px;
+  height: 500px;
+}
+
+.visibility--hidden {
+  display: none;
+}
+
+/**
+ * Views
+ */
+.extension {
+  background-color: red;
+  .test {
+    color: white;
+  }
+}

@@ -6,11 +6,8 @@
   "version": "1.0",
 
   "browser_action": {
-   "default_icon": "19x19_default.png"
-  },
-  "background": {
-    "scripts": ["background.bundle.js"],
-    "persistent": false
+   "default_icon": "19x19_default.png",
+   "default_popup": "popup.html"
   },
   "content_scripts": [
     {
@@ -20,7 +17,6 @@
   ],
   "permissions": [
     "tabs",
-    "background",
     "storage"
    ]
 }

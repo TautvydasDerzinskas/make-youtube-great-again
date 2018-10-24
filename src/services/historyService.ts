@@ -2,11 +2,12 @@ import { StorageKeys } from '../enums/storageEnums';
 import ISong from '../interfaces/songInterface';
 
 export default class HistoryService {
-  constructor() {
-    chrome.storage.sync.get([StorageKeys.Songs], (result) => {
-      if (result == null || result[StorageKeys.Songs] == null) {
-        this.storeSongs([]);
-      }
+  public getSongs() {
+    return new Promise((resolve) => {
+      chrome.storage.sync.get([StorageKeys.Songs], (result) => {
+        const songs: ISong[] = this.convertToJson(result[StorageKeys.Songs]);
+        resolve(songs);
+      });
     });
   }
 
@@ -18,11 +19,11 @@ export default class HistoryService {
     });
   }
 
-  public removeSong(song: ISong) {
+  public removeSong(songId: string) {
     chrome.storage.sync.get([StorageKeys.Songs], (result) => {
       const songs: ISong[] = this.convertToJson(result[StorageKeys.Songs]);
       for (let i = 0; i < songs.length; i += 1) {
-        if (songs[i].id === song.id) {
+        if (songs[i].id === songId) {
             songs.splice(i, 1);
         }
       }
@@ -41,6 +42,10 @@ export default class HistoryService {
   }
 
   private convertToJson(stringifiedObject: string) {
-    return JSON.parse(stringifiedObject);
+    try {
+      return JSON.parse(stringifiedObject);
+    } catch (exception) {
+      return [];
+    }
   }
 }
