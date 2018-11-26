@@ -1,6 +1,7 @@
 import UtilityService from './services/utilityService';
 
 import { MessageTypes } from './enums/messagesEnums';
+import { Selectors } from './enums/selectorsEnums';
 
 const utilityService = new UtilityService();
 
@@ -8,21 +9,27 @@ chrome.runtime.onMessage.addListener((messageType, sender, sendResponse) => {
   switch (messageType) {
     case MessageTypes.GetSong:
       sendResponse({
-        name: utilityService.getYoutubeClipName(),
+        name: utilityService.getYoutubeVideoName(),
         id: utilityService.getQueryParameterByName('v', window.location.href)
       });
     break;
   }
 });
 
-document.addEventListener('DOMContentLoaded', () => {
-  try {
-    const $buttonContainer = document.getElementById('subscribe-button');
-    const element = document.createElement('p');
-    const text = document.createTextNode('Example text');
-    element.appendChild(text);
-    document.insertBefore($buttonContainer, element);
-  } catch (e) {
-    console.log(e);
-  }
-});
+function insertButton() {
+  setTimeout(() => {
+    const appendTo = document.querySelector(Selectors.YoutubeAppendButtonContainer);
+    if (appendTo) {
+      const html = `<div><button>SAVE mp3</button></div>`;
+      const element = document.createElement('p');
+      element.innerHTML = html;
+      while (element.childNodes.length) {
+        appendTo.appendChild(element.childNodes[0]);
+      }
+    } else {
+      insertButton();
+    }
+  });
+}
+
+insertButton();

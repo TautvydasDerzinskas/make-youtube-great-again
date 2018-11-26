@@ -6,13 +6,41 @@
   </head>
   <body>
 
-    <h5>{{title}} {{version}}</h5>
-    <ul class="songs">
-      <li>no songs saved...</li>
+    <ul class="tabs">
+      <li class="tabs__tab tab--active">Extension</li>
+      <li class="tabs__tab">Settings</li>
+      <li class="tabs__tab">About</li>
     </ul>
 
-    <button id="save-mp3">Save as mp3</button>
+    <div class="tabs-content">
 
-  <script src="popup.bundle.js" type="text/javascript"></script>
+      <!-- Extension tab content -->
+      <div class="tabs-content__content content--active">
+        <div>{{title}} {{version}}</div>
+        <ul class="songs">
+          <li>no songs saved...</li>
+        </ul>
+
+        <ul class="song__save-buttons">
+          <li>
+            <button class="song__save-button" data-type="Save-Mp3">Save as mp3 (save-mp3.net)</button>
+          </li>
+          <li>
+            <button class="song__save-button" data-type="OnlineVideoConverter">Save as mp3 (onlinevideoconverter.com)</button>
+          </li>
+          <li>
+            <button class="song__save-button" data-type="Flvto">Save as mp3 (flvto.biz)</button>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Settings tab content -->
+      <div class="tabs-content__content">Settings</div>
+
+      <!-- About tab content -->
+      <div class="tabs-content__content">About</div>
+    </div>
+
+    <script src="popup.bundle.js" type="text/javascript"></script>
   </body>
 </html>

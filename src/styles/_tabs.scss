@@ -1,0 +1,52 @@
+// $tb = Tab Bar
+$tb-background-color: #313131;
+$tb-content-background-color: white;
+$tb-border-color: grey;
+$tb-default-spacing: 5px;
+
+.tabs {
+  width: 100%;
+  overflow: auto;
+  padding: 0 10px;
+  margin: 10px 0 0 0;
+  background-color: $tb-background-color;
+
+  &__tab {
+    background-color: #eeeeee;
+    display: inline-block;
+    border: 1px $tb-border-color solid;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    color: $tb-border-color;
+    margin-right: $tb-default-spacing;
+    padding: $tb-default-spacing;
+    padding-bottom: 0;
+    cursor: pointer;
+
+    &.tab--active {
+      background-color: #ff0001;
+      font-weight: bold;
+      height: auto;
+      border-bottom: 1px $tb-content-background-color solid;
+      background-color: $tb-content-background-color;
+      cursor: default;
+    }
+  }
+
+  &-content {
+    width: 100%;
+    min-height: 1px;
+    margin-top: -1px;
+    border-top: 1px $tb-border-color solid;
+    background-color: $tb-content-background-color;
+    padding: $tb-default-spacing;
+
+    &__content {
+      display: none;
+
+      &.content--active {
+        display: block;
+      }
+    }
+  }
+}

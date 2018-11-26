@@ -8,7 +8,11 @@ module.exports = {
   entry: {
     background: path.resolve(__dirname, '../../src/background.ts'),
     content: path.resolve(__dirname, '../../src/content.ts'),
+    onlinevideoconverter: path.resolve(__dirname, '../../src/providers/onlinevideoconverter.ts'),
+    flvto: path.resolve(__dirname, '../../src/providers/flvto.ts'),
+    savemp3: path.resolve(__dirname, '../../src/providers/savemp3.ts'),
     popup: path.resolve(__dirname, '../../src/popup.ts'),
+    configuration: path.resolve(__dirname, '../../src/configuration.ts'),
   },
   module: {
     rules: [
@@ -56,6 +60,16 @@ module.exports = {
     }]),
     new CopyWebpackPlugin([{
       from: path.resolve(__dirname, '../../src/popup.html'),
+      transform: function (content, path) {
+        return Buffer.from(
+          content.toString()
+            .replace(/{{title}}/g, process.env.npm_package_description)
+            .replace(/{{version}}/g, process.env.npm_package_version)
+        );
+      }
+    }]),
+    new CopyWebpackPlugin([{
+      from: path.resolve(__dirname, '../../src/configuration.html'),
       transform: function (content, path) {
         return Buffer.from(
           content.toString()

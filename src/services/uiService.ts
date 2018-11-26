@@ -1,6 +1,7 @@
 import HistoryService from '../services/historyService';
 
 import ISong from '../interfaces/songInterface';
+import { Selectors } from '../enums/selectorsEnums';
 
 export default class UiService {
   constructor(
@@ -12,22 +13,22 @@ export default class UiService {
       this.historyService.getSongs().then((songs: ISong[]) => {
         let htmlTpl = '';
         songs.forEach(song => { htmlTpl += this.getSongListItemTpl(song); });
-        document.getElementsByClassName('songs')[0].innerHTML = htmlTpl;
+        document.getElementsByClassName(Selectors.SongListContainer)[0].innerHTML = htmlTpl;
         resolve(true);
       });
     });
   }
 
-  public hideSaveButton() {
-    document.getElementById('save-mp3')
-      .classList.add('visibility--hidden');
+  public hideSaveButtons() {
+    document.getElementsByClassName(Selectors.SongSaveButtons)[0]
+      .classList.add(Selectors.HideClass);
   }
 
   private getSongListItemTpl(song: ISong) {
     return `
-      <li class="songs__item">
+      <li class="${Selectors.SongContainer}">
         ${song.name}
-        <button class="songs__item__delete" data-id="${song.id}">Delete</button>
+        <button class="${Selectors.SongDeleteButton}" data-id="${song.id}">Delete</button>
       </li>`;
   }
 }

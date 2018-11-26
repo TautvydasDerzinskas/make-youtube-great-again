@@ -1,4 +1,4 @@
-import { Images } from '../enums/coreEnums';
+import { Images } from '../enums/imagesEnums';
 
 export default class CoreService {
   constructor() {}

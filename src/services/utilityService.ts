@@ -1,4 +1,8 @@
+import { Selectors } from '../enums/selectorsEnums';
+
 export default class UtilityService {
+  constructor() {}
+
   public getQueryParameterByName(name: string, url: string) {
     name = name.replace(/[\[\]]/g, '\\$&');
 
@@ -14,15 +18,9 @@ export default class UtilityService {
     }
   }
 
-  public getYoutubeClipName() {
-    const infoBlockElement = document.getElementById('info-contents');
-
+  public getYoutubeVideoName() {
     try {
-      return infoBlockElement
-        .childNodes[0]
-        .childNodes[0]
-        .childNodes[3]
-        .childNodes[0]
+      return document.querySelector(Selectors.YoutubeSongNameContainer)
         .textContent;
     } catch (e) {
       return `Couldn't retrieve the name of the clip`;

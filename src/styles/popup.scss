@@ -1,3 +1,5 @@
+@import "./src/styles/_tabs.scss";
+
 /**
  * Globals
  */
@@ -5,19 +7,10 @@ body, html {
   margin: 0;
   padding: 0;
   width: 500px;
-  height: 500px;
+  max-height: 650px;
+  background-color: $tb-background-color;
 }
 
 .visibility--hidden {
   display: none;
-}
-
-/**
- * Views
- */
-.extension {
-  background-color: red;
-  .test {
-    color: white;
-  }
 }
