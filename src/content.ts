@@ -14,3 +14,15 @@ chrome.runtime.onMessage.addListener((messageType, sender, sendResponse) => {
     break;
   }
 });
+
+document.addEventListener('DOMContentLoaded', () => {
+  try {
+    const $buttonContainer = document.getElementById('subscribe-button');
+    const element = document.createElement('p');
+    const text = document.createTextNode('Example text');
+    element.appendChild(text);
+    document.insertBefore($buttonContainer, element);
+  } catch (e) {
+    console.log(e);
+  }
+});

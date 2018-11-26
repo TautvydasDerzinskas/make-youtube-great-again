@@ -6,6 +6,7 @@ const OUTPUT_FOLDER = path.resolve(__dirname, '../../extension');
 
 module.exports = {
   entry: {
+    background: path.resolve(__dirname, '../../src/background.ts'),
     content: path.resolve(__dirname, '../../src/content.ts'),
     popup: path.resolve(__dirname, '../../src/popup.ts'),
   },

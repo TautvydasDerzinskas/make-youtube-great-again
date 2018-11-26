@@ -33,11 +33,3 @@ window.onload = () => {
     }
   });
 };
-
-/**
- * Updating extension icon in the toolbar
- */
-chrome.tabs.onRemoved.addListener(() => { coreService.setExtensionIcon(); window.close(); });
-chrome.tabs.onCreated.addListener(() => { coreService.setExtensionIcon(); window.close(); });
-chrome.tabs.onUpdated.addListener(() => { coreService.setExtensionIcon(); window.close(); });
-chrome.tabs.onActivated.addListener(() => { coreService.setExtensionIcon(); window.close(); });

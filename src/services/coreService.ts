@@ -23,6 +23,8 @@ export default class CoreService {
             path: `19x19_${newIcon}.png`,
             tabId: tab.id
           });
+
+          this.closePopupWindow();
         }
       }
     });
@@ -36,8 +38,15 @@ export default class CoreService {
     if (url) {
       url = url.toLowerCase();
       return url.indexOf('http') === 0 && url.indexOf('youtube') >= 0;
-    } else {
-      return false;
+    }
+
+    return false;
+  }
+
+  private closePopupWindow() {
+    const windows = chrome.extension.getViews({ type: 'popup' });
+    if (windows.length) {
+      windows[0].close();
     }
   }
 }
