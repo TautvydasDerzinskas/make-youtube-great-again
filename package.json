@@ -24,6 +24,7 @@
   },
   "scripts": {
     "build": "webpack --config=config/webpack/webpack.config.js --mode=production",
+    "develop": "webpack --config=config/webpack/webpack.config.js --mode=development --watch --info-verbosity verbose",
     "lint": "tslint src/**/*.ts"
   },
   "keywords": [
