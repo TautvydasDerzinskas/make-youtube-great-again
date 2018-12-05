@@ -1,6 +1,6 @@
 import ProviderService from '../services/providerService';
 
-export class ProviderOnlineVideoConverter {
+export default class ProviderOnlineVideoConverter {
   public static NAME = 'OnlineVideoConverter';
   public static URL = 'https://www.onlinevideoconverter.com/youtube-converter';
 
@@ -22,5 +22,3 @@ export class ProviderOnlineVideoConverter {
     }
   }
 }
-
-ProviderOnlineVideoConverter.initialize();

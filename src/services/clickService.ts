@@ -6,7 +6,7 @@ import { ProviderSaveMp3 } from '../providers/savemp3';
 import { MessageTypes } from '../enums/messagesEnums';
 import { Selectors } from '../enums/selectorsEnums';
 
-import ISong from '../interfaces/songInterface';
+import ISong from '../interfaces/song';
 
 export default class ClickService {
   constructor(

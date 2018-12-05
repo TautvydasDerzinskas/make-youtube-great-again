@@ -1,4 +1,5 @@
 export enum StorageKeys {
   Songs = 'songs',
-  AppVersion = 'version'
+  AppVersion = 'version',
+  Features = 'features',
 }

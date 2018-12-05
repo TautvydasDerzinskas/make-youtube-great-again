@@ -1,6 +1,6 @@
 import ProviderService from '../services/providerService';
 
-export class ProviderFlvo {
+export default class ProviderFlvo {
   public static NAME = 'Flvto';
   public static URL = 'https://www.flvto.biz';
 
@@ -12,5 +12,3 @@ export class ProviderFlvo {
     }
   }
 }
-
-ProviderFlvo.initialize();
