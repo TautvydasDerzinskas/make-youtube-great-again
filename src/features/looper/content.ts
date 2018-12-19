@@ -31,6 +31,7 @@ class ContentLooper implements IContent {
         looperService.toggle();
         (<HTMLElement>this).classList.toggle('myga-looper-btn--active');
       });
+      resolve();
     });
   }
 
