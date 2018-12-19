@@ -1,16 +1,37 @@
-import UtilityService from './services/utilityService';
+import featureStorageService from './services/common/feature-storage.service';
+import urlService from './services/common/url.service';
+import { Features } from './features/features';
 
-import { MessageTypes } from './enums/messagesEnums';
+let videoId = urlService.getQueryParameterByName('v', window.location.href);
 
-const utilityService = new UtilityService();
+const setupFeatureContents = () => {
+  Features.forEach((feature, index) => {
+    featureStorageService.getFeature(feature.meta.id).then(featureEnabled => {
+      if (featureEnabled) {
+        feature.content.extendPageUserInterface().then(() => {
+          feature.content.setupEventListeners().then(() => {
+            feature.content.setupCommunications().then(() => {
+              if (index === (Features.length - 1)) {
+                const titleObserver = new MutationObserver(() => {
+                  const newVideoId = urlService.getQueryParameterByName('v', window.location.href);
 
-chrome.runtime.onMessage.addListener((messageType, sender, sendResponse) => {
-  switch (messageType) {
-    case MessageTypes.GetSong:
-      sendResponse({
-        name: utilityService.getYoutubeVideoName(),
-        id: utilityService.getQueryParameterByName('v', window.location.href)
-      });
-    break;
-  }
-});
+                  if (videoId !== newVideoId) {
+                    videoId = newVideoId;
+                    titleObserver.disconnect();
+                    setupFeatureContents();
+                  }
+                });
+                titleObserver.observe(
+                  document.querySelector('head > title'),
+                  { subtree: true, characterData: true, childList: true },
+                );
+              }
+            });
+          });
+        });
+      }
+    });
+  });
+};
+
+setupFeatureContents();

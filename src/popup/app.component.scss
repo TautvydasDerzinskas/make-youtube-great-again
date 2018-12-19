@@ -1,0 +1,16 @@
+@import './variables';
+
+/**
+ * Globals
+ */
+ body, html {
+  margin: 0;
+  padding: 0;
+  width: 500px;
+  max-height: 650px;
+  background-color: $theme-gray;
+}
+
+a {
+  text-decoration: none;
+}

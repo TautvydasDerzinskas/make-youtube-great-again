@@ -8,10 +8,10 @@ module.exports = {
   entry: {
     background: path.resolve(__dirname, '../../src/background.ts'),
     content: path.resolve(__dirname, '../../src/content.ts'),
-    onlinevideoconverter: path.resolve(__dirname, '../../src/providers/onlinevideoconverter.ts'),
-    flvto: path.resolve(__dirname, '../../src/providers/flvto.ts'),
-    savemp3: path.resolve(__dirname, '../../src/providers/savemp3.ts'),
-    popup: path.resolve(__dirname, '../../src/popup.ts'),
+    onlinevideoconverter: path.resolve(__dirname, '../../src/features/download-mp3/providers/onlinevideoconverter.ts'),
+    flvto: path.resolve(__dirname, '../../src/features/download-mp3/providers/flvto.ts'),
+    savemp3: path.resolve(__dirname, '../../src/features/download-mp3/providers/savemp3.ts'),
+    popup: path.resolve(__dirname, '../../src/popup.tsx'),
     configuration: path.resolve(__dirname, '../../src/configuration.ts'),
   },
   module: {
@@ -78,6 +78,6 @@ module.exports = {
         );
       }
     }]),
-    new CopyWebpackPlugin([{ from: path.resolve(__dirname, '../../src/icons') }]),
+    new CopyWebpackPlugin([{ from: path.resolve(__dirname, '../../src/assets') }]),
   ],
 };

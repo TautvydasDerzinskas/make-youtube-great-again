@@ -1,0 +1,43 @@
+@import '../../variables';
+
+// $tb = Tab Bar
+$tb-background-color: $theme-gray;
+$tb-content-background-color: $theme-white;
+$tb-border-color: $theme-light-gray;
+$tb-default-spacing: $default-spacing / 2;
+
+.tabs {
+  width: 100%;
+  overflow: auto;
+  padding: 0 $default-spacing;
+  background-color: $theme-gray;
+
+  &__tab {
+    background-color: #eeeeee;
+    display: inline-block;
+    border: 1px $theme-light-gray solid;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    color: $tb-border-color;
+    margin-right: $tb-default-spacing;
+    padding: $tb-default-spacing;
+    padding-bottom: 0;
+    cursor: pointer;
+
+    &.tab--active {
+      color: $theme-red;
+      font-weight: bold;
+      height: auto;
+      border-bottom: 2px $theme-white solid;
+      background-color: $theme-white;
+      cursor: default;
+    }
+  }
+
+  &-content {
+    margin-top: -1px;
+    border-top: 1px $theme-light-gray solid;
+    background-color: $theme-white;
+    padding: $large-spacing;
+  }
+}

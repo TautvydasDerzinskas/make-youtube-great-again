@@ -1,23 +1,15 @@
-import YoutubeSelectors from './enums/youtubeSelectors';
-
-import ProviderFlvto from './providers/flvto';
-import ProviderOnlineVideoConverter from './providers/onlinevideoconverter';
-import ProviderSaveMp3 from './providers/savemp3';
-
+import { YoutubeSelectors } from '../../enums';
 import IContent from '../../interfaces/content';
 
 class ContentDownloadMp3 implements IContent {
-  constructor() {}
+  public extendPageUserInterface(): Promise<boolean> {
 
-  public performEvents() {
-    ProviderFlvto.initialize();
-    ProviderOnlineVideoConverter.initialize();
-    ProviderSaveMp3.initialize();
-  }
-
-  public extendPageUserInterface() {
+    return new Promise((resolve) => {
+      resolve();
+    });
+/*
     setTimeout(() => {
-      const appendTo = document.querySelector(YoutubeSelectors.ButtonsContainer);
+      const appendTo = document.querySelector(YoutubeSelectors.MenuAfterDropdown);
       if (appendTo) {
         const html = `<div><button>SAVE mp3</button></div>`;
         const element = document.createElement('p');
@@ -29,6 +21,37 @@ class ContentDownloadMp3 implements IContent {
         this.extendPageUserInterface();
       }
     });
+  */
+  }
+
+  public setupEventListeners(): Promise<boolean> {
+    return new Promise((resolve) => {
+      resolve();
+    });
+  }
+
+  public setupCommunications(): Promise<boolean> {
+    return new Promise((resolve) => {
+      resolve();
+    });
+    /*
+    import UtilityService from './services/utilityService';
+
+    import { MessageTypes } from './enums/messagesEnums';
+
+    const utilityService = new UtilityService();
+
+    chrome.runtime.onMessage.addListener((messageType, sender, sendResponse) => {
+      switch (messageType) {
+        case MessageTypes.GetSong:
+          sendResponse({
+            name: utilityService.getYoutubeVideoName(),
+            id: utilityService.getQueryParameterByName('v', window.location.href)
+          });
+        break;
+      }
+    });
+    */
   }
 }
 

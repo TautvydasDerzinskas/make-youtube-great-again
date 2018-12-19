@@ -1,0 +1,23 @@
+@import '../../../popup/variables';
+
+.myga-looper--enabled {
+  .myga-looper-btn {
+    cursor: pointer;
+    outline: none;
+    padding: 7px 5px;
+    border: none;
+    background-color:
+    transparent; margin: 0;
+
+    > svg {
+      display: inline-block;
+      height: 20px;
+      width: 20px;
+      fill: $theme-light-gray;
+    }
+
+    &.myga-looper-btn--active > svg {
+      fill: $theme-red;
+    }
+  }
+}

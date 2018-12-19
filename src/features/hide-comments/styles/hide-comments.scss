@@ -1,0 +1,32 @@
+@import '../../../popup/variables';
+
+.myga-hidden-comments--enabled {
+  #watch-discussion {
+    display: none !important
+  }
+
+  #comments-test-iframe {
+    display: none !important
+  }
+
+  #watch7-action-panels {
+    border-bottom: 1px solid $theme-light-gray;
+  }
+
+  #watch-description-extras {
+    margin-bottom: 0 !important
+  }
+
+  #action-panel-details.action-panel-content {
+    padding-bottom: 18px !important
+  }
+
+  #watch-sidebar-live-chat {
+    display: none !important
+  }
+
+  ytd-comments,
+  ytd-live-chat-frame {
+    display: none !important
+  }
+}

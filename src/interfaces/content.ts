@@ -1,4 +1,5 @@
 export default interface IContent {
-  performEvents?(): void;
-  extendPageUserInterface?(): void;
+  setupEventListeners(): Promise<boolean>;
+  setupCommunications(): Promise<boolean>;
+  extendPageUserInterface(): Promise<boolean>;
 }
