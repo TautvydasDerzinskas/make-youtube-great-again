@@ -1,11 +1,11 @@
 {
   "manifest_version": 2,
 
-  "name": "Youtube soundtrack downloader",
-  "description": "This extension allows you to download youtube videos songs",
-  "version": "1.0",
+  "name": "Make YouTube great again",
+  "description": "Chrome extension adding new functionality to YouTube experience",
+  "version": "1.0.0",
   "author": "Tautvydas Derzinskas",
-	"homepage_url": "https://github.com/SlimDogs/youtube-sound-track-download-extension",
+	"homepage_url": "https://github.com/SlimDogs/make-youtube-great-again",
 
 	"options_page": "configuration.html",
 
@@ -57,7 +57,9 @@
 			"run_at": "document_end",
 			"all_frames": true
 		}
-  ],
+	],
+
+	"content_security_policy": "script-src 'self' https://ssl.google-analytics.com; object-src 'self'",
 
   "permissions": [
     "tabs",

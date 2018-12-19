@@ -1,8 +1,12 @@
 {
-  "name": "youtube-sound-track-download-extension",
+  "name": "make-youtube-great-again",
   "version": "1.0.0",
-  "description": "Chrome extension for downloading youtube soundtracks",
-  "main": "extension.ts",
+  "description": "Chrome extension adding new functionality to YouTube experience",
+  "scripts": {
+    "build": "webpack --config=config/webpack/webpack.config.js --mode=production",
+    "develop": "webpack --config=config/webpack/webpack.config.js --mode=development --watch --info-verbosity verbose",
+    "lint": "tslint -c tslint.json 'src/**/*.{ts,tsx}'"
+  },
   "dependencies": {
     "react": "16.6.3",
     "react-dom": "16.6.3",
@@ -28,21 +32,18 @@
     "webpack": "4.27.1",
     "webpack-cli": "3.1.2"
   },
-  "scripts": {
-    "build": "webpack --config=config/webpack/webpack.config.js --mode=production",
-    "develop": "webpack --config=config/webpack/webpack.config.js --mode=development --watch --info-verbosity verbose",
-    "lint": "tslint -c tslint.json 'src/**/*.{ts,tsx}'"
-  },
   "keywords": [
     "Chrome",
     "Youtube",
     "Extension",
-    "JavaScript"
+    "JavaScript",
+    "TypeScript",
+    "React"
   ],
   "author": "Tautvydas Derzinskas",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/SlimDogs/youtube-sound-track-download-extension.git"
+    "url": "git+https://github.com/SlimDogs/make-youtube-great-again.git"
   },
   "license": "MIT",
   "engines": {
