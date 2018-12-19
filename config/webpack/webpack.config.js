@@ -8,9 +8,9 @@ module.exports = {
   entry: {
     background: path.resolve(__dirname, '../../src/background.ts'),
     content: path.resolve(__dirname, '../../src/content.ts'),
-    onlinevideoconverter: path.resolve(__dirname, '../../src/features/download-mp3/providers/onlinevideoconverter.ts'),
-    flvto: path.resolve(__dirname, '../../src/features/download-mp3/providers/flvto.ts'),
-    savemp3: path.resolve(__dirname, '../../src/features/download-mp3/providers/savemp3.ts'),
+    onlinevideoconverter: path.resolve(__dirname, '../../src/features/download-mp3/providers/onlinevideoconverter/content.ts'),
+    flvto: path.resolve(__dirname, '../../src/features/download-mp3/providers/flvto/content.ts'),
+    savemp3: path.resolve(__dirname, '../../src/features/download-mp3/providers/save-mp3/content.ts'),
     popup: path.resolve(__dirname, '../../src/popup.tsx'),
     configuration: path.resolve(__dirname, '../../src/configuration.ts'),
   },

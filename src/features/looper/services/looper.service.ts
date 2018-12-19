@@ -8,11 +8,9 @@ class LooperService {
 
   private LOOPER_TIMER: any = null;
 
-  constructor()  {
-    this.setPlayer();
-  }
-
   public toggle() {
+    this.setPlayer();
+
     this.LOOPER_STATUS = !this.LOOPER_STATUS;
 
     if (this.LOOPER_STATUS) {
@@ -35,16 +33,14 @@ class LooperService {
   }
 
   private setPlayer() {
-    const player: any = document.getElementById('movie_player');
-
-    if (player && player.type && player.type.indexOf('flash') !== -1) {
-        this.FLASH_PLAYER = player;
-    } else {
-      this.HTML5_PLAYER = document.querySelector(YoutubeSelectors.VideoPlayer);
-    }
-
     if (!this.FLASH_PLAYER && !this.HTML5_PLAYER) {
-      setTimeout(this.setPlayer.bind(this), 1000);
+      const player: any = document.getElementById('movie_player');
+
+      if (player && player.type && player.type.indexOf('flash') !== -1) {
+          this.FLASH_PLAYER = player;
+      } else {
+        this.HTML5_PLAYER = document.querySelector(YoutubeSelectors.VideoPlayer);
+      }
     }
   }
 

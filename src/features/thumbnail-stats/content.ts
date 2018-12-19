@@ -3,22 +3,14 @@ import { YoutubeSelectors } from '../../enums';
 import IContent from '../../interfaces/content';
 
 class ContentThumbnailStats implements IContent {
-  public extendPageUserInterface(): Promise<boolean> {
-    return new Promise((resolve) => {
-      resolve();
-    });
-  }
+  public setupEventListeners() {
+    const thumbnailElements = document.querySelectorAll(YoutubeSelectors.AllThumbnails);
 
-  public setupEventListeners(): Promise<boolean> {
-    return new Promise((resolve) => {
-      resolve();
-    });
-  }
-
-  public setupCommunications(): Promise<boolean> {
-    return new Promise((resolve) => {
-      resolve();
-    });
+    for (let i = 0, b = thumbnailElements.length; i < b; i += 1) {
+      thumbnailElements[i].addEventListener('mouseenter', () => {
+        console.log('It works :)');
+      });
+    }
   }
 }
 
