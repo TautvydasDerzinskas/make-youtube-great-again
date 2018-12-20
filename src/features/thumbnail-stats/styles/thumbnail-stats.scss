@@ -1,0 +1,70 @@
+@import '../../../popup/variables';
+@import './animations';
+
+$thumb-indicator-size: 30px;
+
+.myga-thumb-container {
+  .myga-thumb-stats {
+    display: none;
+    height: $thumb-indicator-size;
+    width: $thumb-indicator-size;
+    left: 3px;
+    top: 3px;
+    position: absolute;
+    z-index: 999;
+    background-color: hsl(0, 0%, 6.7%);
+    border-radius: 360px;
+
+    .pie {
+      position: absolute;
+      top: 0;
+      left: 0;
+      display: block;
+      height: $thumb-indicator-size;
+      width: $thumb-indicator-size;
+
+      &__progress-bar {
+        stroke: $theme-green;
+        fill: none;
+        stroke-width: 2.8;
+        stroke-linecap: round;
+        animation: progress 1s ease-out forwards;
+      }
+    }
+
+    .thumb {
+      position: absolute;
+      top: 7px;
+      left: 7px;
+      display: inline-block;
+      height: 16px;
+      width: 16px;
+      fill: $theme-green;
+    }
+
+    &--negative {
+      .thumb {
+        fill: $theme-red;
+        transform: rotate(180deg);
+      }
+      .pie__progress-bar {
+        stroke: $theme-red;
+      }
+    }
+
+    &--loading {
+      .thumb {
+        @extend %usb-animation-spin;
+      }
+      .pie {
+        display: none;
+      }
+    }
+  }
+
+  &:hover {
+    .myga-thumb-stats {
+      display: inline-block;
+    }
+  }
+}

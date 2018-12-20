@@ -5,6 +5,7 @@ const meta: IMeta = {
   description: 'Hides both usual comments and live stream chat messages',
   title: 'Hide all comments',
   defaultStatus: false,
+  videoPageOnly: true,
 };
 
 export default meta;

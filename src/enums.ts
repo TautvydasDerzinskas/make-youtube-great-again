@@ -1,5 +1,6 @@
 export enum ApiKeys {
-  dataApiV3 = 'AIzaSyDPqzqoI_iHEwfKSTzSrn0uri7DGUfKMU0',
+  DataApiV3 = 'AIzaSyDPqzqoI_iHEwfKSTzSrn0uri7DGUfKMU0',
+  Analytics = 'UA-131052445-1',
 }
 
 export enum YoutubeSelectors {
@@ -7,5 +8,14 @@ export enum YoutubeSelectors {
   MenuAfterDropdown = '#menu-container > #menu > ytd-menu-renderer',
   MenuBeforeDropdown = '#menu-container > #menu #top-level-buttons',
   VideoTitle = '.title.style-scope.ytd-video-primary-info-renderer',
-  AllThumbnails = '.video-thumb, .yt-uix-simple-thumb-wrap, .ytp-videowall-still, .pl-header-thumb, #thumbnail:not(.ytd-moving-thumbnail-renderer):not(.ytd-movie-upsell-renderer), #thumbnail-container'
+  // tslint:disable:max-line-length
+  AllThumbnails = 'a.video-thumb:not(.myga-thumb-container), a.yt-uix-simple-thumb-wrap:not(.myga-thumb-container), a.ytp-videowall-still:not(.myga-thumb-container), a.pl-header-thumb:not(.myga-thumb-container), a#thumbnail:not(.ytd-moving-thumbnail-renderer):not(.ytd-movie-upsell-renderer):not(.myga-thumb-container), a#thumbnail-container:not(.myga-thumb-container)'
+  // tslint:enable:max-line-length
+}
+
+export enum SvgIcons {
+  DownloadMp3,
+  Looper,
+  Progress,
+  Thumb,
 }

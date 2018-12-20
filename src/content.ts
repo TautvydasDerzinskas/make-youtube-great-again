@@ -4,14 +4,17 @@ import urlService from './services/common/url.service';
 import { Features } from './features/features';
 import { YoutubeSelectors } from './enums';
 
+let videoId = urlService.getQueryParameterByName('v', window.location.href);
+let isUrlVideoPage = videoId != null;
+
 /**
  * Only start initializing content scripts
  * when YouTube is fully loaded
  */
 const checkPageLoadStatus = () => {
   const videoPageElement = document.querySelector(YoutubeSelectors.MenuAfterDropdown);
-  // const otherPagesElements = document.querySelector(YoutubeSelectors.AllThumbnails);
-  if (document.readyState === 'complete' && (videoPageElement /*|| otherPagesElements*/)) {
+  const otherPagesElements = document.querySelector(YoutubeSelectors.AllThumbnails);
+  if (document.readyState === 'complete' && (isUrlVideoPage && videoPageElement || !isUrlVideoPage && otherPagesElements)) {
     setupFeatureContents();
   } else {
     setTimeout(checkPageLoadStatus, 500);
@@ -28,17 +31,14 @@ const setupFeatureContents = () => {
     featureStorageService.getFeature(feature.meta.id).then(featureEnabled => {
       featuresLoaded--;
 
-      if (featureEnabled) {
+      if (featureEnabled && (!feature.meta.videoPageOnly || isUrlVideoPage)) {
         if (feature.content.extendPageUserInterface) {
-          console.log('Setting up extendPageUserInterface', feature.meta.id);
           feature.content.extendPageUserInterface();
         }
         if (feature.content.setupEventListeners) {
-          console.log('Setting up setupEventListeners', feature.meta.id);
           feature.content.setupEventListeners();
         }
         if (feature.content.setupCommunications) {
-          console.log('Setting up setupCommunications', feature.meta.id);
           feature.content.setupCommunications();
         }
       }
@@ -51,13 +51,13 @@ const setupFeatureContents = () => {
 /**
  * Observe for ajax page reload event
  */
-let videoId = urlService.getQueryParameterByName('v', window.location.href);
 const observeYoutubeTitle = () => {
   const titleObserver = new MutationObserver(() => {
     const newVideoId = urlService.getQueryParameterByName('v', window.location.href);
 
     if (videoId !== newVideoId) {
       videoId = newVideoId;
+      isUrlVideoPage = videoId != null;
       titleObserver.disconnect();
       checkPageLoadStatus();
     }

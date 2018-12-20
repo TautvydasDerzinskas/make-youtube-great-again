@@ -1,3 +1,5 @@
+import { ApiKeys } from '../../enums';
+
 class AnalyticsService {
   private extensionName = chrome.runtime.getManifest().name.replace(/\s+/g, '-').toLowerCase();
   private version = chrome.runtime.getManifest().version;
@@ -5,7 +7,7 @@ class AnalyticsService {
   get global(): any { return window; }
   public initialize() {
     this.global._gaq = this.global._gaq || [];
-    this.global._gaq.push(['_setAccount', 'UA-131052445-1']);
+    this.global._gaq.push(['_setAccount', ApiKeys.Analytics]);
 
     const ga = document.createElement('script');
     ga.type = 'text/javascript';

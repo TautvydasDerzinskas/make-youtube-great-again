@@ -3,4 +3,5 @@ export default interface IMeta {
   description: string;
   title: string;
   defaultStatus?: boolean;
+  videoPageOnly?: boolean;
 }
