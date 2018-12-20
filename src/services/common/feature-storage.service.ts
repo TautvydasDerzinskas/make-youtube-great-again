@@ -29,8 +29,8 @@ class FeatureStorageService extends StorageService {
     return new Promise((resolve) => {
       this.getFeatures().then((features: IFeaturesStorageObject) => {
         features[featureId] = typeof value === 'boolean' ? value : !features[featureId];
-        this.setItem(this.FEATURES_STORAGE_KEY, features).then(data => {
-          resolve(true);
+        this.setItem(this.FEATURES_STORAGE_KEY, features).then(() => {
+          resolve(features[featureId]);
         });
       });
     });

@@ -1,5 +1,3 @@
-
-
 import * as React from 'react';
 
 import IMeta from '../../../../interfaces/meta';
@@ -34,12 +32,30 @@ export default class SettingComponent extends React.Component<{ meta: IMeta }, I
   }
 
   public toggleFeature() {
-    this.setState({
-      data: {
-        value: !this.state.data.value,
-      }
+    featureStorageService.toggleFeature(this.props.meta.id).then(newValue => {
+      this.setState({
+        data: {
+          value: newValue,
+        }
+      });
+      this.notifyTabsAboutChange(newValue);
     });
-    featureStorageService.toggleFeature(this.props.meta.id);
+  }
+
+  private notifyTabsAboutChange(newValue: boolean) {
+    chrome.tabs.query({}, (tabs) => {
+      tabs.forEach(tab => {
+        chrome.tabs.sendMessage(
+          tab.id,
+          {
+            toggle: {
+              featureId: this.props.meta.id,
+              value: newValue
+            }
+          }
+        );
+      });
+    });
   }
 
   render() {

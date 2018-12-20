@@ -7,7 +7,16 @@ import IContent from '../../interfaces/content';
 import './styles/thumbnail-stats.scss';
 
 class ContentThumbnailStats implements IContent {
+  private bodyObserver: MutationObserver;
+
+  public extendPageUserInterface() {
+    document.getElementsByTagName('body')[0]
+      .classList.add('myga-thumbnail-stats--enabled');
+  }
+
   public setupEventListeners() {
+    this.setupObserver();
+
     const thumbnailElements = document.querySelectorAll(YoutubeSelectors.AllThumbnails);
 
     for (let i = 0, b = thumbnailElements.length; i < b; i += 1) {
@@ -16,6 +25,23 @@ class ContentThumbnailStats implements IContent {
         'mouseenter',
         this.mouseEnterEvent.bind(this, $thumb),
         false
+      );
+    }
+  }
+
+  public cleanUp() {
+    document.getElementsByTagName('body')[0]
+      .classList.remove('myga-thumbnail-stats--enabled');
+  }
+
+  private setupObserver() {
+    if (!this.bodyObserver) {
+      this.bodyObserver = new MutationObserver(() => {
+        this.setupEventListeners();
+      });
+      this.bodyObserver.observe(
+        document.body,
+        { subtree: true, childList: true },
       );
     }
   }

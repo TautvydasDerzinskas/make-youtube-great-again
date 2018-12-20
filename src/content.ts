@@ -38,15 +38,33 @@ const setupFeatureContents = () => {
         if (feature.content.setupEventListeners) {
           feature.content.setupEventListeners();
         }
-        if (feature.content.setupCommunications) {
-          feature.content.setupCommunications();
-        }
       }
 
       if (featuresLoaded === 0) { observeYoutubeTitle(); }
     });
   });
 };
+
+/**
+ * Settup feature toggling listener
+ */
+chrome.runtime.onMessage.addListener((request) => {
+  if  (request.toggle && request.toggle.featureId) {
+    const activeFeature = Features.filter(feature => feature.meta.id === request.toggle.featureId)[0];
+    if (activeFeature) {
+      if (request.toggle.value) {
+        if (activeFeature.content.extendPageUserInterface) {
+          activeFeature.content.extendPageUserInterface();
+        }
+        if (activeFeature.content.setupEventListeners) {
+          activeFeature.content.setupEventListeners();
+        }
+      } else {
+        activeFeature.content.cleanUp();
+      }
+    }
+  }
+});
 
 /**
  * Observe for ajax page reload event
@@ -58,8 +76,11 @@ const observeYoutubeTitle = () => {
     if (videoId !== newVideoId) {
       videoId = newVideoId;
       isUrlVideoPage = videoId != null;
-      titleObserver.disconnect();
-      checkPageLoadStatus();
+
+      if (isUrlVideoPage) {
+        titleObserver.disconnect();
+        checkPageLoadStatus();
+      }
     }
   });
   titleObserver.observe(

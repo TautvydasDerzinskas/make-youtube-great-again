@@ -32,7 +32,10 @@ class ContentLooper implements IContent {
     });
   }
 
-  private cleanUp() {
+  public cleanUp() {
+    document.getElementsByTagName('body')[0]
+      .classList.remove('myga-looper--enabled');
+
     const $looperButtons = document.getElementsByClassName('myga-looper-btn');
     if ($looperButtons.length > 0) {
       for (let i = 0, b = $looperButtons.length; i < b; i += 1) {

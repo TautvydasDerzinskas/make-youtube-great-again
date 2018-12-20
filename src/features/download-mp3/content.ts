@@ -43,7 +43,10 @@ class ContentDownloadMp3 implements IContent {
     return dropdownHtml;
   }
 
-  private cleanUp() {
+  public cleanUp() {
+    document.getElementsByTagName('body')[0]
+      .classList.remove('myga-download-mp3--enabled');
+
     const $looperButtons = document.getElementsByClassName('myga-dropdown');
     if ($looperButtons.length > 0) {
       for (let i = 0, b = $looperButtons.length; i < b; i += 1) {
