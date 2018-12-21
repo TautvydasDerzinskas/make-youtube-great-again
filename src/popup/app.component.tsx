@@ -8,8 +8,8 @@ import HeaderComponent from './layout/header/header.component';
 import NavigationComponent from './layout/navigation/navigation.component';
 
 // Tab components
-import ExtensionComponent from './tabs/extension/extension.component';
-import SettingsComponent from './tabs/settings/settings.component';
+import HistoryComponent from './tabs/history/history.component';
+import FeaturesComponent from './tabs/features/features.component';
 import AboutComponent from './tabs/about/about.component';
 
 import './app.component.scss';
@@ -22,8 +22,8 @@ export default class AppComponent extends React.Component<{}> {
         <NavigationComponent />
         <div className='tabs-content'>
           <Switch>
-            <Route exact path='/' component={ExtensionComponent}/>
-            <Route exact path='/settings' component={SettingsComponent}/>
+            <Route exact path='/' component={FeaturesComponent}/>
+            <Route exact path='/history' component={HistoryComponent}/>
             <Route exact path='/about' component={AboutComponent}/>
           </Switch>
         </div>

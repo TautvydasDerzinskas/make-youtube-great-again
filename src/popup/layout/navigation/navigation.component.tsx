@@ -8,8 +8,8 @@ export default class NavigationComponent extends React.Component<{}> {
   render() {
     return (
       <div className='tabs'>
-        <NavLink exact className='tabs__tab' activeClassName='tab--active' to='/'>Extension</NavLink>
-        <NavLink exact className='tabs__tab' activeClassName='tab--active' to='/settings'>Settings</NavLink>
+        <NavLink exact className='tabs__tab' activeClassName='tab--active' to='/'>Features</NavLink>
+        <NavLink exact className='tabs__tab' activeClassName='tab--active' to='/history'>History</NavLink>
         <NavLink exact className='tabs__tab' activeClassName='tab--active' to='/about'>About</NavLink>
       </div>
     );

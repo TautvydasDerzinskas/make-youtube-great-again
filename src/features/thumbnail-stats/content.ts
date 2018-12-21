@@ -1,6 +1,8 @@
 import urlService from '../../services/common/url.service';
 import svgIconsService from '../../services/content/svg-icons.service';
+import featureStorageService from '../../services/common/feature-storage.service';
 
+import Meta from './meta';
 import { YoutubeSelectors, ApiKeys, SvgIcons } from '../../enums';
 import IContent from '../../interfaces/content';
 
@@ -56,6 +58,8 @@ class ContentThumbnailStats implements IContent {
       $thumb.appendChild($div);
 
       const videoId = this.getThumbVideoId($thumb);
+
+      featureStorageService.trackVideo(Meta.id, videoId);
 
       const req = new XMLHttpRequest();
       req.open('GET', `https://www.googleapis.com/youtube/v3/videos?id=${videoId}&part=statistics&key=${ApiKeys.DataApiV3}`);

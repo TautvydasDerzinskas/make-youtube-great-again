@@ -1,5 +1,5 @@
 <p align="center">
-  <a href="https://github.com/SlimDogs/make-youtube-great-again"><img src="https://github.com/SlimDogs/make-youtube-great-again/blob/master/src/assets/images/header.png?raw=true" alt="Chrome extension: Make YouTube great again!" title="Chrome extension: Make YouTube great again!"></a>
+  <a href="https://github.com/SlimDogs/make-youtube-great-again"><img src="https://github.com/SlimDogs/make-youtube-great-again/blob/master/src/assets/images/header.png?raw=true" alt="Chrome extension: Make YouTube great again!" title="Chrome extension: Make YouTube great again!" width="150px" /></a>
 </p>
 
 <p align="center">

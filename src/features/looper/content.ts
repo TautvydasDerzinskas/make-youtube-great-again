@@ -1,8 +1,10 @@
 import looperService from './services/looper.service';
 import svgIconsService from '../../services/content/svg-icons.service';
+import urlService from '../../services/common/url.service';
+import featureStorageService from '../../services/common/feature-storage.service';
+
 import Meta from './meta';
 import { YoutubeSelectors, SvgIcons } from '../../enums';
-
 import IContent from '../../interfaces/content';
 
 import './styles/looper.scss';
@@ -29,6 +31,9 @@ class ContentLooper implements IContent {
       .addEventListener('click', function() {
       looperService.toggle();
       (<HTMLElement>this).classList.toggle('myga-looper-btn--active');
+
+      const videoId = urlService.getQueryParameterByName('v');
+      featureStorageService.trackVideo(Meta.id, videoId);
     });
   }
 

@@ -5,7 +5,7 @@ import { Features } from './features/features';
 import { IMessageToggle } from './interfaces/communication';
 import { YoutubeSelectors } from './enums';
 
-let videoId = urlService.getQueryParameterByName('v', window.location.href);
+let videoId = urlService.getQueryParameterByName('v');
 let isUrlVideoPage = videoId != null;
 
 /**

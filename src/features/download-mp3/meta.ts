@@ -5,6 +5,10 @@ const meta: IMeta = {
   description: 'Enables you to convert Youtube video to downloadable mp3 files',
   title: 'Convert videos to mp3',
   videoPageOnly: true,
+  defaultData: {
+    count: 0,
+    songs: [],
+  },
 };
 
 export default meta;

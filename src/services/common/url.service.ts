@@ -1,5 +1,8 @@
 class UrlService {
-  public getQueryParameterByName(name: string, url: string) {
+  public getQueryParameterByName(name: string, url?: string) {
+    if (!url) {
+      url = window.location.href;
+    }
     name = name.replace(/[\[\]]/g, '\\$&');
 
     const regex = new RegExp(`[?&]${name}(=([^&#]*)|&|#|$)`),

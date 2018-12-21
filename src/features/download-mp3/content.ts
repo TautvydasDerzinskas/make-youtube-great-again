@@ -29,7 +29,7 @@ class ContentDownloadMp3 implements IContent {
   }
 
   private generateDropdownTemplate() {
-    const videoId = urlService.getQueryParameterByName('v', window.location.href);
+    const videoId = urlService.getQueryParameterByName('v');
 
     let dropdownHtml = '';
     MetaProviders.forEach(meta => {
