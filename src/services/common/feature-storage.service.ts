@@ -9,7 +9,6 @@ class FeatureStorageService extends ChromeStorageService {
 
   constructor() {
     super();
-    this.initialize();
   }
 
   public getFeatures(): Promise<IFeaturesStorageObject> {
@@ -59,7 +58,7 @@ class FeatureStorageService extends ChromeStorageService {
     });
   }
 
-  private initialize(): void {
+  public initialize(): void {
     this.getFeatures().then((features: IFeaturesStorageObject) => {
       if (features == null) {
         const freshFeatures: IFeaturesStorageObject = {};

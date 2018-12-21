@@ -1,6 +1,7 @@
 
 import extensionService from './services/background/extension.service';
 import analyticsService from './services/common/analytics.service';
+import featureStorageService from './services/common/feature-storage.service';
 
 analyticsService.initialize();
 
@@ -12,6 +13,7 @@ chrome.tabs.onActivated.addListener(() => { extensionService.updateToolbarIcon()
 const gitRepoUrl = 'https://github.com/SlimDogs/make-youtube-great-again';
 chrome.runtime.onInstalled.addListener((details) => {
   if (details.reason = 'install') {
+    featureStorageService.initialize();
     analyticsService.trackPageView('install');
     chrome.tabs.create({
       url: `${gitRepoUrl}/blob/master/docs/INSTALLED.md`
