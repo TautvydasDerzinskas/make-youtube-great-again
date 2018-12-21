@@ -2,6 +2,7 @@ import featureStorageService from './services/common/feature-storage.service';
 import urlService from './services/common/url.service';
 
 import { Features } from './features/features';
+import { IMessageToggle } from './interfaces/communication';
 import { YoutubeSelectors } from './enums';
 
 let videoId = urlService.getQueryParameterByName('v', window.location.href);
@@ -28,7 +29,7 @@ setTimeout(checkPageLoadStatus, 500);
 const setupFeatureContents = () => {
   let featuresLoaded = Features.length;
   Features.forEach((feature) => {
-    featureStorageService.getFeature(feature.meta.id).then(featureEnabled => {
+    featureStorageService.getFeatureData(feature.meta.id).then(featureEnabled => {
       featuresLoaded--;
 
       if (featureEnabled && (!feature.meta.videoPageOnly || isUrlVideoPage)) {
@@ -48,7 +49,7 @@ const setupFeatureContents = () => {
 /**
  * Settup feature toggling listener
  */
-chrome.runtime.onMessage.addListener((request) => {
+chrome.runtime.onMessage.addListener((request: IMessageToggle) => {
   if  (request.toggle && request.toggle.featureId) {
     const activeFeature = Features.filter(feature => feature.meta.id === request.toggle.featureId)[0];
     if (activeFeature) {

@@ -1,4 +1,4 @@
-export default class StorageService {
+export default class ChromeStorageService {
   public getItem<T>(storageKey: string): Promise<T> {
     return new Promise((resolve, reject) => {
       chrome.storage.sync.get([storageKey], (result) => {

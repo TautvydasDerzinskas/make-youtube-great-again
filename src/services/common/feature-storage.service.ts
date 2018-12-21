@@ -1,11 +1,24 @@
 
-import StorageService from './storage.service';
+import ChromeStorageService from './chrome-storage.service';
 
 import { FeaturesMeta } from '../../features/features';
 
-interface IFeaturesStorageObject { [index: string]: boolean; }
+interface IFeatureData<T> {
+  data: {
+    [index: string]: T;
+  };
+}
 
-class FeatureStorageService extends StorageService {
+interface IFeatureStoredData<T> {
+  status: boolean;
+  data: IFeatureData<T>;
+}
+
+interface IFeaturesStorageObject<T> {
+  [index: string]: IFeatureStoredData<T>;
+}
+
+class FeatureStorageService extends ChromeStorageService {
   private FEATURES_STORAGE_KEY = 'mygaFeatures';
 
   constructor() {
@@ -13,22 +26,33 @@ class FeatureStorageService extends StorageService {
     this.initialize();
   }
 
-  public getFeatures(): Promise<IFeaturesStorageObject> {
+  public getFeatures(): Promise<IFeaturesStorageObject<any>> {
     return this.getItem(this.FEATURES_STORAGE_KEY);
   }
 
-  public getFeature(featureId: string): Promise<boolean> {
+  public getFeatureData<T>(featureId: string): Promise<IFeatureStoredData<T>> {
     return new Promise((resolve) => {
-      this.getFeatures().then((features: IFeaturesStorageObject) => {
+      this.getFeatures().then((features: IFeaturesStorageObject<T>) => {
         resolve(features[featureId]);
       });
     });
   }
 
-  public toggleFeature(featureId: string, value?: boolean): Promise<boolean> {
+  public toggleFeatureStatus(featureId: string, value?: boolean): Promise<IFeatureStoredData<any>> {
     return new Promise((resolve) => {
-      this.getFeatures().then((features: IFeaturesStorageObject) => {
-        features[featureId] = typeof value === 'boolean' ? value : !features[featureId];
+      this.getFeatures().then((features: IFeaturesStorageObject<any>) => {
+        features[featureId].status = typeof value === 'boolean' ? value : !features[featureId].status;
+        this.setItem(this.FEATURES_STORAGE_KEY, features).then(() => {
+          resolve(features[featureId]);
+        });
+      });
+    });
+  }
+
+  public storeFeatureData<T>(featureId: string, data: IFeatureData<T>): Promise<IFeatureStoredData<T>> {
+    return new Promise((resolve) => {
+      this.getFeatures().then((features: IFeaturesStorageObject<T>) => {
+        features[featureId].data = data;
         this.setItem(this.FEATURES_STORAGE_KEY, features).then(() => {
           resolve(features[featureId]);
         });
@@ -37,12 +61,15 @@ class FeatureStorageService extends StorageService {
   }
 
   private initialize(): void {
-    this.getFeatures().then((features: IFeaturesStorageObject) => {
+    this.getFeatures().then((features: IFeaturesStorageObject<any>) => {
       if (features == null) {
-        const freshFeatures: IFeaturesStorageObject = {};
+        const freshFeatures: IFeaturesStorageObject<any> = {};
 
         FeaturesMeta.forEach(featureMeta => {
-          freshFeatures[featureMeta.id] = featureMeta.defaultStatus || true;
+          freshFeatures[featureMeta.id] = {
+            status: featureMeta.defaultStatus || true,
+            data: featureMeta.defaultData || {},
+          };
         });
 
         this.setItem(this.FEATURES_STORAGE_KEY, freshFeatures);

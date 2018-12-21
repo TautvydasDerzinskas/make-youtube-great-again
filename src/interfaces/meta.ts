@@ -3,5 +3,6 @@ export default interface IMeta {
   description: string;
   title: string;
   defaultStatus?: boolean;
+  defaultData?: any;
   videoPageOnly?: boolean;
 }

@@ -4,11 +4,11 @@ import featureStorageService from '../../../../services/common/feature-storage.s
 import ProviderMeta from './meta';
 import FeatureMeta from '../../meta';
 
-class ProviderOnlineVideoConverter {
+class ProviderOnlineVideoConverter extends ProviderService {
   public static initialize() {
-    featureStorageService.getFeature(FeatureMeta.id).then(featureEnabled => {
+    featureStorageService.getFeatureData(FeatureMeta.id).then(featureEnabled => {
       if (featureEnabled && window.location.href.toLowerCase().includes(ProviderMeta.url)) {
-        (<HTMLInputElement>document.getElementById('texturl')).value = ProviderService.getYoutubeUrl();
+        (<HTMLInputElement>document.getElementById('texturl')).value = this.getYoutubeUrl();
 
         const dropdownElements = document.querySelectorAll('[data-value]');
         for (let i = 0, b = dropdownElements.length; i < b; i += 1) {

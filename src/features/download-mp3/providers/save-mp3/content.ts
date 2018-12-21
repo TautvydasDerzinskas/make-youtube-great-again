@@ -5,7 +5,7 @@ import FeatureMeta from '../../meta';
 
 class ProviderSaveMp3 {
   public static initialize() {
-    featureStorageService.getFeature(FeatureMeta.id).then(featureEnabled => {
+    featureStorageService.getFeatureData(FeatureMeta.id).then(featureEnabled => {
       if (featureEnabled && window.location.href.toLowerCase().includes(ProviderMeta.url)) {
         // TODO
       }

@@ -1,6 +1,7 @@
 import * as React from 'react';
 
 import IMeta from '../../../../interfaces/meta';
+import { IMessageToggle } from '../../../../interfaces/communication';
 import featureStorageService from '../../../../services/common/feature-storage.service';
 
 import './setting.component.scss';
@@ -22,38 +23,37 @@ export default class SettingComponent extends React.Component<{ meta: IMeta }, I
   }
 
   componentDidMount() {
-    featureStorageService.getFeature(this.props.meta.id).then(value => {
+    featureStorageService.getFeatureData(this.props.meta.id).then(featureData => {
       this.setState({
         data: {
-          value: value,
+          value: featureData.status,
         }
       });
     });
   }
 
   public toggleFeature() {
-    featureStorageService.toggleFeature(this.props.meta.id).then(newValue => {
+    featureStorageService.toggleFeatureStatus(this.props.meta.id).then(featureData => {
       this.setState({
         data: {
-          value: newValue,
+          value: featureData.status,
         }
       });
-      this.notifyTabsAboutChange(newValue);
+      this.notifyTabsAboutChange(featureData.status);
     });
   }
 
   private notifyTabsAboutChange(newValue: boolean) {
+    const message: IMessageToggle = {
+      toggle: {
+        featureId: this.props.meta.id,
+        value: newValue
+      }
+    };
+
     chrome.tabs.query({}, (tabs) => {
       tabs.forEach(tab => {
-        chrome.tabs.sendMessage(
-          tab.id,
-          {
-            toggle: {
-              featureId: this.props.meta.id,
-              value: newValue
-            }
-          }
-        );
+        chrome.tabs.sendMessage(tab.id, message);
       });
     });
   }
