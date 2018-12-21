@@ -7,8 +7,6 @@
   "author": "Tautvydas Derzinskas",
 	"homepage_url": "https://github.com/SlimDogs/make-youtube-great-again",
 
-	"options_page": "configuration.html",
-
   "browser_action": {
     "default_icon": {
       "19": "icons/icon_19x19.png",

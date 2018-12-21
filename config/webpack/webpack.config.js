@@ -12,7 +12,6 @@ module.exports = {
     flvto: path.resolve(__dirname, '../../src/features/download-mp3/providers/flvto/content.ts'),
     savemp3: path.resolve(__dirname, '../../src/features/download-mp3/providers/save-mp3/content.ts'),
     popup: path.resolve(__dirname, '../../src/popup.tsx'),
-    configuration: path.resolve(__dirname, '../../src/configuration.ts'),
   },
   module: {
     rules: [
@@ -60,16 +59,6 @@ module.exports = {
     }]),
     new CopyWebpackPlugin([{
       from: path.resolve(__dirname, '../../src/popup.html'),
-      transform: function (content, path) {
-        return Buffer.from(
-          content.toString()
-            .replace(/{{title}}/g, process.env.npm_package_description)
-            .replace(/{{version}}/g, process.env.npm_package_version)
-        );
-      }
-    }]),
-    new CopyWebpackPlugin([{
-      from: path.resolve(__dirname, '../../src/configuration.html'),
       transform: function (content, path) {
         return Buffer.from(
           content.toString()
