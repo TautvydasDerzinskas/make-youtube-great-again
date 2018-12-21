@@ -2,15 +2,32 @@
 
 .layout {
   &__header {
+    position: relative;
     display: block;
     background-color: $theme-gray;
     height: 100%;
     text-align: center;
 
-    > img {
-      width: 150px;
-      height: auto;
-      margin: 20px 0 20px 0;
+    .header__close-button {
+      position: absolute;
+      top: $default-spacing;
+      right: $default-spacing;
+      cursor: pointer;
+
+      > svg {
+        fill: $theme-light-gray;
+        height: $large-spacing;
+        width: $large-spacing;
+      }
+    }
+
+    .header__logo {
+      padding: $large-spacing 0 $large-spacing 0;
+
+      > img {
+        width: 150px;
+        height: auto;
+      }
     }
   }
 }
