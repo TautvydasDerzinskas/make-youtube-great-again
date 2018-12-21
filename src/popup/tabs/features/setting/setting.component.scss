@@ -75,4 +75,14 @@ $toggle-distance: $toggle-width - ($slider-spacing * 2) - $slider-size;
     -ms-transform: translateX($toggle-distance);
     transform: translateX($toggle-distance);
   }
+
+  &:hover {
+    .slider {
+      background-color: darken($theme-gray, 15%);
+    }
+
+    input:checked + .slider {
+      background-color: darken($theme-red, 15%);
+    }
+  }
 }

@@ -2,20 +2,7 @@
 import ChromeStorageService from './chrome-storage.service';
 
 import { FeaturesMeta } from '../../features/features';
-
-interface IFeatureData {
-  songs?: string[];
-  counter?: number;
-}
-
-interface IFeatureStoredData {
-  status: boolean;
-  data: IFeatureData;
-}
-
-interface IFeaturesStorageObject {
-  [index: string]: IFeatureStoredData;
-}
+import { IFeaturesStorageObject, IFeatureStoredData, IFeatureData } from '../../interfaces/feature';
 
 class FeatureStorageService extends ChromeStorageService {
   private FEATURES_STORAGE_KEY = 'mygaFeatures';
@@ -79,7 +66,7 @@ class FeatureStorageService extends ChromeStorageService {
 
         FeaturesMeta.forEach(featureMeta => {
           freshFeatures[featureMeta.id] = {
-            status: featureMeta.defaultStatus || true,
+            status: featureMeta.defaultStatus != null ? featureMeta.defaultStatus : true,
             data: featureMeta.defaultData || {},
           };
         });

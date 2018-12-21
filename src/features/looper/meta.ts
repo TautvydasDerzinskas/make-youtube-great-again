@@ -5,10 +5,12 @@ const meta: IMeta = {
   description: 'Allows you to play YouTube videos on repeat mode',
   title: 'Looper',
   defaultData: {
-    count: 0,
+    counter: 0,
     songs: [],
   },
   videoPageOnly: true,
+  isInHistoryTab: true,
+  actionTitle: 'repeatedly looped',
 };
 
 export default meta;

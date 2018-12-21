@@ -5,9 +5,11 @@ const meta: IMeta = {
   description: 'Displays like stats within thumbnails when hovering with mouse',
   title: 'Thumbnail stats',
   defaultData: {
-    count: 0,
+    counter: 0,
     songs: [],
   },
+  isInHistoryTab: true,
+  actionTitle: 'got thumbnail indicator'
 };
 
 export default meta;

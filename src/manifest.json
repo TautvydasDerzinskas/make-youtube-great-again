@@ -49,8 +49,7 @@
 			"all_frames": true
     },
 		{
-			"matches": ["*://*.savemp3.net/frame/button/?quality=*&video=*"],
-			"include_globs" :   ["*#*"],
+			"matches": ["*://*.savemp3.net/frame/button/?*"],
 			"js": ["savemp3.bundle.js"],
 			"run_at": "document_end",
 			"all_frames": true

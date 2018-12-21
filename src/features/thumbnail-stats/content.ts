@@ -61,21 +61,16 @@ class ContentThumbnailStats implements IContent {
 
       featureStorageService.trackVideo(Meta.id, videoId);
 
-      const req = new XMLHttpRequest();
-      req.open('GET', `https://www.googleapis.com/youtube/v3/videos?id=${videoId}&part=statistics&key=${ApiKeys.DataApiV3}`);
-      const _self = this;
-      req.onreadystatechange = function() {
-        if (this.readyState === 4 && this.status === 200) {
-          const response = JSON.parse(this.responseText);
-          const stats = response.items[0].statistics;
-          _self.updateIndicator(
-            parseInt(stats.likeCount, 10),
-            parseInt(stats.dislikeCount, 10),
-            $div
-          );
-        }
-      };
-      req.send();
+      fetch(`https://www.googleapis.com/youtube/v3/videos?id=${videoId}&part=statistics&key=${ApiKeys.DataApiV3}`)
+      .then(res => res.json())
+      .then((response) => {
+        const stats = response.items[0].statistics;
+        this.updateIndicator(
+          parseInt(stats.likeCount, 10),
+          parseInt(stats.dislikeCount, 10),
+          $div
+        );
+      });
     }
   }
 

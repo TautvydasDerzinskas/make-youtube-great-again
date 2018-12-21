@@ -6,9 +6,11 @@ const meta: IMeta = {
   title: 'Convert videos to mp3',
   videoPageOnly: true,
   defaultData: {
-    count: 0,
+    counter: 0,
     songs: [],
   },
+  isInHistoryTab: true,
+  actionTitle: 'converted to mp3',
 };
 
 export default meta;

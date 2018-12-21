@@ -6,6 +6,8 @@ const meta: IMeta = {
   title: 'Hide all comments',
   defaultStatus: false,
   videoPageOnly: true,
+  isInHistoryTab: false,
+  actionTitle: 'comments hidden',
 };
 
 export default meta;
