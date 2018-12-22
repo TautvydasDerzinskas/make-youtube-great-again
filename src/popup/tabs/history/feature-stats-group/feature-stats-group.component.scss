@@ -1,6 +1,7 @@
 @import '../../../variables';
+
 .feature-group {
-  background-color: #F1F1F1;
+  background-color: $theme-silver-white;
   padding: $default-spacing;
 
   &:not(:last-child) {

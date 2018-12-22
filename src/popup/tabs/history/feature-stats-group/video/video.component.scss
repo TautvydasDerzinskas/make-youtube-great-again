@@ -25,7 +25,7 @@ $video-item-height: 30px;
     white-space: nowrap;
     text-overflow: ellipsis;
     overflow: hidden;
-    transition: all .4s ease;
+    transition: $default-transition;
   }
 
   &__play-button {

@@ -7,8 +7,6 @@ import { IFeaturesStorageObject } from '../../../interfaces/feature';
 
 import { FeaturesMeta } from '../../../features/features';
 
-import './history.component.scss';
-
 interface HistoryComponentState {
   data: IFeaturesStorageObject;
 }

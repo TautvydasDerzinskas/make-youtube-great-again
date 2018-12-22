@@ -1,6 +1,6 @@
-const path = require('path')
-  CleanWebpackPlugin = require("clean-webpack-plugin"),
-  CopyWebpackPlugin = require("copy-webpack-plugin");
+const path = require('path');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 const OUTPUT_FOLDER = path.resolve(__dirname, '../../extension');
 
@@ -45,25 +45,27 @@ module.exports = {
     ),
     new CopyWebpackPlugin([
       {
-      from: path.resolve(__dirname, '../../src/manifest.json'),
-      transform: function (content, path) {
-        // generates the manifest file using the package.json informations
-        return Buffer.from(
-          JSON.stringify({
-            description: process.env.npm_package_description,
-            version: process.env.npm_package_version,
-            ...JSON.parse(content.toString()),
-          })
-        );
+        from: path.resolve(__dirname, '../../src/manifest.json'),
+        transform: function (content, path) {
+          const manifest = JSON.parse(content.toString());
+          manifest.version = process.env.npm_package_version;
+          manifest.description = process.env.npm_package_description;
+          return Buffer.from(JSON.stringify(manifest));
+        }
       },
-    }]),
+    ]),
     new CopyWebpackPlugin([{
       from: path.resolve(__dirname, '../../src/popup.html'),
       transform: function (content, path) {
         return Buffer.from(
           content.toString()
-            .replace(/{{title}}/g, process.env.npm_package_description)
+            .replace(/{{title}}/g, process.env.npm_package_name)
+            .replace(/{{desription}}/g, process.env.npm_package_desription)
+            .replace(/{{homepage}}/g, process.env.npm_package_homepage)
+            .replace(/{{author}}/g, process.env.npm_package_author_name)
+            .replace(/{{authorPage}}/g, process.env.npm_package_author_url)
             .replace(/{{version}}/g, process.env.npm_package_version)
+            .replace(/{{bugs}}/g, process.env.npm_package_bugs_url)
         );
       }
     }]),

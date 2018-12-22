@@ -4,15 +4,18 @@
  * Globals
  */
  body, html {
+  font-family: "Segoe UI", Tahoma, sans-serif;
+  font-size: 12px;
+
   margin: 0;
   padding: 0;
   width: 500px;
-  max-height: 650px;
+
   background-color: $theme-gray;
 }
 
 a {
   color: auto;
   text-decoration: none;
-  transition: all .4s ease;
+  transition: $default-transition;
 }

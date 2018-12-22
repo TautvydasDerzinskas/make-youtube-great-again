@@ -11,6 +11,7 @@ export default class NavigationComponent extends React.Component<{}> {
         <NavLink exact className='tabs__tab' activeClassName='tab--active' to='/'>Features</NavLink>
         <NavLink exact className='tabs__tab' activeClassName='tab--active' to='/history'>History</NavLink>
         <NavLink exact className='tabs__tab' activeClassName='tab--active' to='/about'>About</NavLink>
+        <div className='tabs__version'>v{(window as any).myga.version}</div>
       </div>
     );
   }

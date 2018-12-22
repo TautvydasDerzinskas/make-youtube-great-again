@@ -3,6 +3,7 @@ $theme-gray: #252525;
 $theme-light-gray: #a0a0a0;
 $theme-red: #d4101d;
 $theme-white: #ffffff;
+$theme-silver-white: #F1F1F1;
 $theme-black: #000000;
 $theme-blue: #065ed4;
 $theme-green: #4CC790;
@@ -11,3 +12,9 @@ $theme-green: #4CC790;
 $default-spacing: 10px;
 $small-spacing: $default-spacing / 2;
 $large-spacing: $default-spacing * 2;
+
+// Sizes
+$tab-content-width: 460px;
+
+// Other
+$default-transition: all 0.3s ease-in-out;

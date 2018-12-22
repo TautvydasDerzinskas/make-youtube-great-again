@@ -2,6 +2,7 @@
   "name": "make-youtube-great-again",
   "version": "0.0.1",
   "description": "Chrome extension adding new functionality to YouTube experience",
+  "homepage": "https://github.com/SlimDogs/make-youtube-great-again",
   "scripts": {
     "build": "webpack --config=config/webpack/webpack.config.js --mode=production",
     "develop": "webpack --config=config/webpack/webpack.config.js --mode=development --watch --info-verbosity verbose",
@@ -41,10 +42,18 @@
     "TypeScript",
     "React"
   ],
-  "author": "Tautvydas Derzinskas",
+  "author": {
+    "name": "Tautvydas Derzinskas",
+    "email": "tautvydasuk@gmail.com",
+    "url": "https://www.tautvydas.info"
+  },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/SlimDogs/make-youtube-great-again.git"
+    "url": "https://github.com/SlimDogs/make-youtube-great-again.git"
+  },
+  "bugs":{
+    "url": "https://github.com/SlimDogs/make-youtube-great-again/issues",
+    "email": "tautvydasuk+myga@gmail.com"
   },
   "license": "MIT",
   "engines": {
