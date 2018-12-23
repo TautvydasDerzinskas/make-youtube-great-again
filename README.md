@@ -1,5 +1,5 @@
 <p align="center">
-  <a href="https://github.com/SlimDogs/make-youtube-great-again"><img src="https://github.com/SlimDogs/make-youtube-great-again/blob/master/src/assets/images/header.png?raw=true" alt="Chrome extension: Make YouTube great again!" title="Chrome extension: Make YouTube great again!" width="150px" /></a>
+  <a href="https://github.com/SlimDogs/make-youtube-great-again"><img src="docs/images/popup.gif" alt="Chrome extension: Make YouTube great again!" title="Chrome extension: Make YouTube great again!" width="250px" /></a>
 </p>
 
 <p align="center">
@@ -22,35 +22,51 @@ _First of all please have in mind that extension name "Make YouTube great again"
 
 Make YouTube Great Again is a Chrome extension which extends YouTube websites user interface with additional [features](#features). User don't have to use all of the extensions features as there is an option to toggle each of them on and off. There is also a history tab which shows how many times and on what YouTube videos those features been used.
 
-![Make YouTube great again](docs/images/popup.gif)
-
 ## Installation
 Currently you can only use this extension with Google Chrome web browser.
 To install it, please fallow this link: {{ TODO }}
 
 ## Features
-> Convert videos to mp3
 
-![Convert videos to mp3](docs/images/feature_01.gif)
-
+<p align="center">
+  <strong>Convert videos to mp3</strong>
+  <p align="center">
+  <img src="docs/images/feature_01.gif" width="250px" alt="Convert videos to mp3" />
+  </p>
+</p>
 Adds button under each YouTube video which provides an option to convert it to downloadable mp3 file.
 It's users responsibility to use this feature only on videos which have free, non-copyrighted soundtracks.
-> Loop videos
 
-![Loop videos](docs/images/feature_02.gif)
+____
 
+<p align="center">
+  <strong>Loop videos</strong>
+  <p align="center">
+  <img src="docs/images/feature_02.gif" width="250px" alt="Loop videos" />
+  </p>
+</p>
 Adds button under each YouTube video which when activated enables video looping.
 This works fine with both new HTML5 player and legacy flash player.
-> Preview likes stats on video thumbnails
 
-![Preview likes stats on YouTube video thumbnails](docs/images/feature_03.gif)
+____
 
+<p align="center">
+  <strong>Preview like stats on video thumbnails</strong>
+  <p align="center">
+  <img src="docs/images/feature_03.gif" width="250px" alt="Preview like stats on video thumbnails" />
+  </p>
+</p>
 Allows user to see how many times video was liked/disliked before getting to actual video clip page.
 Once user hovers video thumbnail it adds a like/dislike indicator.
-> Hide comments
 
-![Hide comments](docs/images/feature_04.gif)
+____
 
+<p align="center">
+  <strong>Hide comments</strong>
+  <p align="center">
+  <img src="docs/images/feature_04.gif" width="250px" alt="Hide comments" />
+  </p>
+</p>
 Sometimes it's nice to hide the comments... This feature does exactly that.
 It hides both normal comments and live chat messages.
 
