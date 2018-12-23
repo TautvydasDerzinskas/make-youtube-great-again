@@ -9,13 +9,13 @@
 
   margin: 0;
   padding: 0;
-  width: 500px;
+  width: $popup-max-width;
 
   background-color: $theme-gray;
 }
 
 a {
-  color: auto;
+  color: inherit;
   text-decoration: none;
   transition: $default-transition;
 }

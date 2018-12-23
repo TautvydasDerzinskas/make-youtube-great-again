@@ -5,7 +5,7 @@
   padding: $default-spacing;
 
   &:not(:last-child) {
-    margin-bottom: $small-spacing;
+    margin-bottom: $default-spacing;
   }
 
   &__heading {

@@ -1,6 +1,6 @@
 @import '../../../variables';
 
-$link-box-size: ($tab-content-width - ($small-spacing * 2)) / 4;
+$link-box-size: ($tab-content-width - ($default-spacing * 3)) / 4;
 
 .link-box {
   position: absolute;
@@ -8,29 +8,35 @@ $link-box-size: ($tab-content-width - ($small-spacing * 2)) / 4;
   width: $link-box-size;
   background-color: $theme-silver-white;
   overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
-  &--top-left {
+  &--top-left, &--top-left-right {
     top: 0;
     left: 0;
   }
-  &--top-right {
+  &--top-right, &--top-left-right {
     top: 0;
     right: 0;
   }
 
-  &--bottom-left {
+  &--bottom-left, &--bottom-left-right {
     bottom: 0;
     left: 0;
   }
-  &--bottom-right {
+  &--bottom-right, &--bottom-left-right {
     bottom: 0;
     right: 0;
+  }
+
+  &--top-left-right, &--bottom-left-right {
+    width: auto;
   }
 
   &__icon {
     height: $link-box-size / 2;
     width: $link-box-size / 2;
-    margin: $link-box-size / 4;
     fill: $theme-light-gray;
     transition: $default-transition;
 

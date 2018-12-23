@@ -1,19 +1,15 @@
 @import '../../variables';
 
-$about-box-size: ($tab-content-width - $small-spacing) / 2;
+$about-box-size: ($tab-content-width - $default-spacing) / 2;
 
 .about {
   display: flex;
   justify-content: space-between;
   align-items: stretch;
 
-  &__links, &__author {
+  &__links, &__news {
     position: relative;
     width: $about-box-size;
     height: $about-box-size;
-  }
-
-  &__author {
-    background-color: $theme-silver-white;
   }
 }

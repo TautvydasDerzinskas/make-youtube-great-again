@@ -18,6 +18,13 @@
         fill: $theme-light-gray;
         height: $large-spacing;
         width: $large-spacing;
+        transition: $default-transition;
+      }
+
+      &:hover {
+        > svg {
+          fill: $theme-white;
+        }
       }
     }
 
