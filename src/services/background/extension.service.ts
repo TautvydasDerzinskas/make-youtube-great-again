@@ -16,7 +16,7 @@ class ExtensionService extends YoutubeService {
           }
 
           chrome.browserAction.setIcon({
-            path: `icons/icon${newIcon}_350x350.png`,
+            path: `icons/icon${newIcon}_16x16.png`,
             tabId: tab.id
           });
 

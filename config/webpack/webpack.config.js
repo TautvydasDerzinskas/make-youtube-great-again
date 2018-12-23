@@ -16,6 +16,20 @@ module.exports = {
   module: {
     rules: [
       {
+        test: /\.(ts|tsx)$/,
+        loader: 'string-replace-loader',
+        options: {
+          multiple: [
+            { search: '{{title}}', replace: process.env.npm_package_name, flags: 'gi' },
+            { search: '{{homepage}}', replace: process.env.npm_package_homepage, flags: 'gi' },
+            { search: '{{author}}', replace: process.env.npm_package_author_name, flags: 'gi' },
+            { search: '{{authorPage}}', replace: process.env.npm_package_author_url, flags: 'gi' },
+            { search: '{{version}}', replace: process.env.npm_package_version, flags: 'gi' },
+            { search: '{{bugs}}', replace: process.env.npm_package_bugs_url, flags: 'gi' },
+          ],
+        }
+      },
+      {
         test: /\.tsx?$/,
         use: 'ts-loader',
         exclude: /node_modules/,
@@ -60,12 +74,7 @@ module.exports = {
         return Buffer.from(
           content.toString()
             .replace(/{{title}}/g, process.env.npm_package_name)
-            .replace(/{{desription}}/g, process.env.npm_package_desription)
-            .replace(/{{homepage}}/g, process.env.npm_package_homepage)
-            .replace(/{{author}}/g, process.env.npm_package_author_name)
-            .replace(/{{authorPage}}/g, process.env.npm_package_author_url)
             .replace(/{{version}}/g, process.env.npm_package_version)
-            .replace(/{{bugs}}/g, process.env.npm_package_bugs_url)
         );
       }
     }]),
