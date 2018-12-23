@@ -7,9 +7,9 @@ import PaypalLinkBoxComponent from './paypal-link-box/paypal-link-box.component'
 import { ShareLinks } from '../../../enums';
 import IRepositoryData from '../../../interfaces/repo-data';
 
-import './about.component.scss';
+import './links.component.scss';
 
-export default class AboutComponent extends React.Component<{}, { chromeStoreUrl: string; }> {
+export default class LinksComponent extends React.Component<{}, { chromeStoreUrl: string; }> {
   constructor(props: {}) {
     super(props);
     this.state = {
@@ -44,8 +44,8 @@ export default class AboutComponent extends React.Component<{}, { chromeStoreUrl
     const shareLink = this.state.chromeStoreUrl || (window as any).myga.homepage;
 
     return (
-      <div className='about'>
-        <div className='about__links'>
+      <div className='links'>
+        <div className='links__column'>
           <LinkBoxComponent
             link={(window as any).myga.homepage}
             position='top-left'
@@ -66,7 +66,7 @@ export default class AboutComponent extends React.Component<{}, { chromeStoreUrl
             icon='beer.svg'
             label='Buy author a beer' />
         </div>
-        <div className='about__news'>
+        <div className='links__column'>
         <LinkBoxComponent
             link={ShareLinks.Facebook + shareLink}
             position='top-left'
