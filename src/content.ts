@@ -29,10 +29,10 @@ setTimeout(checkPageLoadStatus, 500);
 const setupFeatureContents = () => {
   let featuresLoaded = Features.length;
   Features.forEach((feature) => {
-    featureStorageService.getFeatureData(feature.meta.id).then(featureEnabled => {
+    featureStorageService.getFeatureData(feature.meta.id).then(featureData => {
       featuresLoaded--;
 
-      if (featureEnabled && (!feature.meta.videoPageOnly || isUrlVideoPage)) {
+      if (featureData.status && (!feature.meta.videoPageOnly || isUrlVideoPage)) {
         if (feature.content.extendPageUserInterface) {
           feature.content.extendPageUserInterface();
         }

@@ -5,6 +5,7 @@
   .myga-dropdown {
     position: relative;
     display: inline-block;
+    z-index: 999;
 
     .myga-download-mp3-btn {
       cursor: pointer;

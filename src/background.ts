@@ -15,11 +15,9 @@ chrome.runtime.onInstalled.addListener((details) => {
   if (details.reason = 'install') {
     featureStorageService.initialize();
     analyticsService.trackPageView('install');
-    chrome.tabs.create({
-      url: `${gitRepoUrl}/blob/master/docs/INSTALLED.md`
-    });
+    chrome.tabs.create({ url: gitRepoUrl });
   }
 });
-chrome.runtime.setUninstallURL(`${gitRepoUrl}/blob/master/docs/UNINSTALLED.md`, () => {
+chrome.runtime.setUninstallURL(gitRepoUrl, () => {
   analyticsService.trackPageView('uninstall');
 });
