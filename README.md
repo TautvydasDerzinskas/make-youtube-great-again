@@ -24,7 +24,11 @@ Make YouTube Great Again is a Chrome extension which extends YouTube websites us
 
 ## Installation
 Currently you can only use this extension with Google Chrome web browser.
-To install it, please fallow this link: {{ TODO }}
+To install it please visit a Chrome web store page by clicking image below:
+
+<a href="https://chrome.google.com/webstore/detail/make-youtube-great-again/geonnhfmhfjfkbbkjmbanmjommkjlnim" target="_blank">
+  <img src="docs/images/chrome_store.png" alt="Convert videos to mp3" />
+</a>
 
 ## Features
 
