@@ -5,43 +5,13 @@ import LinkBoxComponent from './link-box/link-box.component';
 import PaypalLinkBoxComponent from './paypal-link-box/paypal-link-box.component';
 
 import { ShareLinks } from '../../../enums';
-import IRepositoryData from '../../../interfaces/repo-data';
 
 import './links.component.scss';
 
-export default class LinksComponent extends React.Component<{}, { chromeStoreUrl: string; }> {
-  constructor(props: {}) {
-    super(props);
-    this.state = {
-      chromeStoreUrl: null
-    };
-  }
-
-  componentDidMount() {
-    fetch(`https://raw.githubusercontent.com/SlimDogs/make-youtube-great-again/master/data.json`)
-      .then(res => res.json())
-      .then((result: IRepositoryData) => {
-        this.setState({
-          chromeStoreUrl: result.chromeStoreUrl,
-        });
-      }).catch((error) => {
-        console.log('Data file does not exist', error);
-      });
-  }
+export default class LinksComponent extends React.Component<{}> {
 
   render() {
-    let reviewLinkBox;
-    if (this.state.chromeStoreUrl) {
-      reviewLinkBox = (
-        <LinkBoxComponent
-          link={this.state.chromeStoreUrl}
-          position='bottom-left-right'
-          icon='star.svg'
-          label='Love this extension? Leave a review!' />
-      );
-    }
-
-    const shareLink = this.state.chromeStoreUrl || (window as any).myga.homepage;
+    const chromeStoreLink = `https://chrome.google.com/webstore/detail/${chrome.runtime.id}`;
 
     return (
       <div className='links'>
@@ -67,17 +37,21 @@ export default class LinksComponent extends React.Component<{}, { chromeStoreUrl
             label='Buy author a beer' />
         </div>
         <div className='links__column'>
-        <LinkBoxComponent
-            link={ShareLinks.Facebook + shareLink}
+          <LinkBoxComponent
+            link={ShareLinks.Facebook + chromeStoreLink}
             position='top-left'
             icon='facebook.svg'
             label='Share to Facebook' />
           <LinkBoxComponent
-            link={ShareLinks.Twitter + shareLink}
+            link={ShareLinks.Twitter + chromeStoreLink}
             position='top-right'
             icon='twitter.svg'
             label='Share to Twitter' />
-          {reviewLinkBox}
+          <LinkBoxComponent
+            link={chromeStoreLink + '/reviews'}
+            position='bottom-left-right'
+            icon='star.svg'
+            label='Love this extension? Leave a review!' />
         </div>
       </div>
     );
