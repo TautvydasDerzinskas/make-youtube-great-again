@@ -2,7 +2,7 @@
   "manifest_version": 2,
 
   "name": "Make YouTube great again",
-  "description": "Chrome extension adding new functionality to YouTube experience",
+  "description": "Browser extension adding new functionality to YouTube experience",
   "version": "1.0.0",
   "author": "Tautvydas Derzinskas",
 	"homepage_url": "https://github.com/SlimDogs/make-youtube-great-again",

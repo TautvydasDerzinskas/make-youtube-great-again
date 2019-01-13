@@ -4,7 +4,7 @@ import urlService from '../../services/common/url.service';
 import featureStorageService from '../../services/common/feature-storage.service';
 
 import Meta from './meta';
-import { YoutubeSelectors, SvgIcons } from '../../enums';
+import { YoutubeSelectors } from '../../enums';
 import IContent from '../../interfaces/content';
 
 import './styles/looper.scss';
@@ -22,7 +22,7 @@ class ContentLooper implements IContent {
     $button.className = 'myga-looper-btn';
     $button.setAttribute('title', Meta.description);
     $button.setAttribute('type', 'button');
-    $button.innerHTML = svgIconsService.getIcon(SvgIcons.Looper);
+    $button.innerHTML = svgIconsService.iconLooper;
     appendTo.appendChild($button);
   }
 

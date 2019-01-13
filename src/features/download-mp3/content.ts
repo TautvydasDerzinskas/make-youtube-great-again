@@ -2,7 +2,7 @@ import urlService from '../../services/common/url.service';
 import svgIconsService from '../../services/content/svg-icons.service';
 import Meta from './meta';
 import MetaProviders from './providers/providers';
-import { YoutubeSelectors, SvgIcons } from '../../enums';
+import { YoutubeSelectors } from '../../enums';
 import IContent from '../../interfaces/content';
 
 import './styles/download-mp3.scss';
@@ -15,7 +15,7 @@ class ContentDownloadMp3 implements IContent {
 
     const appendTo = document.querySelector(YoutubeSelectors.MenuBeforeDropdown);
     const dropdownHtml = `
-      <button class="dropbtn myga-download-mp3-btn">${svgIconsService.getIcon(SvgIcons.DownloadMp3)}</button>
+      <button class="dropbtn myga-download-mp3-btn">${svgIconsService.iconDownloadMp3}</button>
       <div class="myga-dropdown-content">
         ${this.generateDropdownTemplate()}
       </div>

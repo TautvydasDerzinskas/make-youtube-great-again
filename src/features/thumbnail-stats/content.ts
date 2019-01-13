@@ -3,7 +3,7 @@ import svgIconsService from '../../services/content/svg-icons.service';
 import featureStorageService from '../../services/common/feature-storage.service';
 
 import Meta from './meta';
-import { YoutubeSelectors, ApiKeys, SvgIcons } from '../../enums';
+import { YoutubeSelectors, ApiKeys } from '../../enums';
 import IContent from '../../interfaces/content';
 
 import './styles/thumbnail-stats.scss';
@@ -51,8 +51,8 @@ class ContentThumbnailStats implements IContent {
   private mouseEnterEvent($thumb: HTMLElement) {
     if (!$thumb.classList.contains('myga-thumb-container')) {
       const $div = document.createElement('div');
-      $div.innerHTML += svgIconsService.getIcon(SvgIcons.Thumb);
-      $div.innerHTML += svgIconsService.getIcon(SvgIcons.Progress);
+      $div.innerHTML += svgIconsService.iconThumb;
+      $div.innerHTML += svgIconsService.iconProgress;
       $div.className = 'myga-thumb-stats myga-thumb-stats--loading';
       $thumb.classList.add('myga-thumb-container');
       $thumb.appendChild($div);
