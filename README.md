@@ -13,6 +13,7 @@
 - [About](#about)
 - [Installation](#installation)
 - [Features](#features)
+- [Screenshots](#screenshots)
 - [Road map](#road-map)
 - [Development](#development)
 - [License](#license)
@@ -74,6 +75,11 @@ ____
 Sometimes it's nice to hide the comments... This feature does exactly that.
 It hides both normal comments and live chat messages.
 
+## Screenshots
+<a href="docs/images/screenshot_01.jpg" target="_blank"><img width="200px" src="docs/images/screenshot_01.jpg" alt="Screenshot" title="Screenshot" /></a><a href="docs/images/screenshot_02.jpg" target="_blank"><img width="200px" src="docs/images/screenshot_02.jpg" alt="Screenshot" title="Screenshot" /></a><a href="docs/images/screenshot_03.jpg" target="_blank"><img width="200px" src="docs/images/screenshot_03.jpg" alt="Screenshot" title="Screenshot" /></a><a href="docs/images/screenshot_04.jpg" target="_blank"><img width="200px" src="docs/images/screenshot_04.jpg" alt="Screenshot" title="Screenshot" /></a><a href="docs/images/screenshot_05.jpg" target="_blank"><img width="200px" src="docs/images/screenshot_05.jpg" alt="Screenshot" title="Screenshot" /></a>
+
+
+
 ## Road map
 * Port extension to browsers such as Firefox and Opera
 * Add more features
@@ -89,4 +95,4 @@ To contribute you need to perform these steps:
 5. In your browser extensions window enable development mode and load MYGA extension from folder `extension` to test your changes
 
 ## License
-The repository code is open-sourced software licensed under the [MIT license](https://github.com/SlimDogs/gulp-comments-to-md/blob/master/LICENSE?raw=true).
+The repository code is open-sourced software licensed under the [MIT license](https://github.com/SlimDogs/make-youtube-great-again/blob/master/LICENSE?raw=true).
