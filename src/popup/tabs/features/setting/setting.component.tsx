@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { Tooltip } from 'react-tippy';
 
 import IMeta from '../../../../interfaces/meta';
 import { IMessageToggle } from '../../../../interfaces/communication';
@@ -66,10 +67,12 @@ export default class SettingComponent extends React.Component<{ meta: IMeta }, I
           <div>{this.props.meta.description}</div>
         </div>
         <div className='setting__column'>
-          <label className='setting__switch'>
-            <input type='checkbox' checked={this.state.data.value} onChange={this.toggleFeature.bind(this)} />
-            <span className='slider slider--round'></span>
-          </label>
+          <Tooltip title={this.state.data.value ? 'Turn OFF' : 'Turn ON'} arrow={true} position='top'>
+            <label className='setting__switch'>
+              <input type='checkbox' checked={this.state.data.value} onChange={this.toggleFeature.bind(this)} />
+              <span className='slider slider--round'></span>
+            </label>
+          </Tooltip>
         </div>
       </div>
     );

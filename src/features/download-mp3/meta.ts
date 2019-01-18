@@ -10,7 +10,7 @@ const meta: IMeta = {
     songs: [],
   },
   isInHistoryTab: true,
-  actionTitle: 'converted to mp3',
+  actionTitle: 'converted',
 };
 
 export default meta;

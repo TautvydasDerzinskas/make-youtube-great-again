@@ -9,7 +9,7 @@ const meta: IMeta = {
     songs: [],
   },
   isInHistoryTab: true,
-  actionTitle: 'got thumbnail indicator'
+  actionTitle: 'hovered'
 };
 
 export default meta;

@@ -6,6 +6,8 @@ import './popup.meta';
 
 import AppComponent from './popup/app.component';
 
+import 'react-tippy/dist/tippy.css';
+
 ReactDOM.render(
   <HashRouter>
     <AppComponent/>

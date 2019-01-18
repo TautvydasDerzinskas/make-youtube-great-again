@@ -12,8 +12,9 @@
       top: $default-spacing;
       right: $default-spacing;
       cursor: pointer;
+      z-index: 999;
 
-      > svg {
+      svg {
         fill: $theme-light-gray;
         height: $large-spacing;
         width: $large-spacing;
@@ -21,7 +22,7 @@
       }
 
       &:hover {
-        > svg {
+        svg {
           fill: $theme-white;
         }
       }
@@ -31,21 +32,38 @@
       width: 100%;
       height: 160px;
       overflow: hidden;
+      position: relative;
 
       &__image {
         height: 100%;
         width: 100%;
         position: relative;
-        background-color: $theme-black;
         background-position: center;
         background-repeat: no-repeat;
         background-size: cover;
-        transition: all 0.5s;
+
+        &:first-child {
+          background-color: $theme-black;
+          transition: all 0.5s;
+        }
+
+        &:nth-child(2) {
+          position: absolute;
+          top: 0;
+          left: 0;
+          transition: all 0.4s;
+        }
       }
 
       &:hover, &:focus {
         .header__logo__image {
-          transform: scale(1.1);
+          &:first-child {
+            transform: scale(1.1);
+          }
+
+          &:nth-child(2) {
+            transform: scale(0.8);
+          }
         }
       }
     }

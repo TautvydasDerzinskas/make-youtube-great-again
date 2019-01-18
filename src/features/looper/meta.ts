@@ -10,7 +10,7 @@ const meta: IMeta = {
   },
   videoPageOnly: true,
   isInHistoryTab: true,
-  actionTitle: 'repeatedly looped',
+  actionTitle: 'looped',
 };
 
 export default meta;
