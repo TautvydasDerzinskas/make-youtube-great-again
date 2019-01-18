@@ -5,7 +5,6 @@ import { Switch, Route } from 'react-router-dom';
 
 // Layout components
 import HeaderComponent from './layout/header/header.component';
-import NavigationComponent from './layout/navigation/navigation.component';
 
 // Tab components
 import HistoryComponent from './tabs/history/history.component';
@@ -19,7 +18,6 @@ export default class AppComponent extends React.Component<{}> {
     return (
       <div>
         <HeaderComponent />
-        <NavigationComponent />
         <div className='tabs-content'>
           <Switch>
             <Route exact path='/' component={FeaturesComponent}/>

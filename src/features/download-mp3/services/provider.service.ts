@@ -9,7 +9,6 @@ export default class ProviderService {
 
   public static registerConvertion(featureId: string, passedVideoId?: string) {
     const videoId = passedVideoId || this.videoId;
-
     if (videoId) {
       featureStorageService.trackVideo(featureId, videoId);
     }

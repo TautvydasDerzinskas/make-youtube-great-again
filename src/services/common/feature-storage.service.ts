@@ -58,6 +58,7 @@ class FeatureStorageService extends ChromeStorageService {
     });
   }
 
+  // TODO: Remove this
   public initialize(): void {
     this.getFeatures().then((features: IFeaturesStorageObject) => {
       if (features == null) {

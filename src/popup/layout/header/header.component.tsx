@@ -1,7 +1,9 @@
 
 
 import * as React from 'react';
-import extensionService from '../../../services/background/extension.service';
+
+import NavigationComponent from './navigation/navigation.component';
+
 import './header.component.scss';
 
 export default class HeaderComponent extends React.Component<{}> {
@@ -20,7 +22,8 @@ export default class HeaderComponent extends React.Component<{}> {
           </svg>
         </div>
         <div className='header__logo'>
-          <img src='images/header.png' />
+          <div className='header__logo__image' style={{ backgroundImage: 'url(./images/header.png)', }}></div>
+          <NavigationComponent />
         </div>
       </div>
     );
