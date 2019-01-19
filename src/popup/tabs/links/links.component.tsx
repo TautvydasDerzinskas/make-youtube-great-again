@@ -4,6 +4,8 @@ import * as React from 'react';
 import LinkBoxComponent from './link-box/link-box.component';
 import PaypalLinkBoxComponent from './paypal-link-box/paypal-link-box.component';
 
+import browserService from '../../../services/common/browser.service';
+
 import { ShareLinks } from '../../../enums';
 
 import './links.component.scss';
@@ -11,7 +13,7 @@ import './links.component.scss';
 export default class LinksComponent extends React.Component<{}> {
 
   render() {
-    const chromeStoreLink = `https://chrome.google.com/webstore/detail/${chrome.runtime.id}`;
+    const webStoreLink = browserService.browserExtensionWebStoreLink;
 
     return (
       <div className='links'>
@@ -38,17 +40,17 @@ export default class LinksComponent extends React.Component<{}> {
         </div>
         <div className='links__column'>
           <LinkBoxComponent
-            link={ShareLinks.Facebook + chromeStoreLink}
+            link={ShareLinks.Facebook + webStoreLink}
             position='top-left'
             icon='facebook.svg'
             label='Share to Facebook' />
           <LinkBoxComponent
-            link={ShareLinks.Twitter + chromeStoreLink}
+            link={ShareLinks.Twitter + webStoreLink}
             position='top-right'
             icon='twitter.svg'
             label='Share to Twitter' />
           <LinkBoxComponent
-            link={chromeStoreLink + '/reviews'}
+            link={webStoreLink + '/reviews'}
             position='bottom-left-right'
             icon='star.svg'
             label='Love this extension? Leave a review!' />

@@ -4,10 +4,13 @@
   "description": "Browser extension adding new functionality to YouTube experience",
   "homepage": "https://github.com/SlimDogs/make-youtube-great-again",
   "scripts": {
-    "build": "webpack --config=config/webpack/webpack.config.js --mode=production && npm run zip",
+    "build:all": "npm run build:chrome && npm run build:firefox",
+    "build:chrome": "webpack --config=config/webpack/webpack.config.js --mode=production && npm run zip:chrome",
+    "build:firefox": "set browser=firefox && webpack --config=config/webpack/webpack.config.js --mode=production && npm run zip:firefox",
+    "zip:chrome": "cd extension && bestzip ../myga_chrome.zip *",
+    "zip:firefox": "cd extension && bestzip ../myga_firefox.zip *",
     "develop": "webpack --config=config/webpack/webpack.config.js --mode=development --watch --info-verbosity verbose",
-    "lint": "tslint -c tslint.json 'src/**/*.{ts,tsx}'",
-    "zip": "cd extension/ && bestzip ../myga.zip *"
+    "lint": "tslint -c tslint.json 'src/**/*.{ts,tsx}'"
   },
   "dependencies": {
     "react": "16.7.0",

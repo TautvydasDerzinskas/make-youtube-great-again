@@ -1,10 +1,10 @@
 
-import ChromeStorageService from './chrome-storage.service';
+import BrowserStorageService from './browser-storage.service';
 
 import { FeaturesMeta } from '../../features/features';
 import { IFeaturesStorageObject, IFeatureStoredData, IFeatureData } from '../../interfaces/feature';
 
-class FeatureStorageService extends ChromeStorageService {
+class FeatureStorageService extends BrowserStorageService {
   private FEATURES_STORAGE_KEY = 'mygaFeatures';
 
   constructor() {

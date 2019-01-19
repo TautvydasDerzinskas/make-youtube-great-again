@@ -70,6 +70,11 @@ module.exports = {
           const manifest = JSON.parse(content.toString());
           manifest.version = process.env.npm_package_version;
           manifest.description = process.env.npm_package_description;
+
+          // Firefox required additional permission for fetching data
+          if (process.env.browser) {
+            manifest.permissions.push('<all_urls>');
+          }
           return Buffer.from(JSON.stringify(manifest));
         }
       },

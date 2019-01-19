@@ -17,3 +17,11 @@ export enum ShareLinks {
   Facebook = 'https://www.facebook.com/sharer/sharer.php?u=',
   Twitter = 'https://twitter.com/intent/tweet?text=Make%20YouTube%20great%20again&url=',
 }
+
+export enum Browsers {
+  Chrome = 'chrome',
+  Firefox = 'firefox',
+  Opera = 'opera',
+  Vivaldi = 'vivaldi',
+  Other = 'other',
+}
