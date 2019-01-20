@@ -10,6 +10,8 @@ import './styles/thumbnail-stats.scss';
 
 class ContentThumbnailStats implements IContent {
   private bodyObserver: MutationObserver;
+  private videoId: string = urlService.getQueryParameterByName('v', window.location.href);
+  private isDestructionInProgress = false;
 
   public extendPageUserInterface() {
     document.getElementsByTagName('body')[0]
@@ -18,6 +20,8 @@ class ContentThumbnailStats implements IContent {
 
   public setupEventListeners() {
     this.setupObserver();
+
+    this.destructOldMouseEnterEvents();
 
     const thumbnailElements = document.querySelectorAll(YoutubeSelectors.AllThumbnails);
 
@@ -34,6 +38,27 @@ class ContentThumbnailStats implements IContent {
   public cleanUp() {
     document.getElementsByTagName('body')[0]
       .classList.remove('myga-thumbnail-stats--enabled');
+  }
+
+  private destructOldMouseEnterEvents() {
+    const currentVideoId = urlService.getQueryParameterByName('v', window.location.href);
+    if (this.videoId !== currentVideoId && !this.isDestructionInProgress) {
+      this.isDestructionInProgress = true;
+
+      const mygaOverlayElements = document.getElementsByClassName('myga-thumb-container');
+      for (let i = 0, b = mygaOverlayElements.length; i < b; i += 1) {
+        const element = mygaOverlayElements[i];
+        if (element) {
+          element.classList.remove('myga-thumb-container');
+          const statsElement = element.children[(element.children.length - 1)];
+          if (statsElement) {
+            statsElement.remove();
+          }
+        }
+      }
+      this.videoId = currentVideoId;
+      this.isDestructionInProgress = false;
+    }
   }
 
   private setupObserver() {
