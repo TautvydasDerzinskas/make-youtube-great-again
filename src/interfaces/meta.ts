@@ -3,7 +3,7 @@ export default interface IMeta {
   description: string;
   title: string;
   isInHistoryTab: boolean;
-  actionTitle: string;
+  actionTitle?: string;
   defaultStatus?: boolean;
   defaultData?: any;
   videoPageOnly?: boolean;

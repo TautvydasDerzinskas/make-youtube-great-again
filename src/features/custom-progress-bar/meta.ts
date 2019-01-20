@@ -1,9 +1,9 @@
 import IMeta from '../../interfaces/meta';
 
 const meta: IMeta = {
-  id: 'myga-hide-comments',
-  description: 'Hides both usual comments and live stream chat messages',
-  title: 'Hide all comments',
+  id: 'myga-custom-progress-bar',
+  description: 'Transforms video players progress bar to a nicer & funnier looking one',
+  title: 'Custom progress bar',
   defaultStatus: false,
   videoPageOnly: true,
   isInHistoryTab: false,

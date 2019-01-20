@@ -18,6 +18,7 @@ class FeatureStorageService extends BrowserStorageService {
   public getFeatureData<T>(featureId: string): Promise<IFeatureStoredData> {
     return new Promise((resolve) => {
       this.getFeatures().then((features: IFeaturesStorageObject) => {
+        this.checkFeatures(features, featureId);
         resolve(features[featureId]);
       });
     });
@@ -26,6 +27,7 @@ class FeatureStorageService extends BrowserStorageService {
   public toggleFeatureStatus(featureId: string, value?: boolean): Promise<IFeatureStoredData> {
     return new Promise((resolve) => {
       this.getFeatures().then((features: IFeaturesStorageObject) => {
+        this.checkFeatures(features, featureId);
         features[featureId].status = typeof value === 'boolean' ? value : !features[featureId].status;
         this.setItem(this.FEATURES_STORAGE_KEY, features).then(() => {
           resolve(features[featureId]);
@@ -58,22 +60,24 @@ class FeatureStorageService extends BrowserStorageService {
     });
   }
 
-  // TODO: Remove this
-  public initialize(): void {
-    this.getFeatures().then((features: IFeaturesStorageObject) => {
-      if (features == null) {
-        const freshFeatures: IFeaturesStorageObject = {};
+  private getFeatureMetaById(featureId: string) {
+    return FeaturesMeta.filter(feature => feature.id === featureId)[0];
+  }
 
-        FeaturesMeta.forEach(featureMeta => {
-          freshFeatures[featureMeta.id] = {
-            status: featureMeta.defaultStatus != null ? featureMeta.defaultStatus : true,
-            data: featureMeta.defaultData || {},
-          };
-        });
+  private checkFeatures(features: IFeaturesStorageObject, featureId: string) {
+    if (!features) {
+      features = {};
+    }
 
-        this.setItem(this.FEATURES_STORAGE_KEY, freshFeatures);
-      }
-    });
+    if (!features[featureId]) {
+      const featureMeta = this.getFeatureMetaById(featureId);
+      features[featureId] = {
+        status: featureMeta.defaultStatus != null ? featureMeta.defaultStatus : true,
+        data: featureMeta.defaultData || {},
+      };
+    }
+
+    return features;
   }
 }
 

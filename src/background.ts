@@ -14,7 +14,6 @@ chrome.tabs.onActivated.addListener(() => { extensionService.updateToolbarIcon()
 const gitRepoUrl = 'https://github.com/SlimDogs/make-youtube-great-again';
 chrome.runtime.onInstalled.addListener((details) => {
   if (details.reason = 'install') {
-    featureStorageService.initialize();
     analyticsService.trackPageView('install');
     chrome.tabs.create({ url: '{{homepage}}' });
   } else if (details.reason === 'update') {

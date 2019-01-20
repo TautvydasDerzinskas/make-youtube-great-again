@@ -14,6 +14,10 @@ import MetaHideComments from './hide-comments/meta';
 import ContentHideComments from './hide-comments/content';
 import PopupHideComments from './hide-comments/popup';
 
+import MetaCustomProgressBar from './custom-progress-bar/meta';
+import ContentCustomProgressBar from './custom-progress-bar/content';
+import PopupCustomProgressBar from './custom-progress-bar/popup';
+
 import IFeature from '../interfaces/feature';
 import IMeta from '../interfaces/meta';
 
@@ -37,6 +41,11 @@ export const Features: IFeature[] = [
     meta: MetaHideComments,
     content: ContentHideComments,
     popup: PopupHideComments,
+  },
+  {
+    meta: MetaCustomProgressBar,
+    content: ContentCustomProgressBar,
+    popup: PopupCustomProgressBar,
   },
 ];
 
