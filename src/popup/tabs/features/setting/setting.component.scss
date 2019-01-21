@@ -10,6 +10,13 @@ $toggle-distance: $toggle-width - ($slider-spacing * 2) - $slider-size;
   display: flex;
   justify-content: space-between;
 
+
+  &__column {
+    &:first-child {
+      flex: 1;
+    }
+  }
+
   &:not(:last-child) {
     margin-bottom: $default-spacing;
   }
@@ -28,6 +35,16 @@ $toggle-distance: $toggle-width - ($slider-spacing * 2) - $slider-size;
       opacity: 0;
       width: 0;
       height: 0;
+    }
+  }
+
+  &__settings-link {
+    margin: 0 $default-spacing;
+
+    svg {
+      fill: $theme-black;
+      height: $large-spacing;
+      width: $large-spacing;
     }
   }
 

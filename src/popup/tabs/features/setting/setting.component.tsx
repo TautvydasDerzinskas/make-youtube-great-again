@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { Tooltip } from 'react-tippy';
+import { NavLink } from 'react-router-dom';
 
 import IMeta from '../../../../interfaces/meta';
 import { IMessageToggle } from '../../../../interfaces/communication';
@@ -59,6 +60,24 @@ export default class SettingComponent extends React.Component<{ meta: IMeta }, I
     });
   }
 
+  private settingsColumn() {
+    let settingsColumn;
+
+    if (this.props.meta.hasSettings) {
+      settingsColumn = (
+        <div className='setting__column'>
+          <Tooltip title='Click to configure' arrow={true} position='top'>
+            <NavLink className='setting__settings-link' to={`/settings/${this.props.meta.id}`}>
+              <svg><use xlinkHref='#myga-settings'></use></svg>
+            </NavLink>
+          </Tooltip>
+        </div>
+      );
+    }
+
+    return settingsColumn;
+  }
+
   render() {
     return (
       <div className='setting'>
@@ -66,6 +85,7 @@ export default class SettingComponent extends React.Component<{ meta: IMeta }, I
           <div className='setting__title'>{this.props.meta.title}</div>
           <div>{this.props.meta.description}</div>
         </div>
+        {this.settingsColumn()}
         <div className='setting__column'>
           <Tooltip title={this.state.data.value ? 'Turn OFF' : 'Turn ON'} arrow={true} position='top'>
             <label className='setting__switch'>

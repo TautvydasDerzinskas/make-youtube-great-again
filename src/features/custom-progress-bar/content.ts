@@ -22,7 +22,7 @@ class ContentCustomProgressBar implements IContent {
     const style = document.createElement('link');
     style.setAttribute('name', 'myga-custom-bar');
     style.setAttribute('rel', 'stylesheet');
-    style.setAttribute('href', chrome.extension.getURL(`/css/bars/bar__nyan-cat.css`));
+    style.setAttribute('href', chrome.extension.getURL(`/css/bars/bar__zombie.css`));
     document.getElementsByTagName('head')[0].appendChild(style);
   }
 }

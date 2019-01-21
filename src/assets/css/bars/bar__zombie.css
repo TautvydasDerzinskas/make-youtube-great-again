@@ -1,0 +1,24 @@
+.myga--custom-bar .ytp-play-progress {
+  padding: 2.5px 1px;
+  top: -2px;
+  background-color: #00c900;
+}
+.myga--custom-bar .ytp-scrubber-container {
+  background-image: url('chrome-extension://__MSG_@@extension_id__/images/bars/zombie.gif');
+  background-repeat: no-repeat;
+  background-size: 20px;
+  width: 20px;
+  height: 27px;
+  margin-top: -15px;
+}
+.myga--custom-bar .paused-mode .ytp-scrubber-container {
+  background-image: url('chrome-extension://__MSG_@@extension_id__/images/bars/zombie__pause.gif');
+}
+.myga--custom-bar .ytp-scrubber-container:hover {
+  background-size: 24px;
+  margin-top: -19px;
+  margin-left: -2px;
+}
+.myga--custom-bar .ytp-scrubber-button {
+  display: none;
+}

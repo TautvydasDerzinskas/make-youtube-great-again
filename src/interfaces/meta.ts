@@ -7,4 +7,5 @@ export default interface IMeta {
   defaultStatus?: boolean;
   defaultData?: any;
   videoPageOnly?: boolean;
+  hasSettings?: boolean;
 }

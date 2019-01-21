@@ -17,6 +17,9 @@
   height: 24px;
   margin-top: -4px;
 }
+.myga--custom-bar .paused-mode .ytp-scrubber-container {
+  background-image: url('chrome-extension://__MSG_@@extension_id__/images/bars/nyan-cat__pause.gif');
+}
 .myga--custom-bar .ytp-scrubber-container:hover {
   background-size: 40px;
   margin-top: -6px;
