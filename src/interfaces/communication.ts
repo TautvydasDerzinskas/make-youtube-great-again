@@ -4,3 +4,9 @@ export interface IMessageToggle {
     value: boolean;
   };
 }
+
+export interface IMessageRestart {
+  restart: {
+    featureId: string;
+  };
+}

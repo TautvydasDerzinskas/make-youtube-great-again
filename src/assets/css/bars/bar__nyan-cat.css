@@ -1,4 +1,4 @@
-.myga--custom-bar .ytp-play-progress {
+.myga--custom-bar.bar--nyan-cat .ytp-play-progress {
   padding: 2.5px 1px;
   top: -2px;
   background: -webkit-gradient(linear, left top, left bottom,
@@ -9,7 +9,7 @@
   color-stop(67%, #09f),
   color-stop(83%, #63f));
 }
-.myga--custom-bar .ytp-scrubber-container {
+.myga--custom-bar.bar--nyan-cat .ytp-scrubber-container {
   background-image: url('chrome-extension://__MSG_@@extension_id__/images/bars/nyan-cat.gif');
   background-repeat: no-repeat;
   background-size: 36px;
@@ -17,10 +17,10 @@
   height: 24px;
   margin-top: -4px;
 }
-.myga--custom-bar .paused-mode .ytp-scrubber-container {
+.myga--custom-bar.bar--nyan-cat .paused-mode .ytp-scrubber-container {
   background-image: url('chrome-extension://__MSG_@@extension_id__/images/bars/nyan-cat__pause.gif');
 }
-.myga--custom-bar .ytp-scrubber-container:hover {
+.myga--custom-bar.bar--nyan-cat .ytp-scrubber-container:hover {
   background-size: 40px;
   margin-top: -6px;
   margin-left: -2px;

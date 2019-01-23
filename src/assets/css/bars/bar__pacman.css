@@ -1,0 +1,30 @@
+.myga--custom-bar.bar--pacman .ytp-play-progress {
+  padding: 2.5px 1px;
+  top: -2px;
+  background: #2a27ff;
+}
+
+.myga--custom-bar.bar--pacman .ytp-scrubber-container {
+  background-repeat: no-repeat;
+  background-image: url('chrome-extension://__MSG_@@extension_id__/images/bars/pacman.gif');
+  background-size: 30px;
+  width: 30px;
+  height: 30px;
+  margin-top: -10px;
+}
+
+.myga--custom-bar.bar--football .paused-mode .ytp-scrubber-container {
+  background-image: url('chrome-extension://__MSG_@@extension_id__/images/bars/pacman__pause.gif');
+}
+
+
+.myga--custom-bar.bar--pacman .ytp-scrubber-container:hover {
+  background-size: 32px;
+  width: 32px;
+  height: 32px;
+  margin-top: -11px;
+  margin-left:-3px;
+}
+.myga--custom-bar .ytp-scrubber-button {
+  display: none;
+}

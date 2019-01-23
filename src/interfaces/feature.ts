@@ -5,6 +5,7 @@ import IPopup from './popup';
 export interface IFeatureData {
   songs?: string[];
   counter?: number;
+  theme?: string;
 }
 
 export interface IFeatureStoredData {

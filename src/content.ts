@@ -2,7 +2,7 @@ import featureStorageService from './services/common/feature-storage.service';
 import urlService from './services/common/url.service';
 
 import { Features } from './features/features';
-import { IMessageToggle } from './interfaces/communication';
+import { IMessageToggle, IMessageRestart } from './interfaces/communication';
 import { YoutubeSelectors } from './enums';
 
 let videoId = urlService.getQueryParameterByName('v');
@@ -49,11 +49,11 @@ const setupFeatureContents = () => {
 /**
  * Settup feature toggling listener
  */
-chrome.runtime.onMessage.addListener((request: IMessageToggle) => {
-  if  (request.toggle && request.toggle.featureId) {
-    const activeFeature = Features.filter(feature => feature.meta.id === request.toggle.featureId)[0];
+chrome.runtime.onMessage.addListener((request: IMessageToggle | IMessageRestart) => {
+  if ((request as IMessageToggle).toggle && (request as IMessageToggle).toggle.featureId) {
+    const activeFeature = Features.filter(feature => feature.meta.id === (request as IMessageToggle).toggle.featureId)[0];
     if (activeFeature) {
-      if (request.toggle.value) {
+      if ((request as IMessageToggle).toggle.value) {
         if (activeFeature.content.extendPageUserInterface) {
           activeFeature.content.extendPageUserInterface();
         }
@@ -63,6 +63,17 @@ chrome.runtime.onMessage.addListener((request: IMessageToggle) => {
       } else {
         activeFeature.content.cleanUp();
       }
+    }
+  }
+
+  if ((request as IMessageRestart).restart && (request as IMessageRestart).restart.featureId) {
+    const activeFeature = Features.filter(feature => feature.meta.id === (request as IMessageRestart).restart.featureId)[0];
+    activeFeature.content.cleanUp();
+    if (activeFeature.content.extendPageUserInterface) {
+      activeFeature.content.extendPageUserInterface();
+    }
+    if (activeFeature.content.setupEventListeners) {
+      activeFeature.content.setupEventListeners();
     }
   }
 });

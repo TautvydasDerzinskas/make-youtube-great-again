@@ -1,8 +1,8 @@
 @import '../../../variables';
 
-$toggle-width: 38px;
-$toggle-height: 20px;
-$slider-size: 16px;
+$toggle-width: $large-spacing * 2;
+$toggle-height: $large-spacing;
+$slider-size: $large-spacing - 2px;
 $slider-spacing: ($toggle-height - $slider-size) / 2;
 $toggle-distance: $toggle-width - ($slider-spacing * 2) - $slider-size;
 

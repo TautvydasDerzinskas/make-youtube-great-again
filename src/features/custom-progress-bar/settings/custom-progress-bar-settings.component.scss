@@ -1,5 +1,117 @@
 @import '../../../popup/variables';
 
-.cpb-settings {
+.settings {
 
+  &__content {
+    max-height: 300px;
+    background-color: $theme-silver-white;
+    overflow-x: hidden;
+
+    .progress-bar {
+      display: flex;
+      padding: $large-spacing;
+
+      &__selector {
+        height: $large-spacing;
+        width: $large-spacing;
+        margin-left: $large-spacing;
+      }
+
+      &__preview {
+        flex: 1;
+        height: $large-spacing;
+        padding: 0 $large-spacing;
+        position: relative;
+
+        .full-progress {
+          position: absolute;
+          left: 0;
+          top: 50%;
+          right: 0;
+          background-color: rgba($theme-black, 0.2);
+          height: 4px;
+          margin-top: -2px;
+        }
+
+        .ytp-play-progress {
+          position: absolute;
+          left: 0;
+          top: 50%;
+          width: 50%;
+          height: 1px;
+          margin-top: -3px;
+        }
+
+        .ytp-scrubber-container {
+          position: absolute;
+          top: 10%;
+          left: 50%;
+          margin-left: -($large-spacing/2);
+        }
+      }
+    }
+  }
 }
+
+.selector {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 22px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+
+  input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    visibility: hidden;
+
+    &:checked ~ .checkmark {
+      background-color: $theme-red;
+    }
+
+    &:checked ~ .checkmark:after {
+      display: block;
+    }
+
+    &:hover:not(:checked) ~ .checkmark:after {
+      background-color: $theme-light-gray;
+      display: block;
+    }
+  }
+
+  .checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: $large-spacing;
+    width: $large-spacing;
+    background-color: $theme-white;
+    border-radius: 50%;
+
+    &:after {
+      content: "";
+      position: absolute;
+      display: none;
+    }
+
+    &:after {
+      top: $small-spacing;
+      left: $small-spacing;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background-color: $theme-white;
+   }
+  }
+}
+
+@import '../../../assets/css/bars/bar__nyan-cat.css';
+@import '../../../assets/css/bars/bar__zombie.css';
+@import '../../../assets/css/bars/bar__football.css';
+@import '../../../assets/css/bars/bar__pacman.css';
