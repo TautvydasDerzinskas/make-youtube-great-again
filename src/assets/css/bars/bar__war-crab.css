@@ -1,0 +1,31 @@
+.myga--custom-bar.bar--war-crab .ytp-play-progress {
+  padding: 2.5px 1px;
+  top: -2px;
+  background: -webkit-gradient(linear, left top, left bottom,
+  color-stop(0.00, #f8e8b0),
+  color-stop(17%, #e08840),
+  color-stop(33%, #b85010),
+  color-stop(50%, #802800));
+}
+.myga--custom-bar.bar--war-crab .ytp-scrubber-container {
+  background-image: url('chrome-extension://__MSG_@@extension_id__/images/bars/war-crab.gif');
+  background-repeat: no-repeat;
+  background-size: 40px;
+  width: 40px;
+  height: 40px;
+  margin-top: -30px;
+  margin-left: -28px;
+}
+.myga--custom-bar.bar--war-crab .paused-mode .ytp-scrubber-container {
+  background-image: url('chrome-extension://__MSG_@@extension_id__/images/bars/war-crab__pause.gif');
+}
+.myga--custom-bar.bar--war-crab .ytp-scrubber-container:hover {
+  background-size: 45px;
+  width: 45px;
+  height: 45px;
+  margin-top: -33px;
+  margin-left: -30px;
+}
+.myga--custom-bar .ytp-scrubber-button {
+  display: none;
+}

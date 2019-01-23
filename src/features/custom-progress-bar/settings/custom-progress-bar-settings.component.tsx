@@ -4,14 +4,14 @@ import BackToFeaturesComponent from '../../../popup/tabs/features/back-to-featur
 
 import featureStorageService from '../../../services/common/feature-storage.service';
 
-
 import MetaCustomProgressBar from '../meta';
 import { IMessageRestart } from '../../../interfaces/communication';
+import { ProgressBars } from '../../../enums';
 
 import './custom-progress-bar-settings.component.scss';
 
 interface ICustomProgressBarSettingsComponent {
-  progressBarType: string;
+  progressBarType: ProgressBars;
 }
 
 export default class CustomProgressBarSettingsComponent extends React.Component<{}, ICustomProgressBarSettingsComponent> {
@@ -31,10 +31,20 @@ export default class CustomProgressBarSettingsComponent extends React.Component<
   }
 
   get progressBarTypes() {
-    return ['zombie', 'nyan-cat', 'football', 'pacman'];
+    return [
+      ProgressBars.Zombie,
+      ProgressBars.NyanCat,
+      ProgressBars.Football,
+      ProgressBars.Poop,
+      ProgressBars.Purge,
+      ProgressBars.WarCrab,
+      ProgressBars.Orcs,
+      ProgressBars.Unicorn,
+      ProgressBars.Panda,
+    ];
   }
 
-  private progressBarChange(progressBarType: string) {
+  private progressBarChange(progressBarType: ProgressBars) {
     featureStorageService.storeFeatureData(MetaCustomProgressBar.id, { theme: progressBarType }).then(featureData => {
       this.setState({ progressBarType });
 
@@ -66,9 +76,11 @@ export default class CustomProgressBarSettingsComponent extends React.Component<
         <Tooltip title={`Select "${progressBarType}" themed progress bar`} arrow={true} position='top'>
           <div className='progress-bar'>
             <div className={`progress-bar__preview myga--custom-bar bar--${progressBarType}`}>
-              <div className='full-progress'></div>
+              <div className='preview__full-progress'></div>
               <div className='ytp-play-progress'></div>
+              <div className='preview__center'>
               <div className='ytp-scrubber-container' style={{backgroundImage: `url(${imageUrl})`}}></div>
+              </div>
             </div>
             <div className='progress-bar__selector'>
               <label className='selector'>

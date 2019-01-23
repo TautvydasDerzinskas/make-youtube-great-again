@@ -1,0 +1,29 @@
+.myga--custom-bar.bar--purge .ytp-play-progress {
+  padding: 2.5px 1px;
+  top: -2px;
+  background: -webkit-gradient(linear, left top, left bottom,
+  color-stop(0.00, #8a93a1),
+  color-stop(5%, #2e3b50),
+  color-stop(33%, #15151e));
+}
+.myga--custom-bar.bar--purge .ytp-scrubber-container {
+  background-image: url('chrome-extension://__MSG_@@extension_id__/images/bars/purge.gif');
+  background-repeat: no-repeat;
+  background-size: 60px;
+  width: 60px;
+  height: 26px;
+  margin-top: -15px;
+}
+.myga--custom-bar.bar--purge .paused-mode .ytp-scrubber-container {
+  background-image: url('chrome-extension://__MSG_@@extension_id__/images/bars/purge__pause.gif');
+}
+.myga--custom-bar.bar--purge .ytp-scrubber-container:hover {
+  background-size: 64px;
+  width: 64px;
+  height: 28px;
+  margin-top: -17px;
+  margin-left: -4px;
+}
+.myga--custom-bar .ytp-scrubber-button {
+  display: none;
+}

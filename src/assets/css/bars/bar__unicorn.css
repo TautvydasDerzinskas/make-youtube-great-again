@@ -1,0 +1,53 @@
+.myga--custom-bar.bar--unicorn .ytp-play-progress {
+  padding: 2.5px 1px;
+  top: -2px;
+  background: linear-gradient(124deg, #ff2400, #e81d1d, #e8b71d, #e3e81d, #1de840, #1ddde8, #2b1de8, #dd00f3, #dd00f3);
+  background-size: 1800% 1800%;
+
+  -webkit-animation: rainbow 18s ease infinite;
+  -z-animation: rainbow 18s ease infinite;
+  -o-animation: rainbow 18s ease infinite;
+    animation: rainbow 18s ease infinite;
+}
+.myga--custom-bar.bar--unicorn .ytp-scrubber-container {
+  background-image: url('chrome-extension://__MSG_@@extension_id__/images/bars/unicorn.gif');
+  background-repeat: no-repeat;
+  background-size: 40px;
+  width: 40px;
+  height: 35px;
+  margin-top: -19px;
+}
+.myga--custom-bar.bar--unicorn .paused-mode .ytp-scrubber-container {
+  background-image: url('chrome-extension://__MSG_@@extension_id__/images/bars/unicorn__pause.gif');
+}
+.myga--custom-bar.bar--unicorn .ytp-scrubber-container:hover {
+  background-size: 44px;
+  width: 44px;
+  height: 38px;
+  margin-top: -19px;
+  margin-left: -4px;
+}
+.myga--custom-bar .ytp-scrubber-button {
+  display: none;
+}
+
+@-webkit-keyframes rainbow {
+  0%{background-position:0% 82%}
+  50%{background-position:100% 19%}
+  100%{background-position:0% 82%}
+}
+@-moz-keyframes rainbow {
+  0%{background-position:0% 82%}
+  50%{background-position:100% 19%}
+  100%{background-position:0% 82%}
+}
+@-o-keyframes rainbow {
+  0%{background-position:0% 82%}
+  50%{background-position:100% 19%}
+  100%{background-position:0% 82%}
+}
+@keyframes rainbow {
+  0%{background-position:0% 82%}
+  50%{background-position:100% 19%}
+  100%{background-position:0% 82%}
+}

@@ -2,10 +2,12 @@ import IMeta from './meta';
 import IContent from './content';
 import IPopup from './popup';
 
+import { ProgressBars } from '../enums';
+
 export interface IFeatureData {
   songs?: string[];
   counter?: number;
-  theme?: string;
+  theme?: ProgressBars;
 }
 
 export interface IFeatureStoredData {

@@ -3,9 +3,15 @@
 .settings {
 
   &__content {
-    max-height: 300px;
-    background-color: $theme-silver-white;
-    overflow-x: hidden;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: stretch;
+
+    > * {
+      width: 50%;
+    }
 
     .progress-bar {
       display: flex;
@@ -23,14 +29,27 @@
         padding: 0 $large-spacing;
         position: relative;
 
-        .full-progress {
-          position: absolute;
-          left: 0;
-          top: 50%;
-          right: 0;
-          background-color: rgba($theme-black, 0.2);
-          height: 4px;
-          margin-top: -2px;
+        .preview {
+          &__full-progress {
+            position: absolute;
+            left: 0;
+            top: 50%;
+            right: 0;
+            background-color: rgba($theme-black, 0.2);
+            height: 4px;
+            margin-top: -2px;
+          }
+
+          &__center {
+            position: absolute;
+            top: 10%;
+            left: 50%;
+            margin-left: -($large-spacing/2);
+
+            .ytp-scrubber-container {
+              position: absolute;
+            }
+          }
         }
 
         .ytp-play-progress {
@@ -40,13 +59,6 @@
           width: 50%;
           height: 1px;
           margin-top: -3px;
-        }
-
-        .ytp-scrubber-container {
-          position: absolute;
-          top: 10%;
-          left: 50%;
-          margin-left: -($large-spacing/2);
         }
       }
     }
@@ -91,7 +103,7 @@
     left: 0;
     height: $large-spacing;
     width: $large-spacing;
-    background-color: $theme-white;
+    background-color: $theme-silver-white;
     border-radius: 50%;
 
     &:after {
@@ -115,3 +127,9 @@
 @import '../../../assets/css/bars/bar__zombie.css';
 @import '../../../assets/css/bars/bar__football.css';
 @import '../../../assets/css/bars/bar__pacman.css';
+@import '../../../assets/css/bars/bar__poop.css';
+@import '../../../assets/css/bars/bar__purge.css';
+@import '../../../assets/css/bars/bar__war-crab.css';
+@import '../../../assets/css/bars/bar__orcs.css';
+@import '../../../assets/css/bars/bar__unicorn.css';
+@import '../../../assets/css/bars/bar__panda.css';

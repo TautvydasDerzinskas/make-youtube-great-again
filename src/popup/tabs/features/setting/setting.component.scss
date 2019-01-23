@@ -2,14 +2,14 @@
 
 $toggle-width: $large-spacing * 2;
 $toggle-height: $large-spacing;
-$slider-size: $large-spacing - 2px;
+$slider-size: $large-spacing - 4px;
 $slider-spacing: ($toggle-height - $slider-size) / 2;
 $toggle-distance: $toggle-width - ($slider-spacing * 2) - $slider-size;
 
 .setting {
   display: flex;
   justify-content: space-between;
-
+  align-items: center;
 
   &__column {
     &:first-child {

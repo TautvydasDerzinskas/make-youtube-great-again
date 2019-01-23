@@ -1,4 +1,5 @@
 import IMeta from '../../interfaces/meta';
+import { ProgressBars } from '../../enums';
 
 const meta: IMeta = {
   id: 'myga-custom-progress-bar',
@@ -9,7 +10,7 @@ const meta: IMeta = {
   isInHistoryTab: false,
   hasSettings: true,
   defaultData: {
-    theme: 'nyan-cat',
+    theme: ProgressBars.Poop,
   },
 };
 

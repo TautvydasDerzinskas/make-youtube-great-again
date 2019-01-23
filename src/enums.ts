@@ -25,3 +25,16 @@ export enum Browsers {
   Vivaldi = 'vivaldi',
   Other = 'other',
 }
+
+export enum ProgressBars {
+  Zombie = 'zombie',
+  NyanCat = 'nyan-cat',
+  Football = 'football',
+  Pacman = 'pacman',
+  Poop = 'poop',
+  Purge = 'purge',
+  WarCrab = 'war-crab',
+  Orcs = 'orcs',
+  Unicorn = 'unicorn',
+  Panda = 'panda',
+}

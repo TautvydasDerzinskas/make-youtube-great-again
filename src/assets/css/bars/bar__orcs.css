@@ -1,0 +1,29 @@
+.myga--custom-bar.bar--orcs .ytp-play-progress {
+  padding: 2.5px 1px;
+  top: -2px;
+  background: -webkit-gradient(linear, left top, left bottom,
+  color-stop(0.00, #bb4343),
+  color-stop(25%, #953333),
+  color-stop(50%, #661c2a),
+  color-stop(75%, #292c2e));
+}
+.myga--custom-bar.bar--orcs .ytp-scrubber-container {
+  background-image: url('chrome-extension://__MSG_@@extension_id__/images/bars/orcs.gif');
+  background-repeat: no-repeat;
+  background-size: 70px;
+  width: 70px;
+  height: 48px;
+  margin-top: -30px;
+  margin-left: -10px;
+}
+.myga--custom-bar.bar--orcs .paused-mode .ytp-scrubber-container {
+  background-image: url('chrome-extension://__MSG_@@extension_id__/images/bars/orcs__pause.gif');
+}
+.myga--custom-bar.bar--orcs .ytp-scrubber-container:hover {
+  background-size: 74px;
+  width: 74px;
+  height: 50px;
+}
+.myga--custom-bar .ytp-scrubber-button {
+  display: none;
+}

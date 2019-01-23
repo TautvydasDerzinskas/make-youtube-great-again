@@ -1,0 +1,32 @@
+.myga--custom-bar.bar--panda .ytp-play-progress {
+  padding: 2.5px 1px;
+  top: -2px;
+  background: -webkit-gradient(linear, left top, left bottom,
+  color-stop(0.00, #000000),
+  color-stop(17%, #FFFFFF),
+  color-stop(33%, #000000),
+  color-stop(50%, #FFFFFF),
+  color-stop(67%, #000000),
+  color-stop(83%, #FFFFFF));
+}
+.myga--custom-bar.bar--panda .ytp-scrubber-container {
+  background-image: url('chrome-extension://__MSG_@@extension_id__/images/bars/panda.gif');
+  background-repeat: no-repeat;
+  background-size: 40px;
+  width: 40px;
+  height: 40px;
+  margin-top: -31px;
+  margin-left: -15px;
+}
+.myga--custom-bar.bar--panda .paused-mode .ytp-scrubber-container {
+  background-image: url('chrome-extension://__MSG_@@extension_id__/images/bars/panda__pause.gif');
+}
+.myga--custom-bar.bar--panda .ytp-scrubber-container:hover {
+  background-size: 44px;
+  width: 44px;
+  height: 44px;
+  margin-top: -32px;
+}
+.myga--custom-bar .ytp-scrubber-button {
+  display: none;
+}
