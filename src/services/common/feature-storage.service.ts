@@ -18,7 +18,7 @@ class FeatureStorageService extends BrowserStorageService {
   public getFeatureData<T>(featureId: string): Promise<IFeatureStoredData> {
     return new Promise((resolve) => {
       this.getFeatures().then((features: IFeaturesStorageObject) => {
-        this.checkFeatures(features, featureId);
+        features = this.checkFeatures(features, featureId);
         resolve(features[featureId]);
       });
     });
@@ -27,7 +27,7 @@ class FeatureStorageService extends BrowserStorageService {
   public toggleFeatureStatus(featureId: string, value?: boolean): Promise<IFeatureStoredData> {
     return new Promise((resolve) => {
       this.getFeatures().then((features: IFeaturesStorageObject) => {
-        this.checkFeatures(features, featureId);
+        features = this.checkFeatures(features, featureId);
         features[featureId].status = typeof value === 'boolean' ? value : !features[featureId].status;
         this.setItem(this.FEATURES_STORAGE_KEY, features).then(() => {
           resolve(features[featureId]);
@@ -39,6 +39,7 @@ class FeatureStorageService extends BrowserStorageService {
   public storeFeatureData<T>(featureId: string, data: IFeatureData): Promise<IFeatureStoredData> {
     return new Promise((resolve) => {
       this.getFeatures().then((features: IFeaturesStorageObject) => {
+        features = this.checkFeatures(features, featureId);
         features[featureId].data = data;
         this.setItem(this.FEATURES_STORAGE_KEY, features).then(() => {
           resolve(features[featureId]);
