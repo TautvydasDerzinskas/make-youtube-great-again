@@ -10,7 +10,6 @@ class ProviderFlvo extends ProviderService {
       if (featureEnabled && window.location.href.toLowerCase().includes(ProviderMeta.url)) {
         (<HTMLInputElement>document.getElementById('convertUrl')).value = this.getYoutubeUrl();
 
-        this.registerConvertion(FeatureMeta.id);
         document.getElementsByTagName('button')[0].click();
       }
     });

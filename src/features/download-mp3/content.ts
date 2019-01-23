@@ -1,5 +1,7 @@
 import urlService from '../../services/common/url.service';
 import svgIconsService from '../../services/content/svg-icons.service';
+import featureStorageService from '../../services/common/feature-storage.service';
+
 import Meta from './meta';
 import MetaProviders from './providers/providers';
 import { YoutubeSelectors } from '../../enums';
@@ -33,14 +35,23 @@ class ContentDownloadMp3 implements IContent {
 
     let dropdownHtml = '';
     MetaProviders.forEach(meta => {
-      const attachUrl = meta.withHash ? '#' + videoId : window.location.href;
       dropdownHtml += `
-        <a title="${meta.name}" target="_blank" href="${meta.url}${attachUrl}">
+        <a title="${meta.name}" target="_blank" href="${meta.downloadLink(videoId)}">
           Get mp3 (${meta.name})
         </a>
       `;
     });
     return dropdownHtml;
+  }
+
+  public setupEventListeners() {
+    const providerLinkElements = document.querySelectorAll('.myga-dropdown a');
+    for (let i = 0, b = providerLinkElements.length; i < b; i += 1) {
+      providerLinkElements[i].addEventListener('click', () => {
+        const videoId = urlService.getQueryParameterByName('v');
+        featureStorageService.trackVideo(Meta.id, videoId);
+      });
+    }
   }
 
   public cleanUp() {

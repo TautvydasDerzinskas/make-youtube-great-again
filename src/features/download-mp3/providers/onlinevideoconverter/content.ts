@@ -19,7 +19,6 @@ class ProviderOnlineVideoConverter extends ProviderService {
             dropdownElements[i].classList.remove('active');
           }
         }
-        this.registerConvertion(FeatureMeta.id);
         document.getElementById('convert1').click();
       }
     });

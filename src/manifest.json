@@ -48,10 +48,11 @@
 			"js": ["onlinevideoconverter.bundle.js"],
 			"run_at": "document_end",
 			"all_frames": true
-    },
+		},
 		{
-			"matches": ["*://*.savemp3.net/frame/button/?*"],
-			"js": ["savemp3.bundle.js"],
+			"matches": ["*://*.simpleyoutubeconverter.com/*"],
+			"include_globs" :   ["*#*"],
+			"js": ["simpleyoutubeconverter.bundle.js"],
 			"run_at": "document_end",
 			"all_frames": true
 		}

@@ -1,18 +1,19 @@
-import featureStorageService from '../../../../services/common/feature-storage.service';
 import ProviderService from '../../services/provider.service';
+import featureStorageService from '../../../../services/common/feature-storage.service';
 
 import ProviderMeta from './meta';
 import FeatureMeta from '../../meta';
 
-class ProviderSaveMp3 extends ProviderService {
+class ProviderOnlineVideoConverter extends ProviderService {
   public static initialize() {
     featureStorageService.getFeatureData(FeatureMeta.id).then(featureEnabled => {
       if (featureEnabled && window.location.href.toLowerCase().includes(ProviderMeta.url)) {
         const videoId = window.location.href.split('?v=')[1];
-        this.registerConvertion(FeatureMeta.id, videoId);
+        window.location.assign(`http://dl.simpleyoutubeconverter.com/yt/${videoId}?dl=mp3`);
+
       }
     });
   }
 }
 
-ProviderSaveMp3.initialize();
+ProviderOnlineVideoConverter.initialize();
