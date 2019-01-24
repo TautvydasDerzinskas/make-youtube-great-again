@@ -1,0 +1,31 @@
+.myga--custom-bar.bar--horse .ytp-play-progress {
+  padding: 2.5px 1px;
+  top: -2px;
+  background: -webkit-gradient(linear,  left top,  left bottom,
+  color-stop(0.00, #8ed447),
+  color-stop(17%, #8ed447),
+  color-stop(33%, #417e1b),
+  color-stop(50%, #417e1b),
+  color-stop(67%, #914905),
+  color-stop(83%, #4e1001));
+}
+.myga--custom-bar.bar--horse .ytp-scrubber-container {
+  background-image: url('chrome-extension://__MSG_@@extension_id__/images/bars/horse.gif');
+  background-repeat: no-repeat;
+  background-size: 45px;
+  width: 45px;
+  height: 35px;
+  margin-top: -25px;
+  margin-left: -38px;
+}
+.myga--custom-bar.bar--horse .paused-mode .ytp-scrubber-container {
+  background-image: url('chrome-extension://__MSG_@@extension_id__/images/bars/horse__pause.gif');
+}
+.myga--custom-bar.bar--horse .ytp-scrubber-container:hover {
+  background-size: 47px;
+  width: 47px;
+  height: 36px;
+}
+.myga--custom-bar .ytp-scrubber-button {
+  display: none;
+}

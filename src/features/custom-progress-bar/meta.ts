@@ -10,7 +10,7 @@ const meta: IMeta = {
   isInHistoryTab: false,
   hasSettings: true,
   defaultData: {
-    theme: ProgressBars.Poop,
+    theme: ProgressBars.Unicorn,
   },
 };
 

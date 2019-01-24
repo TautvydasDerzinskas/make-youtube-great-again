@@ -41,6 +41,7 @@ export default class CustomProgressBarSettingsComponent extends React.Component<
       ProgressBars.Orcs,
       ProgressBars.Unicorn,
       ProgressBars.Panda,
+      ProgressBars.Horse,
     ];
   }
 
