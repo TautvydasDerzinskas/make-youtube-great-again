@@ -48,13 +48,6 @@
 			"js": ["onlinevideoconverter.bundle.js"],
 			"run_at": "document_end",
 			"all_frames": true
-		},
-		{
-			"matches": ["*://*.simpleyoutubeconverter.com/*"],
-			"include_globs" :   ["*#*"],
-			"js": ["simpleyoutubeconverter.bundle.js"],
-			"run_at": "document_end",
-			"all_frames": true
 		}
 	],
 

@@ -10,7 +10,6 @@ module.exports = {
     content: path.resolve(__dirname, '../../src/content.ts'),
     onlinevideoconverter: path.resolve(__dirname, '../../src/features/download-mp3/providers/onlinevideoconverter/content.ts'),
     flvto: path.resolve(__dirname, '../../src/features/download-mp3/providers/flvto/content.ts'),
-    simpleyoutubeconverter: path.resolve(__dirname, '../../src/features/download-mp3/providers/simpleyoutubeconverter/content.ts'),
     popup: path.resolve(__dirname, '../../src/popup.tsx'),
   },
   module: {

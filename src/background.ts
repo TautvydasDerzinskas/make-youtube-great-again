@@ -21,3 +21,5 @@ chrome.runtime.onInstalled.addListener((details) => {
   }
 });
 chrome.runtime.setUninstallURL(gitRepoUrl);
+
+featureStorageService.initialize();
