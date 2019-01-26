@@ -15,7 +15,6 @@
     animation: super-rainbow 1s ease infinite;
 }
 .myga--custom-bar.bar--nyan-cat .ytp-scrubber-container {
-  background-image: url('chrome-extension://__MSG_@@extension_id__/images/bars/nyan-cat.gif');
   background-repeat: no-repeat;
   background-size: 35px;
   width: 35px;
@@ -23,9 +22,21 @@
   margin-top: -3px;
   margin-left: -2px;
 }
-.myga--custom-bar.bar--nyan-cat .paused-mode .ytp-scrubber-container {
+
+.myga--custom-bar.bar--nyan-cat:not(.myga-browser--firefox) .ytp-scrubber-container {
+  background-image: url('chrome-extension://__MSG_@@extension_id__/images/bars/nyan-cat.gif');
+}
+.myga-browser--firefox.myga--custom-bar.bar--nyan-cat .ytp-scrubber-container {
+  background-image: url('moz-extension://__MSG_@@extension_id__/images/bars/nyan-cat.gif');
+}
+
+.myga--custom-bar.bar--nyan-cat:not(.myga-browser--firefox) .paused-mode .ytp-scrubber-container {
   background-image: url('chrome-extension://__MSG_@@extension_id__/images/bars/nyan-cat__pause.gif');
 }
+.myga-browser--firefox.myga--custom-bar.bar--nyan-cat .paused-mode .ytp-scrubber-container {
+  background-image: url('moz-extension://__MSG_@@extension_id__/images/bars/nyan-cat__pause.gif');
+}
+
 .myga--custom-bar.bar--nyan-cat .ytp-scrubber-container:hover {
   background-size: 44px;
   width: 44px;

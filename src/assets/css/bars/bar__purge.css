@@ -7,16 +7,27 @@
   color-stop(33%, #15151e));
 }
 .myga--custom-bar.bar--purge .ytp-scrubber-container {
-  background-image: url('chrome-extension://__MSG_@@extension_id__/images/bars/purge.gif');
   background-repeat: no-repeat;
   background-size: 60px;
   width: 60px;
   height: 26px;
   margin-top: -15px;
 }
-.myga--custom-bar.bar--purge .paused-mode .ytp-scrubber-container {
+
+.myga--custom-bar.bar--purge:not(.myga-browser--firefox) .ytp-scrubber-container {
+  background-image: url('chrome-extension://__MSG_@@extension_id__/images/bars/purge.gif');
+}
+.myga-browser--firefox.myga--custom-bar.bar--purge .ytp-scrubber-container {
+  background-image: url('moz-extension://__MSG_@@extension_id__/images/bars/purge.gif');
+}
+
+.myga--custom-bar.bar--purge:not(.myga-browser--firefox) .paused-mode .ytp-scrubber-container {
   background-image: url('chrome-extension://__MSG_@@extension_id__/images/bars/purge__pause.gif');
 }
+.myga-browser--firefox.myga--custom-bar.bar--purge .paused-mode .ytp-scrubber-container {
+  background-image: url('moz-extension://__MSG_@@extension_id__/images/bars/purge__pause.gif');
+}
+
 .myga--custom-bar.bar--purge .ytp-scrubber-container:hover {
   background-size: 64px;
   width: 64px;

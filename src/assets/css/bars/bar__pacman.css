@@ -6,17 +6,25 @@
 
 .myga--custom-bar.bar--pacman .ytp-scrubber-container {
   background-repeat: no-repeat;
-  background-image: url('chrome-extension://__MSG_@@extension_id__/images/bars/pacman.gif');
   background-size: 30px;
   width: 30px;
   height: 30px;
   margin-top: -10px;
 }
 
-.myga--custom-bar.bar--football .paused-mode .ytp-scrubber-container {
-  background-image: url('chrome-extension://__MSG_@@extension_id__/images/bars/pacman__pause.gif');
+.myga--custom-bar.bar--pacman:not(.myga-browser--firefox) .ytp-scrubber-container {
+  background-image: url('chrome-extension://__MSG_@@extension_id__/images/bars/pacman.gif');
+}
+.myga-browser--firefox.myga--custom-bar.bar--pacman .ytp-scrubber-container {
+  background-image: url('moz-extension://__MSG_@@extension_id__/images/bars/pacman.gif');
 }
 
+.myga--custom-bar.bar--pacman:not(.myga-browser--firefox) .paused-mode .ytp-scrubber-container {
+  background-image: url('chrome-extension://__MSG_@@extension_id__/images/bars/pacman__pause.gif');
+}
+.myga-browser--firefox.myga--custom-bar.bar--pacman .paused-mode .ytp-scrubber-container {
+  background-image: url('moz-extension://__MSG_@@extension_id__/images/bars/pacman__pause.gif');
+}
 
 .myga--custom-bar.bar--pacman .ytp-scrubber-container:hover {
   background-size: 32px;

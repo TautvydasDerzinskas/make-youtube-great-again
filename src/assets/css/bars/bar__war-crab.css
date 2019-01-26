@@ -8,7 +8,6 @@
   color-stop(50%, #802800));
 }
 .myga--custom-bar.bar--war-crab .ytp-scrubber-container {
-  background-image: url('chrome-extension://__MSG_@@extension_id__/images/bars/war-crab.gif');
   background-repeat: no-repeat;
   background-size: 40px;
   width: 40px;
@@ -16,9 +15,21 @@
   margin-top: -30px;
   margin-left: -28px;
 }
-.myga--custom-bar.bar--war-crab .paused-mode .ytp-scrubber-container {
+
+.myga--custom-bar.bar--war-crab:not(.myga-browser--firefox) .ytp-scrubber-container {
+  background-image: url('chrome-extension://__MSG_@@extension_id__/images/bars/war-crab.gif');
+}
+.myga-browser--firefox.myga--custom-bar.bar--war-crab .ytp-scrubber-container {
+  background-image: url('moz-extension://__MSG_@@extension_id__/images/bars/war-crab.gif');
+}
+
+.myga--custom-bar.bar--war-crab:not(.myga-browser--firefox) .paused-mode .ytp-scrubber-container {
   background-image: url('chrome-extension://__MSG_@@extension_id__/images/bars/war-crab__pause.gif');
 }
+.myga-browser--firefox.myga--custom-bar.bar--war-crab .paused-mode .ytp-scrubber-container {
+  background-image: url('moz-extension://__MSG_@@extension_id__/images/bars/war-crab__pause.gif');
+}
+
 .myga--custom-bar.bar--war-crab .ytp-scrubber-container:hover {
   background-size: 45px;
   width: 45px;

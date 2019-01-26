@@ -24,7 +24,7 @@ class BrowserService {
 
     switch (this.browserName) {
       case Browsers.Firefox:
-        link = `https://addons.mozilla.org/en-GB/firefox/addon/${(window as any).myga.title}`;
+        link = `https://addons.mozilla.org/en-GB/firefox/addon/myga`;
         break;
       case Browsers.Opera:
         link = `https://addons.opera.com/en-gb/extensions/details/${(window as any).myga.title}`;

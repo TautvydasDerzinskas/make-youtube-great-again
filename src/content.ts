@@ -1,5 +1,6 @@
 import featureStorageService from './services/common/feature-storage.service';
 import urlService from './services/common/url.service';
+import browserService from './services/common/browser.service';
 
 import { Features } from './features/features';
 import { IMessageToggle, IMessageRestart } from './interfaces/communication';
@@ -7,6 +8,11 @@ import { YoutubeSelectors } from './enums';
 
 let videoId = urlService.getQueryParameterByName('v');
 let isUrlVideoPage = videoId != null;
+
+/**
+ * Add browser related css class
+ */
+document.body.classList.add(`myga-browser--${browserService.browserName}`);
 
 /**
  * Only start initializing content scripts

@@ -17,9 +17,21 @@
   height: 26px;
   margin-top: -15px;
 }
-.myga--custom-bar.bar--poop .paused-mode .ytp-scrubber-container {
+
+.myga--custom-bar.bar--poop:not(.myga-browser--firefox) .ytp-scrubber-container {
+  background-image: url('chrome-extension://__MSG_@@extension_id__/images/bars/poop.gif');
+}
+.myga-browser--firefox.myga--custom-bar.bar--poop .ytp-scrubber-container {
+  background-image: url('moz-extension://__MSG_@@extension_id__/images/bars/poop.gif');
+}
+
+.myga--custom-bar.bar--poop:not(.myga-browser--firefox) .paused-mode .ytp-scrubber-container {
   background-image: url('chrome-extension://__MSG_@@extension_id__/images/bars/poop__pause.gif');
 }
+.myga-browser--firefox.myga--custom-bar.bar--poop .paused-mode .ytp-scrubber-container {
+  background-image: url('moz-extension://__MSG_@@extension_id__/images/bars/poop__pause.gif');
+}
+
 .myga--custom-bar.bar--poop .ytp-scrubber-container:hover {
   background-size: 24px;
   width: 24px;

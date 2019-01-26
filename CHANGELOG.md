@@ -3,7 +3,7 @@
 
 ----
 
-> Release 1.1 (26/01/2019)
+> Release 1.1.1 (26/01/2019)
 
 New features:
 - Custom progress bar (12 themes)
@@ -19,7 +19,7 @@ Other
 
 ----
 
-> Release 1.0 (23/12/2018)
+> Release 1.0.0 (23/12/2018)
 
 Features
 - Convert videos to mp3 (3 providers)

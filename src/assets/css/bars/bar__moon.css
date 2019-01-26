@@ -4,15 +4,25 @@
   background-color: #080808;
 }
 .myga--custom-bar.bar--moon .ytp-scrubber-container {
-  background-image: url('chrome-extension://__MSG_@@extension_id__/images/bars/moon.gif');
   background-repeat: no-repeat;
   background-size: 30px;
   width: 30px;
   height: 29px;
   margin-top: -9px;
 }
-.myga--custom-bar.bar--moon .paused-mode .ytp-scrubber-container {
+
+.myga--custom-bar.bar--moon:not(.myga-browser--firefox) .ytp-scrubber-container {
+  background-image: url('chrome-extension://__MSG_@@extension_id__/images/bars/moon.gif');
+}
+.myga-browser--firefox.myga--custom-bar.bar--moon .ytp-scrubber-container {
+  background-image: url('moz-extension://__MSG_@@extension_id__/images/bars/moon.gif');
+}
+
+.myga--custom-bar.bar--moon:not(.myga-browser--firefox) .paused-mode .ytp-scrubber-container {
   background-image: url('chrome-extension://__MSG_@@extension_id__/images/bars/moon__pause.gif');
+}
+.myga-browser--firefox.myga--custom-bar.bar--moon .paused-mode .ytp-scrubber-container {
+  background-image: url('moz-extension://__MSG_@@extension_id__/images/bars/moon__pause.gif');
 }
 .myga--custom-bar.bar--moon .ytp-scrubber-container:hover {
   background-size: 34px;

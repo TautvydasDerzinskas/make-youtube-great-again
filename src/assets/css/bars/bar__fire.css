@@ -10,7 +10,6 @@
     animation: fire 10s ease infinite;
 }
 .myga--custom-bar.bar--fire .ytp-scrubber-container {
-  background-image: url('chrome-extension://__MSG_@@extension_id__/images/bars/fire.gif');
   background-repeat: no-repeat;
   background-size: 30px;
   width: 30px;
@@ -18,9 +17,21 @@
   margin-top: -17px;
   margin-left: -10px;
 }
-.myga--custom-bar.bar--fire .paused-mode .ytp-scrubber-container {
+
+.myga--custom-bar.bar--fire:not(.myga-browser--firefox) .ytp-scrubber-container {
+  background-image: url('chrome-extension://__MSG_@@extension_id__/images/bars/fire.gif');
+}
+.myga-browser--firefox.myga--custom-bar.bar--fire .ytp-scrubber-container {
+  background-image: url('moz-extension://__MSG_@@extension_id__/images/bars/fire.gif');
+}
+
+.myga--custom-bar.bar--fire:not(.myga-browser--firefox) .paused-mode .ytp-scrubber-container {
   background-image: url('chrome-extension://__MSG_@@extension_id__/images/bars/fire__pause.gif');
 }
+.myga-browser--firefox.myga--custom-bar.bar--fire .paused-mode .ytp-scrubber-container {
+  background-image: url('moz-extension://__MSG_@@extension_id__/images/bars/fire__pause.gif');
+}
+
 .myga--custom-bar.bar--fire .ytp-scrubber-container:hover {
   background-size: 34px;
   width: 34px;

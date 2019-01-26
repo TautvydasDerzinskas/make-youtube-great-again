@@ -10,7 +10,6 @@
   color-stop(83%, #FFFFFF));
 }
 .myga--custom-bar.bar--panda .ytp-scrubber-container {
-  background-image: url('chrome-extension://__MSG_@@extension_id__/images/bars/panda.gif');
   background-repeat: no-repeat;
   background-size: 40px;
   width: 40px;
@@ -18,9 +17,20 @@
   margin-top: -31px;
   margin-left: -15px;
 }
-.myga--custom-bar.bar--panda .paused-mode .ytp-scrubber-container {
+.myga--custom-bar.bar--panda:not(.myga-browser--firefox) .ytp-scrubber-container {
+  background-image: url('chrome-extension://__MSG_@@extension_id__/images/bars/panda.gif');
+}
+.myga-browser--firefox.myga--custom-bar.bar--panda .ytp-scrubber-container {
+  background-image: url('moz-extension://__MSG_@@extension_id__/images/bars/panda.gif');
+}
+
+.myga--custom-bar.bar--panda:not(.myga-browser--firefox) .paused-mode .ytp-scrubber-container {
   background-image: url('chrome-extension://__MSG_@@extension_id__/images/bars/panda__pause.gif');
 }
+.myga-browser--firefox.myga--custom-bar.bar--panda .paused-mode .ytp-scrubber-container {
+  background-image: url('moz-extension://__MSG_@@extension_id__/images/bars/panda__pause.gif');
+}
+
 .myga--custom-bar.bar--panda .ytp-scrubber-container:hover {
   background-size: 44px;
   width: 44px;

@@ -4,16 +4,27 @@
   background-color: #00c900;
 }
 .myga--custom-bar.bar--zombie .ytp-scrubber-container {
-  background-image: url('chrome-extension://__MSG_@@extension_id__/images/bars/zombie.gif');
   background-repeat: no-repeat;
   background-size: 20px;
   width: 20px;
   height: 27px;
   margin-top: -15px;
 }
-.myga--custom-bar.bar--zombie .paused-mode .ytp-scrubber-container {
+
+.myga--custom-bar.bar--zombie:not(.myga-browser--firefox) .ytp-scrubber-container {
+  background-image: url('chrome-extension://__MSG_@@extension_id__/images/bars/zombie.gif');
+}
+.myga-browser--firefox.myga--custom-bar.bar--zombie .ytp-scrubber-container {
+  background-image: url('moz-extension://__MSG_@@extension_id__/images/bars/zombie.gif');
+}
+
+.myga--custom-bar.bar--zombie:not(.myga-browser--firefox) .paused-mode .ytp-scrubber-container {
   background-image: url('chrome-extension://__MSG_@@extension_id__/images/bars/zombie__pause.gif');
 }
+.myga-browser--firefox.myga--custom-bar.bar--zombie .paused-mode .ytp-scrubber-container {
+  background-image: url('moz-extension://__MSG_@@extension_id__/images/bars/zombie__pause.gif');
+}
+
 .myga--custom-bar.bar--zombie .ytp-scrubber-container:hover {
   background-size: 24px;
   margin-top: -19px;

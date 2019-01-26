@@ -8,7 +8,6 @@
   color-stop(75%, #292c2e));
 }
 .myga--custom-bar.bar--orcs .ytp-scrubber-container {
-  background-image: url('chrome-extension://__MSG_@@extension_id__/images/bars/orcs.gif');
   background-repeat: no-repeat;
   background-size: 70px;
   width: 70px;
@@ -16,9 +15,21 @@
   margin-top: -30px;
   margin-left: -10px;
 }
-.myga--custom-bar.bar--orcs .paused-mode .ytp-scrubber-container {
+
+.myga--custom-bar.bar--orcs:not(.myga-browser--firefox) .ytp-scrubber-container {
+  background-image: url('chrome-extension://__MSG_@@extension_id__/images/bars/orcs.gif');
+}
+.myga-browser--firefox.myga--custom-bar.bar--orcs .ytp-scrubber-container {
+  background-image: url('moz-extension://__MSG_@@extension_id__/images/bars/orcs.gif');
+}
+
+.myga--custom-bar.bar--orcs:not(.myga-browser--firefox) .paused-mode .ytp-scrubber-container {
   background-image: url('chrome-extension://__MSG_@@extension_id__/images/bars/orcs__pause.gif');
 }
+.myga-browser--firefox.myga--custom-bar.bar--orcs .paused-mode .ytp-scrubber-container {
+  background-image: url('moz-extension://__MSG_@@extension_id__/images/bars/orcs__pause.gif');
+}
+
 .myga--custom-bar.bar--orcs .ytp-scrubber-container:hover {
   background-size: 74px;
   width: 74px;

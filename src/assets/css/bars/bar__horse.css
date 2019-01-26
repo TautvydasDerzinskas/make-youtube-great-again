@@ -10,7 +10,6 @@
   color-stop(83%, #4e1001));
 }
 .myga--custom-bar.bar--horse .ytp-scrubber-container {
-  background-image: url('chrome-extension://__MSG_@@extension_id__/images/bars/horse.gif');
   background-repeat: no-repeat;
   background-size: 45px;
   width: 45px;
@@ -18,9 +17,20 @@
   margin-top: -25px;
   margin-left: -38px;
 }
-.myga--custom-bar.bar--horse .paused-mode .ytp-scrubber-container {
+.myga--custom-bar.bar--horse:not(.myga-browser--firefox) .ytp-scrubber-container {
+  background-image: url('chrome-extension://__MSG_@@extension_id__/images/bars/horse.gif');
+}
+.myga-browser--firefox.myga--custom-bar.bar--horse .ytp-scrubber-container {
+  background-image: url('moz-extension://__MSG_@@extension_id__/images/bars/horse.gif');
+}
+
+.myga--custom-bar.bar--horse:not(.myga-browser--firefox) .paused-mode .ytp-scrubber-container {
   background-image: url('chrome-extension://__MSG_@@extension_id__/images/bars/horse__pause.gif');
 }
+.myga-browser--firefox.myga--custom-bar.bar--horse .paused-mode .ytp-scrubber-container {
+  background-image: url('moz-extension://__MSG_@@extension_id__/images/bars/horse__pause.gif');
+}
+
 .myga--custom-bar.bar--horse .ytp-scrubber-container:hover {
   background-size: 47px;
   width: 47px;
