@@ -18,6 +18,7 @@
 - [Road map](#road-map)
 - [Development](#development)
 - [License](#license)
+- [Changelog](CHANGELOG.md)
 
 ## About
 _First of all please have in mind that extension name "Make YouTube great again" is chosen only because it sounds funny! Please don't look for any hidden political message - there is none._
@@ -30,6 +31,9 @@ To install it please visit a Chrome web store page by clicking image below:
 
 <a href="https://chrome.google.com/webstore/detail/make-youtube-great-again/geonnhfmhfjfkbbkjmbanmjommkjlnim" target="_blank">
   <img src="docs/images/chrome_store.png" alt="Convert videos to mp3" />
+</a>
+<a href="https://addons.mozilla.org/en-GB/firefox/addon/myga/" target="_blank">
+  <img src="docs/images/firefox_store.png" width="206px" alt="Convert videos to mp3" />
 </a>
 
 ## Features
