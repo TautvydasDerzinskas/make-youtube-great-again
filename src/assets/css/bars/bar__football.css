@@ -13,11 +13,10 @@
 .myga--custom-bar.bar--football .ytp-scrubber-container {
   background-repeat: no-repeat;
   background-image: url('chrome-extension://__MSG_@@extension_id__/images/bars/football.gif');
-  background-size: 33px;
-  width: 26px;
-  height: 26px;
-  margin-top: -10px;
-  margin-left: -3px;
+  background-size: 20px;
+  width: 20px;
+  height: 20px;
+  margin-top: -4px;
 }
 
 .myga--custom-bar.bar--football .paused-mode .ytp-scrubber-container {
@@ -25,11 +24,10 @@
 }
 
 .myga--custom-bar.bar--football .ytp-scrubber-container:hover {
-  background-size: 35px;
-  width: 28px;
-  height: 28px;
-  margin-top: -11px;
-  margin-left: -4px;
+  background-size: 24px;
+  width: 24px;
+  height: 24px;
+  margin-top: -5px;
 }
 .myga--custom-bar .ytp-scrubber-button {
   display: none;

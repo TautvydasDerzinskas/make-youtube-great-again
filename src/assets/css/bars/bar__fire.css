@@ -1,0 +1,54 @@
+.myga--custom-bar.bar--fire .ytp-play-progress {
+  padding: 2.5px 1px;
+  top: -2px;
+  background: linear-gradient(124deg, #f2c12c, #f0a126, #ee7e22, #ec6f1e, #eb511d);
+  background-size: 1800% 1800%;
+
+  -webkit-animation: fire 10s ease infinite;
+  -z-animation: fire 10s ease infinite;
+  -o-animation: fire 10s ease infinite;
+    animation: fire 10s ease infinite;
+}
+.myga--custom-bar.bar--fire .ytp-scrubber-container {
+  background-image: url('chrome-extension://__MSG_@@extension_id__/images/bars/fire.gif');
+  background-repeat: no-repeat;
+  background-size: 30px;
+  width: 30px;
+  height: 30px;
+  margin-top: -17px;
+  margin-left: -10px;
+}
+.myga--custom-bar.bar--fire .paused-mode .ytp-scrubber-container {
+  background-image: url('chrome-extension://__MSG_@@extension_id__/images/bars/fire__pause.gif');
+}
+.myga--custom-bar.bar--fire .ytp-scrubber-container:hover {
+  background-size: 34px;
+  width: 34px;
+  height: 34px;
+  margin-top: -19px;
+  margin-left: -10px;
+}
+.myga--custom-bar .ytp-scrubber-button {
+  display: none;
+}
+
+@-webkit-keyframes fire {
+  0%{background-position:0% 82%}
+  50%{background-position:100% 19%}
+  100%{background-position:0% 82%}
+}
+@-moz-keyframes fire {
+  0%{background-position:0% 82%}
+  50%{background-position:100% 19%}
+  100%{background-position:0% 82%}
+}
+@-o-keyframes fire {
+  0%{background-position:0% 82%}
+  50%{background-position:100% 19%}
+  100%{background-position:0% 82%}
+}
+@keyframes fire {
+  0%{background-position:0% 82%}
+  50%{background-position:100% 19%}
+  100%{background-position:0% 82%}
+}

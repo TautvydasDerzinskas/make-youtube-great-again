@@ -38,4 +38,6 @@ export enum ProgressBars {
   Unicorn = 'unicorn',
   Panda = 'panda',
   Horse = 'horse',
+  Fire = 'fire',
+  Moon = 'moon',
 }
