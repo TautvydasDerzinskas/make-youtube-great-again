@@ -1,5 +1,5 @@
 <p align="center">
-  <a href="https://github.com/SlimDogs/make-youtube-great-again"><img src="docs/images/popup.gif" alt="Chrome extension: Make YouTube great again!" title="Chrome extension: Make YouTube great again!" width="250px" /></a>
+  <a href="https://github.com/SlimDogs/make-youtube-great-again"><img src="docs/images/myga_promo_440x280.jpg" alt="Chrome extension: Make YouTube great again!" title="Chrome extension: Make YouTube great again!" width="250px" /></a>
 </p>
 
 <p align="center">
@@ -75,6 +75,16 @@ ____
 </p>
 Sometimes it's nice to hide the comments... This feature does exactly that.
 It hides both normal comments and live chat messages.
+
+____
+
+<p align="center">
+  <strong>Custom progress bar</strong>
+  <p align="center">
+  <img src="docs/images/feature_05.gif" width="250px" alt="Custom progress barr" />
+  </p>
+</p>
+Have a custom and nice looking playback progress bar!
 
 ## Screenshots
 <a href="docs/images/screenshot_01.jpg" target="_blank"><img width="200px" src="docs/images/screenshot_01.jpg" alt="Screenshot" title="Screenshot" /></a><a href="docs/images/screenshot_02.jpg" target="_blank"><img width="200px" src="docs/images/screenshot_02.jpg" alt="Screenshot" title="Screenshot" /></a><a href="docs/images/screenshot_03.jpg" target="_blank"><img width="200px" src="docs/images/screenshot_03.jpg" alt="Screenshot" title="Screenshot" /></a><a href="docs/images/screenshot_04.jpg" target="_blank"><img width="200px" src="docs/images/screenshot_04.jpg" alt="Screenshot" title="Screenshot" /></a><a href="docs/images/screenshot_05.jpg" target="_blank"><img width="200px" src="docs/images/screenshot_05.jpg" alt="Screenshot" title="Screenshot" /></a>
