@@ -1,5 +1,5 @@
 <p align="center">
-  <a href="https://github.com/SlimDogs/make-youtube-great-again"><img src="docs/images/myga_promo_440x280.jpg" alt="Chrome extension: Make YouTube great again!" title="Chrome extension: Make YouTube great again!" width="250px" /></a>
+  <a href="https://github.com/SlimDogs/make-youtube-great-again"><img src="docs/images/myga_promo_440x280.jpg" alt="Browser extension: Make YouTube great again!" title="Browser extension: Make YouTube great again!" width="250px" /></a>
 </p>
 
 <p align="center">
@@ -23,15 +23,17 @@
 ## About
 _First of all please have in mind that extension name "Make YouTube great again" is chosen only because it sounds funny! Please don't look for any hidden political message - there is none._
 
-Make YouTube Great Again is a Chrome extension which extends YouTube websites user interface with additional [features](#features). User don't have to use all of the extensions features as there is an option to toggle each of them on and off. There is also a history tab which shows how many times and on what YouTube videos those features been used.
+Make YouTube Great Again is a Browser extension which extends YouTube websites user interface with additional [features](#features). User don't have to use all of the extensions features as there is an option to toggle each of them on and off. There is also a history tab which shows how many times and on what YouTube videos those features been used.
 
 ## Installation
-Currently you can only use this extension with Google Chrome web browser.
-To install it please visit a Chrome web store page by clicking image below:
+Chrome & Vivaldi users please click below:
 
 <a href="https://chrome.google.com/webstore/detail/make-youtube-great-again/geonnhfmhfjfkbbkjmbanmjommkjlnim" target="_blank">
   <img src="docs/images/chrome_store.png" alt="Convert videos to mp3" />
 </a>
+
+Firefox users please head to link below:
+
 <a href="https://addons.mozilla.org/en-GB/firefox/addon/myga/" target="_blank">
   <img src="docs/images/firefox_store.png" width="206px" alt="Convert videos to mp3" />
 </a>
@@ -106,7 +108,7 @@ To contribute you need to perform these steps:
 1. Run `npm install` to install npm dependencies
 2. Apply your changes and modifications
 3. Run `npm run lint` to make sure code is well formatted
-4. Run `npm run build` to compile the code and generate extension source folder
+4. Run `npm run build:chrome` to compile the code and generate extension source folder
 5. In your browser extensions window enable development mode and load MYGA extension from folder `extension` to test your changes
 
 ## License
