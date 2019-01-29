@@ -22,7 +22,6 @@ export interface IFeaturesStorageObject {
 interface IFeature {
   meta: IMeta;
   content: IContent;
-  popup: IPopup;
 }
 
 export default IFeature;

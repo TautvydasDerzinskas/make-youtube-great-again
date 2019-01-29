@@ -6,6 +6,7 @@
     display: block;
     background-color: $theme-gray;
     height: 100%;
+    overflow: hidden;
 
     .header__close-button {
       position: absolute;
