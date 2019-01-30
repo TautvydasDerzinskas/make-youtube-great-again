@@ -1,127 +1,124 @@
-import './styles/video-pin.scss';
+import dragService from '../../services/common/drag.service';
 
 import IContent from '../../interfaces/content';
+
+import './styles/video-pin.scss';
+
+interface IVideoPlayer extends HTMLElement {
+  paused: boolean;
+  currentTime: number;
+  duration: number;
+  play: () => void;
+  pause: () => void;
+}
 
 class ContentVideoPin implements IContent {
   private isVideoPinned = false;
   private videoScrollBreakpoint: number;
+  private originalVideoStyleValue = '';
+  private scrollEventCallback: any;
 
+  get pinnedVideoElement() {
+    return document.getElementsByClassName('pinned-video')[0] as HTMLElement;
+  }
+
+  get pinnedVideoInnerElement() {
+    return document.getElementsByClassName('pinned-video__inner')[0] as HTMLElement;
+  }
+
+  get pinnedVideoProgressBarElement() {
+    return document.getElementsByClassName('pinned-video__progress-bar')[0] as HTMLElement;
+  }
+
+  get videoStreamElement() {
+    return document.getElementsByClassName('video-stream')[0] as IVideoPlayer;
+  }
+
+  get isVideoPaused(): boolean {
+    return this.videoStreamElement.paused;
+  }
 
   public extendPageUserInterface() {
-    const videoPinElement = document.createElement('div');
-    videoPinElement.className = 'pinned-video';
-    document.body.appendChild(videoPinElement);
+    if (!this.pinnedVideoElement) {
+      const videoPinElement = document.createElement('div');
+      videoPinElement.className = 'pinned-video';
+      videoPinElement.innerHTML = `
+        <div class="pinned-video__inner"></div>
+        <div class="pinned-video__progress-bar ytp-play-progress"></div>
+      `;
+      document.body.appendChild(videoPinElement);
+
+      dragService.makeElementDraggable(videoPinElement);
+    }
   }
 
   setupEventListeners() {
-    this.enableDragging();
     this.timerChecker();
 
-    const videoContainerY = document.querySelector('.html5-video-container > *').getBoundingClientRect().top;
-    const videoHeight = document.querySelector('.video-stream').clientHeight;
-    this.videoScrollBreakpoint = videoContainerY + videoHeight;
+    const videoHeight = this.videoStreamElement.clientHeight;
+    this.videoScrollBreakpoint = this.getElementTopCoords(this.videoStreamElement) + videoHeight;
 
-    let originalVideoHeight = 0;
-    let originalVideoWidth = 0;
+    this.onScroll();
+    this.scrollEventCallback = this.onScroll.bind(this);
+    window.addEventListener('scroll', this.scrollEventCallback);
+  }
 
-    window.addEventListener('scroll', () => {
-      const scrolled = window.scrollY;
+  public cleanUp() {
+    if (this.pinnedVideoElement) {
+      if (this.isVideoPinned) {
+        this.hide();
+      }
+      this.pinnedVideoElement.remove();
+      window.removeEventListener('scroll', this.scrollEventCallback);
+      this.scrollEventCallback = null;
+    }
+  }
 
-      if (scrolled >= this.videoScrollBreakpoint && !this.isVideoPinned) {
-        document.getElementsByClassName('pinned-video')[0]
-          .classList.add('pinned-video--active');
+  private onScroll() {
+    const scrolled = window.scrollY;
+    if (scrolled >= this.videoScrollBreakpoint && !this.isVideoPinned && !this.isVideoPaused) {
+      this.show();
+    } else if (scrolled < this.videoScrollBreakpoint && this.isVideoPinned) {
+      this.hide();
+    }
+  }
 
-        const videoPinElement = document.getElementsByClassName('pinned-video')[0];
-        const realVideoElement = document.getElementsByClassName('video-stream')[0];
+  private show() {
+    this.pinnedVideoElement.classList.add('pinned-video--active');
 
-        originalVideoHeight = realVideoElement.clientHeight;
-        originalVideoWidth = realVideoElement.clientWidth;
+    this.originalVideoStyleValue = this.videoStreamElement.getAttribute('style');
+    this.videoStreamElement.setAttribute('style', '');
+    this.pinnedVideoInnerElement.appendChild(this.videoStreamElement);
 
-        (realVideoElement as HTMLElement).style.height = '175px';
-        (realVideoElement as HTMLElement).style.width = '310px';
+    this.isVideoPinned = true;
+  }
 
-        videoPinElement.appendChild(realVideoElement);
+  private hide() {
+    this.pinnedVideoElement.classList.remove('pinned-video--active');
 
-        this.isVideoPinned = true;
-      } else if (scrolled < this.videoScrollBreakpoint && this.isVideoPinned) {
-        document.getElementsByClassName('pinned-video')[0]
-          .classList.remove('pinned-video--active');
+    this.videoStreamElement.setAttribute('style', this.originalVideoStyleValue);
+    const realVideoContainer = document.getElementsByClassName('html5-video-container')[0];
+    realVideoContainer.appendChild(this.videoStreamElement);
 
+    this.isVideoPinned = false;
+  }
 
-        const realVideoContainer = document.getElementsByClassName('html5-video-container')[0];
-        const realVideoElement = document.getElementsByClassName('video-stream')[0];
+  private timerChecker() {
+    this.videoStreamElement.addEventListener('timeupdate', () => {
+      const videoElement = this.videoStreamElement;
 
-        (realVideoElement as HTMLElement).style.height = originalVideoHeight + 'px';
-        (realVideoElement as HTMLElement).style.width = originalVideoWidth + 'px';
-
-        realVideoContainer.appendChild(realVideoElement);
-
-        this.isVideoPinned = false;
+      const barWidth = videoElement.currentTime / videoElement.duration * videoElement.clientWidth;
+      this.pinnedVideoProgressBarElement.style.width = `${barWidth}px`;
+      if (videoElement.currentTime === videoElement.duration && this.isVideoPinned) {
+        this.hide();
       }
     });
   }
 
-  public cleanUp() {
-  }
-
-  private enableDragging() {
-    const object = document.getElementsByClassName('pinned-video')[0];
-    let initX = 0;
-    let initY = 0;
-    let firstX = 0;
-    let firstY = 0;
-
-    object.addEventListener('mousedown', function (e: any) {
-      e.preventDefault();
-
-      initX = this.offsetLeft;
-      initY = this.offsetTop;
-      firstX = e.pageX;
-      firstY = e.pageY;
-
-      this.addEventListener('mousemove', dragIt, false);
-
-      window.addEventListener('mouseup', function () {
-        object.removeEventListener('mousemove', dragIt, false);
-      }, false);
-
-    }, false);
-
-    object.addEventListener('touchstart', function (e: any) {
-      e.preventDefault();
-
-      initX = this.offsetLeft;
-      initY = this.offsetTop;
-      const touch = e.touches;
-      firstX = touch[0].pageX;
-      firstY = touch[0].pageY;
-
-      this.addEventListener('touchmove', swipeIt, false);
-
-      window.addEventListener('touchend', function (event: any) {
-        event.preventDefault();
-        object.removeEventListener('touchmove', swipeIt, false);
-      }, false);
-
-    }, false);
-
-    function dragIt(e: any) {
-      this.style.left = initX + e.pageX - firstX + 'px';
-      this.style.top = initY + e.pageY - firstY + 'px';
-    }
-
-    function swipeIt(e: any) {
-      const contact = e.touches;
-      this.style.left = initX + contact[0].pageX - firstX + 'px';
-      this.style.top = initY + contact[0].pageY - firstY + 'px';
-    }
-  }
-
-  private timerChecker() {
-    document.getElementsByClassName('video-stream')[0]
-      .addEventListener('timeupdate', function() {
-        console.log(this);
-      });
+  private getElementTopCoords(element: HTMLElement) {
+    const bodyRect = document.body.getBoundingClientRect();
+    const elemRect = element.getBoundingClientRect();
+    return elemRect.top - bodyRect.top;
   }
 }
 

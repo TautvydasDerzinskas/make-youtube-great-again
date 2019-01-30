@@ -1,10 +1,22 @@
 @import '../../../popup/variables';
 
+$video-width-sm: 310px;
+$video-height-sm: 175px;
+
+$video-width-md: 475px;
+$video-height-md: 268px;
+
+$video-width-lg: 640px;
+$video-height-lg: 360px;
+
+$video-width-xl: 854px;
+$video-height-xl: 480px;
+
 .pinned-video {
   opacity: 0;
   visibility: hidden;
-  width: 310px;
-  height: 175px;
+  width: $video-width-sm;
+  height: $video-height-sm;
   position: fixed;
   right: 5px;
   top: 60px;
@@ -12,11 +24,36 @@
   background-color: $theme-black;
   box-shadow: 0 0 5px $theme-black;
   cursor: move;
+  transition: width 0.3s ease-in-out, height 0.3s ease-in-out, opacity 0.2s ease-in-out;
+
+  &--medium {
+    width: $video-width-md;
+    height: $video-height-md;
+  }
+
+  &--large {
+    width: $video-width-lg;
+    height: $video-height-lg;
+  }
+
+  &--huge {
+    width: $video-width-xl;
+    height: $video-height-xl;
+  }
 
   &--active {
     opacity: 1;
     visibility: visible;
 
-    transition: all ease-in .3;
+    .video-stream {
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  &__progress-bar {
+    height: 3px;
+    padding: 0 !important;
+    top: auto !important;
   }
 }
