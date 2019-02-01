@@ -14,6 +14,22 @@ class SvgIconsService {
   get iconThumb() {
     return require('../../assets/vectors/thumb.svg');
   }
+
+  get iconPlay() {
+    return require('../../assets/vectors/play.svg');
+  }
+
+  get iconPause() {
+    return require('../../assets/vectors/pause.svg');
+  }
+
+  get iconPlus() {
+    return require('../../assets/vectors/plus.svg');
+  }
+
+  get iconMinus() {
+    return require('../../assets/vectors/minus.svg');
+  }
 }
 
 export default new SvgIconsService();

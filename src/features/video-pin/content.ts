@@ -1,4 +1,5 @@
 import dragService from '../../services/common/drag.service';
+import svgIconsService from '../../services/content/svg-icons.service';
 
 import IContent from '../../interfaces/content';
 
@@ -15,7 +16,6 @@ interface IVideoPlayer extends HTMLElement {
 class ContentVideoPin implements IContent {
   private isVideoPinned = false;
   private videoScrollBreakpoint: number;
-  private originalVideoStyleValue = '';
   private scrollEventCallback: any;
 
   get pinnedVideoElement() {
@@ -44,6 +44,15 @@ class ContentVideoPin implements IContent {
       videoPinElement.className = 'pinned-video';
       videoPinElement.innerHTML = `
         <div class="pinned-video__inner"></div>
+        <button class="pinned-video__button button--plus" type="button">
+          ${svgIconsService.iconPlus}
+        </button>
+        <button class="pinned-video__button button--minus" type="button">
+          ${svgIconsService.iconMinus}
+        </button>
+        <button class="pinned-video__button button--play-pause" type="button">
+          ${svgIconsService.iconPause}
+        </button>
         <div class="pinned-video__progress-bar ytp-play-progress"></div>
       `;
       document.body.appendChild(videoPinElement);
@@ -86,8 +95,6 @@ class ContentVideoPin implements IContent {
   private show() {
     this.pinnedVideoElement.classList.add('pinned-video--active');
 
-    this.originalVideoStyleValue = this.videoStreamElement.getAttribute('style');
-    this.videoStreamElement.setAttribute('style', '');
     this.pinnedVideoInnerElement.appendChild(this.videoStreamElement);
 
     this.isVideoPinned = true;
@@ -96,7 +103,6 @@ class ContentVideoPin implements IContent {
   private hide() {
     this.pinnedVideoElement.classList.remove('pinned-video--active');
 
-    this.videoStreamElement.setAttribute('style', this.originalVideoStyleValue);
     const realVideoContainer = document.getElementsByClassName('html5-video-container')[0];
     realVideoContainer.appendChild(this.videoStreamElement);
 

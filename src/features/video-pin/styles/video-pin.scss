@@ -12,6 +12,8 @@ $video-height-lg: 360px;
 $video-width-xl: 854px;
 $video-height-xl: 480px;
 
+$button-size: $large-spacing * 2;
+
 .pinned-video {
   opacity: 0;
   visibility: hidden;
@@ -46,8 +48,10 @@ $video-height-xl: 480px;
     visibility: visible;
 
     .video-stream {
-      width: 100%;
-      height: 100%;
+      top: 0 !important;
+      left: 0 !important;
+      width: 100% !important;
+      height: 100% !important;
     }
   }
 
@@ -55,5 +59,61 @@ $video-height-xl: 480px;
     height: 3px;
     padding: 0 !important;
     top: auto !important;
+  }
+
+  &__button {
+    position: absolute;
+    opacity: 0;
+    visibility: hidden;
+    cursor: pointer;
+    background-color: rgba($theme-black, 0.5);
+    height: $button-size;
+    width: $button-size;
+    padding: $default-spacing;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    transition: $default-transition;
+
+    &.button--plus {
+      top: $small-spacing;
+      left: $small-spacing;
+    }
+
+    &.button--minus {
+      top: $small-spacing * 2 + $button-size;
+      left: $small-spacing;
+    }
+
+    &.button--play-pause {
+      top: 50%;
+      left: 50%;
+      height: $button-size * 2;
+      width: $button-size * 2;
+      margin-left: -($button-size);
+      margin-top: -($button-size);
+      padding: $large-spacing;
+      border-radius: 360px;
+      background-color: $theme-red;
+
+      svg {
+        height: $button-size;
+        width: $button-size;
+      }
+    }
+
+    svg {
+      display: inline-block;
+      height: $default-spacing;
+      width: $default-spacing;
+      fill: $theme-white;
+    }
+  }
+
+  &:hover {
+    .pinned-video__button {
+      opacity: 1;
+      visibility: visible;
+    }
   }
 }
