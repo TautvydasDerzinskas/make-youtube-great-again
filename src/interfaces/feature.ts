@@ -8,6 +8,7 @@ export interface IFeatureData {
   songs?: string[];
   counter?: number;
   theme?: ProgressBars;
+  size?: number;
 }
 
 export interface IFeatureStoredData {

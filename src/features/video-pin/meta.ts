@@ -5,6 +5,9 @@ const meta: IMeta = {
   description: 'Enables you to watch video while reading it\'s comments',
   title: 'Floating video',
   defaultStatus: false,
+  defaultData: {
+    size: 0,
+  },
   videoPageOnly: true,
   isInHistoryTab: false,
 };
