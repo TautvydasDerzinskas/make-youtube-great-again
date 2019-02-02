@@ -1,6 +1,7 @@
 import urlService from '../../services/common/url.service';
 import svgIconsService from '../../services/content/svg-icons.service';
 import featureStorageService from '../../services/common/feature-storage.service';
+import formatService from '../../services/common/format.service';
 
 import Meta from './meta';
 import { YoutubeSelectors, ApiKeys } from '../../enums';
@@ -115,7 +116,9 @@ class ContentThumbnailStats implements IContent {
     }
 
     $svgContainer.classList.remove('myga-thumb-stats--loading');
-    $svgContainer.setAttribute('title', `Likes: ${likesCount}, dislikes: ${dislikesCount}`);
+    const formattedLikes = formatService.formatNumber(likesCount);
+    const formattedDislikes = formatService.formatNumber(dislikesCount);
+    $svgContainer.setAttribute('title', `Likes: ${formattedLikes}, dislikes: ${formattedDislikes}`);
   }
 }
 

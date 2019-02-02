@@ -1,6 +1,8 @@
 import * as React from 'react';
 import VideoComponent from './video/video.component';
+
 import featureStorageService from '../../../../services/common/feature-storage.service';
+import formatService from '../../../../services/common/format.service';
 
 import IMeta from '../../../../interfaces/meta';
 import { IYoutubeSnippetResponse, IYoutubeSnippetItem } from './feature-stats.interface';
@@ -43,15 +45,23 @@ export default class FeatureStatsGroupComponent extends React.Component<IFeature
   }
 
   render() {
-    const allVideoHtml = this.state.videos.map(video =>
-      <VideoComponent key={video.id} video={video}></VideoComponent>
-    );
+    let allVideoHtml: any = <div>No videos tracked yet</div>;
+
+    if (this.state.videos.length > 0) {
+      allVideoHtml = this.state.videos.map(video =>
+        <VideoComponent key={video.id} video={video}></VideoComponent>
+      );
+    }
 
     return (
       <div className='feature-group'>
         <div className='feature-group__heading'>
-          <div className='feature-group__title'>Recently {this.props.meta.actionTitle}:</div>
-          <div className='feature-group__sub-title'>Total <strong>{this.state.counter}</strong> video(s) {this.props.meta.actionTitle}</div>
+          <div className='feature-group__title'>
+            Recently {this.props.meta.actionTitle}:
+          </div>
+          <div className='feature-group__sub-title'>
+            Total <strong>{formatService.formatNumber(this.state.counter)}</strong> video(s) {this.props.meta.actionTitle}
+          </div>
         </div>
         <div className='feature-group__videos'>{allVideoHtml}</div>
       </div>

@@ -1,5 +1,5 @@
 class DragService {
-  public makeElementDraggable(element: HTMLElement) {
+  public makeElementDraggable(element: HTMLElement, onDragCallback?: (x: string, y: string) => void) {
     let initX = 0;
     let initY = 0;
     let firstX = 0;
@@ -17,6 +17,13 @@ class DragService {
 
       window.addEventListener('mouseup', () => {
         element.removeEventListener('mousemove', dragIt, false);
+
+        if (typeof onDragCallback !== 'undefined') {
+          onDragCallback(
+            (this as HTMLElement).style.left,
+            (this as HTMLElement).style.top,
+          );
+        }
       }, false);
 
     }, false);
@@ -35,6 +42,14 @@ class DragService {
       window.addEventListener('touchend', (event: TouchEvent) => {
         event.preventDefault();
         element.removeEventListener('touchmove', swipeIt, false);
+
+        if (typeof onDragCallback !== 'undefined') {
+          onDragCallback(
+            (this as HTMLElement).style.left,
+            (this as HTMLElement).style.top,
+          );
+        }
+
       }, false);
 
     }, false);

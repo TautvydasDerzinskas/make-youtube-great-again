@@ -1,6 +1,6 @@
 {
   "name": "make-youtube-great-again",
-  "version": "1.1.1",
+  "version": "1.2.0",
   "description": "Browser extension adding new functionality to YouTube experience",
   "homepage": "https://github.com/SlimDogs/make-youtube-great-again",
   "scripts": {
@@ -16,7 +16,7 @@
     "react": "16.7.0",
     "react-dom": "16.7.0",
     "react-router-dom": "4.3.1",
-    "react-tippy": "^1.2.3"
+    "react-tippy": "1.2.3"
   },
   "devDependencies": {
     "@types/chrome": "0.0.78",
