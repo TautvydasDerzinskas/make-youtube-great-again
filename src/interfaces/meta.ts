@@ -8,4 +8,5 @@ export default interface IMeta {
   defaultData?: any;
   videoPageOnly?: boolean;
   hasSettings?: boolean;
+  releaseDate?: string;
 }

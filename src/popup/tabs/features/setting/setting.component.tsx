@@ -11,6 +11,7 @@ import './setting.component.scss';
 interface ISettingComponentState {
   data: {
     value: boolean;
+    isNew: boolean;
   };
 }
 
@@ -20,6 +21,7 @@ export default class SettingComponent extends React.Component<{ meta: IMeta }, I
     this.state = {
       data: {
         value: false,
+        isNew: this.props.meta ? this.isNewFeature : false,
       },
     };
   }
@@ -29,6 +31,7 @@ export default class SettingComponent extends React.Component<{ meta: IMeta }, I
       this.setState({
         data: {
           value: featureData.status,
+          isNew: this.state.data.isNew,
         }
       });
     });
@@ -39,10 +42,29 @@ export default class SettingComponent extends React.Component<{ meta: IMeta }, I
       this.setState({
         data: {
           value: featureData.status,
+          isNew: this.state.data.isNew,
         }
       });
       this.notifyTabsAboutChange(featureData.status);
     });
+  }
+
+  get isNewFeature() {
+    const featureDate = new Date(this.props.meta.releaseDate);
+    const currentDate = new Date();
+
+    const newFeatureEndTime = featureDate.getTime() + (7 * 24 * 60 * 60 * 1000);
+    return newFeatureEndTime > currentDate.getTime();
+  }
+
+  get newFeatureImage() {
+    let newFeatureImage;
+
+    if (this.isNewFeature) {
+      newFeatureImage = <span style={{ backgroundImage: 'url(./images/new.gif)', }}></span>;
+    }
+
+    return newFeatureImage;
   }
 
   private notifyTabsAboutChange(newValue: boolean) {
@@ -60,7 +82,7 @@ export default class SettingComponent extends React.Component<{ meta: IMeta }, I
     });
   }
 
-  private settingsColumn() {
+  get settingsColumn() {
     let settingsColumn;
 
     if (this.props.meta.hasSettings) {
@@ -82,10 +104,10 @@ export default class SettingComponent extends React.Component<{ meta: IMeta }, I
     return (
       <div className='setting'>
         <div className='setting__column'>
-          <div className='setting__title'>{this.props.meta.title}</div>
+          <div className='setting__title'>{this.props.meta.title} {this.newFeatureImage}</div>
           <div>{this.props.meta.description}</div>
         </div>
-        {this.settingsColumn()}
+        {this.settingsColumn}
         <div className='setting__column'>
           <Tooltip title={this.state.data.value ? 'Turn OFF' : 'Turn ON'} arrow={true} position='top'>
             <label className='setting__switch'>

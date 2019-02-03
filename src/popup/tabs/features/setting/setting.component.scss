@@ -23,6 +23,15 @@ $toggle-distance: $toggle-width - ($slider-spacing * 2) - $slider-size;
 
   &__title {
     font-weight: bold;
+
+    > span {
+      display: inline-block;
+      background-size: 10px auto;
+      background-repeat: no-repeat;
+      vertical-align: middle;
+      width: 10px;
+      height: 6px;
+    }
   }
 
   &__switch {

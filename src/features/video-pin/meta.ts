@@ -10,6 +10,7 @@ const meta: IMeta = {
   },
   videoPageOnly: true,
   isInHistoryTab: false,
+  releaseDate: '2019-02-03',
 };
 
 export default meta;
