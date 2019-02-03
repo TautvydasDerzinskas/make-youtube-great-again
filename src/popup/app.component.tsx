@@ -14,7 +14,10 @@ import LinksComponent from './tabs/links/links.component';
 
 // Settings
 import MetaCustomProgressBar from '../features/custom-progress-bar/meta';
-import CustomProgressBarComponent from '../features/custom-progress-bar/settings/custom-progress-bar-settings.component';
+import CustomProgressBarSettingsComponent from '../features/custom-progress-bar/settings/custom-progress-bar-settings.component';
+import MetaHideComments from '../features/hide-comments/meta';
+import HideCommentsSettingsComponent from '../features/hide-comments/settings/hide-comments-settings.component';
+
 
 import './app.component.scss';
 
@@ -33,7 +36,8 @@ export default class AppComponent extends React.Component<{}> {
             <Route exact path='/history' component={HistoryComponent}/>
             <Route exact path='/links' component={LinksComponent}/>
 
-            <Route exact path={`/settings/${MetaCustomProgressBar.id}`} component={CustomProgressBarComponent}/>
+            <Route exact path={`/settings/${MetaCustomProgressBar.id}`} component={CustomProgressBarSettingsComponent}/>
+            <Route exact path={`/settings/${MetaHideComments.id}`} component={HideCommentsSettingsComponent}/>
           </Switch>
         </div>
       </div>

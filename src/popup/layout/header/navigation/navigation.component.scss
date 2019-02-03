@@ -33,12 +33,20 @@ $tb-default-spacing: $default-spacing / 2;
       height: auto;
       background-color: $theme-white;
       cursor: default;
+
+      > span {
+        background-image: linear-gradient(to right, $theme-orange, $theme-pink);
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
     }
   }
 
   &-content {
     background-color: $theme-white;
     padding: $large-spacing;
+    overflow: hidden;
   }
 
   &__version {

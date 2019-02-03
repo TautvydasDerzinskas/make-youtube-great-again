@@ -45,7 +45,7 @@ export default class FeatureStatsGroupComponent extends React.Component<IFeature
   }
 
   render() {
-    let allVideoHtml: any = <div>No videos tracked yet</div>;
+    let allVideoHtml: any = <div className='feature-group__none'>No videos tracked yet</div>;
 
     if (this.state.videos.length > 0) {
       allVideoHtml = this.state.videos.map(video =>

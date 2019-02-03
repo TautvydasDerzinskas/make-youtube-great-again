@@ -86,6 +86,7 @@
 
     &:checked ~ .checkmark {
       background-color: $theme-red;
+      background-image: linear-gradient(to right, $theme-orange, $theme-pink);
     }
 
     &:checked ~ .checkmark:after {

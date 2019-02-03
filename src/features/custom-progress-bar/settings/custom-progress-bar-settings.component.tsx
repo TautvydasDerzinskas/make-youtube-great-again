@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { Tooltip } from 'react-tippy';
-import BackToFeaturesComponent from '../../../popup/tabs/features/back-to-features/back-to-features.component';
+import BackToFeaturesComponent from '../../../popup/tabs/features/settings/back-to-features/back-to-features.component';
 
 import featureStorageService from '../../../services/common/feature-storage.service';
 

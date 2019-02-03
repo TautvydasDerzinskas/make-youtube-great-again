@@ -5,6 +5,7 @@ import IPopup from './popup';
 import { ProgressBars } from '../enums';
 
 export interface IFeatureData {
+  [index: string]: any;
   songs?: string[];
   counter?: number;
   theme?: ProgressBars;

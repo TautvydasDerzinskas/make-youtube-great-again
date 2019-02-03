@@ -1,0 +1,18 @@
+@import '../../../../variables';
+
+.back-to-features {
+  background-image: linear-gradient(to right, $theme-orange, $theme-pink);
+  color: $theme-white;
+  padding: 8px;
+  border-radius: 5px;
+  white-space: nowrap;
+  margin-bottom: $default-spacing;
+
+  svg {
+    height: 12px;
+    width: 12px;
+    fill: $theme-white;
+    margin: 0 $small-spacing;
+    vertical-align: middle;
+  }
+}

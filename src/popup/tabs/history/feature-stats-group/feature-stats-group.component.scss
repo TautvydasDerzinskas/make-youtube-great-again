@@ -22,7 +22,10 @@
     color: $theme-light-gray;
 
     strong {
-      color: $theme-red;
+      background-image: linear-gradient(to right, $theme-orange, $theme-pink);
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
   }
 
@@ -30,5 +33,13 @@
     overflow: auto;
     margin-top: $default-spacing;
     max-height: 90px;
+  }
+
+  &__none {
+    background-image: linear-gradient(to right, $theme-orange, $theme-pink);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: bold;
   }
 }

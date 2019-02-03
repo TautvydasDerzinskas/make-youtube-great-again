@@ -45,6 +45,17 @@ class FeatureStorageService extends BrowserStorageService {
     });
   }
 
+  public extendFeatureData<T>(featureId: string, data: IFeatureData): Promise<IFeatureStoredData> {
+    return new Promise((resolve) => {
+      this.getFeatures().then((features: IFeaturesStorageObject) => {
+        features[featureId].data = Object.assign(features[featureId].data, data);
+        this.setItem(this.FEATURES_STORAGE_KEY, features).then(() => {
+          resolve(features[featureId]);
+        });
+      });
+    });
+  }
+
   public trackVideo(featureId: string, videoId: string) {
     this.getFeatureData(featureId).then(featureData => {
       if (featureData.data.songs[0] !== videoId) {
@@ -69,6 +80,9 @@ class FeatureStorageService extends BrowserStorageService {
               data: featureMeta.defaultData || {},
             };
           } else {
+            if (featureMeta.defaultData) {
+              features[featureMeta.id].data = Object.assign(featureMeta.defaultData, features[featureMeta.id].data);
+            }
             freshFeatures[featureMeta.id] = features[featureMeta.id];
           }
         });

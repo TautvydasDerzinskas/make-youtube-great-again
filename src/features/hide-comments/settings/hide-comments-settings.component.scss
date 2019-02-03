@@ -1,0 +1,12 @@
+@import '../../../popup/variables';
+
+.hc-settings {
+
+  &__content {
+    display: flex;
+  }
+
+  &__setting {
+    width: 50%;
+  }
+}

@@ -1,6 +1,6 @@
 @import '../../../popup/variables';
 
-.myga-hidden-comments--enabled {
+.myga-hidden-comments--comments {
   #watch-discussion {
     display: none !important
   }
@@ -21,11 +21,17 @@
     padding-bottom: 18px !important
   }
 
+  ytd-comments {
+    display: none !important
+  }
+}
+
+
+.myga-hidden-comments--chat {
   #watch-sidebar-live-chat {
     display: none !important
   }
 
-  ytd-comments,
   ytd-live-chat-frame {
     display: none !important
   }

@@ -81,6 +81,7 @@ $toggle-distance: $toggle-width - ($slider-spacing * 2) - $slider-size;
 
   input:checked + .slider {
     background-color: $theme-red;
+    background-image: linear-gradient(to right, $theme-orange, $theme-pink);
   }
 
   input:focus + .slider {
