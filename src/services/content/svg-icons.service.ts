@@ -30,6 +30,10 @@ class SvgIconsService {
   get iconMinus() {
     return require('../../assets/vectors/minus.svg');
   }
+
+  get iconClose() {
+    return require('../../assets/vectors/close.svg');
+  }
 }
 
 export default new SvgIconsService();

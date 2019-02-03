@@ -2,7 +2,7 @@ import IMeta from '../../interfaces/meta';
 
 const meta: IMeta = {
   id: 'myga-video-pin',
-  description: 'Enables you to watch video while reading it\'s comments',
+  description: 'Pins video in the viewport while you read its comments',
   title: 'Floating video',
   defaultStatus: false,
   defaultData: {

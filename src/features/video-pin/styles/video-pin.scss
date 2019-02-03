@@ -108,6 +108,20 @@ $button-size: $large-spacing * 2;
       }
     }
 
+    &.button--close {
+      top: 0;
+      right: 0;
+      height: auto;
+      width: auto;
+
+      svg {
+        height: $large-spacing;
+        width: $large-spacing;
+      }
+
+      background-color: transparent;
+    }
+
     &.button--play-pause {
       top: 50%;
       left: 50%;
@@ -117,11 +131,7 @@ $button-size: $large-spacing * 2;
       margin-top: -($button-size);
       padding: $large-spacing;
       border-radius: 360px;
-      background-color: rgba($theme-red, 0.5);
-
-      &:hover {
-        background-color: $theme-red;
-      }
+      background-image: linear-gradient(to right, $theme-orange, $theme-pink);
 
       svg {
         height: $button-size;
