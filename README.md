@@ -92,6 +92,16 @@ ____
 </p>
 Have a custom and nice looking playback progress bar!
 
+____
+
+<p align="center">
+  <strong>Floating video</strong>
+  <p align="center">
+  <img src="docs/images/feature_06.gif" width="250px" alt="Custom progress barr" />
+  </p>
+</p>
+Don't miss a second of your YouTube video even when reading comments!
+
 ## Screenshots
 <a href="docs/images/screenshot_01.jpg" target="_blank"><img width="200px" src="docs/images/screenshot_01.jpg" alt="Screenshot" title="Screenshot" /></a><a href="docs/images/screenshot_02.jpg" target="_blank"><img width="200px" src="docs/images/screenshot_02.jpg" alt="Screenshot" title="Screenshot" /></a><a href="docs/images/screenshot_03.jpg" target="_blank"><img width="200px" src="docs/images/screenshot_03.jpg" alt="Screenshot" title="Screenshot" /></a><a href="docs/images/screenshot_04.jpg" target="_blank"><img width="200px" src="docs/images/screenshot_04.jpg" alt="Screenshot" title="Screenshot" /></a><a href="docs/images/screenshot_05.jpg" target="_blank"><img width="200px" src="docs/images/screenshot_05.jpg" alt="Screenshot" title="Screenshot" /></a>
 
