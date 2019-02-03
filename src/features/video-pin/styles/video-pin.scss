@@ -129,13 +129,35 @@ $button-size: $large-spacing * 2;
       width: $button-size * 2;
       margin-left: -($button-size);
       margin-top: -($button-size);
-      padding: $large-spacing;
-      border-radius: 360px;
-      background-image: linear-gradient(to right, $theme-orange, $theme-pink);
+      background-color: transparent;
+
+      > span {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        border-radius: 360px;
+        background-image: linear-gradient(to right, $theme-orange, $theme-pink);
+        transition: $default-transition;
+        opacity: 0.5;
+      }
 
       svg {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        left: 0;
         height: $button-size;
         width: $button-size;
+        padding: $large-spacing;
+      }
+
+      &:hover {
+        > span {
+          opacity: 1;
+        }
       }
     }
 

@@ -63,6 +63,7 @@ class ContentVideoPin implements IContent {
           ${svgIconsService.iconMinus}
         </button>
         <button class="pinned-video__button button--play-pause" type="button">
+          <span></span>
           ${svgIconsService.iconPause}
         </button>
         <div class="pinned-video__progress-bar ytp-play-progress"></div>
@@ -159,10 +160,10 @@ class ContentVideoPin implements IContent {
       event.preventDefault();
 
       if (this.isVideoPaused) {
-        playPauseButton.innerHTML = svgIconsService.iconPause;
+        playPauseButton.innerHTML = `<span></span>${svgIconsService.iconPause}`;
         this.videoStreamElement.play();
       } else {
-        playPauseButton.innerHTML = svgIconsService.iconPlay;
+        playPauseButton.innerHTML = `<span></span>${svgIconsService.iconPlay}`;
         this.videoStreamElement.pause();
       }
     });
