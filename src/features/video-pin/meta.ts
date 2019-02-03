@@ -5,7 +5,7 @@ const meta: IMeta<IVideoPinData> = {
   id: 'myga-video-pin',
   description: 'Pins video in the viewport while you read its comments',
   title: 'Floating video',
-  defaultStatus: false,
+  defaultStatus: true,
   defaultData: {
     size: 0,
   },

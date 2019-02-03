@@ -52,7 +52,7 @@ class ContentDownloadMp3 implements IContent {
           </a>
         `;
       }
-    });
+    }).join('');
   }
 
   public cleanUp() {
