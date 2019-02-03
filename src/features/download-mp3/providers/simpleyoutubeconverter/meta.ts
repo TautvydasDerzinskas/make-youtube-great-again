@@ -1,5 +1,6 @@
 
 const MetaSaveMp3 = {
+  id: 'simpleyoutubeconverter',
   name: 'simpleyoutubeconverter.com',
   url: 'http://simpleyoutubeconverter.com',
   downloadLink: function () {

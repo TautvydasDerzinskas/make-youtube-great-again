@@ -6,6 +6,7 @@ import Meta from './meta';
 import MetaProviders from './providers/providers';
 import { YoutubeSelectors } from '../../enums';
 import IContent from '../../interfaces/content';
+import { IDownloadMp3Data } from './interfaces/download-mp3.interface';
 
 import './styles/download-mp3.scss';
 
@@ -15,43 +16,43 @@ class ContentDownloadMp3 implements IContent {
 
     document.getElementsByTagName('body')[0].classList.add('myga-download-mp3--enabled');
 
-    const appendTo = document.querySelector(YoutubeSelectors.MenuBeforeDropdown);
-    const dropdownHtml = `
-      <button class="dropbtn myga-download-mp3-btn">${svgIconsService.iconDownloadMp3}</button>
-      <div class="myga-dropdown-content">
-        ${this.generateDropdownTemplate()}
-      </div>
-    `;
+    featureStorageService.getFeatureData<IDownloadMp3Data>(Meta.id).then(featureData => {
+      const appendTo = document.querySelector(YoutubeSelectors.MenuBeforeDropdown);
+      const dropdownHtml = `
+        <button class="dropbtn myga-download-mp3-btn">${svgIconsService.iconDownloadMp3}</button>
+        <div class="myga-dropdown-content">
+          ${this.generateDropdownTemplate(featureData.data)}
+        </div>
+      `;
 
-    const $button = document.createElement('div');
-    $button.className = 'myga-dropdown';
-    $button.setAttribute('title', Meta.description);
-    $button.innerHTML = dropdownHtml;
-    appendTo.appendChild($button);
+      const $button = document.createElement('div');
+      $button.className = 'myga-dropdown';
+      $button.setAttribute('title', Meta.description);
+      $button.innerHTML = dropdownHtml;
+      appendTo.appendChild($button);
+
+      const providerLinkElements = document.querySelectorAll('.myga-dropdown a');
+      for (let i = 0, b = providerLinkElements.length; i < b; i += 1) {
+        providerLinkElements[i].addEventListener('click', () => {
+          const videoId = urlService.getQueryParameterByName('v');
+          featureStorageService.trackVideo(Meta.id, videoId);
+        });
+      }
+    });
   }
 
-  private generateDropdownTemplate() {
+  private generateDropdownTemplate(featureData: any) {
     const videoId = urlService.getQueryParameterByName('v');
 
-    let dropdownHtml = '';
-    MetaProviders.forEach(meta => {
-      dropdownHtml += `
-        <a title="${meta.name}" target="_blank" href="${meta.downloadLink(videoId)}">
-          Get mp3 (${meta.name})
-        </a>
-      `;
+    return MetaProviders.map(meta => {
+      if (featureData[meta.id]) {
+        return `
+          <a title="${meta.name}" target="_blank" href="${meta.downloadLink(videoId)}">
+            Get mp3 (${meta.name})
+          </a>
+        `;
+      }
     });
-    return dropdownHtml;
-  }
-
-  public setupEventListeners() {
-    const providerLinkElements = document.querySelectorAll('.myga-dropdown a');
-    for (let i = 0, b = providerLinkElements.length; i < b; i += 1) {
-      providerLinkElements[i].addEventListener('click', () => {
-        const videoId = urlService.getQueryParameterByName('v');
-        featureStorageService.trackVideo(Meta.id, videoId);
-      });
-    }
   }
 
   public cleanUp() {

@@ -1,5 +1,6 @@
 
 const MetaOnlineVideoConverter = {
+  id: 'onlinevideoconverter',
   name: 'onlinevideoconverter.com',
   url: 'https://www.onlinevideoconverter.com',
   downloadLink: function(videoId: string) {

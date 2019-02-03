@@ -28,7 +28,7 @@ export default class DataSettingComponent extends React.Component<IDataSettingCo
   }
 
   componentDidMount() {
-    featureStorageService.getFeatureData(this.props.featureId).then(featureData => {
+    featureStorageService.getFeatureData<any>(this.props.featureId).then(featureData => {
       this.setState({
         featureStatus: featureData.status,
         dataValue: featureData.data[this.props.dataKey],
@@ -67,7 +67,7 @@ export default class DataSettingComponent extends React.Component<IDataSettingCo
     const inputId = `input-id-${this.props.dataKey}`;
     return (
       <div className='dt-checkbox'>
-        <Tooltip title={this.state.dataValue ? 'Turn OFF' : 'Turn ON'} arrow={true} position='top'>
+        <Tooltip title={this.state.dataValue ? 'Turn OFF' : 'Turn ON'} arrow={true} position='right'>
           <input
             className='dt-checkbox__input'
             id={inputId} type='checkbox'

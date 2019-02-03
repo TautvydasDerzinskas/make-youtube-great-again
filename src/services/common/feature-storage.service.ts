@@ -2,7 +2,7 @@
 import BrowserStorageService from './browser-storage.service';
 
 import { FeaturesMeta } from '../../features/features';
-import { IFeaturesStorageObject, IFeatureStoredData, IFeatureData } from '../../interfaces/feature';
+import { IFeaturesStorageObject, IFeatureStoredData, IBaseSongsFeatureData } from '../../interfaces/feature';
 
 class FeatureStorageService extends BrowserStorageService {
   private FEATURES_STORAGE_KEY = 'mygaFeatures';
@@ -11,21 +11,21 @@ class FeatureStorageService extends BrowserStorageService {
     super();
   }
 
-  public getFeatures(): Promise<IFeaturesStorageObject> {
+  public getFeatures<T>(): Promise<IFeaturesStorageObject<T>> {
     return this.getItem(this.FEATURES_STORAGE_KEY);
   }
 
-  public getFeatureData<T>(featureId: string): Promise<IFeatureStoredData> {
+  public getFeatureData<T>(featureId: string): Promise<IFeatureStoredData<T>> {
     return new Promise((resolve) => {
-      this.getFeatures().then((features: IFeaturesStorageObject) => {
+      this.getFeatures().then((features: IFeaturesStorageObject<T>) => {
         resolve(features[featureId]);
       });
     });
   }
 
-  public toggleFeatureStatus(featureId: string, value?: boolean): Promise<IFeatureStoredData> {
+  public toggleFeatureStatus<T>(featureId: string, value?: boolean): Promise<IFeatureStoredData<T>> {
     return new Promise((resolve) => {
-      this.getFeatures().then((features: IFeaturesStorageObject) => {
+      this.getFeatures().then((features: IFeaturesStorageObject<T>) => {
         features[featureId].status = typeof value === 'boolean' ? value : !features[featureId].status;
         this.setItem(this.FEATURES_STORAGE_KEY, features).then(() => {
           resolve(features[featureId]);
@@ -34,9 +34,9 @@ class FeatureStorageService extends BrowserStorageService {
     });
   }
 
-  public storeFeatureData<T>(featureId: string, data: IFeatureData): Promise<IFeatureStoredData> {
+  public storeFeatureData<T>(featureId: string, data: T): Promise<IFeatureStoredData<T>> {
     return new Promise((resolve) => {
-      this.getFeatures().then((features: IFeaturesStorageObject) => {
+      this.getFeatures().then((features: IFeaturesStorageObject<T>) => {
         features[featureId].data = data;
         this.setItem(this.FEATURES_STORAGE_KEY, features).then(() => {
           resolve(features[featureId]);
@@ -45,9 +45,9 @@ class FeatureStorageService extends BrowserStorageService {
     });
   }
 
-  public extendFeatureData<T>(featureId: string, data: IFeatureData): Promise<IFeatureStoredData> {
+  public extendFeatureData<T>(featureId: string, data: T): Promise<IFeatureStoredData<T>> {
     return new Promise((resolve) => {
-      this.getFeatures().then((features: IFeaturesStorageObject) => {
+      this.getFeatures().then((features: IFeaturesStorageObject<T>) => {
         features[featureId].data = Object.assign(features[featureId].data, data);
         this.setItem(this.FEATURES_STORAGE_KEY, features).then(() => {
           resolve(features[featureId]);
@@ -57,7 +57,7 @@ class FeatureStorageService extends BrowserStorageService {
   }
 
   public trackVideo(featureId: string, videoId: string) {
-    this.getFeatureData(featureId).then(featureData => {
+    this.getFeatureData<IBaseSongsFeatureData>(featureId).then(featureData => {
       if (featureData.data.songs[0] !== videoId) {
         if (featureData.data.songs.length === 25) {
           featureData.data.songs.pop();
@@ -70,8 +70,8 @@ class FeatureStorageService extends BrowserStorageService {
   }
 
   public initialize(): void {
-    this.getFeatures().then((features: IFeaturesStorageObject) => {
-        const freshFeatures: IFeaturesStorageObject = {};
+    this.getFeatures<any>().then((features: IFeaturesStorageObject<any>) => {
+        const freshFeatures: IFeaturesStorageObject<any> = {};
 
         FeaturesMeta.forEach(featureMeta => {
           if (!features || !features[featureMeta.id]) {
@@ -87,7 +87,7 @@ class FeatureStorageService extends BrowserStorageService {
           }
         });
 
-        this.setItem<IFeaturesStorageObject>(this.FEATURES_STORAGE_KEY, freshFeatures);
+        this.setItem<IFeaturesStorageObject<any>>(this.FEATURES_STORAGE_KEY, freshFeatures);
     });
   }
 }

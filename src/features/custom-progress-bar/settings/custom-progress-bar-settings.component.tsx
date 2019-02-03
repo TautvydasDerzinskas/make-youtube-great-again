@@ -6,6 +6,7 @@ import featureStorageService from '../../../services/common/feature-storage.serv
 
 import MetaCustomProgressBar from '../meta';
 import { IMessageRestart } from '../../../interfaces/communication';
+import { ICustomProgressBarData } from '../interfaces/costom-progress-bar.interface';
 import { ProgressBars } from '../../../enums';
 
 import './custom-progress-bar-settings.component.scss';
@@ -23,7 +24,7 @@ export default class CustomProgressBarSettingsComponent extends React.Component<
   }
 
   componentDidMount() {
-    featureStorageService.getFeatureData(MetaCustomProgressBar.id).then(featureData => {
+    featureStorageService.getFeatureData<ICustomProgressBarData>(MetaCustomProgressBar.id).then(featureData => {
       this.setState({
         progressBarType: featureData.data.theme,
       });

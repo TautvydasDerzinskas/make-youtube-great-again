@@ -2,12 +2,13 @@ import featureStorageService from '../../services/common/feature-storage.service
 
 import Meta from './meta';
 import IContent from '../../interfaces/content';
+import { IHideCommentsData } from './interfaces/hide-comments.interface';
 
 import './styles/hide-comments.scss';
 
 class ContentHideComments implements IContent {
   public extendPageUserInterface() {
-    featureStorageService.getFeatureData(Meta.id).then(featureData => {
+    featureStorageService.getFeatureData<IHideCommentsData>(Meta.id).then(featureData => {
       if (featureData.data.comments) {
         document.body.classList.add('myga-hidden-comments--comments');
       }

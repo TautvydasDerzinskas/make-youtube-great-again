@@ -1,5 +1,6 @@
 
 const MetaSaveMp3 = {
+  id: 'savemp3',
   name: 'savemp3.net',
   url: 'https://savemp3.net',
   downloadLink: function() {

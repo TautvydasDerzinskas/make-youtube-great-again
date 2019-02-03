@@ -15,8 +15,8 @@ interface ISettingComponentState {
   };
 }
 
-export default class SettingComponent extends React.Component<{ meta: IMeta }, ISettingComponentState> {
-  constructor(props: { meta: IMeta }) {
+export default class SettingComponent extends React.Component<{ meta: IMeta<any> }, ISettingComponentState> {
+  constructor(props: { meta: IMeta<any> }) {
     super(props);
     this.state = {
       data: {

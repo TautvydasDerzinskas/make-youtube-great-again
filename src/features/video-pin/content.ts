@@ -3,8 +3,9 @@ import svgIconsService from '../../services/content/svg-icons.service';
 import featureStorageService from '../../services/common/feature-storage.service';
 import urlService from '../../services/common/url.service';
 
-import IContent from '../../interfaces/content';
 import Meta from './meta';
+import IContent from '../../interfaces/content';
+import { IVideoPinData } from './interfaces/video-pin.interface';
 
 import './styles/video-pin.scss';
 
@@ -78,7 +79,7 @@ class ContentVideoPin implements IContent {
     const videoId = urlService.getQueryParameterByName('v');
 
     if (videoId) {
-      featureStorageService.getFeatureData(Meta.id).then(featureData => {
+      featureStorageService.getFeatureData<IVideoPinData>(Meta.id).then(featureData => {
         this.videoSize = featureData.data.size;
         this.updatePinnedVideoSize(featureData.data.size);
         this.createSizeClickHandlers();

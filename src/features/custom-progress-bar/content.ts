@@ -2,6 +2,7 @@ import IContent from '../../interfaces/content';
 import MetaCustomProgressBar from './meta';
 
 import featureStorageService from '../../services/common/feature-storage.service';
+import { ICustomProgressBarData } from './interfaces/costom-progress-bar.interface';
 
 class ContentCustomProgressBar implements IContent {
   public extendPageUserInterface() {
@@ -24,7 +25,7 @@ class ContentCustomProgressBar implements IContent {
       previousIndicatorStyle.remove();
     }
 
-    featureStorageService.getFeatureData(MetaCustomProgressBar.id).then(featureData => {
+    featureStorageService.getFeatureData<ICustomProgressBarData>(MetaCustomProgressBar.id).then(featureData => {
       const bodyElement = document.getElementsByTagName('body')[0];
 
       bodyElement.classList.add('myga--custom-bar');

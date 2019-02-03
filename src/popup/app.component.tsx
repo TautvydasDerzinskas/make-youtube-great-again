@@ -17,6 +17,8 @@ import MetaCustomProgressBar from '../features/custom-progress-bar/meta';
 import CustomProgressBarSettingsComponent from '../features/custom-progress-bar/settings/custom-progress-bar-settings.component';
 import MetaHideComments from '../features/hide-comments/meta';
 import HideCommentsSettingsComponent from '../features/hide-comments/settings/hide-comments-settings.component';
+import MetaDownloadMp3 from '../features/download-mp3/meta';
+import DownloadMp3SettingsComponent from '../features/download-mp3/settings/download-mp3-settings.component';
 
 
 import './app.component.scss';
@@ -38,6 +40,7 @@ export default class AppComponent extends React.Component<{}> {
 
             <Route exact path={`/settings/${MetaCustomProgressBar.id}`} component={CustomProgressBarSettingsComponent}/>
             <Route exact path={`/settings/${MetaHideComments.id}`} component={HideCommentsSettingsComponent}/>
+            <Route exact path={`/settings/${MetaDownloadMp3.id}`} component={DownloadMp3SettingsComponent}/>
           </Switch>
         </div>
       </div>

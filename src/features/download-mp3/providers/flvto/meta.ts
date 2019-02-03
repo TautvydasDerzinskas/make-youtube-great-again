@@ -1,4 +1,5 @@
-const MetaFlvo = {
+const MetaFlvto = {
+  id: 'flvto',
   name: 'flvto.biz',
   url: 'https://www.flvto.biz',
   downloadLink: function(videoId: string) {
@@ -6,4 +7,4 @@ const MetaFlvo = {
   },
 };
 
-export default MetaFlvo;
+export default MetaFlvto;

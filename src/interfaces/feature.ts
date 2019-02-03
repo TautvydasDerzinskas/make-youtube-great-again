@@ -1,28 +1,22 @@
 import IMeta from './meta';
 import IContent from './content';
-import IPopup from './popup';
 
-import { ProgressBars } from '../enums';
-
-export interface IFeatureData {
-  [index: string]: any;
+export interface IBaseSongsFeatureData {
   songs?: string[];
   counter?: number;
-  theme?: ProgressBars;
-  size?: number;
 }
 
-export interface IFeatureStoredData {
+export interface IFeatureStoredData<T> {
   status: boolean;
-  data: IFeatureData;
+  data: T;
 }
 
-export interface IFeaturesStorageObject {
-  [index: string]: IFeatureStoredData;
+export interface IFeaturesStorageObject<T> {
+  [index: string]: IFeatureStoredData<T>;
 }
 
-interface IFeature {
-  meta: IMeta;
+interface IFeature<T> {
+  meta: IMeta<T>;
   content: IContent;
 }
 

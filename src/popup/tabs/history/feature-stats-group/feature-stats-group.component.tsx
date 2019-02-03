@@ -6,9 +6,9 @@ import formatService from '../../../../services/common/format.service';
 
 import IMeta from '../../../../interfaces/meta';
 import { IYoutubeSnippetResponse, IYoutubeSnippetItem } from './feature-stats.interface';
+import { IBaseSongsFeatureData } from '../../../../interfaces/feature';
 
 import { ApiKeys } from '../../../../enums';
-
 
 import './feature-stats-group.component.scss';
 
@@ -18,7 +18,7 @@ interface IFeatureStatsGroupComponentState {
 }
 
 interface IFeatureStatsGroupComponentProps {
-  meta: IMeta;
+  meta: IMeta<IBaseSongsFeatureData>;
 }
 
 export default class FeatureStatsGroupComponent extends React.Component<IFeatureStatsGroupComponentProps, IFeatureStatsGroupComponentState> {
@@ -31,7 +31,7 @@ export default class FeatureStatsGroupComponent extends React.Component<IFeature
   }
 
   componentDidMount() {
-    featureStorageService.getFeatureData(this.props.meta.id).then(featureData => {
+    featureStorageService.getFeatureData<IBaseSongsFeatureData>(this.props.meta.id).then(featureData => {
       const videoIds = featureData.data.songs.concat(',');
       fetch(`https://www.googleapis.com/youtube/v3/videos?id=${videoIds}&part=snippet&key=${ApiKeys.DataApiV3}`)
         .then(res => res.json())

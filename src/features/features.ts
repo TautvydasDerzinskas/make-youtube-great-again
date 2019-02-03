@@ -19,7 +19,7 @@ import ContentVideoPin from './video-pin/content';
 import IFeature from '../interfaces/feature';
 import IMeta from '../interfaces/meta';
 
-export const Features: IFeature[] = [
+export const Features: IFeature<any>[] = [
   {
     meta: MetaDownloadMp3,
     content: ContentDownloadMp3,
@@ -46,6 +46,6 @@ export const Features: IFeature[] = [
   },
 ];
 
-const FeaturesMeta: IMeta[] = [];
+const FeaturesMeta: IMeta<any>[] = [];
 Features.forEach(feature => { FeaturesMeta.push(feature.meta); });
 export { FeaturesMeta };

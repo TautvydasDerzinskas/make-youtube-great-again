@@ -1,0 +1,20 @@
+@import '../../../popup/variables';
+
+.dm-settings {
+
+  &__content {
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: stretch;
+    display: flex;
+
+    .dt-checkbox {
+      margin-bottom: $default-spacing;
+    }
+  }
+
+  &__setting {
+    width: 50%;
+  }
+}

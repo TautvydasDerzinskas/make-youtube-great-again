@@ -1,6 +1,7 @@
 import IMeta from '../../interfaces/meta';
+import { IBaseSongsFeatureData } from '../../interfaces/feature';
 
-const meta: IMeta = {
+const meta: IMeta<IBaseSongsFeatureData> = {
   id: 'myga-looper',
   description: 'Allows you to play YouTube videos on repeat mode',
   title: 'Looper',
