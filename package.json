@@ -19,9 +19,9 @@
     "react-tippy": "1.2.3"
   },
   "devDependencies": {
-    "@types/chrome": "0.0.80",
-    "@types/node": "11.9.2",
-    "@types/react": "16.8.3",
+    "@types/chrome": "0.0.81",
+    "@types/node": "11.9.4",
+    "@types/react": "16.8.4",
     "@types/react-dom": "16.8.2",
     "@types/react-router-dom": "4.3.1",
     "bestzip": "2.1.2",
@@ -39,9 +39,9 @@
     "ts-loader": "5.3.3",
     "tslint": "5.12.1",
     "tslint-react": "3.6.0",
-    "typescript": "3.2.4",
-    "webpack": "4.29.4",
-    "webpack-cli": "3.2.2"
+    "typescript": "3.3.3",
+    "webpack": "4.29.5",
+    "webpack-cli": "3.2.3"
   },
   "keywords": [
     "Chrome",
