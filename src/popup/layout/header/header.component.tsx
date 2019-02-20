@@ -16,8 +16,8 @@ export default class HeaderComponent extends React.Component<{}> {
     return (
       <div className='layout__header'>
         <div className='header__logo'>
-          <div className='header__logo__image' style={{ backgroundImage: 'url(./images/header.png)', }}></div>
-          <div className='header__logo__image' style={{ backgroundImage: 'url(./images/header2.png)', }}></div>
+          <div className='header__logo__image' style={{ backgroundImage: 'url(./images/header.webp)', }}></div>
+          <div className='header__logo__image' style={{ backgroundImage: 'url(./images/header2.webp)', }}></div>
           <NavigationComponent />
         </div>
         <div className='header__close-button' onClick={this.closePopup}>
