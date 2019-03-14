@@ -3,3 +3,4 @@
 /.vscode
 /extension
 myga_*.zip
+*.DS_Store*
