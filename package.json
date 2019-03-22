@@ -14,7 +14,7 @@
   },
   "dependencies": {
     "react": "16.8.5",
-    "react-dom": "16.8.4",
+    "react-dom": "16.8.5",
     "react-router-dom": "4.4.0",
     "react-tippy": "1.2.3"
   },
