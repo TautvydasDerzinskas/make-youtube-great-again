@@ -1,3 +1,14 @@
+# [1.3.0](https://github.com/SlimDogs/make-youtube-great-again/compare/v1.2.0...v1.3.0) (2019-03-26)
+
+
+### Features
+
+* **header:** add particle animation to header ([4fae8ce](https://github.com/SlimDogs/make-youtube-great-again/commit/4fae8ce))
+
+
+### Performance Improvements
+
+* **images:** change author avatar format to webp ([3793ded](https://github.com/SlimDogs/make-youtube-great-again/commit/3793ded))
 
 # Changelog
 
