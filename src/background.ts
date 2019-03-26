@@ -11,15 +11,13 @@ chrome.tabs.onCreated.addListener(() => { extensionService.updateToolbarIcon(); 
 chrome.tabs.onUpdated.addListener(() => { extensionService.updateToolbarIcon(); });
 chrome.tabs.onActivated.addListener(() => { extensionService.updateToolbarIcon(); });
 
-const gitRepoUrl = 'https://github.com/SlimDogs/make-youtube-great-again';
 chrome.runtime.onInstalled.addListener((details) => {
   if (details.reason = 'install') {
     analyticsService.trackPageView('install');
-    chrome.tabs.create({ url: '{{homepage}}' });
   } else if (details.reason === 'update') {
     analyticsService.trackPageView('update');
   }
 });
-chrome.runtime.setUninstallURL(gitRepoUrl);
+chrome.runtime.setUninstallURL('https://github.com/SlimDogs/make-youtube-great-again');
 
 featureStorageService.initialize();
