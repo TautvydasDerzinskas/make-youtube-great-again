@@ -31,7 +31,7 @@ export default class LinksComponent extends React.Component<{}> {
           <LinkBoxComponent
             link={(window as any).myga.authorPage}
             position='bottom-left'
-            icon='author.jpg'
+            icon='author.webp'
             label='Extension author' />
           <PaypalLinkBoxComponent
             position='bottom-right'
