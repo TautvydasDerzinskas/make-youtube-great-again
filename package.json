@@ -18,7 +18,7 @@
     "react-dom": "16.8.5",
     "react-router-dom": "5.0.0",
     "react-tippy": "1.2.3",
-    "react-particles-js": "2.5.1"
+    "react-particles-js": "2.6.0"
   },
   "devDependencies": {
     "@types/chrome": "0.0.81",
