@@ -16,7 +16,7 @@ document.body.classList.add(`myga-browser--${browserService.browserName}`);
 
 /**
  * Only start initializing content scripts
- * when YouTube is fully loaded
+ * when YouTube™ is fully loaded
  */
 const checkPageLoadStatus = () => {
   const videoPageElement = document.querySelector(YoutubeSelectors.MenuAfterDropdown);
@@ -38,12 +38,14 @@ const setupFeatureContents = () => {
     featureStorageService.getFeatureData(feature.meta.id).then(featureData => {
       featuresLoaded--;
 
-      if (featureData.status && (!feature.meta.videoPageOnly || isUrlVideoPage)) {
-        if (feature.content.extendPageUserInterface) {
-          feature.content.extendPageUserInterface();
-        }
-        if (feature.content.setupEventListeners) {
-          feature.content.setupEventListeners();
+      if (!feature.meta.disabledBrowsers || !feature.meta.disabledBrowsers.includes(browserService.browserName)) {
+        if (featureData.status && (!feature.meta.videoPageOnly || isUrlVideoPage)) {
+          if (feature.content.extendPageUserInterface) {
+            feature.content.extendPageUserInterface();
+          }
+          if (feature.content.setupEventListeners) {
+            feature.content.setupEventListeners();
+          }
         }
       }
 

@@ -1,5 +1,5 @@
 <p align="center">
-  <a href="https://github.com/SlimDogs/make-youtube-great-again"><img src="docs/images/myga_promo_440x280.jpg" alt="Browser extension: Make YouTube great again!" title="Browser extension: Make YouTube great again!" width="250px" /></a>
+  <a href="https://github.com/SlimDogs/make-youtube-great-again"><img src="docs/images/myga_promo_440x280.jpg" alt="Browser extension: Make YouTube great again!" title="Browser extension: Make YouTube™ great again!" width="250px" /></a>
 </p>
 
 <p align="center">
@@ -23,9 +23,9 @@
 - [Changelog](CHANGELOG.md)
 
 ## About
-_First of all please have in mind that extension name "Make YouTube great again" is chosen only because it sounds funny! Please don't look for any hidden political message - there is none._
+_First of all please have in mind that extension name "Make YouTube™ great again" is chosen only because it sounds funny! Please don't look for any hidden political message - there is none._
 
-Make YouTube Great Again is a Browser extension which extends YouTube websites user interface with additional [features](#features). User don't have to use all of the extensions features as there is an option to toggle each of them on and off. There is also a history tab which shows how many times and on what YouTube videos those features been used.
+Make YouTube™ Great Again is a Browser extension which extends YouTube websites user interface with additional [features](#features). User don't have to use all of the extensions features as there is an option to toggle each of them on and off. There is also a history tab which shows how many times and on what YouTube™ videos those features been used.
 
 ## Installation
 Chrome & Vivaldi users please click below:
@@ -48,7 +48,7 @@ Firefox users please head to link below:
   <img src="docs/images/feature_01.gif" width="250px" alt="Convert videos to mp3" />
   </p>
 </p>
-Adds button under each YouTube video which provides an option to convert it to downloadable mp3 file.
+Adds button under each YouTube™ video which provides an option to convert it to downloadable mp3 file.
 It's users responsibility to use this feature only on videos which have free, non-copyrighted soundtracks.
 
 ____
@@ -59,7 +59,7 @@ ____
   <img src="docs/images/feature_02.gif" width="250px" alt="Loop videos" />
   </p>
 </p>
-Adds button under each YouTube video which when activated enables video looping.
+Adds button under each YouTube™ video which when activated enables video looping.
 This works fine with both new HTML5 player and legacy flash player.
 
 ____
@@ -102,7 +102,7 @@ ____
   <img src="docs/images/feature_06.gif" width="250px" alt="Custom progress barr" />
   </p>
 </p>
-Don't miss a second of your YouTube video even when reading comments!
+Don't miss a second of your YouTube™ video even when reading comments!
 
 ## Screenshots
 <a href="docs/images/screenshot_01.jpg" target="_blank"><img width="200px" src="docs/images/screenshot_01.jpg" alt="Screenshot" title="Screenshot" /></a><a href="docs/images/screenshot_02.jpg" target="_blank"><img width="200px" src="docs/images/screenshot_02.jpg" alt="Screenshot" title="Screenshot" /></a><a href="docs/images/screenshot_03.jpg" target="_blank"><img width="200px" src="docs/images/screenshot_03.jpg" alt="Screenshot" title="Screenshot" /></a><a href="docs/images/screenshot_04.jpg" target="_blank"><img width="200px" src="docs/images/screenshot_04.jpg" alt="Screenshot" title="Screenshot" /></a><a href="docs/images/screenshot_05.jpg" target="_blank"><img width="200px" src="docs/images/screenshot_05.jpg" alt="Screenshot" title="Screenshot" /></a>
