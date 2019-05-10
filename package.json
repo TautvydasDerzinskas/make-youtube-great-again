@@ -105,7 +105,10 @@
         "path": "@semantic-release/changelog",
         "changelogFile": "CHANGELOG.md"
       },
-      "@semantic-release/git",
+      {
+        "path": "@semantic-release/git",
+        "assets": ["package.json"]
+      },
       {
         "path": "semantic-release-chrome",
         "asset": "myga_chrome.zip",

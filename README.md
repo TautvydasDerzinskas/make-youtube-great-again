@@ -31,27 +31,16 @@ Make YouTube™ Great Again is a Browser extension which extends YouTube website
 Chrome & Vivaldi users please click below:
 
 <a href="https://chrome.google.com/webstore/detail/make-youtube-great-again/geonnhfmhfjfkbbkjmbanmjommkjlnim" target="_blank">
-  <img src="docs/images/chrome_store.png" alt="Convert videos to mp3" />
+  <img src="docs/images/chrome_store.png" alt="Chrome Web Store" />
 </a>
 
 Firefox users please head to link below:
 
 <a href="https://addons.mozilla.org/en-GB/firefox/addon/myga/" target="_blank">
-  <img src="docs/images/firefox_store.png" width="206px" alt="Convert videos to mp3" />
+  <img src="docs/images/firefox_store.png" width="206px" alt="Firefox add-ons" />
 </a>
 
 ## Features
-
-<p align="center">
-  <strong>Convert videos to mp3</strong>
-  <p align="center">
-  <img src="docs/images/feature_01.gif" width="250px" alt="Convert videos to mp3" />
-  </p>
-</p>
-Adds button under each YouTube™ video which provides an option to convert it to downloadable mp3 file.
-It's users responsibility to use this feature only on videos which have free, non-copyrighted soundtracks.
-
-____
 
 <p align="center">
   <strong>Loop videos</strong>
