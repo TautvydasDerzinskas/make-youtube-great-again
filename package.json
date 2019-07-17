@@ -31,7 +31,7 @@
     "@semantic-release/github": "5.2.10",
     "bestzip": "2.1.2",
     "clean-webpack-plugin": "2.0.2",
-    "commitizen": "3.1.1",
+    "commitizen": "3.1.2",
     "copy-webpack-plugin": "5.0.3",
     "css-loader": "2.1.1",
     "cz-customizable": "6.0.0",
