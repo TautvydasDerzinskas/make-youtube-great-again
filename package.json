@@ -37,7 +37,7 @@
     "cz-customizable": "6.0.0",
     "husky": "2.2.0",
     "node-sass": "4.12.0",
-    "sass-loader": "7.1.0",
+    "sass-loader": "7.2.0",
     "semantic-release": "15.13.3",
     "semantic-release-chrome": "1.1.1",
     "string-replace-loader": "2.1.1",
