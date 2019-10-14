@@ -14,41 +14,41 @@
     "semantic-release": "semantic-release"
   },
   "dependencies": {
-    "react": "16.8.6",
-    "react-dom": "16.8.6",
-    "react-router-dom": "5.0.0",
+    "react": "16.10.2",
+    "react-dom": "16.10.2",
+    "react-router-dom": "5.1.2",
     "react-tippy": "1.2.3",
-    "react-particles-js": "2.6.0"
+    "react-particles-js": "2.7.0"
   },
   "devDependencies": {
-    "@types/chrome": "0.0.83",
-    "@types/node": "12.0.0",
-    "@types/react": "16.8.17",
-    "@types/react-dom": "16.8.4",
-    "@types/react-router-dom": "4.3.3",
-    "@semantic-release/changelog": "3.0.2",
-    "@semantic-release/git": "7.0.8",
-    "@semantic-release/github": "5.2.10",
-    "bestzip": "2.1.2",
-    "clean-webpack-plugin": "2.0.2",
-    "commitizen": "3.1.1",
-    "copy-webpack-plugin": "5.0.3",
-    "css-loader": "2.1.1",
-    "cz-customizable": "6.0.0",
-    "husky": "2.2.0",
+    "@types/chrome": "0.0.89",
+    "@types/node": "12.7.12",
+    "@types/react": "16.9.5",
+    "@types/react-dom": "16.9.1",
+    "@types/react-router-dom": "5.1.0",
+    "@semantic-release/changelog": "3.0.4",
+    "@semantic-release/git": "7.0.16",
+    "@semantic-release/github": "5.5.3",
+    "bestzip": "2.1.4",
+    "clean-webpack-plugin": "3.0.0",
+    "commitizen": "4.0.3",
+    "copy-webpack-plugin": "5.0.4",
+    "css-loader": "3.2.0",
+    "cz-customizable": "6.2.0",
+    "husky": "3.0.9",
     "node-sass": "4.12.0",
-    "sass-loader": "7.1.0",
-    "semantic-release": "15.13.3",
+    "sass-loader": "8.0.0",
+    "semantic-release": "15.13.24",
     "semantic-release-chrome": "1.1.1",
-    "string-replace-loader": "2.1.1",
-    "style-loader": "0.23.1",
+    "string-replace-loader": "2.2.0",
+    "style-loader": "1.0.0",
     "svg-inline-loader": "0.8.0",
-    "ts-loader": "6.0.0",
-    "tslint": "5.16.0",
-    "tslint-react": "4.0.0",
-    "typescript": "3.4.5",
-    "webpack": "4.30.0",
-    "webpack-cli": "3.3.2"
+    "ts-loader": "6.2.0",
+    "tslint": "5.20.0",
+    "tslint-react": "4.1.0",
+    "typescript": "3.6.4",
+    "webpack": "4.41.1",
+    "webpack-cli": "3.3.9"
   },
   "keywords": [
     "Chrome",
@@ -74,8 +74,8 @@
   },
   "license": "MIT",
   "engines": {
-    "node": "8.9.4",
-    "npm": "5.6.0"
+    "node": "10.16.0",
+    "npm": "6.9.0"
   },
   "config": {
     "commitizen": {
@@ -107,7 +107,9 @@
       },
       {
         "path": "@semantic-release/git",
-        "assets": ["package.json"]
+        "assets": [
+          "package.json"
+        ]
       },
       {
         "path": "semantic-release-chrome",
