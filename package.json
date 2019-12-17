@@ -41,7 +41,7 @@
     "semantic-release": "15.13.24",
     "semantic-release-chrome": "1.1.1",
     "string-replace-loader": "2.2.0",
-    "style-loader": "1.0.0",
+    "style-loader": "1.0.2",
     "svg-inline-loader": "0.8.0",
     "ts-loader": "6.2.0",
     "tslint": "5.20.0",
