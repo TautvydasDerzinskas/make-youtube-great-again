@@ -1,3 +1,15 @@
+## [1.5.0](https://github.com/TautvydasDerzinskas/make-youtube-great-again/compare/v1.4.0...v1.5.0) (2026-09-25)
+
+### Features
+
+* add cinema mode feature ([396d73a](https://github.com/TautvydasDerzinskas/make-youtube-great-again/commit/396d73a39df392a15bb36fa32494b47c1156fa84))
+* add screenshot function ([e994325](https://github.com/TautvydasDerzinskas/make-youtube-great-again/commit/e9943251560d84d7a9508a2f43a78fd172c2ed4a))
+
+### Refactoring
+
+* icon logic ([fbbaeb8](https://github.com/TautvydasDerzinskas/make-youtube-great-again/commit/fbbaeb82aeb43c959ca426d7881f7ec378fab544))
+* remake links to be remote ([fecbee7](https://github.com/TautvydasDerzinskas/make-youtube-great-again/commit/fecbee7fa41969d20f4a75c931975e5b7740487a))
+
 ## [1.4.0](https://github.com/TautvydasDerzinskas/make-youtube-great-again/compare/v1.3.1...v1.4.0) (2026-09-25)
 
 ### Features
