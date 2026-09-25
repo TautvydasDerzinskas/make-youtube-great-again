@@ -1,3 +1,23 @@
+## [1.4.0](https://github.com/TautvydasDerzinskas/make-youtube-great-again/compare/v1.3.1...v1.4.0) (2026-09-25)
+
+### Features
+
+* add audio mode, comment drafts, viewing history & hide thanks button ([9ec7aa0](https://github.com/TautvydasDerzinskas/make-youtube-great-again/commit/9ec7aa0d7bdcd76540b869b44d4459f5db9e9168))
+
+### Refactoring
+
+* **history:** exclude disabled features history ([59c843d](https://github.com/TautvydasDerzinskas/make-youtube-great-again/commit/59c843d81df718a544b179c2c808206cea050940))
+* **README:** update feature list in docs ([0e5da8c](https://github.com/TautvydasDerzinskas/make-youtube-great-again/commit/0e5da8c50d51d368361fdee59536be24fb0dec36))
+* refresh codebase ([dec139b](https://github.com/TautvydasDerzinskas/make-youtube-great-again/commit/dec139be5dd06d07578546cc1c7eabc94a5198f3))
+
+### CI
+
+* release from a single main branch on every push ([c6faf9d](https://github.com/TautvydasDerzinskas/make-youtube-great-again/commit/c6faf9d2ca59bcfc564febf90904cc81d8279913))
+
+### Chores
+
+* **npm:** update dependencies ([e873345](https://github.com/TautvydasDerzinskas/make-youtube-great-again/commit/e8733455d7f1b7f778ad589838ec6a595dbaa3e3))
+
 ## [1.3.1](https://github.com/SlimDogs/make-youtube-great-again/compare/v1.3.0...v1.3.1) (2019-05-10)
 
 
