@@ -209,9 +209,16 @@ class ContentVideoPin implements IContent {
     return player ? player.classList.contains('myga-audio-mode--active') : false;
   }
 
+  /**
+   * Set by the cinema mode feature, which keeps the video in place
+   */
+  private get isCinemaModeActive() {
+    return document.documentElement.classList.contains('myga-cinema-mode--active');
+  }
+
   private onScroll() {
     if (this.isPlayerOutOfView) {
-      if (!this.isVideoPinned && !this.wasClosed && !this.isAudioModeActive && this.videoStreamElement && !this.videoStreamElement.paused) {
+      if (!this.isVideoPinned && !this.wasClosed && !this.isAudioModeActive && !this.isCinemaModeActive && this.videoStreamElement && !this.videoStreamElement.paused) {
         this.show();
       }
     } else {

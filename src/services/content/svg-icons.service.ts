@@ -1,5 +1,6 @@
 import iconLooper from '../../assets/vectors/looper.svg';
 import iconHeadphones from '../../assets/vectors/headphones.svg';
+import iconCinema from '../../assets/vectors/cinema.svg';
 import iconPlay from '../../assets/vectors/play.svg';
 import iconPause from '../../assets/vectors/pause.svg';
 import iconPlus from '../../assets/vectors/plus.svg';
@@ -13,6 +14,10 @@ class SvgIconsService {
 
   get iconHeadphones() {
     return iconHeadphones;
+  }
+
+  get iconCinema() {
+    return iconCinema;
   }
 
   get iconPlay() {

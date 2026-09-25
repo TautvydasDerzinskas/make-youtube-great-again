@@ -1,0 +1,54 @@
+@use '../../../popup/variables' as *;
+
+// Above YouTube™'s fixed top bar (z-index 2020)
+$overlay-z-index: 2100;
+
+#myga-cinema-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: $overlay-z-index;
+  background-color: rgba($theme-black, 0.92);
+  opacity: 0;
+  cursor: pointer;
+  transition: opacity 0.4s ease-in-out;
+
+  &.myga-cinema-overlay--visible {
+    opacity: 1;
+  }
+}
+
+.myga-cinema-overlay__hint {
+  position: absolute;
+  left: 50%;
+  bottom: 24px;
+  transform: translateX(-50%);
+  padding: 8px 16px;
+  border-radius: 18px;
+  background-color: rgba($theme-white, 0.1);
+  color: rgba($theme-white, 0.7);
+  font-family: Roboto, Arial, sans-serif;
+  font-size: 13px;
+  white-space: nowrap;
+  pointer-events: none;
+  animation: myga-cinema-hint 4s ease-in-out forwards;
+}
+
+@keyframes myga-cinema-hint {
+  0%, 70% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.myga-cinema-mode__lifted {
+  position: relative;
+  z-index: $overlay-z-index + 1 !important;
+}
+
+// Nothing else to look at: no scrolling away from the video
+html.myga-cinema-mode--active {
+  overflow: hidden !important;
+  scrollbar-gutter: stable;
+}
