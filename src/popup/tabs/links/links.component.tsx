@@ -1,60 +1,42 @@
 import * as React from 'react';
+import { Navigate } from 'react-router';
+
 import LinkBoxComponent from './link-box/link-box.component';
-import PaypalLinkBoxComponent from './paypal-link-box/paypal-link-box.component';
-
-import browserService from '../../../services/common/browser.service';
-
-import { ShareLinks } from '../../../enums';
+import linksService, { ILink } from '../../../services/popup/links.service';
 
 import './links.component.scss';
 
-export default class LinksComponent extends React.Component<{}> {
+interface ILinksComponentState {
+  links: ILink[];
+  isLoaded: boolean;
+}
+
+/**
+ * Built from links.json in the GitHub repository
+ */
+export default class LinksComponent extends React.Component<{}, ILinksComponentState> {
+  constructor(props: {}) {
+    super(props);
+    this.state = { links: [], isLoaded: false };
+  }
+
+  componentDidMount() {
+    this.loadLinks();
+  }
+
+  private loadLinks() {
+    linksService.getLinks().then(links => this.setState({ links: links || [], isLoaded: true }));
+  }
 
   render() {
-    const webStoreLink = browserService.browserExtensionWebStoreLink;
-    // Without a store listing, the GitHub repository is shared instead
-    const shareLink = webStoreLink || (window as any).myga.homepage;
+    // Couldn't be loaded: the tab is hidden, so back to the features
+    if (this.state.isLoaded && this.state.links.length === 0) {
+      return <Navigate to='/settings' replace />;
+    }
 
     return (
       <div className='links'>
-        <div className='links__column'>
-          <LinkBoxComponent
-            link={(window as any).myga.homepage}
-            position='top-left'
-            icon='github.svg'
-            label='GitHub repository' />
-          <LinkBoxComponent
-            link={(window as any).myga.bugs}
-            position='top-right'
-            icon='report_bug.svg'
-            label='Report a bug' />
-          <LinkBoxComponent
-            link={(window as any).myga.authorPage}
-            position='bottom-left'
-            icon='author.webp'
-            label='Extension author' />
-          <PaypalLinkBoxComponent
-            position='bottom-right'
-            icon='beer.svg'
-            label='Buy author a beer' />
-        </div>
-        <div className='links__column'>
-          <LinkBoxComponent
-            link={ShareLinks.Facebook + shareLink}
-            position='top-left'
-            icon='facebook.svg'
-            label='Share to Facebook' />
-          <LinkBoxComponent
-            link={ShareLinks.Twitter + shareLink}
-            position='top-right'
-            icon='twitter.svg'
-            label='Share to Twitter' />
-          {webStoreLink && <LinkBoxComponent
-            link={webStoreLink + '/reviews'}
-            position='bottom-left-right'
-            icon='star.svg'
-            label='Love this extension? Leave a review!' />}
-        </div>
+        {this.state.links.map(link => <LinkBoxComponent key={link.label + link.url} link={link} />)}
       </div>
     );
   }

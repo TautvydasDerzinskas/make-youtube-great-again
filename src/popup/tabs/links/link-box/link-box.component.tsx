@@ -1,40 +1,35 @@
 import * as React from 'react';
 
+import { ILink } from '../../../../services/popup/links.service';
+
 import './link-box.component.scss';
 
-interface ILinkBoxComponentProps {
-  link: string;
-  position: string;
-  icon: string;
-  label: string;
-}
-
-export default class LinkBoxComponent extends React.Component<ILinkBoxComponentProps, {}> {
+export default class LinkBoxComponent extends React.Component<{ link: ILink }, {}> {
 
   private getIcon() {
-    let icon;
+    const icon = this.props.link.icon;
 
-    if (this.props.icon.indexOf('.svg') > 0) {
-      icon = (
+    if (icon.startsWith('https://')) {
+      return <img src={icon} alt='' className='link-box__icon link-box__icon--image' />;
+    }
+    if (icon.endsWith('.svg')) {
+      return (
         <svg className='link-box__icon'>
-          <use xlinkHref={`vectors/${this.props.icon}#icon`}></use>
+          <use xlinkHref={`vectors/${icon}#icon`}></use>
         </svg>
       );
-    } else {
-      icon = (
-        <img src={`images/${this.props.icon}`} className='link-box__icon link-box__icon--image' />
-      );
     }
-
-    return icon;
+    return <img src={`images/${icon}`} alt='' className='link-box__icon link-box__icon--image' />;
   }
 
   render() {
+    const { link } = this.props;
+
     return (
-      <a href={this.props.link} target='_blank' title={this.props.label} className={`link-box link-box--${this.props.position}`}>
+      <a href={link.url} target='_blank' rel='noopener noreferrer' title={link.label} className={`link-box${link.wide ? ' link-box--wide' : ''}`}>
         {this.getIcon()}
         <div className='link-box__overlay'>
-          <span>{this.props.label}</span>
+          <span>{link.label}</span>
         </div>
       </a>
     );

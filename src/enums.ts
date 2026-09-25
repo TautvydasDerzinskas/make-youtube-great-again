@@ -5,11 +5,6 @@ export enum YoutubeSelectors {
   AllThumbnails = 'a.video-thumb:not(.myga-thumb-container), a.yt-uix-simple-thumb-wrap:not(.myga-thumb-container), a.ytp-videowall-still:not(.myga-thumb-container), a.pl-header-thumb:not(.myga-thumb-container), a#thumbnail:not(.ytd-moving-thumbnail-renderer):not(.ytd-movie-upsell-renderer):not(.myga-thumb-container), a#thumbnail-container:not(.myga-thumb-container)'
 }
 
-export enum ShareLinks {
-  Facebook = 'https://www.facebook.com/sharer/sharer.php?u=',
-  Twitter = 'https://twitter.com/intent/tweet?text=Make%20YouTube%20great%20again&url=',
-}
-
 export enum Browsers {
   Chrome = 'chrome',
   Firefox = 'firefox',

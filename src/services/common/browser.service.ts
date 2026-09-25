@@ -12,30 +12,6 @@ class BrowserService {
     }
     return Browsers.Chrome;
   }
-
-  /**
-   * Null when there's no store listing for this browser
-   */
-  get browserExtensionWebStoreLink(): string {
-    let link: string = null;
-
-    switch (this.browserName) {
-      case Browsers.Firefox:
-        link = `https://addons.mozilla.org/en-GB/firefox/addon/myga`;
-        break;
-      case Browsers.Opera:
-        link = `https://addons.opera.com/en-gb/extensions/details/${(window as any).myga.title}`;
-        break;
-      // Not in the Chrome Web Store at the moment: set to its listing once it's republished
-      default:
-      case Browsers.Chrome:
-      case Browsers.Other:
-      case Browsers.Vivaldi:
-        break;
-    }
-
-    return link;
-  }
 }
 
 export default new BrowserService();

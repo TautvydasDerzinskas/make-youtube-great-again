@@ -1,16 +1,9 @@
 @use 'sass:math';
 @use '../../variables' as *;
 
-$links-column-size: math.div($tab-content-width - $default-spacing, 2);
-
+// 4 square boxes per row, filled in the order of links.json
 .links {
-  display: flex;
-  justify-content: space-between;
-  align-items: stretch;
-
-  &__column {
-    position: relative;
-    width: $links-column-size;
-    height: $links-column-size;
-  }
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: $default-spacing;
 }

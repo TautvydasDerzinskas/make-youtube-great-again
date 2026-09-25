@@ -1,0 +1,59 @@
+{
+  "links": [
+    {
+      "label": "GitHub repository",
+      "url": "https://github.com/TautvydasDerzinskas/make-youtube-great-again",
+      "icon": "github.svg",
+      "browsers": ["chrome", "firefox"]
+    },
+    {
+      "label": "Report a bug",
+      "url": "https://github.com/TautvydasDerzinskas/make-youtube-great-again/issues",
+      "icon": "report_bug.svg",
+      "browsers": ["chrome", "firefox"]
+    },
+    {
+      "label": "Extension author",
+      "url": "https://www.tautvydas.info",
+      "icon": "author.webp",
+      "browsers": ["chrome", "firefox"]
+    },
+    {
+      "label": "Buy author a coffee",
+      "url": "https://buymeacoffee.com/TautvydasDerzinskas",
+      "icon": "coffee.svg",
+      "browsers": ["chrome", "firefox"]
+    },
+    {
+      "label": "Share to Facebook",
+      "url": "https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fgithub.com%2FTautvydasDerzinskas%2Fmake-youtube-great-again",
+      "icon": "facebook.svg",
+      "browsers": ["chrome"]
+    },
+    {
+      "label": "Share to Twitter",
+      "url": "https://twitter.com/intent/tweet?text=Make%20YouTube%20great%20again&url=https%3A%2F%2Fgithub.com%2FTautvydasDerzinskas%2Fmake-youtube-great-again",
+      "icon": "twitter.svg",
+      "browsers": ["chrome"]
+    },
+    {
+      "label": "Share to Facebook",
+      "url": "https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Faddons.mozilla.org%2Fen-GB%2Ffirefox%2Faddon%2Fmyga",
+      "icon": "facebook.svg",
+      "browsers": ["firefox"]
+    },
+    {
+      "label": "Share to Twitter",
+      "url": "https://twitter.com/intent/tweet?text=Make%20YouTube%20great%20again&url=https%3A%2F%2Faddons.mozilla.org%2Fen-GB%2Ffirefox%2Faddon%2Fmyga",
+      "icon": "twitter.svg",
+      "browsers": ["firefox"]
+    },
+    {
+      "label": "Love this extension? Leave a review!",
+      "url": "https://addons.mozilla.org/en-GB/firefox/addon/myga/reviews",
+      "icon": "star.svg",
+      "browsers": ["firefox"],
+      "wide": true
+    }
+  ]
+}

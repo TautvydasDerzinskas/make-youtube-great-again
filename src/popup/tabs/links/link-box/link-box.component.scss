@@ -4,35 +4,16 @@
 $link-box-size: math.div($tab-content-width - ($default-spacing * 3), 4);
 
 .link-box {
-  position: absolute;
+  position: relative;
   height: $link-box-size;
-  width: $link-box-size;
   background-color: $theme-silver-white;
   overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
 
-  &--top-left, &--top-left-right {
-    top: 0;
-    left: 0;
-  }
-  &--top-right, &--top-left-right {
-    top: 0;
-    right: 0;
-  }
-
-  &--bottom-left, &--bottom-left-right {
-    bottom: 0;
-    left: 0;
-  }
-  &--bottom-right, &--bottom-left-right {
-    bottom: 0;
-    right: 0;
-  }
-
-  &--top-left-right, &--bottom-left-right {
-    width: auto;
+  &--wide {
+    grid-column: span 2;
   }
 
   &__icon {
