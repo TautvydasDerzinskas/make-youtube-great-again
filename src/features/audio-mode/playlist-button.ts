@@ -1,5 +1,6 @@
-import svgIconsService from '../../services/content/svg-icons.service';
 import tooltipService from '../../services/content/tooltip.service';
+
+import iconHeadphones from '../../assets/vectors/headphones.svg';
 
 import {
   AUDIO_MODE_PLAYLIST_REQUEST_EVENT,
@@ -76,7 +77,7 @@ export default class PlaylistAudioModeButton {
       const $button = document.createElement('button');
       $button.className = `myga-action-btn ${BUTTON_CLASS} ytSpecButtonShapeNextHost ytSpecButtonShapeNextText ytSpecButtonShapeNextMono ytSpecButtonShapeNextSizeM ytSpecButtonShapeNextIconButton`;
       $button.setAttribute('type', 'button');
-      $button.innerHTML = `<div class="ytSpecButtonShapeNextIcon">${svgIconsService.iconHeadphones}</div>`;
+      $button.innerHTML = `<div class="ytSpecButtonShapeNextIcon">${iconHeadphones}</div>`;
       $button.addEventListener('click', (event: Event) => {
         // The panel header collapses the playlist when clicked
         event.stopPropagation();

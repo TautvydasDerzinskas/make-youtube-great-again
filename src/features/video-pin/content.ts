@@ -1,7 +1,12 @@
 import dragService from '../../services/common/drag.service';
-import svgIconsService from '../../services/content/svg-icons.service';
 import featureStorageService from '../../services/common/feature-storage.service';
 import urlService from '../../services/common/url.service';
+
+import iconClose from '../../assets/vectors/close.svg';
+import iconPlus from '../../assets/vectors/plus.svg';
+import iconMinus from '../../assets/vectors/minus.svg';
+import iconPause from '../../assets/vectors/pause.svg';
+import iconPlay from '../../assets/vectors/play.svg';
 
 import Meta from './meta';
 import IContent from '../../interfaces/content';
@@ -61,17 +66,17 @@ class ContentVideoPin implements IContent {
       videoPinElement.innerHTML = `
         <div class="pinned-video__inner"></div>
         <button class="pinned-video__button button--close" type="button">
-          ${svgIconsService.iconClose}
+          ${iconClose}
         </button>
         <button class="pinned-video__button button--plus" type="button">
-          ${svgIconsService.iconPlus}
+          ${iconPlus}
         </button>
         <button class="pinned-video__button button--minus" type="button">
-          ${svgIconsService.iconMinus}
+          ${iconMinus}
         </button>
         <button class="pinned-video__button button--play-pause" type="button">
           <span></span>
-          ${svgIconsService.iconPause}
+          ${iconPause}
         </button>
         <div class="pinned-video__progress-bar ytp-play-progress"></div>
       `;
@@ -183,10 +188,10 @@ class ContentVideoPin implements IContent {
       event.preventDefault();
 
       if (this.videoStreamElement.paused) {
-        playPauseButton.innerHTML = `<span></span>${svgIconsService.iconPause}`;
+        playPauseButton.innerHTML = `<span></span>${iconPause}`;
         this.videoStreamElement.play();
       } else {
-        playPauseButton.innerHTML = `<span></span>${svgIconsService.iconPlay}`;
+        playPauseButton.innerHTML = `<span></span>${iconPlay}`;
         this.videoStreamElement.pause();
       }
     });

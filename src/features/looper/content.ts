@@ -1,8 +1,9 @@
 import looperService from './services/looper.service';
-import svgIconsService from '../../services/content/svg-icons.service';
 import actionButtonService from '../../services/content/action-button.service';
 import urlService from '../../services/common/url.service';
 import featureStorageService from '../../services/common/feature-storage.service';
+
+import iconLooper from '../../assets/vectors/looper.svg';
 
 import Meta from './meta';
 import IContent from '../../interfaces/content';
@@ -19,7 +20,7 @@ class ContentLooper implements IContent {
   public extendPageUserInterface() {
     this.cleanUp();
 
-    const $button = actionButtonService.create('myga-looper-btn', 'Loop', svgIconsService.iconLooper, 'Loop this video', 'Stop looping this video');
+    const $button = actionButtonService.create('myga-looper-btn', 'Loop', iconLooper, 'Loop this video', 'Stop looping this video');
     this.buttonsObserver = actionButtonService.attach($button);
   }
 

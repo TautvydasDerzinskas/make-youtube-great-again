@@ -1,8 +1,9 @@
 import screenshotsService from './services/screenshots.service';
 import ScreenshotsStrip from './screenshots-strip';
-import svgIconsService from '../../services/content/svg-icons.service';
 import actionButtonService from '../../services/content/action-button.service';
 import urlService from '../../services/common/url.service';
+
+import iconCamera from '../../assets/vectors/camera.svg';
 
 import IContent from '../../interfaces/content';
 import { YoutubeSelectors } from '../../enums';
@@ -34,7 +35,7 @@ class ContentScreenshots implements IContent {
   public extendPageUserInterface() {
     this.cleanUp();
 
-    const $button = actionButtonService.create('myga-screenshot-btn', BUTTON_LABEL, svgIconsService.iconCamera, 'Save a screenshot of the current frame');
+    const $button = actionButtonService.create('myga-screenshot-btn', BUTTON_LABEL, iconCamera, 'Save a screenshot of the current frame');
     this.buttonsObserver = actionButtonService.attach($button);
 
     this.strip.attach(urlService.getQueryParameterByName('v'));

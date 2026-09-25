@@ -1,8 +1,9 @@
 import audioTracksService from './services/audio-tracks.service';
 import PlaylistAudioModeButton from './playlist-button';
-import svgIconsService from '../../services/content/svg-icons.service';
 import actionButtonService from '../../services/content/action-button.service';
 import urlService from '../../services/common/url.service';
+
+import iconHeadphones from '../../assets/vectors/headphones.svg';
 
 import IContent from '../../interfaces/content';
 import { AUDIO_MODE_STATE_EVENT, IAudioModeState } from './audio-mode.events';
@@ -34,7 +35,7 @@ class ContentAudioMode implements IContent {
     const $button = actionButtonService.create(
       'myga-audio-mode-btn',
       'Audio',
-      svgIconsService.iconHeadphones,
+      iconHeadphones,
       'Always play this video as audio only',
       'Play this video with video again',
     );

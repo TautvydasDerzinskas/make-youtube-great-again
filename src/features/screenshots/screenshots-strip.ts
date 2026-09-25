@@ -1,6 +1,8 @@
 import screenshotsService, { IScreenshot } from './services/screenshots.service';
-import svgIconsService from '../../services/content/svg-icons.service';
 import tooltipService from '../../services/content/tooltip.service';
+
+import iconDownload from '../../assets/vectors/download.svg';
+import iconDelete from '../../assets/vectors/delete.svg';
 
 const STRIP_CLASS = 'myga-screenshots-strip';
 
@@ -94,8 +96,8 @@ export default class ScreenshotsStrip {
     const actions = document.createElement('div');
     actions.className = `${STRIP_CLASS}__actions`;
     actions.append(
-      this.createAction(svgIconsService.iconDownload, 'Download', () => this.download(screenshot)),
-      this.createAction(svgIconsService.iconDelete, 'Delete', () => {
+      this.createAction(iconDownload, 'Download', () => this.download(screenshot)),
+      this.createAction(iconDelete, 'Delete', () => {
         if (confirm('Delete this screenshot?')) {
           screenshotsService.remove(screenshot.id);
         }
