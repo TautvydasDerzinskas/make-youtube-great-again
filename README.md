@@ -9,20 +9,10 @@
   <a href="https://opensource.org/licenses/MIT" target="_blank"><img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="MIT License" title="MIT License"></a>
 </p>
 
-## Table of content
-- [About](#about)
-- [Installation](#installation)
-- [Features](#features)
-- [Screenshots](#screenshots)
-- [Development](#development)
-- [Releasing](#releasing)
-- [License](#license)
-- [Changelog](CHANGELOG.md)
-
 ## About
 _First of all please have in mind that extension name "Make YouTube™ great again" is chosen only because it sounds funny! Please don't look for any hidden political message - there is none._
 
-Make YouTube™ Great Again is a Browser extension which extends YouTube websites user interface with additional [features](#features). User don't have to use all of the extensions features as there is an option to toggle each of them on and off. There is also a history tab which shows how many times and on what YouTube™ videos those features been used.
+Make YouTube™ Great Again is a browser extension adding the small things YouTube™ is missing. Every feature can be switched on or off in the extension's popup, so you only keep what you use. Everything it saves stays in your browser: no accounts, no analytics, no tracking.
 
 ## Installation
 Chrome, Edge, Opera & Vivaldi users (the extension is not in the Chrome Web Store at the moment):
@@ -39,95 +29,65 @@ Firefox users please head to link below:
 
 ## Features
 
-<p align="center">
-  <strong>Loop videos</strong>
-  <p align="center">
-  <img src="docs/images/feature_02.gif" width="250px" alt="Loop videos" />
-  </p>
-</p>
-Adds button under each YouTube™ video which when activated enables video looping.
-This works with the HTML5 player.
+### Audio mode
+Listening to music, a podcast or a talk? Mark a video as audio and it plays at the lowest video quality behind its artwork, saving bandwidth with the same sound quality. Marked videos play as audio every time they load, and a playlist can be marked in one click.
 
-____
+<img src="docs/images/feature_audio_mode.jpg" width="440px" alt="Audio mode" />
 
-<p align="center">
-  <strong>Hide comments</strong>
-  <p align="center">
-  <img src="docs/images/feature_04.gif" width="250px" alt="Hide comments" />
-  </p>
-</p>
-Sometimes it's nice to hide the comments... This feature does exactly that.
-It hides both normal comments and live chat messages.
+### Cinema mode
+Fades out everything around the video. Press Esc or click around the video to bring the page back.
 
-____
+<img src="docs/images/feature_cinema_mode.jpg" width="440px" alt="Cinema mode" />
 
-<p align="center">
-  <strong>Custom progress bar</strong>
-  <p align="center">
-  <img src="docs/images/feature_05.gif" width="250px" alt="Custom progress barr" />
-  </p>
-</p>
-Have a custom and nice looking playback progress bar!
+### Loop
+Plays the video on repeat.
 
-____
+<img src="docs/images/feature_loop.jpg" width="440px" alt="Loop" />
 
-<p align="center">
-  <strong>Floating video</strong>
-  <p align="center">
-  <img src="docs/images/feature_06.gif" width="250px" alt="Custom progress barr" />
-  </p>
-</p>
-Don't miss a second of your YouTube™ video even when reading comments!
+### Screenshots
+Saves the current frame in one click, in the quality you're watching. Screenshots show under the video and in the popup, ready to download or delete, and take you back to the moment they were taken.
+
+<img src="docs/images/feature_screenshots.jpg" width="440px" alt="Screenshots" />
+
+### Comment drafts
+Adds "Create a Draft" to the comment box. Drafts show above the comments, ready to publish, edit or delete, and are all listed in the popup.
+
+<img src="docs/images/feature_comment_drafts.jpg" width="440px" alt="Comment drafts" />
+
+### Floating video
+Keeps the video playing in a small window while you scroll down to read the comments. Move it anywhere and resize it.
+
+<img src="docs/images/feature_floating_video.jpg" width="440px" alt="Floating video" />
+
+### Custom progress bar
+Swaps the progress bar for a playful one: Nyan Cat, a unicorn, a panda and more.
+
+<img src="docs/images/feature_custom_progress_bar.jpg" width="440px" alt="Custom progress bar" />
+
+### Hide comments
+Hides comments and live chat messages.
+
+<img src="docs/images/feature_hide_comments.jpg" width="300px" alt="Hide comments" />
+
+### Hide the Thanks button
+Removes the "Thanks" button from under videos.
+
+### History
+Lists the videos you've recently watched and looped.
+
+<img src="docs/images/feature_history.jpg" width="300px" alt="History" />
 
 ## Screenshots
-<a href="docs/images/screenshot_01.jpg" target="_blank"><img width="200px" src="docs/images/screenshot_01.jpg" alt="Screenshot" title="Screenshot" /></a><a href="docs/images/screenshot_02.jpg" target="_blank"><img width="200px" src="docs/images/screenshot_02.jpg" alt="Screenshot" title="Screenshot" /></a><a href="docs/images/screenshot_03.jpg" target="_blank"><img width="200px" src="docs/images/screenshot_03.jpg" alt="Screenshot" title="Screenshot" /></a><a href="docs/images/screenshot_04.jpg" target="_blank"><img width="200px" src="docs/images/screenshot_04.jpg" alt="Screenshot" title="Screenshot" /></a><a href="docs/images/screenshot_05.jpg" target="_blank"><img width="200px" src="docs/images/screenshot_05.jpg" alt="Screenshot" title="Screenshot" /></a>
+<a href="docs/images/screenshot_01.jpg" target="_blank"><img width="200px" src="docs/images/screenshot_01.jpg" alt="Screenshot" title="Screenshot" /></a><a href="docs/images/screenshot_02.jpg" target="_blank"><img width="200px" src="docs/images/screenshot_02.jpg" alt="Screenshot" title="Screenshot" /></a><a href="docs/images/screenshot_03.jpg" target="_blank"><img width="200px" src="docs/images/screenshot_03.jpg" alt="Screenshot" title="Screenshot" /></a><a href="docs/images/screenshot_04.jpg" target="_blank"><img width="200px" src="docs/images/screenshot_04.jpg" alt="Screenshot" title="Screenshot" /></a><a href="docs/images/screenshot_05.jpg" target="_blank"><img width="200px" src="docs/images/screenshot_05.jpg" alt="Screenshot" title="Screenshot" /></a><a href="docs/images/screenshot_06.jpg" target="_blank"><img width="200px" src="docs/images/screenshot_06.jpg" alt="Screenshot" title="Screenshot" /></a><a href="docs/images/screenshot_07.jpg" target="_blank"><img width="200px" src="docs/images/screenshot_07.jpg" alt="Screenshot" title="Screenshot" /></a>
 
+## Contributing
+Want to help? See [CONTRIBUTING.md](CONTRIBUTING.md), which also has the [build instructions for add-on reviewers](CONTRIBUTING.md#build-instructions-for-add-on-reviewers). Changes are listed in the [changelog](CHANGELOG.md).
 
+## Support
+If Make YouTube™ Great Again is useful to you, consider supporting its development:
 
-## Development
-Everyone is welcomed to contribute to the project or use the code for their own projects.
-
-Requirements: Node.js 24 (see `.nvmrc`).
-
-1. Run `npm install` to install dependencies (this also sets up the git hooks)
-2. Run `npm run dev` (Chrome) or `npm run dev:firefox` to build in watch mode into `dist/<browser>`
-3. Load the extension:
-   - **Chrome**: open `chrome://extensions`, enable developer mode and "Load unpacked" the `dist/chrome` folder
-   - **Firefox**: open `about:debugging#/runtime/this-firefox` and "Load Temporary Add-on…" selecting `dist/firefox/manifest.json`
-
-| Script | Description |
-| --- | --- |
-| `npm run build` | Production build for both browsers (`dist/chrome`, `dist/firefox`) |
-| `npm run build:chrome` / `npm run build:firefox` | Production build for a single browser |
-| `npm run zip` | Package the builds into `myga-chrome.zip` & `myga-firefox.zip` |
-| `npm run lint` | Lint with [oxlint](https://oxc.rs/docs/guide/usage/linter) |
-| `npm run typecheck` | Type check with TypeScript |
-| `npm run commit` | Write a conventional commit message interactively |
-
-### Build instructions for add-on reviewers
-The extension is written in TypeScript and bundled with [Rspack](https://rspack.rs). To reproduce the submitted Firefox build from source:
-
-```sh
-npm ci
-npm run build:firefox
-```
-
-The output is written to `dist/firefox`.
-
-## Releasing
-Releases are fully automated with [semantic-release](https://github.com/semantic-release/semantic-release). Commit messages must follow [Conventional Commits](https://www.conventionalcommits.org) (enforced by commitlint): `feat:` → minor, `feat!:` / `BREAKING CHANGE:` → major, any other type (`fix:`, `chore:`, `refactor:`, `docs:`…) → patch, so every push releases.
-
-There's a single branch, `main`. Every push to it (including merged pull requests) runs the [Release workflow](.github/workflows/release.yml), which:
-1. runs the CI checks (lint, typecheck, build)
-2. works out the next version from the commits since the last release and updates `package.json` & `CHANGELOG.md`
-3. builds both browsers with that version and publishes the Firefox add-on to addons.mozilla.org
-4. creates a GitHub release with both zips attached (the Chrome zip is installed from there, the extension is not in the Chrome Web Store at the moment)
-
-The following repository secrets are required (in the `release` environment):
-
-| Secret | Description |
-| --- | --- |
-| `AMO_API_KEY`, `AMO_API_SECRET` | addons.mozilla.org API key (JWT issuer) & secret ([developer hub](https://addons.mozilla.org/developers/addon/api/key/)) |
+- [GitHub Sponsors](https://github.com/sponsors/TautvydasDerzinskas)
+- [Buy Me a Coffee](https://buymeacoffee.com/TautvydasDerzinskas)
 
 ## License
 The repository code is open-sourced software licensed under the [MIT license](LICENSE).

@@ -1,7 +1,7 @@
 @use '../../variables' as *;
 
 // Two columns, so the list doesn't make the popup tall
-.settings {
+.features-list {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: $default-spacing $large-spacing;

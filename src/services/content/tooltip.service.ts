@@ -12,6 +12,7 @@ const EDGE_MARGIN = 8;
  */
 class TooltipService {
   private hideTooltip = () => this.hide();
+  private showFrame: number;
 
   public attach(element: HTMLElement, text: string) {
     this.setText(element, text);
@@ -22,7 +23,12 @@ class TooltipService {
     }
     element.setAttribute('data-myga-tooltip-attached', '');
     element.addEventListener('mouseenter', () => this.show(element));
-    element.addEventListener('focus', () => this.show(element));
+    // Keyboard focus only: a click focuses the button too, and would bring the tooltip back after hiding it
+    element.addEventListener('focus', () => {
+      if (element.matches(':focus-visible')) {
+        this.show(element);
+      }
+    });
     element.addEventListener('mouseleave', this.hideTooltip);
     element.addEventListener('blur', this.hideTooltip);
     element.addEventListener('click', this.hideTooltip);
@@ -69,10 +75,13 @@ class TooltipService {
 
     tooltip.style.left = `${Math.round(left)}px`;
     tooltip.style.top = `${Math.round(top)}px`;
-    requestAnimationFrame(() => tooltip.classList.add('myga-tooltip--visible'));
+    cancelAnimationFrame(this.showFrame);
+    this.showFrame = requestAnimationFrame(() => tooltip.classList.add('myga-tooltip--visible'));
   }
 
   private hide() {
+    // A fade in still pending would show it again right after
+    cancelAnimationFrame(this.showFrame);
     const tooltip = document.getElementById(TOOLTIP_ID);
     if (tooltip) {
       tooltip.classList.remove('myga-tooltip--visible');

@@ -15,7 +15,7 @@ export default class FeaturesComponent extends React.Component {
     });
 
     return (
-      <div className='settings'>
+      <div className='features-list'>
         {allSettingsHtml}
       </div>
     );
