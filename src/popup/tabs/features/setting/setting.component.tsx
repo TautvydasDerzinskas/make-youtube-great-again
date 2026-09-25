@@ -13,6 +13,7 @@ interface ISettingComponentState {
     value: boolean;
     isNew: boolean;
   };
+  hasData: boolean;
 }
 
 export default class SettingComponent extends React.Component<{ meta: IMeta<any> }, ISettingComponentState> {
@@ -23,10 +24,28 @@ export default class SettingComponent extends React.Component<{ meta: IMeta<any>
         value: false,
         isNew: this.props.meta ? this.isNewFeature : false,
       },
+      hasData: false,
     };
   }
 
+  private removeDataListener: () => void;
+
+  componentWillUnmount() {
+    if (this.removeDataListener) {
+      this.removeDataListener();
+    }
+  }
+
+  private updateHasData() {
+    this.props.meta.dataView.hasData().then(hasData => this.setState({ hasData }));
+  }
+
   componentDidMount() {
+    if (this.props.meta.dataView) {
+      this.updateHasData();
+      this.removeDataListener = this.props.meta.dataView.onChange(() => this.updateHasData());
+    }
+
     featureStorageService.getFeatureData(this.props.meta.id).then(featureData => {
       this.setState({
         data: {
@@ -100,6 +119,26 @@ export default class SettingComponent extends React.Component<{ meta: IMeta<any>
     return settingsColumn;
   }
 
+  /**
+   * Opens the data the feature collected, e.g. screenshots. Only while it's on, turning it off keeps the data.
+   */
+  get dataViewColumn() {
+    const dataView = this.props.meta.dataView;
+    if (!dataView || !this.state.hasData || !this.state.data.value) {
+      return null;
+    }
+
+    return (
+      <div className='setting__column'>
+        <Tooltip title={dataView.title} position='top'>
+          <NavLink className='setting__settings-link' to={`/settings/${this.props.meta.id}`} aria-label={dataView.title}>
+            <svg><use xlinkHref='#myga-storage'></use></svg>
+          </NavLink>
+        </Tooltip>
+      </div>
+    );
+  }
+
   render() {
     return (
       <div className='setting'>
@@ -108,6 +147,7 @@ export default class SettingComponent extends React.Component<{ meta: IMeta<any>
           <div>{this.props.meta.description}</div>
         </div>
         {this.settingsColumn}
+        {this.dataViewColumn}
         <div className='setting__column'>
           <Tooltip title={this.state.data.value ? 'Turn OFF' : 'Turn ON'} position='top'>
             <label className='setting__switch'>

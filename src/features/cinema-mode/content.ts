@@ -1,7 +1,6 @@
 import svgIconsService from '../../services/content/svg-icons.service';
 import actionButtonService from '../../services/content/action-button.service';
 
-import Meta from './meta';
 import IContent from '../../interfaces/content';
 
 import '../../services/content/action-button.scss';
@@ -35,7 +34,7 @@ class ContentCinemaMode implements IContent {
   public extendPageUserInterface() {
     this.cleanUp();
 
-    const $button = actionButtonService.create('myga-cinema-btn', 'Cinema', svgIconsService.iconCinema, Meta.description);
+    const $button = actionButtonService.create('myga-cinema-btn', 'Cinema', svgIconsService.iconCinema, 'Fade out everything around the video', 'Leave cinema mode');
     this.buttonsObserver = actionButtonService.attach($button);
 
     document.addEventListener('keydown', this.onKeyDown, true);

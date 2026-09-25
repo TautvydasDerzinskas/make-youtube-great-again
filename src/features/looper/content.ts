@@ -19,7 +19,7 @@ class ContentLooper implements IContent {
   public extendPageUserInterface() {
     this.cleanUp();
 
-    const $button = actionButtonService.create('myga-looper-btn', 'Loop', svgIconsService.iconLooper, Meta.description);
+    const $button = actionButtonService.create('myga-looper-btn', 'Loop', svgIconsService.iconLooper, 'Loop this video', 'Stop looping this video');
     this.buttonsObserver = actionButtonService.attach($button);
   }
 

@@ -2,7 +2,7 @@ import IMeta from '../../interfaces/meta';
 
 const meta: IMeta<{}> = {
   id: 'myga-cinema-mode',
-  description: 'Adds a "Cinema" button under videos, fading out everything around the video',
+  description: 'Allows fading out everything around the video',
   title: 'Cinema mode',
   defaultStatus: true,
   videoPageOnly: true,

@@ -35,7 +35,8 @@ class ContentAudioMode implements IContent {
       'myga-audio-mode-btn',
       'Audio',
       svgIconsService.iconHeadphones,
-      'Play this video as audio only, every time it loads',
+      'Always play this video as audio only',
+      'Play this video with video again',
     );
     this.buttonsObserver = actionButtonService.attach($button);
 

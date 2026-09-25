@@ -1,3 +1,5 @@
+import tooltipService from './tooltip.service';
+
 const ACTION_ROW_CLASS = 'myga-action-row';
 
 /**
@@ -7,12 +9,12 @@ class ActionButtonService {
   private alignmentObserver: ResizeObserver;
 
   /**
-   * Same classes as YouTube™'s own buttons in that row, so it matches their look & theme
+   * Same classes as YouTube™'s own buttons in that row, so it matches their look & theme.
+   * The tooltip says what a click does, so an on / off button can have one for each state.
    */
-  public create(className: string, label: string, icon: string, title: string) {
+  public create(className: string, label: string, icon: string, tooltip: string, activeTooltip = tooltip) {
     const $button = document.createElement('button');
     $button.className = `myga-action-btn ${className} ytSpecButtonShapeNextHost ytSpecButtonShapeNextTonal ytSpecButtonShapeNextMono ytSpecButtonShapeNextSizeM ytSpecButtonShapeNextIconLeading`;
-    $button.setAttribute('title', title);
     $button.setAttribute('aria-label', label);
     $button.setAttribute('aria-pressed', 'false');
     $button.setAttribute('type', 'button');
@@ -20,6 +22,9 @@ class ActionButtonService {
       <div class="ytSpecButtonShapeNextIcon">${icon}</div>
       <div class="ytSpecButtonShapeNextButtonTextContent">${label}</div>
     `;
+    $button.dataset.mygaTooltipInactive = tooltip;
+    $button.dataset.mygaTooltipActive = activeTooltip;
+    tooltipService.attach($button, tooltip);
 
     return $button;
   }
@@ -27,6 +32,7 @@ class ActionButtonService {
   public setActive($button: HTMLElement, isActive: boolean) {
     $button.classList.toggle('myga-action-btn--active', isActive);
     $button.setAttribute('aria-pressed', String(isActive));
+    tooltipService.setText($button, isActive ? $button.dataset.mygaTooltipActive : $button.dataset.mygaTooltipInactive);
   }
 
   /**

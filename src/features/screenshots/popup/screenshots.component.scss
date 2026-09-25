@@ -1,0 +1,100 @@
+@use '../../../popup/variables' as *;
+
+.screenshots {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: $default-spacing;
+  max-height: 420px;
+  overflow: auto;
+
+  &__item {
+    display: flex;
+    flex-direction: column;
+    gap: $small-spacing;
+    padding: $default-spacing;
+    background-color: $theme-silver-white;
+    color: $theme-gray;
+    min-width: 0;
+  }
+
+  &__thumbnail {
+    position: relative;
+    display: block;
+    padding: 0;
+    border: none;
+    border-radius: 4px;
+    overflow: hidden;
+    background-color: $theme-black;
+    cursor: zoom-in;
+
+    img {
+      display: block;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      object-fit: contain;
+    }
+  }
+
+  &__size {
+    position: absolute;
+    right: $small-spacing;
+    bottom: $small-spacing;
+    padding: 0 $small-spacing;
+    border-radius: 2px;
+    background-color: rgba($theme-black, 0.7);
+    color: $theme-white;
+    font-size: 10px;
+  }
+
+  &__title {
+    font-weight: bold;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  &__footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: $small-spacing;
+  }
+
+  // Beats the popup's global ".myga a { color: inherit }"
+  & &__time {
+    color: $theme-pink;
+    font-weight: bold;
+    white-space: nowrap;
+  }
+
+  &__actions {
+    display: flex;
+    gap: $small-spacing;
+  }
+
+  &__button {
+    padding: 2px $default-spacing;
+    border: 1px solid $theme-light-gray;
+    border-radius: 4px;
+    background-color: $theme-white;
+    color: $theme-gray;
+    font: inherit;
+    cursor: pointer;
+    transition: $default-transition;
+
+    &:hover {
+      border-color: $theme-gray;
+    }
+
+    &--primary {
+      border-color: transparent;
+      background-image: linear-gradient(to right, $theme-orange, $theme-pink);
+      color: $theme-white;
+
+      &:hover {
+        border-color: transparent;
+        opacity: 0.85;
+      }
+    }
+  }
+}

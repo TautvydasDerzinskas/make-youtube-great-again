@@ -2,7 +2,7 @@ import IMeta from '../../interfaces/meta';
 
 const meta: IMeta<{}> = {
   id: 'myga-comment-drafts',
-  description: 'Adds "Create a Draft" to the comment box. Drafts show above the comments, ready to publish, edit or delete',
+  description: 'Allows creating draft comments',
   title: 'Comment drafts',
   defaultStatus: true,
   videoPageOnly: true,

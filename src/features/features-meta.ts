@@ -3,6 +3,7 @@ import MetaLooper from './looper/meta';
 import MetaHideComments from './hide-comments/meta';
 import MetaCustomProgressBar from './custom-progress-bar/meta';
 import MetaVideoPin from './video-pin/meta';
+import MetaScreenshots from './screenshots/meta';
 import MetaCinemaMode from './cinema-mode/meta';
 import MetaCommentDrafts from './comment-drafts/meta';
 import MetaAudioMode from './audio-mode/meta';
@@ -20,6 +21,7 @@ export const FeaturesMeta: IMeta<any>[] = [
   MetaHideComments,
   MetaCustomProgressBar,
   MetaVideoPin,
+  MetaScreenshots,
   MetaCinemaMode,
   MetaCommentDrafts,
   MetaAudioMode,

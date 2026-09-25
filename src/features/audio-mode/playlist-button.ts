@@ -1,4 +1,5 @@
 import svgIconsService from '../../services/content/svg-icons.service';
+import tooltipService from '../../services/content/tooltip.service';
 
 import {
   AUDIO_MODE_PLAYLIST_REQUEST_EVENT,
@@ -113,7 +114,7 @@ export default class PlaylistAudioModeButton {
     $button.classList.toggle(`${BUTTON_CLASS}--loading`, !this.error && (!this.videoIds || this.isMarking));
     $button.setAttribute('aria-disabled', String(isDisabled));
     $button.setAttribute('aria-label', title);
-    $button.setAttribute('title', title);
+    tooltipService.attach($button, title);
   }
 
   private onClick() {

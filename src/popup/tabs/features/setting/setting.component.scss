@@ -13,14 +13,14 @@ $toggle-distance: $toggle-width - ($slider-spacing * 2) - $slider-size;
   justify-content: space-between;
   align-items: center;
 
+  gap: $small-spacing;
+  min-width: 0;
+
   &__column {
     &:first-child {
       flex: 1;
+      min-width: 0;
     }
-  }
-
-  &:not(:last-child) {
-    margin-bottom: $default-spacing;
   }
 
   &__title {

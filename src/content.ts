@@ -39,7 +39,7 @@ const setupFeatureContents = () => {
       featuresLoaded--;
 
       if (!feature.meta.disabledBrowsers || !feature.meta.disabledBrowsers.includes(browserService.browserName)) {
-        if (featureData.status && (!feature.meta.videoPageOnly || isUrlVideoPage)) {
+        if ((featureData.status || feature.meta.alwaysOn) && (!feature.meta.videoPageOnly || isUrlVideoPage)) {
           if (feature.content.extendPageUserInterface) {
             feature.content.extendPageUserInterface();
           }

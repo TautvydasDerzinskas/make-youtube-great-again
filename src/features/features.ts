@@ -13,6 +13,9 @@ import ContentCustomProgressBar from './custom-progress-bar/content';
 import MetaVideoPin from './video-pin/meta';
 import ContentVideoPin from './video-pin/content';
 
+import MetaScreenshots from './screenshots/meta';
+import ContentScreenshots from './screenshots/content';
+
 import MetaCinemaMode from './cinema-mode/meta';
 import ContentCinemaMode from './cinema-mode/content';
 
@@ -47,6 +50,10 @@ export const Features: IFeature<any>[] = [
   {
     meta: MetaVideoPin,
     content: ContentVideoPin,
+  },
+  {
+    meta: MetaScreenshots,
+    content: ContentScreenshots,
   },
   {
     meta: MetaCinemaMode,
