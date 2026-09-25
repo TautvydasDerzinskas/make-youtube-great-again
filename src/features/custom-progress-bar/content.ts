@@ -34,7 +34,7 @@ class ContentCustomProgressBar implements IContent {
       const style = document.createElement('link');
       style.setAttribute('name', 'myga-custom-bar');
       style.setAttribute('rel', 'stylesheet');
-      style.setAttribute('href', chrome.extension.getURL(`/css/bars/bar__${featureData.data.theme}.css`));
+      style.setAttribute('href', chrome.runtime.getURL(`/css/bars/bar__${featureData.data.theme}.css`));
       document.getElementsByTagName('head')[0].appendChild(style);
     });
   }

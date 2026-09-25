@@ -1,9 +1,11 @@
-@import '../../../variables';
+@use 'sass:color';
+@use 'sass:math';
+@use '../../../variables' as *;
 
 $toggle-width: $large-spacing * 2;
 $toggle-height: $large-spacing;
 $slider-size: $large-spacing - 4px;
-$slider-spacing: ($toggle-height - $slider-size) / 2;
+$slider-spacing: math.div($toggle-height - $slider-size, 2);
 $toggle-distance: $toggle-width - ($slider-spacing * 2) - $slider-size;
 
 .setting {
@@ -105,11 +107,11 @@ $toggle-distance: $toggle-width - ($slider-spacing * 2) - $slider-size;
 
   &:hover {
     .slider {
-      background-color: darken($theme-gray, 15%);
+      background-color: color.adjust($theme-gray, $lightness: -15%);
     }
 
     input:checked + .slider {
-      background-color: darken($theme-red, 15%);
+      background-color: color.adjust($theme-red, $lightness: -15%);
     }
   }
 }

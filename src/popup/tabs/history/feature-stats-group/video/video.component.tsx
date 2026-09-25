@@ -1,23 +1,20 @@
 import * as React from 'react';
-import { Tooltip } from 'react-tippy';
+import Tooltip from '../../../../layout/tooltip/tooltip.component';
 
-import { IYoutubeSnippetItem } from '../feature-stats.interface';
+import { IVideoInfo } from '../../../../../services/common/video-info.service';
 
 import './video.component.scss';
 
-export default class VideoComponent extends React.Component<{ video: IYoutubeSnippetItem }, {}> {
-  constructor(props: { video: IYoutubeSnippetItem }) {
-    super(props);
-  }
+export default class VideoComponent extends React.Component<{ video: IVideoInfo }, {}> {
 
   render() {
     return (
-      <Tooltip title='Open' arrow={true} position='top'>
+      <Tooltip title='Open' position='top'>
         <a className='video' href={'https://www.youtube.com/watch?v=' + this.props.video.id} target='_blank'>
           <span className='video__thumbnail'>
-            <img height='30px' src={this.props.video.snippet.thumbnails.default.url} />
+            <img height='30px' src={this.props.video.thumbnailUrl} alt='' />
           </span>
-          <span className='video__title'>{this.props.video.snippet.title}</span>
+          <span className='video__title'>{this.props.video.title}</span>
           <span className='video__play-button'>
             <img className='play-button--active' src='icons/icon_19x19.png' height='10px' width='10px' />
             <img className='play-button--disabled' src='icons/icon_disabled_19x19.png' height='10px' width='10px' />

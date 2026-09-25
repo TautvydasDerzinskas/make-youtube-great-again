@@ -1,0 +1,86 @@
+@use '../../variables' as *;
+
+.tooltip {
+  display: inline;
+  position: relative;
+
+  &::before,
+  &::after {
+    position: absolute;
+    z-index: 9999;
+    pointer-events: none;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.2s ease-in-out;
+  }
+
+  // Bubble
+  &::after {
+    content: attr(data-tooltip);
+    padding: 5px 9px;
+    border-radius: 4px;
+    background-color: #333333;
+    color: $theme-white;
+    font-size: 12px;
+    font-weight: normal;
+    line-height: 1.4;
+    white-space: nowrap;
+  }
+
+  // Arrow
+  &::before {
+    content: '';
+    border: 5px solid transparent;
+  }
+
+  &:hover::before,
+  &:hover::after {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  &--top {
+    &::after {
+      bottom: calc(100% + 10px);
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    &::before {
+      bottom: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+      border-top-color: #333333;
+    }
+  }
+
+  &--bottom {
+    &::after {
+      top: calc(100% + 10px);
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    &::before {
+      top: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+      border-bottom-color: #333333;
+    }
+  }
+
+  &--right {
+    &::after {
+      left: calc(100% + 10px);
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    &::before {
+      left: 100%;
+      top: 50%;
+      transform: translateY(-50%);
+      border-right-color: #333333;
+    }
+  }
+}

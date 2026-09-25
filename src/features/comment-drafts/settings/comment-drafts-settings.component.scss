@@ -1,0 +1,106 @@
+@use '../../../popup/variables' as *;
+
+$thumbnail-width: 120px;
+
+.cd-settings {
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: $default-spacing;
+    max-height: 420px;
+    overflow: auto;
+  }
+
+  &__none {
+    padding: $large-spacing;
+    background-color: $theme-silver-white;
+    color: $theme-gray;
+    text-align: center;
+  }
+
+  &__draft {
+    display: flex;
+    gap: $default-spacing;
+    padding: $default-spacing;
+    background-color: $theme-silver-white;
+    color: $theme-gray;
+  }
+
+  &__thumbnail {
+    flex: 0 0 $thumbnail-width;
+
+    img {
+      display: block;
+      width: $thumbnail-width;
+      aspect-ratio: 16 / 9;
+      object-fit: cover;
+      border-radius: 4px;
+    }
+  }
+
+  &__details {
+    flex: 1;
+    min-width: 0;
+  }
+
+  &__title {
+    display: block;
+    font-weight: bold;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  &__age {
+    font-size: 10px;
+    color: $theme-light-gray;
+    margin-bottom: $small-spacing;
+  }
+
+  &__text {
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+    max-height: 80px;
+    overflow: auto;
+  }
+
+  &__editor {
+    box-sizing: border-box;
+    width: 100%;
+    font: inherit;
+    resize: vertical;
+  }
+
+  &__actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: $small-spacing;
+    margin-top: $small-spacing;
+  }
+
+  &__button {
+    padding: $small-spacing $default-spacing;
+    border: 1px solid $theme-light-gray;
+    border-radius: 4px;
+    background-color: $theme-white;
+    color: $theme-gray;
+    font: inherit;
+    cursor: pointer;
+    transition: $default-transition;
+
+    &:hover {
+      border-color: $theme-gray;
+    }
+
+    &--primary {
+      border-color: transparent;
+      background-image: linear-gradient(to right, $theme-orange, $theme-pink);
+      color: $theme-white;
+
+      &:hover {
+        border-color: transparent;
+        opacity: 0.85;
+      }
+    }
+  }
+}

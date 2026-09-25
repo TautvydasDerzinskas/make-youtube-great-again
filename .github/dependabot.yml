@@ -1,0 +1,29 @@
+version: 2
+updates:
+  - package-ecosystem: npm
+    directory: /
+    target-branch: develop
+    schedule:
+      interval: weekly
+    groups:
+      react:
+        patterns: ['react', 'react-dom', 'react-router', '@types/react*']
+      rspack:
+        patterns: ['@rspack/*']
+      tsparticles:
+        patterns: ['@tsparticles/*']
+      semantic-release:
+        patterns: ['semantic-release*', '@semantic-release/*']
+      commitlint:
+        patterns: ['@commitlint/*']
+    commit-message:
+      prefix: build
+      include: scope
+
+  - package-ecosystem: github-actions
+    directory: /
+    target-branch: develop
+    schedule:
+      interval: monthly
+    commit-message:
+      prefix: ci

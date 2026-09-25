@@ -1,38 +1,38 @@
+import iconLooper from '../../assets/vectors/looper.svg';
+import iconHeadphones from '../../assets/vectors/headphones.svg';
+import iconPlay from '../../assets/vectors/play.svg';
+import iconPause from '../../assets/vectors/pause.svg';
+import iconPlus from '../../assets/vectors/plus.svg';
+import iconMinus from '../../assets/vectors/minus.svg';
+import iconClose from '../../assets/vectors/close.svg';
+
 class SvgIconsService {
-  get iconDownloadMp3() {
-    return require('../../assets/vectors/download-mp3.svg');
-  }
-
   get iconLooper() {
-    return require('../../assets/vectors/looper.svg');
+    return iconLooper;
   }
 
-  get iconProgress() {
-    return require('../../assets/vectors/progress-pie.svg');
-  }
-
-  get iconThumb() {
-    return require('../../assets/vectors/thumb.svg');
+  get iconHeadphones() {
+    return iconHeadphones;
   }
 
   get iconPlay() {
-    return require('../../assets/vectors/play.svg');
+    return iconPlay;
   }
 
   get iconPause() {
-    return require('../../assets/vectors/pause.svg');
+    return iconPause;
   }
 
   get iconPlus() {
-    return require('../../assets/vectors/plus.svg');
+    return iconPlus;
   }
 
   get iconMinus() {
-    return require('../../assets/vectors/minus.svg');
+    return iconMinus;
   }
 
   get iconClose() {
-    return require('../../assets/vectors/close.svg');
+    return iconClose;
   }
 }
 

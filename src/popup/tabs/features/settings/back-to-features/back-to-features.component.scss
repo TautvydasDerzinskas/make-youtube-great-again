@@ -1,4 +1,4 @@
-@import '../../../../variables';
+@use '../../../../variables' as *;
 
 .back-to-features {
   background-image: linear-gradient(to right, $theme-orange, $theme-pink);

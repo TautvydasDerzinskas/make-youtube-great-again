@@ -6,23 +6,20 @@ import urlService from '../../services/common/url.service';
 import Meta from './meta';
 import IContent from '../../interfaces/content';
 import { IVideoPinData } from './interfaces/video-pin.interface';
+import { YoutubeSelectors } from '../../enums';
 
 import './styles/video-pin.scss';
 
-interface IVideoPlayer extends HTMLElement {
-  paused: boolean;
-  currentTime: number;
-  duration: number;
-  play: () => void;
-  pause: () => void;
-}
-
 class ContentVideoPin implements IContent {
   private isVideoPinned = false;
-  private videoScrollBreakpoint: number;
-  private scrollEventCallback: any;
   private videoSize: number;
   private wasClosed = false;
+  private scrollEventCallback: () => void;
+  private resizeEventCallback: () => void;
+  private timeUpdateEventCallback: () => void;
+  private trackedVideoElement: HTMLVideoElement;
+  private videoOriginalParent: Node;
+  private videoOriginalNextSibling: Node;
 
   get pinnedVideoElement() {
     return document.getElementsByClassName('pinned-video')[0] as HTMLElement;
@@ -36,12 +33,21 @@ class ContentVideoPin implements IContent {
     return document.getElementsByClassName('pinned-video__progress-bar')[0] as HTMLElement;
   }
 
+  /**
+   * The pinned video or the main player's video, never the hover previews that share the `video-stream` class
+   */
   get videoStreamElement() {
-    return document.getElementsByClassName('video-stream')[0] as IVideoPlayer;
+    const pinnedVideo = this.pinnedVideoInnerElement && this.pinnedVideoInnerElement.querySelector('video');
+    return pinnedVideo
+      || document.querySelector(`#movie_player ${YoutubeSelectors.VideoPlayer}`) as HTMLVideoElement
+      || document.querySelector(YoutubeSelectors.VideoPlayer) as HTMLVideoElement;
   }
 
-  get isVideoPaused(): boolean {
-    return this.videoStreamElement.paused;
+  /**
+   * Keeps its size while the video is pinned, so it tells where the video belongs on the page
+   */
+  get playerElement() {
+    return document.getElementById('movie_player') || document.querySelector('.html5-video-container') as HTMLElement;
   }
 
   public extendPageUserInterface() {
@@ -72,6 +78,7 @@ class ContentVideoPin implements IContent {
       document.body.appendChild(videoPinElement);
 
       dragService.makeElementDraggable(videoPinElement);
+      videoPinElement.addEventListener('transitionend', () => dragService.keepElementInViewport(videoPinElement));
     }
   }
 
@@ -80,6 +87,10 @@ class ContentVideoPin implements IContent {
 
     if (videoId) {
       featureStorageService.getFeatureData<IVideoPinData>(Meta.id).then(featureData => {
+        if (!this.pinnedVideoElement) {
+          return;
+        }
+
         this.videoSize = featureData.data.size;
         this.updatePinnedVideoSize(featureData.data.size);
         this.createSizeClickHandlers();
@@ -89,24 +100,35 @@ class ContentVideoPin implements IContent {
 
         this.timerChecker();
 
-        const videoHeight = this.videoStreamElement.clientHeight;
-        this.videoScrollBreakpoint = this.getElementTopCoords(this.videoStreamElement) + videoHeight;
-        this.onScroll();
         this.scrollEventCallback = this.onScroll.bind(this);
         window.addEventListener('scroll', this.scrollEventCallback);
+        this.resizeEventCallback = () => dragService.keepElementInViewport(this.pinnedVideoElement);
+        window.addEventListener('resize', this.resizeEventCallback);
+        this.onScroll();
       });
     }
   }
 
   public cleanUp() {
-    if (this.pinnedVideoElement) {
-      if (this.isVideoPinned) {
-        this.hide();
-      }
-      this.pinnedVideoElement.remove();
-      window.removeEventListener('scroll', this.scrollEventCallback);
-      this.scrollEventCallback = null;
+    if (this.isVideoPinned) {
+      this.hide();
     }
+
+    if (this.pinnedVideoElement) {
+      this.pinnedVideoElement.remove();
+    }
+
+    window.removeEventListener('scroll', this.scrollEventCallback);
+    window.removeEventListener('resize', this.resizeEventCallback);
+    this.scrollEventCallback = null;
+    this.resizeEventCallback = null;
+
+    if (this.trackedVideoElement) {
+      this.trackedVideoElement.removeEventListener('timeupdate', this.timeUpdateEventCallback);
+      this.trackedVideoElement = null;
+    }
+
+    this.wasClosed = false;
   }
 
   private createCloseClickHandler() {
@@ -160,7 +182,7 @@ class ContentVideoPin implements IContent {
     playPauseButton.addEventListener('click', (event: Event) => {
       event.preventDefault();
 
-      if (this.isVideoPaused) {
+      if (this.videoStreamElement.paused) {
         playPauseButton.innerHTML = `<span></span>${svgIconsService.iconPause}`;
         this.videoStreamElement.play();
       } else {
@@ -170,52 +192,93 @@ class ContentVideoPin implements IContent {
     });
   }
 
+  /**
+   * Measured on every scroll, so theater mode, resizing
+   * and late loading page parts can't make it stale
+   */
+  private get isPlayerOutOfView() {
+    const player = this.playerElement;
+    return player ? player.getBoundingClientRect().bottom <= 0 : false;
+  }
+
+  /**
+   * Set by the audio mode feature, nothing to watch in a floating video then
+   */
+  private get isAudioModeActive() {
+    const player = document.getElementById('movie_player');
+    return player ? player.classList.contains('myga-audio-mode--active') : false;
+  }
+
   private onScroll() {
-    const scrolled = window.scrollY;
-    if (scrolled >= this.videoScrollBreakpoint && !this.isVideoPinned && !this.isVideoPaused && !this.wasClosed) {
-      this.show();
-    } else if (scrolled < this.videoScrollBreakpoint) {
+    if (this.isPlayerOutOfView) {
+      if (!this.isVideoPinned && !this.wasClosed && !this.isAudioModeActive && this.videoStreamElement && !this.videoStreamElement.paused) {
+        this.show();
+      }
+    } else {
       if (this.isVideoPinned) {
         this.hide();
-      } else if (this.wasClosed) {
-        this.wasClosed = false;
       }
+      this.wasClosed = false;
     }
   }
 
   private show() {
-    this.pinnedVideoElement.classList.add('pinned-video--active');
+    const video = this.videoStreamElement;
 
-    this.pinnedVideoInnerElement.appendChild(this.videoStreamElement);
+    this.videoOriginalParent = video.parentNode;
+    this.videoOriginalNextSibling = video.nextSibling;
+
+    this.pinnedVideoElement.classList.add('pinned-video--active');
+    this.pinnedVideoInnerElement.appendChild(video);
+    dragService.keepElementInViewport(this.pinnedVideoElement);
 
     this.isVideoPinned = true;
   }
 
   private hide() {
-    this.pinnedVideoElement.classList.remove('pinned-video--active');
+    if (this.pinnedVideoElement) {
+      this.pinnedVideoElement.classList.remove('pinned-video--active');
+    }
 
-    const realVideoContainer = document.getElementsByClassName('html5-video-container')[0];
-    realVideoContainer.appendChild(this.videoStreamElement);
+    const video = this.pinnedVideoInnerElement && this.pinnedVideoInnerElement.querySelector('video');
+    const originalParent = this.videoOriginalParent && this.videoOriginalParent.isConnected
+      ? this.videoOriginalParent
+      : document.querySelector('#movie_player .html5-video-container');
 
+    if (video && originalParent) {
+      const nextSibling = this.videoOriginalNextSibling && this.videoOriginalNextSibling.parentNode === originalParent
+        ? this.videoOriginalNextSibling
+        : null;
+      originalParent.insertBefore(video, nextSibling);
+
+      // Makes YouTube™ re-fit the video to its player, which may have changed while it was pinned
+      window.dispatchEvent(new Event('resize'));
+    }
+
+    this.videoOriginalParent = null;
+    this.videoOriginalNextSibling = null;
     this.isVideoPinned = false;
   }
 
   private timerChecker() {
-    this.videoStreamElement.addEventListener('timeupdate', () => {
-      const videoElement = this.videoStreamElement;
+    this.trackedVideoElement = this.videoStreamElement;
+    if (!this.trackedVideoElement) {
+      return;
+    }
 
-      const barWidth = videoElement.currentTime / videoElement.duration * videoElement.clientWidth;
-      this.pinnedVideoProgressBarElement.style.width = `${barWidth}px`;
-      if (videoElement.currentTime === videoElement.duration && this.isVideoPinned) {
+    this.timeUpdateEventCallback = () => {
+      const videoElement = this.trackedVideoElement;
+
+      if (this.isVideoPinned) {
+        const barWidth = videoElement.currentTime / videoElement.duration * videoElement.clientWidth;
+        this.pinnedVideoProgressBarElement.style.width = `${barWidth}px`;
+      }
+
+      if (videoElement.ended && this.isVideoPinned) {
         this.hide();
       }
-    });
-  }
-
-  private getElementTopCoords(element: HTMLElement) {
-    const bodyRect = document.body.getBoundingClientRect();
-    const elemRect = element.getBoundingClientRect();
-    return elemRect.top - bodyRect.top;
+    };
+    this.trackedVideoElement.addEventListener('timeupdate', this.timeUpdateEventCallback);
   }
 }
 

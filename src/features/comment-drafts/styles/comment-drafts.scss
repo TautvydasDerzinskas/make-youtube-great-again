@@ -1,0 +1,150 @@
+@use '../../../popup/variables' as *;
+
+.myga-comment-drafts {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 24px;
+
+  &:empty {
+    display: none;
+  }
+}
+
+// Laid out like YouTube™'s own comments (same sizes), on the extension's own gradient
+.myga-comment-draft {
+  display: flex;
+  align-items: flex-start;
+  padding: 12px 16px;
+  border-radius: 12px;
+  background-image: linear-gradient(to right, $theme-orange, $theme-pink);
+  box-shadow: 0 2px 8px rgba($theme-black, 0.2);
+  color: $theme-white;
+  font-family: Roboto, Arial, sans-serif;
+
+  &__avatar {
+    flex: 0 0 36px;
+    width: 36px;
+    height: 36px;
+    margin-right: 16px;
+    border-radius: 50%;
+    object-fit: cover;
+    background-color: rgba($theme-white, 0.3);
+  }
+
+  &__main {
+    flex: 1;
+    min-width: 0;
+  }
+
+  &__meta {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    margin-bottom: 2px;
+    font-size: 12px;
+    line-height: 18px;
+  }
+
+  &__author {
+    font-weight: 500;
+    color: $theme-white;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  &__age {
+    color: rgba($theme-white, 0.85);
+  }
+
+  &__badge {
+    padding: 0 6px;
+    border-radius: 4px;
+    background-color: $theme-white;
+    color: $theme-pink;
+    font-size: 10px;
+    line-height: 16px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  &__text {
+    font-size: 14px;
+    line-height: 20px;
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+  }
+
+  &__editor {
+    box-sizing: border-box;
+    width: 100%;
+    padding: 8px;
+    border: none;
+    border-radius: 8px;
+    background-color: rgba($theme-white, 0.95);
+    color: $theme-gray;
+    font: inherit;
+    font-size: 14px;
+    line-height: 20px;
+    resize: vertical;
+
+    &:focus {
+      outline: 2px solid $theme-white;
+    }
+  }
+
+  &__error {
+    display: inline-block;
+    margin-top: 8px;
+    padding: 4px 8px;
+    border-radius: 4px;
+    background-color: rgba($theme-black, 0.3);
+    font-size: 13px;
+  }
+
+  // Like YouTube™'s comment toolbar: under the text, left aligned
+  &__actions {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    margin: 6px 0 0 -8px;
+  }
+
+  // Overrides YouTube™'s button colours, made for its own backgrounds
+  &__actions .myga-comment-draft-btn.ytSpecButtonShapeNextHost {
+    background-color: transparent;
+    color: $theme-white;
+
+    &:hover:not(:disabled) {
+      background-color: rgba($theme-white, 0.2);
+    }
+
+    &.ytSpecButtonShapeNextFilled {
+      background-color: $theme-white;
+      color: $theme-pink;
+
+      &:hover:not(:disabled) {
+        background-color: rgba($theme-white, 0.85);
+      }
+    }
+  }
+}
+
+.myga-comment-draft-btn,
+.myga-draft-btn {
+  flex: 0 0 auto;
+  width: auto;
+
+  &:disabled {
+    opacity: 0.4;
+    cursor: default;
+  }
+}
+
+.myga-draft-btn {
+  margin-right: 8px;
+}

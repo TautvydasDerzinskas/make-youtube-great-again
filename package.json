@@ -1,54 +1,60 @@
 {
   "name": "make-youtube-great-again",
-  "version": "1.2.0",
+  "version": "1.3.1",
+  "private": true,
   "description": "Browser extension adding new functionality to YouTube™ experience",
-  "homepage": "https://github.com/SlimDogs/make-youtube-great-again",
+  "homepage": "https://github.com/TautvydasDerzinskas/make-youtube-great-again",
+  "type": "module",
   "scripts": {
-    "build:all": "npm run build:chrome && npm run build:firefox",
-    "build:chrome": "webpack --config=config/webpack/webpack.config.js --mode=production",
-    "build:firefox": "set browser=firefox && webpack --config=config/webpack/webpack.config.js --mode=production",
-    "zip:chrome": "cd extension && bestzip ../myga_chrome.zip *",
-    "zip:firefox": "cd extension && bestzip ../myga_firefox.zip *",
-    "develop": "webpack --config=config/webpack/webpack.config.js --mode=development --watch --info-verbosity verbose",
-    "lint": "tslint -c tslint.json 'src/**/*.{ts,tsx}'",
-    "semantic-release": "semantic-release"
+    "dev": "rspack build --watch --mode development --env browser=chrome",
+    "dev:firefox": "rspack build --watch --mode development --env browser=firefox",
+    "build": "npm run build:chrome && npm run build:firefox",
+    "build:chrome": "rspack build --env browser=chrome",
+    "build:firefox": "rspack build --env browser=firefox",
+    "zip": "npm run zip:chrome && npm run zip:firefox",
+    "zip:chrome": "cd dist/chrome && bestzip ../../myga-chrome.zip *",
+    "zip:firefox": "cd dist/firefox && bestzip ../../myga-firefox.zip *",
+    "zip:source": "git archive --format=zip --output=myga-source.zip HEAD",
+    "lint": "oxlint",
+    "lint:fix": "oxlint --fix",
+    "typecheck": "tsc --noEmit",
+    "commit": "cz",
+    "prepare": "husky"
   },
   "dependencies": {
-    "react": "16.10.2",
-    "react-dom": "16.10.2",
-    "react-router-dom": "5.1.2",
-    "react-tippy": "1.2.3",
-    "react-particles-js": "2.7.0"
+    "@tsparticles/engine": "^4.4.0",
+    "@tsparticles/react": "^4.4.0",
+    "@tsparticles/slim": "^4.4.0",
+    "react": "^19.3.0",
+    "react-dom": "^19.3.0",
+    "react-router": "^8.4.0"
   },
   "devDependencies": {
-    "@types/chrome": "0.0.89",
-    "@types/node": "12.7.12",
-    "@types/react": "16.9.5",
-    "@types/react-dom": "16.9.1",
-    "@types/react-router-dom": "5.1.0",
-    "@semantic-release/changelog": "3.0.4",
-    "@semantic-release/git": "7.0.16",
-    "@semantic-release/github": "5.5.3",
-    "bestzip": "2.1.4",
-    "clean-webpack-plugin": "3.0.0",
-    "commitizen": "4.0.3",
-    "copy-webpack-plugin": "5.0.4",
-    "css-loader": "3.2.0",
-    "cz-customizable": "6.2.0",
-    "husky": "3.0.9",
-    "node-sass": "4.12.0",
-    "sass-loader": "8.0.0",
-    "semantic-release": "15.13.24",
-    "semantic-release-chrome": "1.1.1",
-    "string-replace-loader": "2.2.0",
-    "style-loader": "1.0.0",
-    "svg-inline-loader": "0.8.0",
-    "ts-loader": "6.2.0",
-    "tslint": "5.20.0",
-    "tslint-react": "4.1.0",
-    "typescript": "3.6.4",
-    "webpack": "4.41.1",
-    "webpack-cli": "3.3.9"
+    "@commitlint/cli": "^21.2.3",
+    "@commitlint/config-conventional": "^21.2.3",
+    "@rspack/cli": "^2.2.7",
+    "@rspack/core": "^2.2.7",
+    "@semantic-release/changelog": "^7.0.0",
+    "@semantic-release/exec": "^7.1.0",
+    "@semantic-release/git": "^11.0.1",
+    "@semantic-release/github": "^12.0.10",
+    "@semantic-release/npm": "^13.2.0",
+    "@types/chrome": "^0.3.0",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "bestzip": "^4.0.1",
+    "commitizen": "^4.3.2",
+    "css-loader": "^7.1.5",
+    "cz-customizable": "^7.5.4",
+    "husky": "^9.1.7",
+    "oxlint": "^1.85.0",
+    "sass": "^1.105.0",
+    "sass-loader": "^17.0.1",
+    "semantic-release": "^25.0.9",
+    "semantic-release-chrome": "^3.2.0",
+    "style-loader": "^4.0.0",
+    "typescript": "^7.0.2",
+    "web-ext": "^10.7.0"
   },
   "keywords": [
     "Chrome",
@@ -66,71 +72,22 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/SlimDogs/make-youtube-great-again.git"
+    "url": "https://github.com/TautvydasDerzinskas/make-youtube-great-again.git"
   },
   "bugs": {
-    "url": "https://github.com/SlimDogs/make-youtube-great-again/issues",
+    "url": "https://github.com/TautvydasDerzinskas/make-youtube-great-again/issues",
     "email": "tautvydasuk+myga@gmail.com"
   },
   "license": "MIT",
   "engines": {
-    "node": "10.16.0",
-    "npm": "6.9.0"
+    "node": ">=22.22.0"
   },
   "config": {
     "commitizen": {
       "path": "node_modules/cz-customizable"
     },
     "cz-customizable": {
-      "config": "config/cz-customizable/base.js"
+      "config": "config/cz-customizable/base.cjs"
     }
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "npm run lint"
-    }
-  },
-  "greenkeeper": {
-    "ignore": [
-      "@types/node"
-    ]
-  },
-  "release": {
-    "verifyConditions": [
-      "semantic-release-chrome",
-      "@semantic-release/github"
-    ],
-    "prepare": [
-      {
-        "path": "@semantic-release/changelog",
-        "changelogFile": "CHANGELOG.md"
-      },
-      {
-        "path": "@semantic-release/git",
-        "assets": [
-          "package.json"
-        ]
-      },
-      {
-        "path": "semantic-release-chrome",
-        "asset": "myga_chrome.zip",
-        "distFolder": "extension"
-      }
-    ],
-    "publish": [
-      {
-        "path": "semantic-release-chrome",
-        "asset": "myga_chrome.zip",
-        "extensionId": "geonnhfmhfjfkbbkjmbanmjommkjlnim"
-      },
-      {
-        "path": "@semantic-release/github",
-        "assets": [
-          {
-            "path": "myga_chrome.zip"
-          }
-        ]
-      }
-    ]
   }
 }

@@ -1,0 +1,71 @@
+@use '../../../popup/variables' as *;
+
+#movie_player.myga-audio-mode--active {
+  .html5-video-container {
+    visibility: hidden;
+  }
+}
+
+// Above the video, below the player controls, and lets clicks through to the player
+.myga-audio-mode-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 11;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  overflow: hidden;
+  pointer-events: none;
+  background-color: $theme-black;
+
+  &__backdrop {
+    position: absolute;
+    inset: -40px;
+    background-position: center;
+    background-size: cover;
+    filter: blur(30px) brightness(0.45);
+  }
+
+  &__artwork {
+    position: relative;
+    height: 55%;
+    aspect-ratio: 16 / 9;
+    max-width: 85%;
+    border-radius: 12px;
+    background-position: center;
+    background-size: cover;
+    box-shadow: 0 8px 32px rgba($theme-black, 0.6);
+  }
+
+  &__label {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: $theme-white;
+    font-family: Roboto, Arial, sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+
+    svg {
+      height: 20px;
+      width: 20px;
+      fill: currentColor;
+    }
+  }
+}
+
+// Next to the playlist's own round "Loop" & "Shuffle" buttons
+.myga-playlist-audio-btn {
+  margin-left: 0;
+
+  &[aria-disabled='true'] {
+    cursor: default;
+  }
+
+  &--loading {
+    opacity: 0.4;
+  }
+}

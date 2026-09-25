@@ -15,22 +15,13 @@ class ExtensionService extends YoutubeService {
             newIcon = '';
           }
 
-          chrome.browserAction.setIcon({
+          chrome.action.setIcon({
             path: `icons/icon${newIcon}_38x38.png`,
             tabId: tab.id
           });
-
-          this.closePopupWindow();
         }
       }
     });
-  }
-
-  private closePopupWindow() {
-    const windows = chrome.extension.getViews({ type: 'popup' });
-    if (windows.length) {
-      windows[0].close();
-    }
   }
 }
 

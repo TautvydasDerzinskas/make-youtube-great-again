@@ -1,10 +1,12 @@
-@import '../../../variables';
+@use 'sass:color';
+@use 'sass:math';
+@use '../../../variables' as *;
 
 // $tb = Tab Bar
 $tb-background-color: $theme-gray;
 $tb-content-background-color: $theme-white;
 $tb-border-color: $theme-light-gray;
-$tb-default-spacing: $default-spacing / 2;
+$tb-default-spacing: math.div($default-spacing, 2);
 
 .tabs {
   position: absolute;
@@ -50,7 +52,7 @@ $tb-default-spacing: $default-spacing / 2;
   }
 
   &__version {
-    color: lighten($theme-gray, 15%);
+    color: color.adjust($theme-gray, $lightness: 15%);
     float: right;
     font-size: 9px;
     margin-top: $default-spacing;

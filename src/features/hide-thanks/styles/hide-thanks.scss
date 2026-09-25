@@ -1,0 +1,8 @@
+.myga-hidden-thanks {
+  ytd-watch-metadata #actions {
+    ytd-button-renderer:has(button[aria-label="Thanks" i]),
+    yt-button-view-model:has(button[aria-label="Thanks" i]) {
+      display: none !important
+    }
+  }
+}

@@ -19,7 +19,7 @@ document.body.classList.add(`myga-browser--${browserService.browserName}`);
  * when YouTube™ is fully loaded
  */
 const checkPageLoadStatus = () => {
-  const videoPageElement = document.querySelector(YoutubeSelectors.MenuAfterDropdown);
+  const videoPageElement = document.querySelector(YoutubeSelectors.ActionButtons);
   const otherPagesElements = document.querySelector(YoutubeSelectors.AllThumbnails);
   if (document.readyState === 'complete' && (isUrlVideoPage && videoPageElement || !isUrlVideoPage && otherPagesElements)) {
     setupFeatureContents();

@@ -1,0 +1,33 @@
+@use '../../popup/variables' as *;
+
+.myga-action-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 8px;
+  margin-top: 12px;
+
+  &:empty {
+    display: none;
+  }
+
+  &--start {
+    justify-content: flex-start;
+  }
+}
+
+.myga-action-btn {
+  flex: 0 0 auto;
+  width: auto;
+
+  .ytSpecButtonShapeNextIcon svg {
+    display: block;
+    height: 24px;
+    width: 24px;
+    fill: currentColor;
+  }
+
+  &.myga-action-btn--active .ytSpecButtonShapeNextIcon svg {
+    fill: $theme-red;
+  }
+}

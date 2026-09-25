@@ -1,11 +1,4 @@
 /**
- * Below object gets values replaces from package.json
+ * Package metadata (from package.json) injected at build time
  */
-(window as any).myga = {
-  title: '{{title}}',
-  homepage: '{{homepage}}',
-  author: '{{author}}',
-  authorPage: '{{authorPage}}',
-  version: '{{version}}',
-  bugs: '{{bugs}}',
-};
+(window as any).myga = __MYGA__;

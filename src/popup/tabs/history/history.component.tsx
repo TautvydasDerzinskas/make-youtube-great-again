@@ -1,10 +1,8 @@
-
-
 import * as React from 'react';
 import FeatureStatsGroupComponent from './feature-stats-group/feature-stats-group.component';
 import browserService from '../../../services/common/browser.service';
 
-import { FeaturesMeta } from '../../../features/features';
+import { FeaturesMeta } from '../../../features/features-meta';
 
 export default class HistoryComponent extends React.Component {
 

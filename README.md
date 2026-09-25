@@ -1,15 +1,12 @@
 <p align="center">
-  <a href="https://github.com/SlimDogs/make-youtube-great-again"><img src="docs/images/myga_promo_440x280.jpg" alt="Browser extension: Make YouTube great again!" title="Browser extension: Make YouTube™ great again!" width="250px" /></a>
+  <a href="https://github.com/TautvydasDerzinskas/make-youtube-great-again"><img src="docs/images/myga_promo_440x280.jpg" alt="Browser extension: Make YouTube great again!" title="Browser extension: Make YouTube™ great again!" width="250px" /></a>
 </p>
 
 <p align="center">
-  <a href="#" target="_blank"><img src="https://travis-ci.org/SlimDogs/make-youtube-great-again.svg?branch=master" alt="Latest CI build status" title="Latest CI build status"></a>
-  <a href="https://github.com/SlimDogs/make-youtube-great-again" target="_blank"><img src="https://img.shields.io/chrome-web-store/users/geonnhfmhfjfkbbkjmbanmjommkjlnim.svg?label=users" alt="Active users" title="Active users"></a>
-  <a href="https://greenkeeper.io" target="_blank"><img src="https://badges.greenkeeper.io/SlimDogs/make-youtube-great-again.svg" alt="Greenkeeper" title="Greenkeeper"></a>
+  <a href="https://github.com/TautvydasDerzinskas/make-youtube-great-again/actions/workflows/ci.yml" target="_blank"><img src="https://github.com/TautvydasDerzinskas/make-youtube-great-again/actions/workflows/ci.yml/badge.svg" alt="Latest CI build status" title="Latest CI build status"></a>
   <a href="http://commitizen.github.io/cz-cli" target="_blank"><img src="https://img.shields.io/badge/commitizen-friendly-brightgreen.svg" alt="Commitizen friendly" title="Commitizen friendly"></a>
   <a href="https://github.com/semantic-release/semantic-release" target="_blank"><img src="https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg" alt="Semantic release" title="Semantic release"></a>
   <a href="https://opensource.org/licenses/MIT" target="_blank"><img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="MIT License" title="MIT License"></a>
-  <a href="https://github.com/igrigorik/ga-beacon" target="_blank"><img src="https://ga-beacon.appspot.com/UA-131052445-2/SlimDogs/make-youtube-great-again" alt="Analytics" title="Analytics"></a>
 </p>
 
 ## Table of content
@@ -17,8 +14,8 @@
 - [Installation](#installation)
 - [Features](#features)
 - [Screenshots](#screenshots)
-- [Road map](#road-map)
 - [Development](#development)
+- [Releasing](#releasing)
 - [License](#license)
 - [Changelog](CHANGELOG.md)
 
@@ -28,11 +25,11 @@ _First of all please have in mind that extension name "Make YouTube™ great aga
 Make YouTube™ Great Again is a Browser extension which extends YouTube websites user interface with additional [features](#features). User don't have to use all of the extensions features as there is an option to toggle each of them on and off. There is also a history tab which shows how many times and on what YouTube™ videos those features been used.
 
 ## Installation
-Chrome & Vivaldi users please click below:
+Chrome, Edge, Opera & Vivaldi users (the extension is not in the Chrome Web Store at the moment):
 
-<a href="https://chrome.google.com/webstore/detail/make-youtube-great-again/geonnhfmhfjfkbbkjmbanmjommkjlnim" target="_blank">
-  <img src="docs/images/chrome_store.png" alt="Chrome Web Store" />
-</a>
+1. Download `myga-chrome.zip` from the [latest release](https://github.com/TautvydasDerzinskas/make-youtube-great-again/releases/latest) and unzip it
+2. Open `chrome://extensions` and switch on **Developer mode**
+3. Click **Load unpacked** and select the unzipped folder
 
 Firefox users please head to link below:
 
@@ -49,18 +46,7 @@ Firefox users please head to link below:
   </p>
 </p>
 Adds button under each YouTube™ video which when activated enables video looping.
-This works fine with both new HTML5 player and legacy flash player.
-
-____
-
-<p align="center">
-  <strong>Preview like stats on video thumbnails</strong>
-  <p align="center">
-  <img src="docs/images/feature_03.gif" width="250px" alt="Preview like stats on video thumbnails" />
-  </p>
-</p>
-Allows user to see how many times video was liked/disliked before getting to actual video clip page.
-Once user hovers video thumbnail it adds a like/dislike indicator.
+This works with the HTML5 player.
 
 ____
 
@@ -98,19 +84,50 @@ Don't miss a second of your YouTube™ video even when reading comments!
 
 
 
-## Road map
-* Port extension to browsers such as Firefox and Opera
-* Add more features
-
 ## Development
-Everyone is welcomed to contribute to the project or use the code for their own projects
+Everyone is welcomed to contribute to the project or use the code for their own projects.
 
-To contribute you need to perform these steps:
-1. Run `npm install` to install npm dependencies
-2. Apply your changes and modifications
-3. Run `npm run lint` to make sure code is well formatted
-4. Run `npm run build:chrome` to compile the code and generate extension source folder
-5. In your browser extensions window enable development mode and load MYGA extension from folder `extension` to test your changes
+Requirements: Node.js 24 (see `.nvmrc`).
+
+1. Run `npm install` to install dependencies (this also sets up the git hooks)
+2. Run `npm run dev` (Chrome) or `npm run dev:firefox` to build in watch mode into `dist/<browser>`
+3. Load the extension:
+   - **Chrome**: open `chrome://extensions`, enable developer mode and "Load unpacked" the `dist/chrome` folder
+   - **Firefox**: open `about:debugging#/runtime/this-firefox` and "Load Temporary Add-on…" selecting `dist/firefox/manifest.json`
+
+| Script | Description |
+| --- | --- |
+| `npm run build` | Production build for both browsers (`dist/chrome`, `dist/firefox`) |
+| `npm run build:chrome` / `npm run build:firefox` | Production build for a single browser |
+| `npm run zip` | Package the builds into `myga-chrome.zip` & `myga-firefox.zip` |
+| `npm run lint` | Lint with [oxlint](https://oxc.rs/docs/guide/usage/linter) |
+| `npm run typecheck` | Type check with TypeScript |
+| `npm run commit` | Write a conventional commit message interactively |
+
+### Build instructions for add-on reviewers
+The extension is written in TypeScript and bundled with [Rspack](https://rspack.rs). To reproduce the submitted Firefox build from source:
+
+```sh
+npm ci
+npm run build:firefox
+```
+
+The output is written to `dist/firefox`.
+
+## Releasing
+Releases are fully automated with [semantic-release](https://github.com/semantic-release/semantic-release). Commit messages must follow [Conventional Commits](https://www.conventionalcommits.org) (enforced by commitlint): `fix:` → patch, `feat:` → minor, `feat!:` / `BREAKING CHANGE:` → major.
+
+Every push to `master` runs the [Release workflow](.github/workflows/release.yml), which:
+1. runs the CI checks (lint, typecheck, build)
+2. works out the next version from the commits since the last release and updates `package.json` & `CHANGELOG.md`
+3. builds both browsers with that version and publishes the Firefox add-on to addons.mozilla.org
+4. creates a GitHub release with both zips attached (the Chrome zip is installed from there, the extension is not in the Chrome Web Store at the moment)
+
+The following repository secrets are required (in the `release` environment):
+
+| Secret | Description |
+| --- | --- |
+| `AMO_API_KEY`, `AMO_API_SECRET` | addons.mozilla.org API key (JWT issuer) & secret ([developer hub](https://addons.mozilla.org/developers/addon/api/key/)) |
 
 ## License
-The repository code is open-sourced software licensed under the [MIT license](https://github.com/SlimDogs/make-youtube-great-again/blob/master/LICENSE?raw=true).
+The repository code is open-sourced software licensed under the [MIT license](LICENSE).

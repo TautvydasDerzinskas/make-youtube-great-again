@@ -1,8 +1,6 @@
-
-
 import * as React from 'react';
 import SettingCompoent from './setting/setting.component';
-import { FeaturesMeta } from '../../../features/features';
+import { FeaturesMeta } from '../../../features/features-meta';
 import browserService from '../../../services/common/browser.service';
 
 export default class FeaturesComponent extends React.Component {

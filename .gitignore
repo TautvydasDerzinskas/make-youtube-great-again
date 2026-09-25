@@ -1,6 +1,7 @@
 /node_modules
 /.tmp
 /.vscode
-/extension
-myga_*.zip
+/dist
+/web-ext-artifacts
+myga-*.zip
 *.DS_Store*

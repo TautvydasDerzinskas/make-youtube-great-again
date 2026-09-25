@@ -1,11 +1,8 @@
-import MetaDownloadMp3 from './download-mp3/meta';
-import ContentDownloadMp3 from './download-mp3/content';
+import MetaViewHistory from './view-history/meta';
+import ContentViewHistory from './view-history/content';
 
 import MetaLooper from './looper/meta';
 import ContentLooper from './looper/content';
-
-import MetaThumbnailStats from './thumbnail-stats/meta';
-import ContentThumbnailStats from './thumbnail-stats/content';
 
 import MetaHideComments from './hide-comments/meta';
 import ContentHideComments from './hide-comments/content';
@@ -16,21 +13,25 @@ import ContentCustomProgressBar from './custom-progress-bar/content';
 import MetaVideoPin from './video-pin/meta';
 import ContentVideoPin from './video-pin/content';
 
+import MetaCommentDrafts from './comment-drafts/meta';
+import ContentCommentDrafts from './comment-drafts/content';
+
+import MetaAudioMode from './audio-mode/meta';
+import ContentAudioMode from './audio-mode/content';
+
+import MetaHideThanks from './hide-thanks/meta';
+import ContentHideThanks from './hide-thanks/content';
+
 import IFeature from '../interfaces/feature';
-import IMeta from '../interfaces/meta';
 
 export const Features: IFeature<any>[] = [
   {
-    meta: MetaDownloadMp3,
-    content: ContentDownloadMp3,
+    meta: MetaViewHistory,
+    content: ContentViewHistory,
   },
   {
     meta: MetaLooper,
     content: ContentLooper,
-  },
-  {
-    meta: MetaThumbnailStats,
-    content: ContentThumbnailStats,
   },
   {
     meta: MetaHideComments,
@@ -44,8 +45,16 @@ export const Features: IFeature<any>[] = [
     meta: MetaVideoPin,
     content: ContentVideoPin,
   },
+  {
+    meta: MetaCommentDrafts,
+    content: ContentCommentDrafts,
+  },
+  {
+    meta: MetaAudioMode,
+    content: ContentAudioMode,
+  },
+  {
+    meta: MetaHideThanks,
+    content: ContentHideThanks,
+  },
 ];
-
-const FeaturesMeta: IMeta<any>[] = [];
-Features.forEach(feature => { FeaturesMeta.push(feature.meta); });
-export { FeaturesMeta };

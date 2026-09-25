@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Tooltip } from 'react-tippy';
+import Tooltip from '../../../../layout/tooltip/tooltip.component';
 
 import featureStorageService from '../../../../../services/common/feature-storage.service';
 
@@ -67,7 +67,7 @@ export default class DataSettingComponent extends React.Component<IDataSettingCo
     const inputId = `input-id-${this.props.dataKey}`;
     return (
       <div className='dt-checkbox'>
-        <Tooltip title={this.state.dataValue ? 'Turn OFF' : 'Turn ON'} arrow={true} position='right'>
+        <Tooltip title={this.state.dataValue ? 'Turn OFF' : 'Turn ON'} position='right'>
           <input
             className='dt-checkbox__input'
             id={inputId} type='checkbox'

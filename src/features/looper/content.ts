@@ -1,36 +1,32 @@
 import looperService from './services/looper.service';
 import svgIconsService from '../../services/content/svg-icons.service';
+import actionButtonService from '../../services/content/action-button.service';
 import urlService from '../../services/common/url.service';
 import featureStorageService from '../../services/common/feature-storage.service';
 
 import Meta from './meta';
-import { YoutubeSelectors } from '../../enums';
 import IContent from '../../interfaces/content';
 
-import './styles/looper.scss';
+import '../../services/content/action-button.scss';
 
 class ContentLooper implements IContent {
+  private buttonsObserver: MutationObserver;
+
+  get looperButton() {
+    return document.getElementsByClassName('myga-looper-btn')[0] as HTMLButtonElement;
+  }
+
   public extendPageUserInterface() {
     this.cleanUp();
 
-    looperService.LOOPER_STATUS = false;
-    document.getElementsByTagName('body')[0]
-      .classList.add('myga-looper--enabled');
-
-    const appendTo = document.querySelector(YoutubeSelectors.MenuBeforeDropdown);
-    const $button = document.createElement('button');
-    $button.className = 'myga-looper-btn';
-    $button.setAttribute('title', Meta.description);
-    $button.setAttribute('type', 'button');
-    $button.innerHTML = svgIconsService.iconLooper;
-    appendTo.appendChild($button);
+    const $button = actionButtonService.create('myga-looper-btn', 'Loop', svgIconsService.iconLooper, Meta.description);
+    this.buttonsObserver = actionButtonService.attach($button);
   }
 
   public setupEventListeners() {
-    document.getElementsByClassName('myga-looper-btn')[0]
-      .addEventListener('click', function() {
+    this.looperButton.addEventListener('click', function() {
       looperService.toggle();
-      (<HTMLElement>this).classList.toggle('myga-looper-btn--active');
+      actionButtonService.setActive(this, looperService.LOOPER_STATUS);
 
       const videoId = urlService.getQueryParameterByName('v');
       featureStorageService.trackVideo(Meta.id, videoId);
@@ -38,15 +34,18 @@ class ContentLooper implements IContent {
   }
 
   public cleanUp() {
-    document.getElementsByTagName('body')[0]
-      .classList.remove('myga-looper--enabled');
+    if (this.buttonsObserver) {
+      this.buttonsObserver.disconnect();
+      this.buttonsObserver = null;
+    }
 
     const $looperButtons = document.getElementsByClassName('myga-looper-btn');
-    if ($looperButtons.length > 0) {
-      for (let i = 0, b = $looperButtons.length; i < b; i += 1) {
-        $looperButtons[i].remove();
-      }
+    while ($looperButtons.length > 0) {
+      $looperButtons[0].remove();
     }
+
+    // Otherwise the next video keeps looping while the button shows it doesn't
+    looperService.reset();
   }
 }
 

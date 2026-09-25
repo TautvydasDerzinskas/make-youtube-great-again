@@ -1,6 +1,7 @@
-@import '../../variables';
+@use 'sass:math';
+@use '../../variables' as *;
 
-$links-column-size: ($tab-content-width - $default-spacing) / 2;
+$links-column-size: math.div($tab-content-width - $default-spacing, 2);
 
 .links {
   display: flex;

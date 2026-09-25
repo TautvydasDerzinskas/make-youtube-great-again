@@ -1,6 +1,7 @@
-@import '../../../variables';
+@use 'sass:math';
+@use '../../../variables' as *;
 
-$link-box-size: ($tab-content-width - ($default-spacing * 3)) / 4;
+$link-box-size: math.div($tab-content-width - ($default-spacing * 3), 4);
 
 .link-box {
   position: absolute;
@@ -35,8 +36,8 @@ $link-box-size: ($tab-content-width - ($default-spacing * 3)) / 4;
   }
 
   &__icon {
-    height: $link-box-size / 2;
-    width: $link-box-size / 2;
+    height: math.div($link-box-size, 2);
+    width: math.div($link-box-size, 2);
     fill: $theme-light-gray;
     transition: $default-transition;
 

@@ -1,6 +1,6 @@
 import * as React from 'react';
-import { Tooltip } from 'react-tippy';
-import { NavLink } from 'react-router-dom';
+import Tooltip from '../../../layout/tooltip/tooltip.component';
+import { NavLink } from 'react-router';
 
 import IMeta from '../../../../interfaces/meta';
 import { IMessageToggle } from '../../../../interfaces/communication';
@@ -88,7 +88,7 @@ export default class SettingComponent extends React.Component<{ meta: IMeta<any>
     if (this.props.meta.hasSettings) {
       settingsColumn = (
         <div className='setting__column'>
-          <Tooltip title='Click to configure' arrow={true} position='top'>
+          <Tooltip title='Click to configure' position='top'>
             <NavLink className='setting__settings-link' to={`/settings/${this.props.meta.id}`}>
               <svg><use xlinkHref='#myga-settings'></use></svg>
             </NavLink>
@@ -109,7 +109,7 @@ export default class SettingComponent extends React.Component<{ meta: IMeta<any>
         </div>
         {this.settingsColumn}
         <div className='setting__column'>
-          <Tooltip title={this.state.data.value ? 'Turn OFF' : 'Turn ON'} arrow={true} position='top'>
+          <Tooltip title={this.state.data.value ? 'Turn OFF' : 'Turn ON'} position='top'>
             <label className='setting__switch'>
               <input type='checkbox' checked={this.state.data.value} onChange={this.toggleFeature.bind(this)} />
               <span className='slider slider--round'></span>

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Tooltip } from 'react-tippy';
+import Tooltip from '../../../popup/layout/tooltip/tooltip.component';
 import BackToFeaturesComponent from '../../../popup/tabs/features/settings/back-to-features/back-to-features.component';
 
 import featureStorageService from '../../../services/common/feature-storage.service';
@@ -74,10 +74,10 @@ export default class CustomProgressBarSettingsComponent extends React.Component<
 
   render() {
     const customBars = this.progressBarTypes.map(progressBarType => {
-      const imageUrl = chrome.extension.getURL(`/images/bars/${progressBarType}.gif`);
+      const imageUrl = chrome.runtime.getURL(`/images/bars/${progressBarType}.gif`);
 
       return (
-        <Tooltip title={`Select "${progressBarType}" themed progress bar`} arrow={true} position='top'>
+        <Tooltip key={progressBarType} title={`Select "${progressBarType}" themed progress bar`} position='top'>
           <div className='progress-bar'>
             <div className={`progress-bar__preview myga--custom-bar bar--${progressBarType}`}>
               <div className='preview__full-progress'></div>

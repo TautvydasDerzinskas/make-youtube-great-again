@@ -1,69 +1,63 @@
 class DragService {
-  public makeElementDraggable(element: HTMLElement, onDragCallback?: (x: string, y: string) => void) {
-    let initX = 0;
-    let initY = 0;
-    let firstX = 0;
-    let firstY = 0;
+  /**
+   * Makes a `position: fixed` element draggable with mouse, touch or pen.
+   * Pointer capture keeps the drag going even when the pointer leaves the element,
+   * and the element is always kept inside the viewport.
+   * Drags never start on buttons, so their clicks keep working.
+   */
+  public makeElementDraggable(element: HTMLElement, onDragEndCallback?: (x: string, y: string) => void) {
+    element.addEventListener('pointerdown', (event: PointerEvent) => {
+      if (event.button !== 0 || (event.target as Element).closest('button')) {
+        return;
+      }
+      event.preventDefault();
 
-    element.addEventListener('mousedown', function (e: MouseEvent) {
-      e.preventDefault();
+      const rect = element.getBoundingClientRect();
+      const offsetX = event.clientX - rect.left;
+      const offsetY = event.clientY - rect.top;
 
-      initX = this.offsetLeft;
-      initY = this.offsetTop;
-      firstX = e.pageX;
-      firstY = e.pageY;
+      element.setPointerCapture(event.pointerId);
 
-      this.addEventListener('mousemove', dragIt, false);
+      const onPointerMove = (moveEvent: PointerEvent) => {
+        this.moveElementTo(element, moveEvent.clientX - offsetX, moveEvent.clientY - offsetY);
+      };
 
-      window.addEventListener('mouseup', () => {
-        element.removeEventListener('mousemove', dragIt, false);
+      const onPointerUp = () => {
+        element.releasePointerCapture(event.pointerId);
+        element.removeEventListener('pointermove', onPointerMove);
+        element.removeEventListener('pointerup', onPointerUp);
+        element.removeEventListener('pointercancel', onPointerUp);
 
-        if (typeof onDragCallback !== 'undefined') {
-          onDragCallback(
-            (this as HTMLElement).style.left,
-            (this as HTMLElement).style.top,
-          );
+        if (onDragEndCallback) {
+          onDragEndCallback(element.style.left, element.style.top);
         }
-      }, false);
+      };
 
-    }, false);
+      element.addEventListener('pointermove', onPointerMove);
+      element.addEventListener('pointerup', onPointerUp);
+      element.addEventListener('pointercancel', onPointerUp);
+    });
+  }
 
-    element.addEventListener('touchstart', function (e: TouchEvent) {
-      e.preventDefault();
-
-      initX = this.offsetLeft;
-      initY = this.offsetTop;
-      const touch = e.touches;
-      firstX = touch[0].pageX;
-      firstY = touch[0].pageY;
-
-      this.addEventListener('touchmove', swipeIt, false);
-
-      window.addEventListener('touchend', (event: TouchEvent) => {
-        event.preventDefault();
-        element.removeEventListener('touchmove', swipeIt, false);
-
-        if (typeof onDragCallback !== 'undefined') {
-          onDragCallback(
-            (this as HTMLElement).style.left,
-            (this as HTMLElement).style.top,
-          );
-        }
-
-      }, false);
-
-    }, false);
-
-    function dragIt(e: MouseEvent) {
-      this.style.left = initX + e.pageX - firstX + 'px';
-      this.style.top = initY + e.pageY - firstY + 'px';
+  /**
+   * Pulls an element that was dragged before back inside the viewport,
+   * e.g. after it grew or the window shrank
+   */
+  public keepElementInViewport(element: HTMLElement) {
+    if (element.style.left) {
+      const rect = element.getBoundingClientRect();
+      this.moveElementTo(element, rect.left, rect.top);
     }
+  }
 
-    function swipeIt(e: TouchEvent) {
-      const contact = e.touches;
-      this.style.left = initX + contact[0].pageX - firstX + 'px';
-      this.style.top = initY + contact[0].pageY - firstY + 'px';
-    }
+  private moveElementTo(element: HTMLElement, x: number, y: number) {
+    const maxX = Math.max(0, window.innerWidth - element.offsetWidth);
+    const maxY = Math.max(0, window.innerHeight - element.offsetHeight);
+
+    element.style.left = `${Math.min(Math.max(0, x), maxX)}px`;
+    element.style.top = `${Math.min(Math.max(0, y), maxY)}px`;
+    element.style.right = 'auto';
+    element.style.bottom = 'auto';
   }
 }
 

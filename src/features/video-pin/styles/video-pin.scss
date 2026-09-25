@@ -1,4 +1,4 @@
-@import '../../../popup/variables';
+@use '../../../popup/variables' as *;
 
 $video-width-sm: 310px;
 $video-height-sm: 175px;
@@ -26,6 +26,8 @@ $button-size: $large-spacing * 2;
   background-color: $theme-black;
   box-shadow: 0 0 5px $theme-black;
   cursor: move;
+  touch-action: none;
+  user-select: none;
   transition: width 0.3s ease-in-out, height 0.3s ease-in-out, opacity 0.2s ease-in-out;
 
   &--size-0 {

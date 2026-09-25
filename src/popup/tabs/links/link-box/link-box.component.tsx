@@ -1,5 +1,3 @@
-
-
 import * as React from 'react';
 
 import './link-box.component.scss';
@@ -12,9 +10,6 @@ interface ILinkBoxComponentProps {
 }
 
 export default class LinkBoxComponent extends React.Component<ILinkBoxComponentProps, {}> {
-  constructor(props: ILinkBoxComponentProps) {
-    super(props);
-  }
 
   private getIcon() {
     let icon;

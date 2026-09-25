@@ -1,10 +1,17 @@
 {
   "compilerOptions": {
-    "outDir": "./extension/",
+    "target": "es2022",
+    "lib": ["es2023", "dom", "dom.iterable"],
+    "module": "esnext",
+    "moduleResolution": "bundler",
+    "jsx": "react-jsx",
+    "types": ["chrome"],
+    "strict": false,
     "noImplicitAny": true,
-    "module": "es6",
-    "target": "es2015",
-    "allowJs": true,
-    "jsx": "react"
-  }
+    "isolatedModules": true,
+    "resolveJsonModule": true,
+    "skipLibCheck": true,
+    "noEmit": true
+  },
+  "include": ["src"]
 }

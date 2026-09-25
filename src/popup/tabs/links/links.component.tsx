@@ -1,5 +1,3 @@
-
-
 import * as React from 'react';
 import LinkBoxComponent from './link-box/link-box.component';
 import PaypalLinkBoxComponent from './paypal-link-box/paypal-link-box.component';
@@ -14,6 +12,8 @@ export default class LinksComponent extends React.Component<{}> {
 
   render() {
     const webStoreLink = browserService.browserExtensionWebStoreLink;
+    // Without a store listing, the GitHub repository is shared instead
+    const shareLink = webStoreLink || (window as any).myga.homepage;
 
     return (
       <div className='links'>
@@ -40,20 +40,20 @@ export default class LinksComponent extends React.Component<{}> {
         </div>
         <div className='links__column'>
           <LinkBoxComponent
-            link={ShareLinks.Facebook + webStoreLink}
+            link={ShareLinks.Facebook + shareLink}
             position='top-left'
             icon='facebook.svg'
             label='Share to Facebook' />
           <LinkBoxComponent
-            link={ShareLinks.Twitter + webStoreLink}
+            link={ShareLinks.Twitter + shareLink}
             position='top-right'
             icon='twitter.svg'
             label='Share to Twitter' />
-          <LinkBoxComponent
+          {webStoreLink && <LinkBoxComponent
             link={webStoreLink + '/reviews'}
             position='bottom-left-right'
             icon='star.svg'
-            label='Love this extension? Leave a review!' />
+            label='Love this extension? Leave a review!' />}
         </div>
       </div>
     );

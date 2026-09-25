@@ -3,17 +3,15 @@ import VideoComponent from './video/video.component';
 
 import featureStorageService from '../../../../services/common/feature-storage.service';
 import formatService from '../../../../services/common/format.service';
+import videoInfoService, { IVideoInfo } from '../../../../services/common/video-info.service';
 
 import IMeta from '../../../../interfaces/meta';
-import { IYoutubeSnippetResponse, IYoutubeSnippetItem } from './feature-stats.interface';
 import { IBaseSongsFeatureData } from '../../../../interfaces/feature';
-
-import { ApiKeys } from '../../../../enums';
 
 import './feature-stats-group.component.scss';
 
 interface IFeatureStatsGroupComponentState {
-  videos: IYoutubeSnippetItem[];
+  videos: IVideoInfo[];
   counter: number;
 }
 
@@ -31,21 +29,21 @@ export default class FeatureStatsGroupComponent extends React.Component<IFeature
   }
 
   componentDidMount() {
-    featureStorageService.getFeatureData<IBaseSongsFeatureData>(this.props.meta.id).then(featureData => {
-      const videoIds = featureData.data.songs.concat(',');
-      fetch(`https://www.googleapis.com/youtube/v3/videos?id=${videoIds}&part=snippet&key=${ApiKeys.DataApiV3}`)
-        .then(res => res.json())
-        .then((result: IYoutubeSnippetResponse) => {
-          this.setState({
-            videos: result.items,
-            counter: featureData.data.counter,
-          });
-        });
+    featureStorageService.getFeatureData<IBaseSongsFeatureData>(this.props.meta.id).then(async featureData => {
+      const data = featureData && featureData.data || {};
+      const videoIds = data.songs || [];
+
+      // Shown right away, titles fill in once loaded
+      this.setState({
+        counter: data.counter || 0,
+        videos: videoIds.map(id => ({ id, title: '', thumbnailUrl: videoInfoService.getThumbnailUrl(id) })),
+      });
+      this.setState({ videos: await videoInfoService.getVideos(videoIds) });
     });
   }
 
   render() {
-    let allVideoHtml: any = <div className='feature-group__none'>No videos tracked yet</div>;
+    let allVideoHtml: React.ReactNode = <div className='feature-group__none'>No videos tracked yet</div>;
 
     if (this.state.videos.length > 0) {
       allVideoHtml = this.state.videos.map(video =>

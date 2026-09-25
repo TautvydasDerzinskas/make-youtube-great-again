@@ -1,26 +1,23 @@
-declare let opr: any;
-declare let InstallTrigger: any;
-
 import { Browsers } from '../../enums';
 
 class BrowserService {
-  get window(): any { return window; }
-
-  get browserName() {
-    if ((!!this.window.opr && !!opr.addons) || !!this.window.opera || navigator.userAgent.indexOf(' OPR/') >= 0) {
-      return Browsers.Opera;
-    } else if (typeof InstallTrigger !== 'undefined') {
+  get browserName(): Browsers {
+    // Firefox gets its own build, Chromium based browsers share the Chrome one
+    if (__BROWSER__ === 'firefox') {
       return Browsers.Firefox;
+    } else if (navigator.userAgent.indexOf(' OPR/') >= 0) {
+      return Browsers.Opera;
     } else if (navigator.userAgent.toLowerCase().indexOf('vivaldi') >= 0) {
       return Browsers.Vivaldi;
-    } else if (!!this.window.chrome && (!!this.window.chrome.webstore || !!this.window.chrome.runtime)) {
-      return Browsers.Chrome;
     }
-    return Browsers.Other;
+    return Browsers.Chrome;
   }
 
-  get browserExtensionWebStoreLink() {
-    let link: string;
+  /**
+   * Null when there's no store listing for this browser
+   */
+  get browserExtensionWebStoreLink(): string {
+    let link: string = null;
 
     switch (this.browserName) {
       case Browsers.Firefox:
@@ -29,12 +26,12 @@ class BrowserService {
       case Browsers.Opera:
         link = `https://addons.opera.com/en-gb/extensions/details/${(window as any).myga.title}`;
         break;
+      // Not in the Chrome Web Store at the moment: set to its listing once it's republished
       default:
       case Browsers.Chrome:
       case Browsers.Other:
       case Browsers.Vivaldi:
-        link = `https://chrome.google.com/webstore/detail/${chrome.runtime.id}`;
-          break;
+        break;
     }
 
     return link;

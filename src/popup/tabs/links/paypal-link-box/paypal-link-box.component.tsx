@@ -1,5 +1,3 @@
-
-
 import * as React from 'react';
 
 import './paypal-link-box.component.scss';
@@ -11,9 +9,6 @@ interface IPaypalLinkBoxComponentProps {
 }
 
 export default class PaypalLinkBoxComponent extends React.Component<IPaypalLinkBoxComponentProps, {}> {
-  constructor(props: IPaypalLinkBoxComponentProps) {
-    super(props);
-  }
 
   private getIcon() {
     let icon;

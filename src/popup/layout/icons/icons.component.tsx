@@ -1,6 +1,5 @@
 import * as React from 'react';
 
-// tslint:disable:max-line-length
 class IconsComponent extends React.Component {
   render() {
     return (

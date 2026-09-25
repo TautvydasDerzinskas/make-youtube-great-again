@@ -1,6 +1,6 @@
 import * as React from 'react';
-import { Tooltip } from 'react-tippy';
-import { NavLink } from 'react-router-dom';
+import Tooltip from '../../../../layout/tooltip/tooltip.component';
+import { NavLink } from 'react-router';
 
 import './back-to-features.component.scss';
 
@@ -14,7 +14,7 @@ export default class BackToFeaturesComponent extends React.Component<IBackToFeat
     return (
       <div className='back-to-features'>
         <div>
-          <Tooltip title='Back to the Features' arrow={true} position='top'>
+          <Tooltip title='Back to the Features' position='top'>
             <NavLink to='/settings'>
               <span>Features</span>
             </NavLink>

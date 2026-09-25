@@ -1,3 +1,4 @@
+@use 'sass:math';
 // Colors
 $theme-gray: #252525;
 $theme-light-gray: #a0a0a0;
@@ -13,7 +14,7 @@ $theme-pink: #ea0986;
 
 // Spacings
 $default-spacing: 8px;
-$small-spacing: $default-spacing / 2;
+$small-spacing: math.div($default-spacing, 2);
 $large-spacing: $default-spacing * 2;
 
 // Sizes

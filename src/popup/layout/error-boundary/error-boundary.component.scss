@@ -1,0 +1,13 @@
+@use '../../variables' as *;
+
+.error-boundary {
+  padding: $large-spacing;
+  background-color: $theme-silver-white;
+  color: $theme-gray;
+
+  strong {
+    display: block;
+    margin-bottom: $small-spacing;
+    color: $theme-red;
+  }
+}
