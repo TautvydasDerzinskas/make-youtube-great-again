@@ -115,9 +115,9 @@ npm run build:firefox
 The output is written to `dist/firefox`.
 
 ## Releasing
-Releases are fully automated with [semantic-release](https://github.com/semantic-release/semantic-release). Commit messages must follow [Conventional Commits](https://www.conventionalcommits.org) (enforced by commitlint): `fix:` → patch, `feat:` → minor, `feat!:` / `BREAKING CHANGE:` → major.
+Releases are fully automated with [semantic-release](https://github.com/semantic-release/semantic-release). Commit messages must follow [Conventional Commits](https://www.conventionalcommits.org) (enforced by commitlint): `feat:` → minor, `feat!:` / `BREAKING CHANGE:` → major, any other type (`fix:`, `chore:`, `refactor:`, `docs:`…) → patch, so every push releases.
 
-Every push to `master` runs the [Release workflow](.github/workflows/release.yml), which:
+There's a single branch, `main`. Every push to it (including merged pull requests) runs the [Release workflow](.github/workflows/release.yml), which:
 1. runs the CI checks (lint, typecheck, build)
 2. works out the next version from the commits since the last release and updates `package.json` & `CHANGELOG.md`
 3. builds both browsers with that version and publishes the Firefox add-on to addons.mozilla.org
