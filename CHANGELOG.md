@@ -1,3 +1,11 @@
+## [1.3.1](https://github.com/SlimDogs/make-youtube-great-again/compare/v1.3.0...v1.3.1) (2019-05-10)
+
+
+### Bug Fixes
+
+* **Firefox:** disable analytics on Firefox browsers (policy issues) ([bbeb8c9](https://github.com/SlimDogs/make-youtube-great-again/commit/bbeb8c9))
+* **trademark & Chrome:** add Youtube trademark sign & make sure download feature is not available fo ([4bcfa3f](https://github.com/SlimDogs/make-youtube-great-again/commit/4bcfa3f))
+
 # [1.3.0](https://github.com/SlimDogs/make-youtube-great-again/compare/v1.2.0...v1.3.0) (2019-03-26)
 
 
