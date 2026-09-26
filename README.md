@@ -3,11 +3,14 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/TautvydasDerzinskas/make-youtube-great-again/actions/workflows/ci.yml" target="_blank"><img src="https://github.com/TautvydasDerzinskas/make-youtube-great-again/actions/workflows/ci.yml/badge.svg" alt="Latest CI build status" title="Latest CI build status"></a>
-  <a href="http://commitizen.github.io/cz-cli" target="_blank"><img src="https://img.shields.io/badge/commitizen-friendly-brightgreen.svg" alt="Commitizen friendly" title="Commitizen friendly"></a>
-  <a href="https://github.com/semantic-release/semantic-release" target="_blank"><img src="https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg" alt="Semantic release" title="Semantic release"></a>
+  <a href="https://github.com/TautvydasDerzinskas/make-youtube-great-again/actions/workflows/release.yml" target="_blank"><img src="https://github.com/TautvydasDerzinskas/make-youtube-great-again/actions/workflows/release.yml/badge.svg" alt="Release workflow status" title="Release: checks, builds & publishes every push to main"></a>
+  <a href="https://github.com/TautvydasDerzinskas/make-youtube-great-again/actions/workflows/pages.yml" target="_blank"><img src="https://github.com/TautvydasDerzinskas/make-youtube-great-again/actions/workflows/pages.yml/badge.svg" alt="Website workflow status" title="Website deployment"></a>
+  <a href="https://github.com/TautvydasDerzinskas/make-youtube-great-again/releases/latest" target="_blank"><img src="https://img.shields.io/github/v/release/TautvydasDerzinskas/make-youtube-great-again?label=release" alt="Latest release" title="Latest release"></a>
+  <a href="https://addons.mozilla.org/en-GB/firefox/addon/myga/" target="_blank"><img src="https://img.shields.io/amo/v/myga?label=firefox%20add-ons" alt="Firefox Add-ons version" title="Version on Firefox Add-ons"></a>
   <a href="https://opensource.org/licenses/MIT" target="_blank"><img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="MIT License" title="MIT License"></a>
 </p>
+
+<p align="center"><strong><a href="https://tautvydasderzinskas.github.io/make-youtube-great-again/">Website</a></strong> · <a href="https://addons.mozilla.org/en-GB/firefox/addon/myga/">Firefox Add-ons</a> · <a href="https://github.com/TautvydasDerzinskas/make-youtube-great-again/releases/latest">Latest release</a></p>
 
 ## About
 _First of all please have in mind that extension name "Make YouTube™ great again" is chosen only because it sounds funny! Please don't look for any hidden political message - there is none._

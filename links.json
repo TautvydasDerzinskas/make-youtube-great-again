@@ -26,13 +26,13 @@
     },
     {
       "label": "Share to Facebook",
-      "url": "https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fgithub.com%2FTautvydasDerzinskas%2Fmake-youtube-great-again",
+      "url": "https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Ftautvydasderzinskas.github.io%2Fmake-youtube-great-again%2F",
       "icon": "facebook.svg",
       "browsers": ["chrome"]
     },
     {
       "label": "Share to Twitter",
-      "url": "https://twitter.com/intent/tweet?text=Make%20YouTube%20great%20again&url=https%3A%2F%2Fgithub.com%2FTautvydasDerzinskas%2Fmake-youtube-great-again",
+      "url": "https://twitter.com/intent/tweet?text=Make%20YouTube%20great%20again&url=https%3A%2F%2Ftautvydasderzinskas.github.io%2Fmake-youtube-great-again%2F",
       "icon": "twitter.svg",
       "browsers": ["chrome"]
     },

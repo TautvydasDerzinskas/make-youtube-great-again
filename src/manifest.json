@@ -4,7 +4,7 @@
   "description": "Browser extension adding new functionality to YouTube™ experience",
   "version": "0.0.0",
   "author": "Tautvydas Derzinskas",
-  "homepage_url": "https://github.com/TautvydasDerzinskas/make-youtube-great-again",
+  "homepage_url": "https://tautvydasderzinskas.github.io/make-youtube-great-again/",
   "action": {
     "default_icon": {
       "19": "icons/icon_19x19.png",
