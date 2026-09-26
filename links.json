@@ -54,6 +54,13 @@
       "icon": "star.svg",
       "browsers": ["firefox"],
       "wide": true
+    },
+    {
+      "label": "Love this extension? Leave a review!",
+      "url": "https://chromewebstore.google.com/detail/geonnhfmhfjfkbbkjmbanmjommkjlnim/reviews",
+      "icon": "star.svg",
+      "browsers": ["chrome"],
+      "wide": true
     }
   ]
 }
