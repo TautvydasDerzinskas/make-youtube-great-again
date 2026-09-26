@@ -109,8 +109,6 @@ p { margin: 0 0 12px; }
 .button:hover { transform: translateY(-1px); border-color: var(--border-strong); }
 .button--primary { background: var(--gradient); border-color: transparent; color: #fff; }
 .button--primary:hover { opacity: 0.9; }
-.button--disabled { opacity: 0.55; cursor: default; }
-.button--disabled:hover { transform: none; border-color: var(--border); }
 .button svg { width: 18px; height: 18px; fill: currentColor; flex: none; }
 .button--small { padding: 8px 16px; font-size: 14px; }
 

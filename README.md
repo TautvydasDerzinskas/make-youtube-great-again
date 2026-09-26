@@ -10,7 +10,7 @@
   <a href="https://opensource.org/licenses/MIT" target="_blank"><img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="MIT License" title="MIT License"></a>
 </p>
 
-<p align="center"><strong><a href="https://tautvydasderzinskas.github.io/make-youtube-great-again/">Website</a></strong> · <a href="https://addons.mozilla.org/en-GB/firefox/addon/myga/">Firefox Add-ons</a> · <a href="https://chromewebstore.google.com/detail/geonnhfmhfjfkbbkjmbanmjommkjlnim">Chrome Web Store</a> · <a href="https://github.com/TautvydasDerzinskas/make-youtube-great-again/releases/latest">Latest release</a></p>
+<p align="center"><strong><a href="https://tautvydasderzinskas.github.io/make-youtube-great-again/">Website</a></strong> · <a href="https://addons.mozilla.org/en-GB/firefox/addon/myga/">Firefox Add-ons</a> · <a href="https://chromewebstore.google.com/detail/geonnhfmhfjfkbbkjmbanmjommkjlnim">Chrome Web Store</a> · <a href="https://microsoftedge.microsoft.com/addons/detail/ocfefmgnhjaediojkdkjagglhlnedclj">Edge Add-ons</a> · <a href="https://github.com/TautvydasDerzinskas/make-youtube-great-again/releases/latest">Latest release</a></p>
 
 ## About
 _First of all please have in mind that extension name "Make YouTube™ great again" is chosen only because it sounds funny! Please don't look for any hidden political message - there is none._
@@ -18,14 +18,14 @@ _First of all please have in mind that extension name "Make YouTube™ great aga
 Make YouTube™ Great Again is a browser extension adding the small things YouTube™ is missing. Every feature can be switched on or off in the extension's popup, so you only keep what you use. Everything it saves stays in your browser: no accounts, no analytics, no tracking.
 
 ## Installation
-Chrome, Edge, Opera & Vivaldi users please install it from the [Chrome Web Store](https://chromewebstore.google.com/detail/geonnhfmhfjfkbbkjmbanmjommkjlnim).
+Chrome, Opera & Vivaldi users please install it from the [Chrome Web Store](https://chromewebstore.google.com/detail/geonnhfmhfjfkbbkjmbanmjommkjlnim).
 
-Edge users: a Microsoft Edge Add-ons listing is coming soon. Until then, install it from the Chrome Web Store and click **Allow extensions from other stores** when Edge asks.
+Edge users please install it from [Microsoft Edge Add-ons](https://microsoftedge.microsoft.com/addons/detail/ocfefmgnhjaediojkdkjagglhlnedclj).
 
 Or install it manually (it won't update on its own):
 
 1. Download `myga-chrome.zip` from the [latest release](https://github.com/TautvydasDerzinskas/make-youtube-great-again/releases/latest) and unzip it
-2. Open `chrome://extensions` and switch on **Developer mode**
+2. Open `chrome://extensions` (Edge: `edge://extensions`) and switch on **Developer mode**
 3. Click **Load unpacked** and select the unzipped folder
 
 Firefox users please head to link below:
