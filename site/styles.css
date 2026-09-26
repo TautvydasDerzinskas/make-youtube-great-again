@@ -212,19 +212,29 @@ details ol + p, details p + ol { margin-top: 10px; }
 .bar-card { margin: 0; padding: 28px 28px 16px; border-radius: var(--radius); background: #0f0f0f; border: 1px solid var(--border); }
 /* The preview cards stay dark like a player in both themes, so their captions stay light */
 .bar-card figcaption { margin-top: 14px; color: #a0a0a0; font-weight: 700; font-size: 14px; }
-.bars .bar-preview { position: relative; height: 40px; }
-.bars .bar-preview .bar-preview__track { position: absolute; left: 0; right: 0; top: 50%; height: 4px; margin-top: -2px; background: rgba(255, 255, 255, 0.25); }
+/* YouTube's own geometry, which the themes' offsets are tuned for: a 5px bar area (at --bar-y) with
+   a 3px track in its middle, and the scrubber at top -4px & left -6.5px of it */
+.bars .bar-preview { --bar-y: 22px; position: relative; padding-top: calc(var(--bar-y) + 5px); }
+.bars .bar-preview .bar-preview__track { position: absolute; left: 0; right: 0; top: calc(var(--bar-y) + 1px); height: 3px; background: rgba(255, 255, 255, 0.25); }
 /* Fills up like a playing video, the theme's character running along */
-.bars .bar-preview .bar-preview__progress { position: absolute; left: 0; top: 50%; height: 1px; margin-top: -3px; animation: bar-play 12s linear infinite; animation-delay: var(--delay, 0s); }
+.bars .bar-preview .bar-preview__progress { position: absolute; left: 0; top: calc(var(--bar-y) + 1.5px); height: 1px; animation: bar-play 12s linear infinite; animation-delay: var(--delay, 0s); }
 .bars .bar-preview .bar-preview__progress .ytp-play-progress { position: absolute; left: 0; top: 0; width: 100%; height: 1px; }
-.bars .bar-preview .preview__center { position: absolute; top: 10%; left: 0; animation: bar-scrub 12s linear infinite; animation-delay: var(--delay, 0s); }
-.bars .bar-preview .preview__center .ytp-scrubber-container { position: absolute; }
+.bars .bar-preview .preview__center { position: absolute; top: var(--bar-y); left: 0; animation: bar-scrub 12s linear infinite; animation-delay: var(--delay, 0s); }
+.bars .bar-preview .preview__center .ytp-scrubber-container { position: absolute; top: -4px; left: -6.5px; }
+.bars .bar-preview--paused .bar-preview__progress,
+.bars .bar-preview--paused .preview__center { animation-play-state: paused; }
 @keyframes bar-play { from { width: 2%; } to { width: 98%; } }
 @keyframes bar-scrub { from { left: 2%; } to { left: 98%; } }
 @media (prefers-reduced-motion: reduce) {
   .bars .bar-preview .bar-preview__progress { animation: none; width: 55%; }
   .bars .bar-preview .preview__center { animation: none; left: 55%; }
 }
+/* Player controls under the bar (added by main.js): the time follows the bar */
+.player-controls { display: flex; align-items: center; gap: 6px; margin-top: 8px; color: #eee; font: 13px/1 Roboto, Arial, sans-serif; }
+.player-controls svg { width: 24px; height: 24px; fill: currentColor; display: block; }
+.player-controls__button { padding: 0; border: 0; background: none; color: inherit; cursor: pointer; border-radius: 4px; }
+.player-controls__button:focus-visible { outline: 2px solid #fff; outline-offset: 2px; }
+.player-controls__time { margin-left: 6px; font-variant-numeric: tabular-nums; white-space: nowrap; }
 
 /* FAQ */
 .faq { display: grid; gap: 12px; max-width: 820px; }
