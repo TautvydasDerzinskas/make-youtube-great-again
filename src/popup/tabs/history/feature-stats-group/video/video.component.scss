@@ -21,7 +21,7 @@ $video-item-height: 30px;
     flex: 1 auto;
     width: 100%;
     font-size: 15px;
-    color: $theme-gray;
+    color: var(--myga-text);
     padding-left: $default-spacing;
     white-space: nowrap;
     text-overflow: ellipsis;
@@ -40,10 +40,10 @@ $video-item-height: 30px;
   }
 
   &:hover {
-    background-color: color.adjust(#F1F1F1, $lightness: -5%);
+    background-color: var(--myga-card-hover-bg);
 
     .video__title {
-      color: $theme-black;
+      color: var(--myga-text-strong);
     }
 
     .play-button--disabled {

@@ -6,7 +6,7 @@ $link-box-size: math.div($tab-content-width - ($default-spacing * 3), 4);
 .link-box {
   position: relative;
   height: $link-box-size;
-  background-color: $theme-silver-white;
+  background-color: var(--myga-card-bg);
   overflow: hidden;
   display: flex;
   align-items: center;
@@ -19,7 +19,7 @@ $link-box-size: math.div($tab-content-width - ($default-spacing * 3), 4);
   &__icon {
     height: math.div($link-box-size, 2);
     width: math.div($link-box-size, 2);
-    fill: $theme-light-gray;
+    fill: var(--myga-link-icon);
     transition: $default-transition;
 
     &--image {
@@ -49,7 +49,7 @@ $link-box-size: math.div($tab-content-width - ($default-spacing * 3), 4);
 
   &:hover {
     .link-box__icon {
-      fill: $theme-gray;
+      fill: var(--myga-link-icon-hover);
       transform: scale(1.3);
     }
 

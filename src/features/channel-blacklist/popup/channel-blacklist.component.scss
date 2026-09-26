@@ -12,8 +12,8 @@
     align-items: center;
     gap: $default-spacing;
     padding: $default-spacing;
-    background-color: $theme-silver-white;
-    color: $theme-gray;
+    background-color: var(--myga-card-bg);
+    color: var(--myga-text);
   }
 
   &__avatar {
@@ -58,10 +58,10 @@
 
   &__remove {
     padding: $small-spacing $default-spacing;
-    border: 1px solid $theme-light-gray;
+    border: 1px solid var(--myga-button-border);
     border-radius: 4px;
-    background-color: $theme-white;
-    color: $theme-gray;
+    background-color: var(--myga-button-bg);
+    color: var(--myga-text);
     font: inherit;
     cursor: pointer;
     transition: $default-transition;

@@ -18,7 +18,7 @@ $tb-default-spacing: math.div($default-spacing, 2);
   z-index: 999;
 
   &__tab {
-    background-color: #eeeeee;
+    background-color: var(--myga-tab-bg);
     display: inline-block;
     color: $tb-border-color;
     margin-right: $tb-default-spacing;
@@ -26,14 +26,14 @@ $tb-default-spacing: math.div($default-spacing, 2);
     cursor: pointer;
 
     &:hover {
-      color: $theme-gray;
+      color: var(--myga-text);
     }
 
     &.tab--active {
       color: $theme-red;
       font-weight: bold;
       height: auto;
-      background-color: $theme-white;
+      background-color: var(--myga-content-bg);
       cursor: default;
 
       > span {
@@ -46,7 +46,7 @@ $tb-default-spacing: math.div($default-spacing, 2);
   }
 
   &-content {
-    background-color: $theme-white;
+    background-color: var(--myga-content-bg);
     padding: $large-spacing;
     overflow: hidden;
   }

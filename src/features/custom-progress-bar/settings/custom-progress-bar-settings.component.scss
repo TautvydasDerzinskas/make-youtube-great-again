@@ -37,7 +37,7 @@
             left: 0;
             top: 50%;
             right: 0;
-            background-color: rgba($theme-black, 0.2);
+            background-color: var(--myga-track);
             height: 4px;
             margin-top: -2px;
           }
@@ -106,7 +106,7 @@
     left: 0;
     height: $large-spacing;
     width: $large-spacing;
-    background-color: $theme-silver-white;
+    background-color: var(--myga-radio-bg);
     border-radius: 50%;
 
     &:after {

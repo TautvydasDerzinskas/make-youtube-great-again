@@ -12,8 +12,8 @@
     flex-direction: column;
     gap: $small-spacing;
     padding: $default-spacing;
-    background-color: $theme-silver-white;
-    color: $theme-gray;
+    background-color: var(--myga-card-bg);
+    color: var(--myga-text);
     min-width: 0;
   }
 
@@ -74,16 +74,16 @@
 
   &__button {
     padding: 2px $default-spacing;
-    border: 1px solid $theme-light-gray;
+    border: 1px solid var(--myga-button-border);
     border-radius: 4px;
-    background-color: $theme-white;
-    color: $theme-gray;
+    background-color: var(--myga-button-bg);
+    color: var(--myga-text);
     font: inherit;
     cursor: pointer;
     transition: $default-transition;
 
     &:hover {
-      border-color: $theme-gray;
+      border-color: var(--myga-button-border-hover);
     }
 
     &--primary {

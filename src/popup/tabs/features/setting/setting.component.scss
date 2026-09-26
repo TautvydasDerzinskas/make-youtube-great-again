@@ -53,7 +53,7 @@ $toggle-distance: $toggle-width - ($slider-spacing * 2) - $slider-size;
     margin: 0 $default-spacing;
 
     svg {
-      fill: $theme-black;
+      fill: var(--myga-text-strong);
       height: $large-spacing;
       width: $large-spacing;
     }
@@ -66,7 +66,7 @@ $toggle-distance: $toggle-width - ($slider-spacing * 2) - $slider-size;
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: $theme-gray;
+    background-color: var(--myga-toggle-off);
     -webkit-transition: .4s;
     transition: .4s;
 
@@ -107,7 +107,7 @@ $toggle-distance: $toggle-width - ($slider-spacing * 2) - $slider-size;
 
   &:hover {
     .slider {
-      background-color: color.adjust($theme-gray, $lightness: -15%);
+      background-color: var(--myga-toggle-off-hover);
     }
 
     input:checked + .slider {

@@ -1,6 +1,49 @@
 @use './variables' as *;
 
 /**
+ * Theme colours of the tab contents: light as it always was, dark with a dark system theme.
+ * The orange → pink gradient accents stay the same in both.
+ */
+:root {
+  color-scheme: light dark;
+  --myga-content-bg: #{$theme-white};
+  --myga-card-bg: #{$theme-silver-white};
+  --myga-card-hover-bg: #e4e4e4;
+  --myga-text: #{$theme-gray};
+  --myga-text-strong: #{$theme-black};
+  --myga-tab-bg: #eeeeee;
+  --myga-button-bg: #{$theme-white};
+  --myga-button-border: #{$theme-light-gray};
+  --myga-button-border-hover: #{$theme-gray};
+  --myga-toggle-off: #{$theme-gray};
+  --myga-toggle-off-hover: #0d0d0d;
+  --myga-radio-bg: #{$theme-silver-white};
+  --myga-track: rgba(0, 0, 0, 0.2);
+  --myga-link-icon: #{$theme-light-gray};
+  --myga-link-icon-hover: #{$theme-gray};
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --myga-content-bg: #181818;
+    --myga-card-bg: #262626;
+    --myga-card-hover-bg: #303030;
+    --myga-text: #ececec;
+    --myga-text-strong: #{$theme-white};
+    --myga-tab-bg: #2f2f2f;
+    --myga-button-bg: #2c2c2c;
+    --myga-button-border: #4a4a4a;
+    --myga-button-border-hover: #cfcfcf;
+    --myga-toggle-off: #4a4a4a;
+    --myga-toggle-off-hover: #5c5c5c;
+    --myga-radio-bg: #333333;
+    --myga-track: rgba(255, 255, 255, 0.2);
+    --myga-link-icon: #8a8a8a;
+    --myga-link-icon-hover: #{$theme-silver-white};
+  }
+}
+
+/**
  * Globals
  */
  body, html {
@@ -12,6 +55,7 @@
   width: $popup-max-width;
 
   background-color: $theme-gray;
+  color: var(--myga-text);
 }
 .myga {
   > svg {

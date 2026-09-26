@@ -3,16 +3,28 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Make YouTube™ Great Again – browser extension for Firefox & Chrome</title>
-  <meta name="description" content="Audio-only mode, cinema mode, looping, screenshots, comment drafts, a floating video & more for YouTube™. Free & open source, every feature can be switched on or off.">
+  <title>Make YouTube™ Great Again – extension for Firefox &amp; Chrome</title>
+  <meta name="description" content="Free, open source YouTube™ extension: audio-only mode, cinema mode, looping, screenshots, comment drafts, channel blacklist &amp; more. Firefox &amp; Chrome.">
   <link rel="canonical" href="https://tautvydasderzinskas.github.io/make-youtube-great-again/">
+  <meta name="author" content="Tautvydas Derzinskas">
   <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Make YouTube™ Great Again">
+  <meta property="og:locale" content="en_US">
   <meta property="og:title" content="Make YouTube™ Great Again">
-  <meta property="og:description" content="Audio-only mode, cinema mode, looping, screenshots, comment drafts & more for YouTube™.">
+  <meta property="og:description" content="Free, open source YouTube™ extension: audio-only mode, cinema mode, looping, screenshots, comment drafts, channel blacklist &amp; more. Firefox &amp; Chrome.">
   <meta property="og:url" content="https://tautvydasderzinskas.github.io/make-youtube-great-again/">
-  <meta property="og:image" content="https://tautvydasderzinskas.github.io/make-youtube-great-again/images/screenshot_01.jpg">
+  <meta property="og:image" content="https://tautvydasderzinskas.github.io/make-youtube-great-again/og-image.jpg">
+  <meta property="og:image:type" content="image/jpeg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Make YouTube™ great again: the extension's popup with its features">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="theme-color" content="#252525">
+  <meta name="twitter:title" content="Make YouTube™ Great Again">
+  <meta name="twitter:description" content="Free, open source YouTube™ extension: audio-only mode, cinema mode, looping, screenshots, comment drafts, channel blacklist &amp; more. Firefox &amp; Chrome.">
+  <meta name="twitter:image" content="https://tautvydasderzinskas.github.io/make-youtube-great-again/og-image.jpg">
+  <meta name="twitter:image:alt" content="Make YouTube™ great again: the extension's popup with its features">
+  <meta name="theme-color" content="#1c1c1c" media="(prefers-color-scheme: dark)">
+  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
   <link rel="icon" type="image/png" href="images/icon_48x48.png">
   <link rel="apple-touch-icon" href="images/icon_128x128.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -33,6 +45,9 @@
   <link rel="stylesheet" href="css/bars/bar__fire.css">
   <link rel="stylesheet" href="css/bars/bar__moon.css">
   <script src="main.js" defer></script>
+  <script type="application/ld+json">
+  [{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "Make YouTube™ Great Again", "alternateName": "MYGA", "description": "Free, open source YouTube™ extension: audio-only mode, cinema mode, looping, screenshots, comment drafts, channel blacklist & more. Firefox & Chrome.", "url": "https://tautvydasderzinskas.github.io/make-youtube-great-again/", "image": "https://tautvydasderzinskas.github.io/make-youtube-great-again/og-image.jpg", "screenshot": ["https://tautvydasderzinskas.github.io/make-youtube-great-again/images/screenshot_01.jpg", "https://tautvydasderzinskas.github.io/make-youtube-great-again/images/screenshot_02.jpg", "https://tautvydasderzinskas.github.io/make-youtube-great-again/images/screenshot_03.jpg", "https://tautvydasderzinskas.github.io/make-youtube-great-again/images/screenshot_04.jpg", "https://tautvydasderzinskas.github.io/make-youtube-great-again/images/screenshot_05.jpg", "https://tautvydasderzinskas.github.io/make-youtube-great-again/images/screenshot_06.jpg", "https://tautvydasderzinskas.github.io/make-youtube-great-again/images/screenshot_07.jpg", "https://tautvydasderzinskas.github.io/make-youtube-great-again/images/screenshot_08.jpg"], "applicationCategory": "BrowserApplication", "applicationSubCategory": "Browser extension", "operatingSystem": "Firefox, Chrome, Edge, Opera, Vivaldi", "downloadUrl": "https://addons.mozilla.org/en-GB/firefox/addon/myga/", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "isAccessibleForFree": true, "license": "https://opensource.org/licenses/MIT", "author": {"@type": "Person", "name": "Tautvydas Derzinskas", "url": "https://www.tautvydas.info"}, "sameAs": ["https://github.com/TautvydasDerzinskas/make-youtube-great-again", "https://addons.mozilla.org/en-GB/firefox/addon/myga/"]}, {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Is it free?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. It's free and open source under the MIT license, with no ads and no paid features."}}, {"@type": "Question", "name": "Does it collect my data?", "acceptedAnswer": {"@type": "Answer", "text": "No. Everything it saves stays in your browser, and it has no accounts, analytics or tracking. See the privacy policy."}}, {"@type": "Question", "name": "Why this name?", "acceptedAnswer": {"@type": "Answer", "text": "Only because it sounds funny. There's no political message."}}, {"@type": "Question", "name": "Found a bug or have an idea?", "acceptedAnswer": {"@type": "Answer", "text": "Open an issue on GitHub, contributions are welcome too."}}]}]
+  </script>
 </head>
 <body>
   <header class="site-header">
@@ -65,7 +80,7 @@
           <a class="button" href="#install">All ways to install</a>
         </div>
         <p class="hero__version" id="latest-version"></p>
-        <img class="hero__shot" src="images/screenshot_01.jpg" alt="The extension's popup: switch each feature on or off" width="1280" height="800">
+        <img class="hero__shot" src="images/screenshot_01.jpg" fetchpriority="high" alt="The extension's popup: switch each feature on or off" width="1280" height="800">
       </div>
     </section>
 

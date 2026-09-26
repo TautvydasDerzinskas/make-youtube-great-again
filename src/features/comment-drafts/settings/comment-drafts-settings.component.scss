@@ -13,8 +13,8 @@ $thumbnail-width: 120px;
 
   &__none {
     padding: $large-spacing;
-    background-color: $theme-silver-white;
-    color: $theme-gray;
+    background-color: var(--myga-card-bg);
+    color: var(--myga-text);
     text-align: center;
   }
 
@@ -22,8 +22,8 @@ $thumbnail-width: 120px;
     display: flex;
     gap: $default-spacing;
     padding: $default-spacing;
-    background-color: $theme-silver-white;
-    color: $theme-gray;
+    background-color: var(--myga-card-bg);
+    color: var(--myga-text);
   }
 
   &__thumbnail {
@@ -67,6 +67,9 @@ $thumbnail-width: 120px;
   &__editor {
     box-sizing: border-box;
     width: 100%;
+    background-color: var(--myga-button-bg);
+    color: var(--myga-text);
+    border: 1px solid var(--myga-button-border);
     font: inherit;
     resize: vertical;
   }
@@ -80,16 +83,16 @@ $thumbnail-width: 120px;
 
   &__button {
     padding: $small-spacing $default-spacing;
-    border: 1px solid $theme-light-gray;
+    border: 1px solid var(--myga-button-border);
     border-radius: 4px;
-    background-color: $theme-white;
-    color: $theme-gray;
+    background-color: var(--myga-button-bg);
+    color: var(--myga-text);
     font: inherit;
     cursor: pointer;
     transition: $default-transition;
 
     &:hover {
-      border-color: $theme-gray;
+      border-color: var(--myga-button-border-hover);
     }
 
     &--primary {

@@ -1,7 +1,7 @@
 @use '../../../variables' as *;
 
 .feature-group {
-  background-color: $theme-silver-white;
+  background-color: var(--myga-card-bg);
   padding: $default-spacing;
 
   &:not(:last-child) {

@@ -2,8 +2,8 @@
 
 .error-boundary {
   padding: $large-spacing;
-  background-color: $theme-silver-white;
-  color: $theme-gray;
+  background-color: var(--myga-card-bg);
+  color: var(--myga-text);
 
   strong {
     display: block;
