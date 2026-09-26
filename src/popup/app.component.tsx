@@ -20,6 +20,8 @@ import MetaCommentDrafts from '../features/comment-drafts/meta';
 import CommentDraftsSettingsComponent from '../features/comment-drafts/settings/comment-drafts-settings.component';
 import MetaScreenshots from '../features/screenshots/meta';
 import ScreenshotsComponent from '../features/screenshots/popup/screenshots.component';
+import MetaChannelBlacklist from '../features/channel-blacklist/meta';
+import ChannelBlacklistComponent from '../features/channel-blacklist/popup/channel-blacklist.component';
 
 import './app.component.scss';
 
@@ -41,6 +43,7 @@ export default class AppComponent extends React.Component<{}> {
               <Route path={`/settings/${MetaHideComments.id}`} element={<HideCommentsSettingsComponent />}/>
               <Route path={`/settings/${MetaCommentDrafts.id}`} element={<CommentDraftsSettingsComponent />}/>
               <Route path={`/settings/${MetaScreenshots.id}`} element={<ScreenshotsComponent />}/>
+              <Route path={`/settings/${MetaChannelBlacklist.id}`} element={<ChannelBlacklistComponent />}/>
             </Routes>
           </RouteErrorBoundary>
         </div>

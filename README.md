@@ -57,6 +57,11 @@ Adds "Create a Draft" to the comment box. Drafts show above the comments, ready 
 
 <img src="docs/images/feature_comment_drafts.jpg" width="440px" alt="Comment drafts" />
 
+### Channel blacklist
+Hides videos of channels you don't want to see, everywhere on YouTube™: home feed, search, the sidebar, playlists. Blacklist a channel with the Blacklist button under a video, or while hovering any video in a list, after confirming. The popup lists blacklisted channels, ready to remove.
+
+<img src="docs/images/feature_channel_blacklist.jpg" width="440px" alt="Channel blacklist" />
+
 ### Floating video
 Keeps the video playing in a small window while you scroll down to read the comments. Move it anywhere and resize it.
 
@@ -81,7 +86,7 @@ Lists the videos you've recently watched and looped.
 <img src="docs/images/feature_history.jpg" width="300px" alt="History" />
 
 ## Screenshots
-<a href="docs/images/screenshot_01.jpg" target="_blank"><img width="200px" src="docs/images/screenshot_01.jpg" alt="Screenshot" title="Screenshot" /></a><a href="docs/images/screenshot_02.jpg" target="_blank"><img width="200px" src="docs/images/screenshot_02.jpg" alt="Screenshot" title="Screenshot" /></a><a href="docs/images/screenshot_03.jpg" target="_blank"><img width="200px" src="docs/images/screenshot_03.jpg" alt="Screenshot" title="Screenshot" /></a><a href="docs/images/screenshot_04.jpg" target="_blank"><img width="200px" src="docs/images/screenshot_04.jpg" alt="Screenshot" title="Screenshot" /></a><a href="docs/images/screenshot_05.jpg" target="_blank"><img width="200px" src="docs/images/screenshot_05.jpg" alt="Screenshot" title="Screenshot" /></a><a href="docs/images/screenshot_06.jpg" target="_blank"><img width="200px" src="docs/images/screenshot_06.jpg" alt="Screenshot" title="Screenshot" /></a><a href="docs/images/screenshot_07.jpg" target="_blank"><img width="200px" src="docs/images/screenshot_07.jpg" alt="Screenshot" title="Screenshot" /></a>
+<a href="docs/images/screenshot_01.jpg" target="_blank"><img width="200px" src="docs/images/screenshot_01.jpg" alt="Screenshot" title="Screenshot" /></a><a href="docs/images/screenshot_02.jpg" target="_blank"><img width="200px" src="docs/images/screenshot_02.jpg" alt="Screenshot" title="Screenshot" /></a><a href="docs/images/screenshot_03.jpg" target="_blank"><img width="200px" src="docs/images/screenshot_03.jpg" alt="Screenshot" title="Screenshot" /></a><a href="docs/images/screenshot_04.jpg" target="_blank"><img width="200px" src="docs/images/screenshot_04.jpg" alt="Screenshot" title="Screenshot" /></a><a href="docs/images/screenshot_05.jpg" target="_blank"><img width="200px" src="docs/images/screenshot_05.jpg" alt="Screenshot" title="Screenshot" /></a><a href="docs/images/screenshot_06.jpg" target="_blank"><img width="200px" src="docs/images/screenshot_06.jpg" alt="Screenshot" title="Screenshot" /></a><a href="docs/images/screenshot_07.jpg" target="_blank"><img width="200px" src="docs/images/screenshot_07.jpg" alt="Screenshot" title="Screenshot" /></a><a href="docs/images/screenshot_08.jpg" target="_blank"><img width="200px" src="docs/images/screenshot_08.jpg" alt="Screenshot" title="Screenshot" /></a>
 
 ## Contributing
 Want to help? See [CONTRIBUTING.md](CONTRIBUTING.md), which also has the [build instructions for add-on reviewers](CONTRIBUTING.md#build-instructions-for-add-on-reviewers). Changes are listed in the [changelog](CHANGELOG.md).

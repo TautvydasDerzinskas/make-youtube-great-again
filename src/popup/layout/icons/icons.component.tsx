@@ -11,6 +11,10 @@ class IconsComponent extends React.Component {
             </g>
           </symbol>
 
+          <symbol id='myga-list' viewBox='0 0 24 24'>
+            <path d='M3 13h2v-2H3v2zm0 4h2v-2H3v2zm0-8h2V7H3v2zm4 4h14v-2H7v2zm0 4h14v-2H7v2zM7 7v2h14V7H7z' />
+          </symbol>
+
           <symbol id='myga-storage' viewBox='0 0 24 24'>
             <path d='M2 20h20v-4H2v4zm2-3h2v2H4v-2zM2 4v4h20V4H2zm4 3H4V5h2v2zm-4 7h20v-4H2v4zm2-3h2v2H4v-2z' />
           </symbol>

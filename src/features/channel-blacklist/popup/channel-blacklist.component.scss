@@ -1,0 +1,74 @@
+@use '../../../popup/variables' as *;
+
+.cb-list {
+  display: flex;
+  flex-direction: column;
+  gap: $small-spacing;
+  max-height: 420px;
+  overflow: auto;
+
+  &__channel {
+    display: flex;
+    align-items: center;
+    gap: $default-spacing;
+    padding: $default-spacing;
+    background-color: $theme-silver-white;
+    color: $theme-gray;
+  }
+
+  &__avatar {
+    flex: 0 0 36px;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: linear-gradient(to right, $theme-orange, $theme-pink);
+    color: $theme-white;
+    font-weight: bold;
+    font-size: 16px;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  &__details {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__name {
+    font-weight: bold;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  &__handle {
+    font-size: 11px;
+    color: $theme-light-gray;
+  }
+
+  &__remove {
+    padding: $small-spacing $default-spacing;
+    border: 1px solid $theme-light-gray;
+    border-radius: 4px;
+    background-color: $theme-white;
+    color: $theme-gray;
+    font: inherit;
+    cursor: pointer;
+    transition: $default-transition;
+
+    &:hover {
+      border-color: $theme-red;
+      color: $theme-red;
+    }
+  }
+}

@@ -2,7 +2,8 @@ export enum YoutubeSelectors {
   VideoPlayer = '.video-stream.html5-main-video',
   ActionButtons = 'ytd-watch-metadata #actions ytd-menu-renderer #top-level-buttons-computed',
   VideoTitle = '.title.style-scope.ytd-video-primary-info-renderer',
-  AllThumbnails = 'a.video-thumb:not(.myga-thumb-container), a.yt-uix-simple-thumb-wrap:not(.myga-thumb-container), a.ytp-videowall-still:not(.myga-thumb-container), a.pl-header-thumb:not(.myga-thumb-container), a#thumbnail:not(.ytd-moving-thumbnail-renderer):not(.ytd-movie-upsell-renderer):not(.myga-thumb-container), a#thumbnail-container:not(.myga-thumb-container)'
+  // Any video thumbnail: tells when YouTube™'s non-video pages (home, search, channels…) have loaded
+  AllThumbnails = 'a#thumbnail, a.ytLockupViewModelContentImage, ytm-shorts-lockup-view-model-v2 a, a.ytp-videowall-still'
 }
 
 export enum Browsers {

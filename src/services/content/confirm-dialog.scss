@@ -1,0 +1,64 @@
+// Above YouTube™'s top bar & the extension's other layers, below its tooltips
+.myga-confirm {
+  position: fixed;
+  inset: 0;
+  z-index: 2150;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  background-color: rgba(0, 0, 0, 0.5);
+  animation: myga-confirm-fade 0.15s ease-out;
+
+  &__dialog {
+    width: min(100%, 400px);
+    padding: 24px;
+    border-radius: 12px;
+    background-color: var(--yt-spec-raised-background, #fff);
+    color: var(--yt-spec-text-primary, #0f0f0f);
+    font-family: Roboto, Arial, sans-serif;
+    box-shadow: 0 4px 32px rgba(0, 0, 0, 0.3);
+  }
+
+  &__title {
+    margin: 0 0 12px;
+    font-size: 20px;
+    line-height: 28px;
+    font-weight: 700;
+  }
+
+  &__message {
+    margin: 0;
+    font-size: 14px;
+    line-height: 20px;
+    color: var(--yt-spec-text-secondary, #606060);
+  }
+
+  &__actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 8px;
+    margin-top: 24px;
+  }
+
+  &__button {
+    flex: 0 0 auto;
+    width: auto;
+  }
+}
+
+@keyframes myga-confirm-fade {
+  from {
+    opacity: 0;
+  }
+}
+
+// YouTube™'s dark theme: its raised background colour isn't defined where the dialog is added
+html[dark] .myga-confirm__dialog {
+  background-color: #282828;
+  color: #f1f1f1;
+
+  .myga-confirm__message {
+    color: #aaa;
+  }
+}

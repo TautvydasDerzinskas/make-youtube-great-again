@@ -1,0 +1,47 @@
+@use '../../../popup/variables' as *;
+
+[data-myga-blacklisted] {
+  display: none !important;
+}
+
+// In lists: next to the channel's name, shown while hovering the video
+.myga-blacklist-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+  width: 20px;
+  height: 20px;
+  margin: 0 0 0 4px;
+  padding: 0;
+  border: none;
+  border-radius: 50%;
+  background: transparent;
+  color: var(--yt-spec-text-secondary, #606060);
+  vertical-align: middle;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.1s ease-in-out, color 0.1s ease-in-out;
+
+  svg {
+    width: 16px;
+    height: 16px;
+    fill: currentColor;
+  }
+
+  &:hover,
+  &:focus-visible {
+    color: $theme-red;
+  }
+}
+
+yt-lockup-view-model:hover .myga-blacklist-btn,
+ytd-video-renderer:hover .myga-blacklist-btn,
+ytd-compact-video-renderer:hover .myga-blacklist-btn,
+ytd-grid-video-renderer:hover .myga-blacklist-btn,
+ytd-rich-grid-media:hover .myga-blacklist-btn,
+ytd-playlist-video-renderer:hover .myga-blacklist-btn,
+ytd-playlist-panel-video-renderer:hover .myga-blacklist-btn,
+.myga-blacklist-btn:focus-visible {
+  opacity: 1;
+}

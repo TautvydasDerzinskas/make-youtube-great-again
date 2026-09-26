@@ -16,6 +16,12 @@
   }
 }
 
+// Pinned to the left end of the row, pushing the other buttons to the right
+.myga-action-btn--start {
+  order: -1;
+  margin-right: auto;
+}
+
 .myga-action-btn {
   flex: 0 0 auto;
   width: auto;

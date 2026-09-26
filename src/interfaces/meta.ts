@@ -22,6 +22,8 @@ export default interface IMeta<T> {
    */
   dataView?: {
     title: string;
+    /** Icon from the popup's sprite, `myga-storage` when not set */
+    icon?: string;
     hasData(): Promise<boolean>;
     /** Returns a function removing the listener */
     onChange(listener: () => void): () => void;

@@ -13,6 +13,9 @@ import ContentCustomProgressBar from './custom-progress-bar/content';
 import MetaVideoPin from './video-pin/meta';
 import ContentVideoPin from './video-pin/content';
 
+import MetaChannelBlacklist from './channel-blacklist/meta';
+import ContentChannelBlacklist from './channel-blacklist/content';
+
 import MetaScreenshots from './screenshots/meta';
 import ContentScreenshots from './screenshots/content';
 
@@ -50,6 +53,10 @@ export const Features: IFeature<any>[] = [
   {
     meta: MetaVideoPin,
     content: ContentVideoPin,
+  },
+  {
+    meta: MetaChannelBlacklist,
+    content: ContentChannelBlacklist,
   },
   {
     meta: MetaScreenshots,

@@ -144,7 +144,7 @@ details[open] summary { margin-bottom: 10px; }
 details ol + p, details p + ol { margin-top: 10px; }
 
 /* Screenshots */
-.shots { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.shots { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
 @media (max-width: 960px) { .shots { grid-template-columns: repeat(2, 1fr); } }
 .shots a { border-radius: 8px; overflow: hidden; border: 1px solid var(--border); transition: transform 0.2s; }
 .shots a:hover { transform: scale(1.02); }

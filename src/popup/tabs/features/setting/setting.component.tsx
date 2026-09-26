@@ -132,7 +132,7 @@ export default class SettingComponent extends React.Component<{ meta: IMeta<any>
       <div className='setting__column'>
         <Tooltip title={dataView.title} position='top'>
           <NavLink className='setting__settings-link' to={`/settings/${this.props.meta.id}`} aria-label={dataView.title}>
-            <svg><use xlinkHref='#myga-storage'></use></svg>
+            <svg><use xlinkHref={`#${dataView.icon || 'myga-storage'}`}></use></svg>
           </NavLink>
         </Tooltip>
       </div>

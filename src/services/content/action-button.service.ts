@@ -40,11 +40,18 @@ class ActionButtonService {
    * as YouTube™ re-renders that area (e.g. when the window is resized).
    * Not in YouTube™'s own row: it only fits so many buttons and would hide "Save" to make room.
    * Disconnect the returned observer when removing the button.
+   * `atStart` pins it to the left end of the row, the other buttons staying on the right.
    */
-  public attach($button: HTMLElement): MutationObserver {
+  public attach($button: HTMLElement, atStart = false): MutationObserver {
+    $button.classList.toggle('myga-action-btn--start', atStart);
     const insert = () => {
       const row = this.getOrCreateRow();
-      if (row && $button.parentElement !== row) {
+      if (!row) {
+        return;
+      }
+      if (atStart && row.firstElementChild !== $button) {
+        row.prepend($button);
+      } else if (!atStart && $button.parentElement !== row) {
         row.appendChild($button);
       }
     };
