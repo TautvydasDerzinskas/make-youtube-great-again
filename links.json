@@ -4,37 +4,37 @@
       "label": "GitHub repository",
       "url": "https://github.com/TautvydasDerzinskas/make-youtube-great-again",
       "icon": "github.svg",
-      "browsers": ["chrome", "firefox"]
+      "browsers": ["chrome", "edge", "firefox"]
     },
     {
       "label": "Report a bug",
       "url": "https://github.com/TautvydasDerzinskas/make-youtube-great-again/issues",
       "icon": "report_bug.svg",
-      "browsers": ["chrome", "firefox"]
+      "browsers": ["chrome", "edge", "firefox"]
     },
     {
       "label": "Extension author",
       "url": "https://www.tautvydas.info",
       "icon": "author.webp",
-      "browsers": ["chrome", "firefox"]
+      "browsers": ["chrome", "edge", "firefox"]
     },
     {
       "label": "Buy author a coffee",
       "url": "https://buymeacoffee.com/TautvydasDerzinskas",
       "icon": "coffee.svg",
-      "browsers": ["chrome", "firefox"]
+      "browsers": ["chrome", "edge", "firefox"]
     },
     {
       "label": "Share to Facebook",
       "url": "https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Ftautvydasderzinskas.github.io%2Fmake-youtube-great-again%2F",
       "icon": "facebook.svg",
-      "browsers": ["chrome"]
+      "browsers": ["chrome", "edge"]
     },
     {
       "label": "Share to Twitter",
       "url": "https://twitter.com/intent/tweet?text=Make%20YouTube%20great%20again&url=https%3A%2F%2Ftautvydasderzinskas.github.io%2Fmake-youtube-great-again%2F",
       "icon": "twitter.svg",
-      "browsers": ["chrome"]
+      "browsers": ["chrome", "edge"]
     },
     {
       "label": "Share to Facebook",

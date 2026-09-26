@@ -1,3 +1,6 @@
+import { Browsers } from '../../enums';
+import browserService from '../common/browser.service';
+
 /**
  * The Links tab is built from links.json in the GitHub repository, so links can change without
  * a release. When it can't be loaded, the tab isn't shown at all.
@@ -13,9 +16,10 @@ export interface ILink {
    */
   icon: string;
   /**
-   * The builds showing it: "chrome" (all Chromium browsers) and / or "firefox"
+   * The browsers showing it: "chrome" (Chromium browsers but Edge), "edge" and / or "firefox".
+   * Versions before Edge support show "chrome" links in Edge.
    */
-  browsers: Array<'chrome' | 'firefox'>;
+  browsers: Array<'chrome' | 'edge' | 'firefox'>;
   /**
    * Twice as wide
    */
@@ -45,12 +49,19 @@ class LinksService {
     const data: { links?: unknown } = await response.json();
     const links = (Array.isArray(data.links) ? data.links : [])
       .filter((link): link is ILink => this.isValid(link))
-      .filter(link => link.browsers.includes(__BROWSER__));
+      .filter(link => link.browsers.includes(this.browser));
 
     if (links.length === 0) {
       throw new Error('No links for this browser');
     }
     return links;
+  }
+
+  /**
+   * Edge runs the Chrome build but gets its own links, pointing to its own store
+   */
+  private get browser(): ILink['browsers'][number] {
+    return browserService.browserName === Browsers.Edge ? 'edge' : __BROWSER__;
   }
 
   /**

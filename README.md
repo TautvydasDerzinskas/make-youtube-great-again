@@ -20,6 +20,8 @@ Make YouTube™ Great Again is a browser extension adding the small things YouTu
 ## Installation
 Chrome, Edge, Opera & Vivaldi users please install it from the [Chrome Web Store](https://chromewebstore.google.com/detail/geonnhfmhfjfkbbkjmbanmjommkjlnim).
 
+Edge users: a Microsoft Edge Add-ons listing is coming soon. Until then, install it from the Chrome Web Store and click **Allow extensions from other stores** when Edge asks.
+
 Or install it manually (it won't update on its own):
 
 1. Download `myga-chrome.zip` from the [latest release](https://github.com/TautvydasDerzinskas/make-youtube-great-again/releases/latest) and unzip it

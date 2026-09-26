@@ -5,6 +5,8 @@ class BrowserService {
     // Firefox gets its own build, Chromium based browsers share the Chrome one
     if (__BROWSER__ === 'firefox') {
       return Browsers.Firefox;
+    } else if (navigator.userAgent.indexOf(' Edg/') >= 0) {
+      return Browsers.Edge;
     } else if (navigator.userAgent.indexOf(' OPR/') >= 0) {
       return Browsers.Opera;
     } else if (navigator.userAgent.toLowerCase().indexOf('vivaldi') >= 0) {
