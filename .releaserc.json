@@ -7,9 +7,13 @@
       {
         "preset": "conventionalcommits",
         "releaseRules": [
-          { "breaking": true, "release": "major" },
-          { "type": "feat", "release": "minor" },
-          { "type": "*", "release": "patch" }
+          { "scope": "web", "release": false },
+          { "breaking": true, "scope": null, "release": "major" },
+          { "breaking": true, "scope": "!web", "release": "major" },
+          { "type": "feat", "scope": null, "release": "minor" },
+          { "type": "feat", "scope": "!web", "release": "minor" },
+          { "type": "*", "scope": null, "release": "patch" },
+          { "type": "*", "scope": "!web", "release": "patch" }
         ]
       }
     ],
@@ -50,14 +54,14 @@
       "@semantic-release/exec",
       {
         "verifyConditionsCmd": "test -n \"$WEB_EXT_API_KEY\" && test -n \"$WEB_EXT_API_SECRET\" || (echo 'WEB_EXT_API_KEY and WEB_EXT_API_SECRET must be set to publish to addons.mozilla.org' && exit 1)",
-        "prepareCmd": "npm run build && npm run zip",
-        "publishCmd": "npm run zip:source && npx web-ext sign --channel listed --source-dir dist/firefox --upload-source-code myga-source.zip --approval-timeout 0"
+        "prepareCmd": "npm run build && npm run zip && node .github/scripts/firefox-self-distributed.mjs ${nextRelease.version}",
+        "publishCmd": "npm run zip:source && npx web-ext sign --channel listed --source-dir dist/firefox --upload-source-code myga-source.zip --approval-timeout 0 && (rm -rf web-ext-artifacts && npx web-ext sign --channel unlisted --source-dir dist/firefox-self-distributed --upload-source-code myga-source.zip --artifacts-dir web-ext-artifacts --approval-timeout 1200000 && mv web-ext-artifacts/*.xpi myga-firefox.xpi || echo '::warning::The self-distributed Firefox build could not be signed, the release has no myga-firefox.xpi')"
       }
     ],
     [
       "@semantic-release/git",
       {
-        "assets": ["package.json", "package-lock.json", "CHANGELOG.md"],
+        "assets": ["package.json", "package-lock.json", "CHANGELOG.md", "updates.json"],
         "message": "chore(release): ${nextRelease.version} [skip ci]\n\n${nextRelease.notes}"
       }
     ],
@@ -66,7 +70,8 @@
       {
         "assets": [
           { "path": "myga-chrome.zip", "label": "Chrome extension (v${nextRelease.version})" },
-          { "path": "myga-firefox.zip", "label": "Firefox add-on (v${nextRelease.version})" }
+          { "path": "myga-firefox.xpi", "label": "Firefox add-on, signed for self-distribution (v${nextRelease.version})" },
+          { "path": "myga-firefox.zip", "label": "Firefox add-on, unsigned for development (v${nextRelease.version})" }
         ]
       }
     ]

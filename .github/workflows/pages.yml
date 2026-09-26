@@ -1,0 +1,57 @@
+name: Website
+
+# The project's page on GitHub Pages: site/ plus images & progress bar themes from the extension
+on:
+  push:
+    branches: [main]
+    paths:
+      - site/**
+      - docs/images/**
+      - src/assets/css/bars/**
+      - src/assets/images/bars/**
+      - src/assets/icons/**
+      - .github/workflows/pages.yml
+  workflow_dispatch:
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    name: Build site
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+
+      - name: Assemble
+        run: |
+          mkdir -p _site/images/bars _site/css/bars
+          cp -r site/. _site/
+          cp docs/images/*.jpg _site/images/
+          cp src/assets/icons/icon_48x48.png src/assets/icons/icon_128x128.png src/assets/icons/icon_350x350.png src/assets/images/header.webp _site/images/
+          cp src/assets/images/bars/*.gif _site/images/bars/
+          cp src/assets/css/bars/*.css _site/css/bars/
+
+      - uses: actions/configure-pages@v5
+
+      - uses: actions/upload-pages-artifact@v4
+        with:
+          path: _site
+
+  deploy:
+    name: Deploy
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

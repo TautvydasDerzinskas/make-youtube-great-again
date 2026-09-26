@@ -31,3 +31,5 @@ The output is written to `dist/firefox`.
 
 ## Commits & releases
 Commit messages follow [Conventional Commits](https://www.conventionalcommits.org), checked by commitlint (`npm run commit` helps writing them). Every push to `main` releases a new version: `feat:` → minor, `feat!:` / `BREAKING CHANGE:` → major, any other type → patch.
+
+Commits scoped to the website (`site/`), like `feat(web): add FAQ`, don't release a new extension version: they only redeploy the website.

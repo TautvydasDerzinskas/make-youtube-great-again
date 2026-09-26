@@ -22,7 +22,9 @@ module.exports = {
     {name: 'popup'},
     {name: 'background'},
     {name: 'content'},
-    {name: 'manifest'}
+    {name: 'manifest'},
+    // The website (site/): doesn't release a new extension version
+    {name: 'web'}
   ],
 
   // it needs to match the value for field type. Eg.: 'feat'

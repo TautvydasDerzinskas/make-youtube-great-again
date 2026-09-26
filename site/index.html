@@ -1,0 +1,388 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Make YouTube™ Great Again – browser extension for Firefox & Chrome</title>
+  <meta name="description" content="Audio-only mode, cinema mode, looping, screenshots, comment drafts, a floating video & more for YouTube™. Free & open source, every feature can be switched on or off.">
+  <link rel="canonical" href="https://tautvydasderzinskas.github.io/make-youtube-great-again/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Make YouTube™ Great Again">
+  <meta property="og:description" content="Audio-only mode, cinema mode, looping, screenshots, comment drafts & more for YouTube™.">
+  <meta property="og:url" content="https://tautvydasderzinskas.github.io/make-youtube-great-again/">
+  <meta property="og:image" content="https://tautvydasderzinskas.github.io/make-youtube-great-again/images/screenshot_01.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" content="#252525">
+  <link rel="icon" type="image/png" href="images/icon_48x48.png">
+  <link rel="apple-touch-icon" href="images/icon_128x128.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <!-- The extension's own progress bar themes, for the live previews -->
+  <link rel="stylesheet" href="css/bars/bar__zombie.css">
+  <link rel="stylesheet" href="css/bars/bar__nyan-cat.css">
+  <link rel="stylesheet" href="css/bars/bar__football.css">
+  <link rel="stylesheet" href="css/bars/bar__poop.css">
+  <link rel="stylesheet" href="css/bars/bar__purge.css">
+  <link rel="stylesheet" href="css/bars/bar__war-crab.css">
+  <link rel="stylesheet" href="css/bars/bar__orcs.css">
+  <link rel="stylesheet" href="css/bars/bar__unicorn.css">
+  <link rel="stylesheet" href="css/bars/bar__panda.css">
+  <link rel="stylesheet" href="css/bars/bar__horse.css">
+  <link rel="stylesheet" href="css/bars/bar__fire.css">
+  <link rel="stylesheet" href="css/bars/bar__moon.css">
+  <script src="main.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <a class="brand" href="./"><img src="images/icon_128x128.png" alt=""><span>Make YouTube™ Great Again</span></a>
+      <nav class="site-nav" aria-label="Sections">
+        <a href="#features">Features</a>
+        <a href="#install">Install</a>
+        <a href="#progress-bars">Progress bars</a>
+        <a href="#screenshots">Screenshots</a>
+        <a href="#faq">FAQ</a>
+        <a href="#support">Support</a>
+      </nav>
+      <a class="button button--small" href="https://github.com/TautvydasDerzinskas/make-youtube-great-again">
+        <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>
+        GitHub
+      </a>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container">
+        <img class="hero__logo" src="images/icon_350x350.png" alt="">
+        <h1>Make YouTube™ <span class="gradient-text">great again</span></h1>
+        <p class="hero__tagline">The small things YouTube™ is missing: audio-only mode, cinema mode, looping, screenshots, comment drafts, a floating video &amp; more. Switch each feature on or off, keep only what you use.</p>
+        <div class="hero__actions">
+          <a class="button button--primary" href="https://addons.mozilla.org/en-GB/firefox/addon/myga/">Add to Firefox</a>
+          <span class="button button--disabled" aria-disabled="true" title="The Chrome Web Store listing is coming soon">Chrome Web Store: coming soon</span>
+          <a class="button" href="#install">All ways to install</a>
+        </div>
+        <p class="hero__version" id="latest-version"></p>
+        <img class="hero__shot" src="images/screenshot_02.jpg" alt="Audio mode: the video plays as audio behind its artwork" width="1280" height="800">
+      </div>
+    </section>
+
+    <section class="section" id="features">
+      <div class="container">
+        <div class="section__intro">
+          <h2>Features</h2>
+          <p class="muted">Every feature can be switched on or off from the extension's popup.</p>
+        </div>
+        <div class="features">
+          <article class="feature">
+            <div class="feature__image"><img src="images/feature_audio_mode.jpg" alt="A video playing in audio mode" loading="lazy"></div>
+            <div class="feature__body"><h3>Audio mode</h3><p>Listening to music, a podcast or a talk? Mark a video as audio and it plays at the lowest video quality behind its artwork: less data, same sound quality. Remembered for every marked video, and a whole playlist can be marked in one click.</p></div>
+          </article>
+          <article class="feature">
+            <div class="feature__image"><img src="images/feature_cinema_mode.jpg" alt="Cinema mode fading out the page around the video" loading="lazy"></div>
+            <div class="feature__body"><h3>Cinema mode</h3><p>Fade out everything around the video with one click. Press Esc or click around the video to bring the page back.</p></div>
+          </article>
+          <article class="feature">
+            <div class="feature__image feature__image--contain"><img src="images/feature_screenshots.jpg" alt="Screenshots listed under the video" loading="lazy"></div>
+            <div class="feature__body"><h3>Screenshots</h3><p>Save the current frame in one click, in the quality you're watching. Download or delete them under the video or in the popup, or jump back to the moment each was taken.</p></div>
+          </article>
+          <article class="feature">
+            <div class="feature__image"><img src="images/feature_comment_drafts.jpg" alt="A comment draft above the comments" loading="lazy"></div>
+            <div class="feature__body"><h3>Comment drafts</h3><p>Not ready to post yet? Save your comment as a draft. Drafts show above the comments, ready to publish, edit or delete, and all of them are listed in the popup.</p></div>
+          </article>
+          <article class="feature">
+            <div class="feature__image feature__image--contain"><img src="images/feature_floating_video.jpg" alt="The video floating over the comments" loading="lazy"></div>
+            <div class="feature__body"><h3>Floating video</h3><p>Keep watching while you scroll down to read the comments: the video follows you in a small window you can move anywhere and resize.</p></div>
+          </article>
+          <article class="feature">
+            <div class="feature__image feature__image--contain"><img src="images/feature_loop.jpg" alt="The Loop button under a video" loading="lazy"></div>
+            <div class="feature__body"><h3>Loop</h3><p>Play a video on repeat with one click.</p></div>
+          </article>
+          <article class="feature">
+            <div class="feature__image feature__image--player bars" aria-hidden="true">
+            <div class="bar-preview myga--custom-bar bar--unicorn" style="--delay:-0.0s">
+              <div class="bar-preview__track"></div>
+              <div class="bar-preview__progress"><div class="ytp-play-progress"></div></div>
+              <div class="preview__center"><div class="ytp-scrubber-container" style="background-image:url('images/bars/unicorn.gif')"></div></div>
+            </div>
+            </div>
+            <div class="feature__body"><h3>Custom progress bar</h3><p>Swap the progress bar for a playful one: Nyan Cat, a unicorn, a panda and <a href="#progress-bars">more</a>.</p></div>
+          </article>
+          <article class="feature">
+            <div class="feature__image feature__image--contain"><img src="images/feature_hide_comments.jpg" alt="Hide comments settings" loading="lazy"></div>
+            <div class="feature__body"><h3>Hide comments</h3><p>Hide comments and live chat messages when you'd rather not see them.</p></div>
+          </article>
+          <article class="feature">
+            <div class="feature__image feature__image--placeholder" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5c0 .65-.13 1.26-.36 1.83l2.92 2.92A11.8 11.8 0 0 0 23 12c-1.73-4.39-6-7.5-11-7.5-1.4 0-2.74.25-3.98.7l2.16 2.16A4.9 4.9 0 0 1 12 7zM2 4.27l2.28 2.28.46.46A11.8 11.8 0 0 0 1 12c1.73 4.39 6 7.5 11 7.5 1.55 0 3.03-.3 4.38-.84l.42.42L19.73 22 21 20.73 3.27 3 2 4.27zM7.53 9.8l1.55 1.55A2.8 2.8 0 0 0 9 12a3 3 0 0 0 3 3c.22 0 .44-.03.65-.08l1.55 1.55A5 5 0 0 1 7 12c0-.79.2-1.53.53-2.2zm4.31-.78 3.15 3.15.02-.16a3 3 0 0 0-3-3l-.17.01z"/></svg></div>
+            <div class="feature__body"><h3>Hide the Thanks button</h3><p>Remove the "Thanks" button from under videos.</p></div>
+          </article>
+          <article class="feature">
+            <div class="feature__image feature__image--contain"><img src="images/feature_history.jpg" alt="Recently viewed & looped videos in the popup" loading="lazy"></div>
+            <div class="feature__body"><h3>History</h3><p>See the videos you've recently watched and looped.</p></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--alt" id="progress-bars">
+      <div class="container">
+        <div class="section__intro">
+          <h2>Pick your <span class="gradient-text">progress bar</span></h2>
+          <p class="muted">Live previews, drawn by the extension's own styles. Pick one in the popup: Custom progress bar → ⚙.</p>
+        </div>
+        <div class="bars bars--gallery">
+          <figure class="bar-card">
+            <div class="bar-preview myga--custom-bar bar--zombie" style="--delay:-0.0s">
+              <div class="bar-preview__track"></div>
+              <div class="bar-preview__progress"><div class="ytp-play-progress"></div></div>
+              <div class="preview__center"><div class="ytp-scrubber-container" style="background-image:url('images/bars/zombie.gif')"></div></div>
+            </div>
+            <figcaption>Zombie</figcaption>
+          </figure>
+          <figure class="bar-card">
+            <div class="bar-preview myga--custom-bar bar--nyan-cat" style="--delay:-1.3s">
+              <div class="bar-preview__track"></div>
+              <div class="bar-preview__progress"><div class="ytp-play-progress"></div></div>
+              <div class="preview__center"><div class="ytp-scrubber-container" style="background-image:url('images/bars/nyan-cat.gif')"></div></div>
+            </div>
+            <figcaption>Nyan Cat</figcaption>
+          </figure>
+          <figure class="bar-card">
+            <div class="bar-preview myga--custom-bar bar--football" style="--delay:-2.6s">
+              <div class="bar-preview__track"></div>
+              <div class="bar-preview__progress"><div class="ytp-play-progress"></div></div>
+              <div class="preview__center"><div class="ytp-scrubber-container" style="background-image:url('images/bars/football.gif')"></div></div>
+            </div>
+            <figcaption>Football</figcaption>
+          </figure>
+          <figure class="bar-card">
+            <div class="bar-preview myga--custom-bar bar--poop" style="--delay:-3.9s">
+              <div class="bar-preview__track"></div>
+              <div class="bar-preview__progress"><div class="ytp-play-progress"></div></div>
+              <div class="preview__center"><div class="ytp-scrubber-container" style="background-image:url('images/bars/poop.gif')"></div></div>
+            </div>
+            <figcaption>Poop</figcaption>
+          </figure>
+          <figure class="bar-card">
+            <div class="bar-preview myga--custom-bar bar--purge" style="--delay:-5.2s">
+              <div class="bar-preview__track"></div>
+              <div class="bar-preview__progress"><div class="ytp-play-progress"></div></div>
+              <div class="preview__center"><div class="ytp-scrubber-container" style="background-image:url('images/bars/purge.gif')"></div></div>
+            </div>
+            <figcaption>Purge</figcaption>
+          </figure>
+          <figure class="bar-card">
+            <div class="bar-preview myga--custom-bar bar--war-crab" style="--delay:-6.5s">
+              <div class="bar-preview__track"></div>
+              <div class="bar-preview__progress"><div class="ytp-play-progress"></div></div>
+              <div class="preview__center"><div class="ytp-scrubber-container" style="background-image:url('images/bars/war-crab.gif')"></div></div>
+            </div>
+            <figcaption>War crab</figcaption>
+          </figure>
+          <figure class="bar-card">
+            <div class="bar-preview myga--custom-bar bar--orcs" style="--delay:-7.8s">
+              <div class="bar-preview__track"></div>
+              <div class="bar-preview__progress"><div class="ytp-play-progress"></div></div>
+              <div class="preview__center"><div class="ytp-scrubber-container" style="background-image:url('images/bars/orcs.gif')"></div></div>
+            </div>
+            <figcaption>Orcs</figcaption>
+          </figure>
+          <figure class="bar-card">
+            <div class="bar-preview myga--custom-bar bar--unicorn" style="--delay:-9.1s">
+              <div class="bar-preview__track"></div>
+              <div class="bar-preview__progress"><div class="ytp-play-progress"></div></div>
+              <div class="preview__center"><div class="ytp-scrubber-container" style="background-image:url('images/bars/unicorn.gif')"></div></div>
+            </div>
+            <figcaption>Unicorn</figcaption>
+          </figure>
+          <figure class="bar-card">
+            <div class="bar-preview myga--custom-bar bar--panda" style="--delay:-10.4s">
+              <div class="bar-preview__track"></div>
+              <div class="bar-preview__progress"><div class="ytp-play-progress"></div></div>
+              <div class="preview__center"><div class="ytp-scrubber-container" style="background-image:url('images/bars/panda.gif')"></div></div>
+            </div>
+            <figcaption>Panda</figcaption>
+          </figure>
+          <figure class="bar-card">
+            <div class="bar-preview myga--custom-bar bar--horse" style="--delay:-11.7s">
+              <div class="bar-preview__track"></div>
+              <div class="bar-preview__progress"><div class="ytp-play-progress"></div></div>
+              <div class="preview__center"><div class="ytp-scrubber-container" style="background-image:url('images/bars/horse.gif')"></div></div>
+            </div>
+            <figcaption>Horse</figcaption>
+          </figure>
+          <figure class="bar-card">
+            <div class="bar-preview myga--custom-bar bar--fire" style="--delay:-13.0s">
+              <div class="bar-preview__track"></div>
+              <div class="bar-preview__progress"><div class="ytp-play-progress"></div></div>
+              <div class="preview__center"><div class="ytp-scrubber-container" style="background-image:url('images/bars/fire.gif')"></div></div>
+            </div>
+            <figcaption>Fire</figcaption>
+          </figure>
+          <figure class="bar-card">
+            <div class="bar-preview myga--custom-bar bar--moon" style="--delay:-14.3s">
+              <div class="bar-preview__track"></div>
+              <div class="bar-preview__progress"><div class="ytp-play-progress"></div></div>
+              <div class="preview__center"><div class="ytp-scrubber-container" style="background-image:url('images/bars/moon.gif')"></div></div>
+            </div>
+            <figcaption>Moon</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="install">
+      <div class="container">
+        <div class="section__intro">
+          <h2>Install</h2>
+          <p class="muted">From the browser's store, or straight from the <a href="https://github.com/TautvydasDerzinskas/make-youtube-great-again/releases/latest">latest release</a> on GitHub.</p>
+        </div>
+        <div class="install">
+          <div class="install__card">
+            <h3>Firefox</h3>
+            <p>Install from Firefox Add-ons: one click, updates automatically.</p>
+            <a class="button button--primary" href="https://addons.mozilla.org/en-GB/firefox/addon/myga/">Add to Firefox</a>
+
+            <h4>Without the store</h4>
+            <p>A package signed by Mozilla for installing straight from GitHub. It works in any Firefox and keeps updating on its own.</p>
+            <ol>
+              <li>Download <a href="https://github.com/TautvydasDerzinskas/make-youtube-great-again/releases/latest/download/myga-firefox.xpi"><code>myga-firefox.xpi</code></a> in Firefox</li>
+              <li>Confirm the install prompt (or drag the file onto a Firefox window)</li>
+            </ol>
+
+            <details>
+              <summary>Unsigned build (Developer Edition, Nightly)</summary>
+              <p>Regular Firefox only installs signed add-ons. Firefox Developer Edition, Nightly &amp; ESR can install the unsigned build:</p>
+              <ol>
+                <li>Open <code>about:config</code> and set <code>xpinstall.signatures.required</code> to <code>false</code></li>
+                <li>Download <a href="https://github.com/TautvydasDerzinskas/make-youtube-great-again/releases/latest/download/myga-firefox.zip"><code>myga-firefox.zip</code></a></li>
+                <li>Open <code>about:addons</code>, click ⚙ → <strong>Install Add-on From File…</strong> and pick the zip</li>
+              </ol>
+              <p>To just try it in any Firefox: <code>about:debugging</code> → This Firefox → <strong>Load Temporary Add-on…</strong> (removed when Firefox restarts).</p>
+            </details>
+          </div>
+
+          <div class="install__card">
+            <h3>Chrome, Edge, Opera &amp; Vivaldi</h3>
+            <p>The Chrome Web Store listing is coming soon. Until then, install it manually:</p>
+            <span class="button button--disabled" aria-disabled="true">Chrome Web Store: coming soon</span>
+
+            <h4>Manual install</h4>
+            <ol>
+              <li>Download <a href="https://github.com/TautvydasDerzinskas/make-youtube-great-again/releases/latest/download/myga-chrome.zip"><code>myga-chrome.zip</code></a> and unzip it</li>
+              <li>Open <code>chrome://extensions</code> (Edge: <code>edge://extensions</code>, Opera: <code>opera://extensions</code>)</li>
+              <li>Switch on <strong>Developer mode</strong></li>
+              <li>Click <strong>Load unpacked</strong> and pick the unzipped folder</li>
+            </ol>
+            <p class="muted">Manually installed extensions don't update on their own: repeat these steps with a newer release to update.</p>
+          </div>
+
+          <div class="install__card">
+            <h3>From source</h3>
+            <p>Build it yourself from the open source code, with Node.js 24:</p>
+            <ol>
+              <li><code>git clone https://github.com/TautvydasDerzinskas/make-youtube-great-again.git</code></li>
+              <li><code>npm ci</code> &amp; <code>npm run build</code></li>
+              <li>Load <code>dist/chrome</code> or <code>dist/firefox</code> as above</li>
+            </ol>
+            <a class="button" href="https://github.com/TautvydasDerzinskas/make-youtube-great-again/blob/main/CONTRIBUTING.md">Development guide</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--alt" id="screenshots">
+      <div class="container">
+        <div class="section__intro"><h2>Screenshots</h2></div>
+        <div class="shots">
+          <a href="images/screenshot_01.jpg"><img src="images/screenshot_01.jpg" alt="Switch each feature on or off" loading="lazy" width="1280" height="800"></a>
+          <a href="images/screenshot_02.jpg"><img src="images/screenshot_02.jpg" alt="Audio mode" loading="lazy" width="1280" height="800"></a>
+          <a href="images/screenshot_03.jpg"><img src="images/screenshot_03.jpg" alt="Cinema mode" loading="lazy" width="1280" height="800"></a>
+          <a href="images/screenshot_04.jpg"><img src="images/screenshot_04.jpg" alt="Screenshots" loading="lazy" width="1280" height="800"></a>
+          <a href="images/screenshot_05.jpg"><img src="images/screenshot_05.jpg" alt="Comment drafts" loading="lazy" width="1280" height="800"></a>
+          <a href="images/screenshot_06.jpg"><img src="images/screenshot_06.jpg" alt="Floating video" loading="lazy" width="1280" height="800"></a>
+          <a href="images/screenshot_07.jpg"><img src="images/screenshot_07.jpg" alt="Custom progress bars & history" loading="lazy" width="1280" height="800"></a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="faq">
+      <div class="container">
+        <div class="section__intro"><h2>FAQ</h2></div>
+        <div class="faq">
+          <details>
+            <summary>Is it free?</summary>
+            <p>Yes. It's free and open source under the MIT license, with no ads and no paid features.</p>
+          </details>
+          <details>
+            <summary>Does it collect my data?</summary>
+            <p>No. Everything it saves stays in your browser, and it has no accounts, analytics or tracking. See the <a href="privacy.html">privacy policy</a>.</p>
+          </details>
+          <details>
+            <summary>Does audio mode really save data?</summary>
+            <p>Yes. YouTube™ sends video and audio separately, so audio mode switches the video to the lowest quality (144p) and covers it with the artwork, while the audio stays exactly as good as before. A 144p video uses a small fraction of the data of 720p or 1080p.</p>
+          </details>
+          <details>
+            <summary>When will it be in the Chrome Web Store?</summary>
+            <p>The listing is coming soon. Until then, Chrome, Edge, Opera &amp; Vivaldi users can <a href="#install">install it manually</a>.</p>
+          </details>
+          <details>
+            <summary>Why does Firefox need a signed file?</summary>
+            <p>Regular Firefox only installs add-ons signed by Mozilla. The <code>.xpi</code> on GitHub is signed for installing without the store. The unsigned build only installs in Firefox Developer Edition, Nightly &amp; ESR.</p>
+          </details>
+          <details>
+            <summary>Does a manually installed extension update?</summary>
+            <p>The signed Firefox <code>.xpi</code> updates on its own. A manually loaded Chrome extension doesn't: load the newer release the same way to update it.</p>
+          </details>
+          <details>
+            <summary>How are comment drafts published?</summary>
+            <p>Publish types your draft into YouTube™'s own comment box and posts it, just like you would, with the account you're signed in with. Drafts are saved in this browser only.</p>
+          </details>
+          <details>
+            <summary>Why this name?</summary>
+            <p>Only because it sounds funny. There's no political message.</p>
+          </details>
+          <details>
+            <summary>Found a bug or have an idea?</summary>
+            <p>Open an <a href="https://github.com/TautvydasDerzinskas/make-youtube-great-again/issues">issue on GitHub</a>, contributions are welcome too.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--alt" id="support">
+      <div class="container split">
+        <div>
+          <h2>Private by design</h2>
+          <p class="muted">Everything the extension saves (settings, marked videos, drafts, screenshots, history) stays in your browser. No accounts, no analytics, no tracking. <a href="privacy.html">Privacy policy</a></p>
+        </div>
+        <div>
+          <h2>Support the project</h2>
+          <p class="muted">Free &amp; open source. If it's useful to you, consider supporting its development:</p>
+          <div class="support-actions">
+            <a class="button button--primary" href="https://github.com/sponsors/TautvydasDerzinskas">GitHub Sponsors</a>
+            <a class="button" href="https://buymeacoffee.com/TautvydasDerzinskas">Buy me a coffee</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <ul class="footer-links">
+        <li><a href="https://github.com/TautvydasDerzinskas/make-youtube-great-again">GitHub repository</a></li>
+        <li><a href="https://github.com/TautvydasDerzinskas/make-youtube-great-again/releases">Releases</a></li>
+        <li><a href="https://github.com/TautvydasDerzinskas/make-youtube-great-again/blob/main/CHANGELOG.md">Changelog</a></li>
+        <li><a href="https://github.com/TautvydasDerzinskas/make-youtube-great-again/issues">Report a bug</a></li>
+        <li><a href="https://github.com/sponsors/TautvydasDerzinskas">Sponsor</a></li>
+        <li><a href="privacy.html">Privacy</a></li>
+        <li><a href="sitemap.xml">Sitemap</a></li>
+      </ul>
+      <small>MIT licensed. The name is chosen only because it sounds funny, there's no political message. YouTube™ is a trademark of Google LLC. This extension is not affiliated with or endorsed by YouTube™ or Google.</small>
+    </div>
+  </footer>
+</body>
+</html>
