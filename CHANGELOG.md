@@ -1,3 +1,16 @@
+## [1.6.0](https://github.com/TautvydasDerzinskas/make-youtube-great-again/compare/v1.5.1...v1.6.0) (2026-09-26)
+
+### Features
+
+* add channel blacklist functionality ([7fa916e](https://github.com/TautvydasDerzinskas/make-youtube-great-again/commit/7fa916e2cba18bb36e4faf17f03b9fe8e1a87f6b))
+* support system themes + SEO ([1ab60b9](https://github.com/TautvydasDerzinskas/make-youtube-great-again/commit/1ab60b9988f2fe91e9698eecb55c2a12dea662f1))
+* **web:** release static homepage ([206196b](https://github.com/TautvydasDerzinskas/make-youtube-great-again/commit/206196b3628fa5a4c9f35c66aba5a136d6a158ff))
+* **web:** update web page ([6d7d50a](https://github.com/TautvydasDerzinskas/make-youtube-great-again/commit/6d7d50a20e8857d543f7a0f3179cf92deee92c96))
+
+### Refactoring
+
+* update links ([d5a18ff](https://github.com/TautvydasDerzinskas/make-youtube-great-again/commit/d5a18ff3564e7a60db8e12a97abd89bc87d9fe57))
+
 ## [1.5.1](https://github.com/TautvydasDerzinskas/make-youtube-great-again/compare/v1.5.0...v1.5.1) (2026-09-26)
 
 ### Documentation

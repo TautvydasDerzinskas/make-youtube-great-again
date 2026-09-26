@@ -1,0 +1,12 @@
+{
+  "addons": {
+    "myga@tautvydas.info": {
+      "updates": [
+        {
+          "version": "1.6.0",
+          "update_link": "https://github.com/TautvydasDerzinskas/make-youtube-great-again/releases/download/v1.6.0/myga-firefox.xpi"
+        }
+      ]
+    }
+  }
+}
