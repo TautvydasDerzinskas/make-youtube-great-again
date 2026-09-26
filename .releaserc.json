@@ -53,9 +53,9 @@
     [
       "@semantic-release/exec",
       {
-        "verifyConditionsCmd": "test -n \"$WEB_EXT_API_KEY\" && test -n \"$WEB_EXT_API_SECRET\" || (echo 'WEB_EXT_API_KEY and WEB_EXT_API_SECRET must be set to publish to addons.mozilla.org' && exit 1)",
+        "verifyConditionsCmd": "(test -n \"$WEB_EXT_API_KEY\" && test -n \"$WEB_EXT_API_SECRET\" || (echo 'WEB_EXT_API_KEY and WEB_EXT_API_SECRET must be set to publish to addons.mozilla.org' && exit 1)) && (test -n \"$CWS_SERVICE_ACCOUNT_KEY\" && test -n \"$CWS_PUBLISHER_ID\" || (echo 'CWS_SERVICE_ACCOUNT_KEY and CWS_PUBLISHER_ID must be set to publish to the Chrome Web Store' && exit 1))",
         "prepareCmd": "npm run build && npm run zip && node .github/scripts/firefox-self-distributed.mjs ${nextRelease.version}",
-        "publishCmd": "npm run zip:source && npx web-ext sign --channel listed --source-dir dist/firefox --upload-source-code myga-source.zip --approval-timeout 0 && (rm -rf web-ext-artifacts && npx web-ext sign --channel unlisted --source-dir dist/firefox-self-distributed --upload-source-code myga-source.zip --artifacts-dir web-ext-artifacts --approval-timeout 1200000 && mv web-ext-artifacts/*.xpi myga-firefox.xpi || echo '::warning::The self-distributed Firefox build could not be signed, the release has no myga-firefox.xpi')"
+        "publishCmd": "npm run zip:source && npx web-ext sign --channel listed --source-dir dist/firefox --upload-source-code myga-source.zip --approval-timeout 0 && (rm -rf web-ext-artifacts && npx web-ext sign --channel unlisted --source-dir dist/firefox-self-distributed --upload-source-code myga-source.zip --artifacts-dir web-ext-artifacts --approval-timeout 1200000 && mv web-ext-artifacts/*.xpi myga-firefox.xpi || echo '::warning::The self-distributed Firefox build could not be signed, the release has no myga-firefox.xpi') && (node .github/scripts/chrome-web-store-publish.mjs ${nextRelease.version} || echo '::warning::The Chrome Web Store upload failed, publish myga-chrome.zip from the release manually')"
       }
     ],
     [

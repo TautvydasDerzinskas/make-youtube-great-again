@@ -45,3 +45,6 @@ jobs:
           # addons.mozilla.org API (JWT issuer & secret)
           WEB_EXT_API_KEY: ${{ secrets.AMO_API_KEY }}
           WEB_EXT_API_SECRET: ${{ secrets.AMO_API_SECRET }}
+          # Chrome Web Store API v2 (service account JSON key & publisher ID)
+          CWS_SERVICE_ACCOUNT_KEY: ${{ secrets.CWS_SERVICE_ACCOUNT_KEY }}
+          CWS_PUBLISHER_ID: ${{ secrets.CWS_PUBLISHER_ID }}
