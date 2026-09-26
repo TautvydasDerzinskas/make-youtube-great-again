@@ -1,3 +1,9 @@
+## [1.5.1](https://github.com/TautvydasDerzinskas/make-youtube-great-again/compare/v1.5.0...v1.5.1) (2026-09-26)
+
+### Documentation
+
+* update readme and screenshots ([11d1097](https://github.com/TautvydasDerzinskas/make-youtube-great-again/commit/11d1097de62c7e3d45367340283961a859003ba4))
+
 ## [1.5.0](https://github.com/TautvydasDerzinskas/make-youtube-great-again/compare/v1.4.0...v1.5.0) (2026-09-25)
 
 ### Features
