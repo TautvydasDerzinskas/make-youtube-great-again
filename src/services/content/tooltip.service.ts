@@ -37,9 +37,9 @@ class TooltipService {
   public setText(element: HTMLElement, text: string) {
     element.setAttribute(TOOLTIP_ATTRIBUTE, text);
 
-    // Hovered right now: update it in place
+    // Hovered right now: update it in place, only on a change (page observers see every rewrite)
     const tooltip = document.getElementById(TOOLTIP_ID);
-    if (tooltip && tooltip.dataset.for === this.elementKey(element)) {
+    if (tooltip && tooltip.dataset.for === this.elementKey(element) && tooltip.textContent !== text) {
       tooltip.textContent = text;
     }
   }
