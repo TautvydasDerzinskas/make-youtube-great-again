@@ -1,3 +1,27 @@
+## [1.6.1](https://github.com/TautvydasDerzinskas/make-youtube-great-again/compare/v1.6.0...v1.6.1) (2026-10-21)
+
+### Features
+
+* **web:** add Edge support ([46df8ec](https://github.com/TautvydasDerzinskas/make-youtube-great-again/commit/46df8ec1f15365aef1d4c26a56c8fd501adcd202))
+* **web:** add google verification meta header ([315da21](https://github.com/TautvydasDerzinskas/make-youtube-great-again/commit/315da2150485825a26b65213ba0844bd3544b7b9))
+
+### Bug Fixes
+
+* **web:** playback custom bar previews ([994976d](https://github.com/TautvydasDerzinskas/make-youtube-great-again/commit/994976daa55dee318823fa47df79aa11b76f8c6a))
+
+### Performance
+
+* stop channel blacklist rescanning unchanged watch pages ([cba1d6d](https://github.com/TautvydasDerzinskas/make-youtube-great-again/commit/cba1d6d1627893cb27fc7412feb47fb0935aa63b))
+
+### Refactoring
+
+* **web:** update chrome store links ([ab192b1](https://github.com/TautvydasDerzinskas/make-youtube-great-again/commit/ab192b1c2d061774add66a392debc12ac3e76da6))
+
+### CI
+
+* **web:** publish to Chrome Web Store with API v2 ([5b7ffdf](https://github.com/TautvydasDerzinskas/make-youtube-great-again/commit/5b7ffdf2421efb909083b2b15c6def6bb9959283))
+* **web:** publish to Edge Add-ons ([9192714](https://github.com/TautvydasDerzinskas/make-youtube-great-again/commit/9192714ea1328e6f9b8abe7c3ffdfe024a77fabe))
+
 ## [1.6.0](https://github.com/TautvydasDerzinskas/make-youtube-great-again/compare/v1.5.1...v1.6.0) (2026-09-26)
 
 ### Features
