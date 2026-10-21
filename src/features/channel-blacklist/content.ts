@@ -164,7 +164,11 @@ class ContentChannelBlacklist implements IContent {
     button.dataset.mygaTooltipActive = `Remove ${owner.name} from the blacklist`;
     actionButtonService.setActive(button, isBlacklisted);
     const label = button.querySelector('.ytSpecButtonShapeNextButtonTextContent');
-    label.textContent = isBlacklisted ? 'Blacklisted' : 'Blacklist';
+    const labelText = isBlacklisted ? 'Blacklisted' : 'Blacklist';
+    // Only on a change: even the same text written again is a page change, starting the next scan
+    if (label.textContent !== labelText) {
+      label.textContent = labelText;
+    }
   }
 
   private async blacklist(channel: IFoundChannel) {
