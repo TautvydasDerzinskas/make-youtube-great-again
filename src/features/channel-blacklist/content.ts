@@ -44,6 +44,8 @@ class ContentChannelBlacklist implements IContent {
 
   public cleanUp() {
     clearTimeout(this.scanTimer);
+    // Otherwise, switching back on leaves scheduled scans blocked by the cancelled timer
+    this.scanTimer = null;
     if (this.pageObserver) {
       this.pageObserver.disconnect();
       this.pageObserver = null;
