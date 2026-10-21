@@ -32,8 +32,8 @@
   "devDependencies": {
     "@commitlint/cli": "^21.2.3",
     "@commitlint/config-conventional": "^21.2.3",
-    "@rspack/cli": "^2.2.7",
-    "@rspack/core": "^2.2.7",
+    "@rspack/cli": "^2.2.9",
+    "@rspack/core": "^2.2.9",
     "@semantic-release/changelog": "^7.0.0",
     "@semantic-release/exec": "^7.1.0",
     "@semantic-release/git": "^11.0.1",
